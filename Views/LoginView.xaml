@@ -26,11 +26,13 @@
         />
         <Image 
             HorizontalAlignment="Left" 
-            Height="100" 
-            Margin="348,202,0,0" 
+            Height="152" 
+            Margin="234,98,0,0" 
             VerticalAlignment="Top" 
-            Width="100" 
-            Source="/Images/ppGame.png"
+            Width="325" 
+            Source="/Images/logoFc.png"
+
+            
 
         />
         <Button 
