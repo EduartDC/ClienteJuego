@@ -71,5 +71,10 @@ namespace ClienteJuego.Views
             round = 0;
             cargar_ronda(round);
         }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

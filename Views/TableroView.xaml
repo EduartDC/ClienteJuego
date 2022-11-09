@@ -241,7 +241,7 @@
             Width="108" 
             Height="41"
          />
-        <Button x:Name="btnBack" Content="" HorizontalAlignment="Left" Margin="29,398,0,0" VerticalAlignment="Top" Width="80" Height="52" BorderBrush="{x:Null}" Click="btnBack_Click">
+        <Button x:Name="btnBack" Content="" HorizontalAlignment="Left" Margin="29,398,0,0" VerticalAlignment="Top" Width="80" Height="52" BorderBrush="{x:Null}" Click="btnBack_Click" >
             <Button.Background>
                 <ImageBrush Stretch="Uniform" ImageSource="/Images/back.png"/>
             </Button.Background>
