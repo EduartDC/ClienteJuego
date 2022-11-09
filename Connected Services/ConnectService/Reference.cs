@@ -746,6 +746,12 @@ namespace ClienteJuego.ConnectService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/ValidatePlayer", ReplyAction="http://tempuri.org/IUserManager/ValidatePlayerResponse")]
         System.Threading.Tasks.Task<int> ValidatePlayerAsync(ClienteJuego.ConnectService.Player player);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/ValidateExistantPlayer", ReplyAction="http://tempuri.org/IUserManager/ValidateExistantPlayerResponse")]
+        int ValidateExistantPlayer(ClienteJuego.ConnectService.Player player);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/ValidateExistantPlayer", ReplyAction="http://tempuri.org/IUserManager/ValidateExistantPlayerResponse")]
+        System.Threading.Tasks.Task<int> ValidateExistantPlayerAsync(ClienteJuego.ConnectService.Player player);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -789,6 +795,14 @@ namespace ClienteJuego.ConnectService {
         
         public System.Threading.Tasks.Task<int> ValidatePlayerAsync(ClienteJuego.ConnectService.Player player) {
             return base.Channel.ValidatePlayerAsync(player);
+        }
+        
+        public int ValidateExistantPlayer(ClienteJuego.ConnectService.Player player) {
+            return base.Channel.ValidateExistantPlayer(player);
+        }
+        
+        public System.Threading.Tasks.Task<int> ValidateExistantPlayerAsync(ClienteJuego.ConnectService.Player player) {
+            return base.Channel.ValidateExistantPlayerAsync(player);
         }
     }
     

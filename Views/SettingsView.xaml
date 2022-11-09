@@ -4,11 +4,112 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ClienteJuego.Views"
-      mc:Ignorable="d" 
+      mc:Ignorable="d"
+      xmlns:p="clr-namespace:ClienteJuego.Properties"
       d:DesignHeight="600" d:DesignWidth="800"
       Title="SettingsView">
 
-    <Grid Background="#0f0e17">
-        
+    <Grid Background="#FF0F0E17">
+        <Image 
+            Margin="181,-21,24,299" 
+            Source="/Images/ok3.png" 
+            Opacity="0.3" 
+            RenderTransformOrigin="0.5,0.5" 
+            Stretch="UniformToFill" 
+            StretchDirection="DownOnly"            
+        >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Label 
+            x:Name="lblSettings" 
+            Content="" 
+            HorizontalAlignment="Center" 
+            Margin="0,21,0,0" 
+            VerticalAlignment="Top" 
+            Foreground="White" 
+            FontWeight="Bold" 
+            FontSize="24" 
+            Width="308" 
+            VerticalContentAlignment="Center" 
+            HorizontalContentAlignment="Center"
+         />
+        <Label 
+            x:Name="lblTheme" 
+            Content="" 
+            HorizontalAlignment="Center" 
+            Margin="0,116,0,0" 
+            VerticalAlignment="Top" 
+            Foreground="White" 
+            FontWeight="Bold" 
+            FontSize="22" 
+            Width="308" 
+            VerticalContentAlignment="Center" 
+            HorizontalContentAlignment="Center"
+         />
+        <RadioButton x:Name="radioBtnDark"            
+            Content="" 
+            HorizontalAlignment="Left" 
+            Margin="246,167,0,0" 
+            VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="18"
+         />
+        <RadioButton x:Name="radioBtnNormal"            
+            Content="Normal" 
+            HorizontalAlignment="Left" 
+            Margin="454,167,0,0" 
+            VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="18"
+         />
+        <Label 
+            x:Name="lblLanguage" 
+            Content="" 
+            HorizontalAlignment="Center" 
+            Margin="0,214,0,0" 
+            VerticalAlignment="Top" 
+            Foreground="White" 
+            FontWeight="Bold" 
+            FontSize="22" 
+            Width="308" 
+            VerticalContentAlignment="Center" 
+            HorizontalContentAlignment="Center"
+         />
+        <RadioButton x:Name="radioBSpanish"            
+            Content="" 
+            HorizontalAlignment="Left" 
+            Margin="246,265,0,0" 
+            VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="18"
+         />
+        <RadioButton x:Name="radioBEnglish"            
+            Content="" 
+            HorizontalAlignment="Left" 
+            Margin="454,265,0,0" 
+            VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="18"
+         />
+        <Button x:Name="btnCancel" 
+            Content="" 
+            HorizontalAlignment="Left" 
+            Margin="255,372,0,0" 
+            VerticalAlignment="Top" 
+            Background="#FFBB6200" 
+            Foreground="White" 
+            FontWeight="Bold" 
+            FontSize="16" Height="40" Width="75" Click="btnCancel_Click"
+         />
+        <Button x:Name="btnSave" 
+            Content="" 
+            HorizontalAlignment="Left" 
+            Margin="449,372,0,0" 
+            VerticalAlignment="Top" 
+            Background="#FFFF8906" 
+            Foreground="White" 
+            FontWeight="Bold" 
+            FontSize="16" Height="40" Width="75" Click="btnSave_Click"
+         />
+
     </Grid>
 </Page>

@@ -3,7 +3,10 @@ using ClienteJuego.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
+using System.ServiceModel;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -29,25 +32,61 @@ namespace ClienteJuego.Views
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
             ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
+            Player player = PlayerData();
 
-            
-            if (ValidateFields())
+            if (!ValidateFields())
             {
-                Player player = PlayerData();
-                int result = client.AddPlayer(player);
+           
 
-                if (result == 0)
-                {
-                    MessageBox.Show("Error occurred, registration didn't take effect");
-                }
-                else
-                {
-                    MessageBox.Show("Successful registration.");
-                }
+            }
+            else if(!ValidatePassword(textPassword.Password))
+            {
+                MessageBox.Show("Error ocurred, the password does not meet the requirements");
+            }
+            else if (!ValidateEmail(player.email))
+            {
+                MessageBox.Show("Error ocurred, invalid email");
+            }
+            else if (!ValidatePlayerExistence(player))
+            {
 
+            }
+            else
+            {
+                try
+                {
+                    int result = client.AddPlayer(player);
+
+                    if (result == 0)
+                    {
+                        MessageBox.Show("Error occurred, registration didn't take effect");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Successful registration.");
+                    }
+                }
+                catch (EndpointNotFoundException)
+                {
+                    MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                }
+                    
+                
             }
 
 
+        }
+
+        private bool ValidatePlayerExistence(Player player)
+        {
+            ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
+            var result = true;
+            var consultResult = client.ValidateExistantPlayer(player);
+            if (consultResult == 1)
+            {
+                result = false;
+            }
+            return result;
         }
 
         private Player PlayerData()
@@ -80,6 +119,36 @@ namespace ClienteJuego.Views
                 result = true;
             }
             return result;
+        }
+
+        public bool ValidatePassword(string password)
+        {
+            var hasUpperLetter = new Regex(@"[A-Z]+");
+            var hasNumber = new Regex(@"[0-9]+");
+            var hasMiniumDigits = new Regex(@".{8,}");
+            var result = false;
+
+            if (hasNumber.IsMatch(password) &&
+                hasUpperLetter.IsMatch(password) &&
+                hasMiniumDigits.IsMatch(password))
+            {
+                result = true;
+            }
+
+            return result;
+        }
+
+        public static bool ValidateEmail(string emailAddress)
+        {
+            try
+            {
+                var mailAddress = new MailAddress(emailAddress);
+                return true;
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

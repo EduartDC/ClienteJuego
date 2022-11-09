@@ -24,5 +24,20 @@ namespace ClienteJuego.Views
         {
             InitializeComponent();
         }
+
+        private void btnMultiplayerMode_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("Views/LobbyView.xaml", UriKind.Relative));
+        }
+
+        private void btnSingleMode_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("Views/TableroView.xaml", UriKind.Relative));
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("Views/InicioView.xaml", UriKind.Relative));
+        }
     }
 }
