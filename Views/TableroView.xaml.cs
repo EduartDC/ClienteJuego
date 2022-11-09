@@ -61,7 +61,7 @@ namespace ClienteJuego.Views
         public void cargar_ronda(int i)
         {
             resetValues();
-            lblStatusRound.Content = "Ronda Iniciada";
+            lblStatusRoundOff.Content = "Ronda Iniciada";
             lblQuestion.Content = questions[i].Answers;
             MessageBox.Show("Cargando la \'Ronda " + (i + 1) + "\'");
         }

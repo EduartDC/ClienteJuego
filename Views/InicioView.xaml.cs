@@ -34,5 +34,10 @@ namespace ClienteJuego.Views
         {
             NavigationService.Navigate(new Uri("Views/MenuOptionsView.xaml", UriKind.Relative));
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
