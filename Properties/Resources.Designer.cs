@@ -79,11 +79,29 @@ namespace ClienteJuego.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to To Play!.
+        /// </summary>
+        public static string btnPlay {
+            get {
+                return ResourceManager.GetString("btnPlay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Register.
         /// </summary>
         public static string btnRegister {
             get {
                 return ResourceManager.GetString("btnRegister", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string btnSave {
+            get {
+                return ResourceManager.GetString("btnSave", resourceCulture);
             }
         }
         
@@ -151,6 +169,33 @@ namespace ClienteJuego.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Forgot password?.
+        /// </summary>
+        public static string lblForgotPassword {
+            get {
+                return ResourceManager.GetString("lblForgotPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Guest Player.
+        /// </summary>
+        public static string lblGuestPlayer {
+            get {
+                return ResourceManager.GetString("lblGuestPlayer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language.
+        /// </summary>
+        public static string lblLanguage {
+            get {
+                return ResourceManager.GetString("lblLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Last Name.
         /// </summary>
         public static string lblLastName {
@@ -160,11 +205,74 @@ namespace ClienteJuego.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Play with friends!.
+        /// </summary>
+        public static string lblMultiplayerMode {
+            get {
+                return ResourceManager.GetString("lblMultiplayerMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string lblPassword {
             get {
                 return ResourceManager.GetString("lblPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Score.
+        /// </summary>
+        public static string lblScore {
+            get {
+                return ResourceManager.GetString("lblScore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string lblSettings {
+            get {
+                return ResourceManager.GetString("lblSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Single player mode.
+        /// </summary>
+        public static string lblSingleMode {
+            get {
+                return ResourceManager.GetString("lblSingleMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Round not started.
+        /// </summary>
+        public static string lblStatusRoundOff {
+            get {
+                return ResourceManager.GetString("lblStatusRoundOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Theme.
+        /// </summary>
+        public static string lblTheme {
+            get {
+                return ResourceManager.GetString("lblTheme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lobby.
+        /// </summary>
+        public static string lblTitleLobby {
+            get {
+                return ResourceManager.GetString("lblTitleLobby", resourceCulture);
             }
         }
         
@@ -183,6 +291,60 @@ namespace ClienteJuego.Properties {
         public static string messageBoxEmptyFields {
             get {
                 return ResourceManager.GetString("messageBoxEmptyFields", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome to 100 Mexicanos Dijieron!.
+        /// </summary>
+        public static string messageBoxWelcomeGame {
+            get {
+                return ResourceManager.GetString("messageBoxWelcomeGame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error occurred, registration didn&apos;t take effect..
+        /// </summary>
+        public static string messageBoxxErrorRegister {
+            get {
+                return ResourceManager.GetString("messageBoxxErrorRegister", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to English.
+        /// </summary>
+        public static string radioBEnglish {
+            get {
+                return ResourceManager.GetString("radioBEnglish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Spanish.
+        /// </summary>
+        public static string radioBSpanish {
+            get {
+                return ResourceManager.GetString("radioBSpanish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dark.
+        /// </summary>
+        public static string radioBtnDark {
+            get {
+                return ResourceManager.GetString("radioBtnDark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Round Started.
+        /// </summary>
+        public static string textStatusRoundOn {
+            get {
+                return ResourceManager.GetString("textStatusRoundOn", resourceCulture);
             }
         }
     }

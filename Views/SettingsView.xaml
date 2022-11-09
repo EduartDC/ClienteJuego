@@ -29,7 +29,7 @@
         </Image>
         <Label 
             x:Name="lblSettings" 
-            Content="" 
+            Content="{x:Static p:Resources.lblSettings}" 
             HorizontalAlignment="Center" 
             Margin="0,21,0,0" 
             VerticalAlignment="Top" 
@@ -42,7 +42,7 @@
          />
         <Label 
             x:Name="lblTheme" 
-            Content="" 
+            Content="{x:Static p:Resources.lblTheme}" 
             HorizontalAlignment="Center" 
             Margin="0,116,0,0" 
             VerticalAlignment="Top" 
@@ -54,7 +54,7 @@
             HorizontalContentAlignment="Center"
          />
         <RadioButton x:Name="radioBtnDark"            
-            Content="" 
+            Content="{x:Static p:Resources.radioBtnDark}" 
             HorizontalAlignment="Left" 
             Margin="246,167,0,0" 
             VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="18"
@@ -67,7 +67,7 @@
          />
         <Label 
             x:Name="lblLanguage" 
-            Content="" 
+            Content="{x:Static p:Resources.lblLanguage}" 
             HorizontalAlignment="Center" 
             Margin="0,214,0,0" 
             VerticalAlignment="Top" 
@@ -79,19 +79,19 @@
             HorizontalContentAlignment="Center"
          />
         <RadioButton x:Name="radioBSpanish"            
-            Content="" 
+            Content="{x:Static p:Resources.radioBSpanish}" 
             HorizontalAlignment="Left" 
             Margin="246,265,0,0" 
             VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="18"
          />
         <RadioButton x:Name="radioBEnglish"            
-            Content="" 
+            Content="{x:Static p:Resources.radioBEnglish}" 
             HorizontalAlignment="Left" 
             Margin="454,265,0,0" 
             VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="18"
          />
         <Button x:Name="btnCancel" 
-            Content="" 
+            Content="{x:Static p:Resources.btnCancel}" 
             HorizontalAlignment="Left" 
             Margin="255,372,0,0" 
             VerticalAlignment="Top" 
@@ -101,7 +101,7 @@
             FontSize="16" Height="40" Width="75" Click="btnCancel_Click"
          />
         <Button x:Name="btnSave" 
-            Content="" 
+            Content="{x:Static p:Resources.btnSave}" 
             HorizontalAlignment="Left" 
             Margin="449,372,0,0" 
             VerticalAlignment="Top" 

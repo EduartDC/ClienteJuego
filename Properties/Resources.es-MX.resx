@@ -123,8 +123,14 @@
   <data name="btnLogin" xml:space="preserve">
     <value>Iniciar Sesión</value>
   </data>
+  <data name="btnPlay" xml:space="preserve">
+    <value>¡A jugar!</value>
+  </data>
   <data name="btnRegister" xml:space="preserve">
     <value>Registrar</value>
+  </data>
+  <data name="btnSave" xml:space="preserve">
+    <value>Guardar</value>
   </data>
   <data name="lblEmail" xml:space="preserve">
     <value>Correo Electrónico</value>
@@ -147,16 +153,64 @@
   <data name="lblFirstName" xml:space="preserve">
     <value>Nombre</value>
   </data>
+  <data name="lblForgotPassword" xml:space="preserve">
+    <value>¿Olvidaste tu contraseña?</value>
+  </data>
+  <data name="lblGuestPlayer" xml:space="preserve">
+    <value>Jugar como invitado</value>
+  </data>
+  <data name="lblLanguage" xml:space="preserve">
+    <value>Idioma</value>
+  </data>
   <data name="lblLastName" xml:space="preserve">
     <value>Apellidos</value>
   </data>
+  <data name="lblMultiplayerMode" xml:space="preserve">
+    <value>¡Jugar con amigos(as)!</value>
+  </data>
   <data name="lblPassword" xml:space="preserve">
     <value>Contraseña</value>
+  </data>
+  <data name="lblScore" xml:space="preserve">
+    <value>Puntaje</value>
+  </data>
+  <data name="lblSettings" xml:space="preserve">
+    <value>Configuraciones</value>
+  </data>
+  <data name="lblSingleMode" xml:space="preserve">
+    <value>Modo un jugador</value>
+  </data>
+  <data name="lblStatusRoundOff" xml:space="preserve">
+    <value>Ronda no iniciada</value>
+  </data>
+  <data name="lblTheme" xml:space="preserve">
+    <value>Tema</value>
+  </data>
+  <data name="lblTitleLobby" xml:space="preserve">
+    <value>Sala Pre-Juego</value>
   </data>
   <data name="lblUserName" xml:space="preserve">
     <value>Nombre de Usuario</value>
   </data>
   <data name="messageBoxEmptyFields" xml:space="preserve">
     <value>Existen uno o más campos sin llenar, por favor corríge.</value>
+  </data>
+  <data name="messageBoxWelcomeGame" xml:space="preserve">
+    <value>¡Bienvenido a 100 Mexicanos Dijieron!</value>
+  </data>
+  <data name="messageBoxxErrorRegister" xml:space="preserve">
+    <value>Ocurrió un error, el registro no tuvo efecto.</value>
+  </data>
+  <data name="radioBEnglish" xml:space="preserve">
+    <value>Inglés</value>
+  </data>
+  <data name="radioBSpanish" xml:space="preserve">
+    <value>Español</value>
+  </data>
+  <data name="radioBtnDark" xml:space="preserve">
+    <value>Oscuro</value>
+  </data>
+  <data name="textStatusRoundOn" xml:space="preserve">
+    <value>Ronda Iniciada</value>
   </data>
 </root>

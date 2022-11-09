@@ -4,7 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ClienteJuego.Views"
-      mc:Ignorable="d" 
+      mc:Ignorable="d"
+      xmlns:p="clr-namespace:ClienteJuego.Properties"
       d:DesignHeight="600" d:DesignWidth="800"
       Title="TableroView">
 
@@ -19,7 +20,7 @@
          />
         <Label 
             x:Name="lblStatusRoundOff" 
-            Content="" 
+            Content="{x:Static p:Resources.lblStatusRoundOff}" 
             HorizontalAlignment="Left" 
             Margin="310,37,0,0" 
             VerticalAlignment="Top" 
@@ -47,7 +48,7 @@
          />
         <Label 
             x:Name="lblScore" 
-            Content="" 
+            Content="{x:Static p:Resources.lblScore}" 
             HorizontalAlignment="Left" 
             Margin="669,37,0,0" 
             VerticalAlignment="Top" 
@@ -228,7 +229,7 @@
          />
         <Button 
             x:Name="btnPlay" 
-            Content="" 
+            Content="{x:Static p:Resources.btnPlay}" 
             HorizontalAlignment="Left" 
             Margin="371,409,0,0" 
             VerticalAlignment="Top" 
@@ -240,7 +241,7 @@
             Width="108" 
             Height="41"
          />
-        <Button x:Name="btnBack" Content="" HorizontalAlignment="Left" Margin="29,398,0,0" VerticalAlignment="Top" Width="80" Height="52" BorderBrush="{x:Null}" Click="btnBack_Click">
+        <Button x:Name="btnBack" Content="" HorizontalAlignment="Left" Margin="29,398,0,0" VerticalAlignment="Top" Width="80" Height="52" BorderBrush="{x:Null}" Click="btnBack_Click" >
             <Button.Background>
                 <ImageBrush Stretch="Uniform" ImageSource="/Images/back.png"/>
             </Button.Background>
