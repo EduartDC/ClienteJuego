@@ -9,182 +9,242 @@
       Title="TableroView">
 
     <Grid Background="#0f0e17">
-        <Image HorizontalAlignment="Left" 
-               Height="292" 
-               Margin="0,10,0,0" 
-               VerticalAlignment="Top" 
-               Width="292" 
-               Source="/Images/logoFc.png" />
-        <Label x:Name="lblStatusRound" 
-               Content="Ronda no iniciada" 
-               HorizontalAlignment="Left" 
-               Margin="310,37,0,0" 
-               VerticalAlignment="Top" 
-               Foreground="White" 
-               Height="42" 
-               Width="219" 
-               FontSize="24" 
-               VerticalContentAlignment="Center"
-               HorizontalContentAlignment="Center" 
-               BorderBrush="#FFA0FF00">
+        <Image 
+            HorizontalAlignment="Left" 
+            Height="292" 
+            Margin="0,10,0,0" 
+            VerticalAlignment="Top" 
+            Width="292" 
+            Source="/Images/logoFc.png"
+         />
+        <Label 
+            x:Name="lblStatusRoundOff" 
+            Content="" 
+            HorizontalAlignment="Left" 
+            Margin="310,37,0,0" 
+            VerticalAlignment="Top" 
+            Foreground="White" 
+            Height="42" 
+            Width="219" 
+            FontSize="24" 
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center" 
+            BorderBrush="#FFA0FF00"
+         >
             <Label.Background>
-                <SolidColorBrush Color="White" 
-                                 Opacity="0.3"/>
+                <SolidColorBrush 
+                    Color="White" 
+                    Opacity="0.3"
+             />
             </Label.Background>
         </Label>
-        <Rectangle HorizontalAlignment="Left" 
-                   Height="77" 
-                   Margin="573,17,0,0" 
-                   VerticalAlignment="Top" 
-                   Width="77" 
-                   Fill="#FFA0FF00"/>
-        <Label x:Name="lblScore" 
-               Content="Puntaje" 
-               HorizontalAlignment="Left" 
-               Margin="669,37,0,0" 
-               VerticalAlignment="Top" 
-               Foreground="White" 
-               FontSize="22"/>
-        <Label x:Name="lblScorePoints" 
-               Content="0" 
-               HorizontalAlignment="Left" 
-               Margin="576,32,0,0" 
-               VerticalAlignment="Top" 
-               Foreground="Black" 
-               Height="52" 
-               Width="72" 
-               FontSize="24" 
-               VerticalContentAlignment="Center"
-               HorizontalContentAlignment="Center" 
-               BorderBrush="#FFA0FF00" 
-               Background="#00000000" 
-               FontWeight="Bold"/>
-        <Rectangle Fill="#000" 
-                   HorizontalAlignment="Left" 
-                   Height="225" 
-                   Margin="198,151,0,0" 
-                   Stroke="#000" 
-                   VerticalAlignment="Top"
-                   Width="444"/>
-        <Label Content="1.-" 
-               Foreground="Lime" 
-               HorizontalAlignment="Left" 
-               Margin="222,197,0,0" 
-               VerticalAlignment="Top" 
-               FontSize="20"/>
-        <Label Content="2.-" 
-               Foreground="Lime" 
-               HorizontalAlignment="Left" 
-               Margin="222,228,0,0" 
-               VerticalAlignment="Top" 
-               FontSize="20"/>
-        <Label Content="3.-" 
-               Foreground="Lime" 
-               HorizontalAlignment="Left" 
-               Margin="222,259,0,0" 
-               VerticalAlignment="Top" 
-               FontSize="20"/>
-        <Label Content="4.-" 
-               Foreground="Lime" 
-               HorizontalAlignment="Left" 
-               Margin="222,290,0,0" 
-               VerticalAlignment="Top" 
-               FontSize="20"/>
-        <Label Content="5.-" 
-               Foreground="Lime" 
-               HorizontalAlignment="Left" 
-               Margin="222,319,0,0" 
-               VerticalAlignment="Top" 
-               FontSize="20"/>
-        <Label x:Name="lblAnswer1" 
-               Foreground="Lime"  Content=". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ." 
-               HorizontalAlignment="Left" 
-               Margin="251,197,0,0" 
-               VerticalAlignment="Top" 
-               RenderTransformOrigin="0.202,2.034" 
-               FontSize="20"/>
-        <Label x:Name="lblAnswer2" 
-               Foreground="Lime"  Content=". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ." 
-               HorizontalAlignment="Left" 
-               Margin="251,228,0,0" 
-               VerticalAlignment="Top" 
-               RenderTransformOrigin="0.202,2.034" 
-               FontSize="20"/>
-        <Label x:Name="lblAnswer3" 
-               Foreground="Lime"  Content=". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ." 
-               HorizontalAlignment="Left" 
-               Margin="251,259,0,0" 
-               VerticalAlignment="Top" 
-               RenderTransformOrigin="0.202,2.034" 
-               FontSize="20"/>
-        <Label x:Name="lblAnswer4" 
-               Foreground="Lime"  Content=". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ." 
-               HorizontalAlignment="Left" 
-               Margin="251,290,0,0" 
-               VerticalAlignment="Top" 
-               RenderTransformOrigin="0.202,2.034" 
-               FontSize="20"/>
-        <Label x:Name="lblAnswer5"  
-               Foreground="Lime"  Content=". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ." 
-               HorizontalAlignment="Left" 
-               Margin="251,319,0,0" 
-               VerticalAlignment="Top" 
-               RenderTransformOrigin="0.202,2.034" 
-               FontSize="20"/>
-        <Label Content="0" 
-               x:Name="lblScoreAnswer1" 
-               Foreground="Lime" 
-               HorizontalAlignment="Left" 
-               Margin="604,197,0,0" 
-               VerticalAlignment="Top" 
-               FontSize="20"/>
-        <Label Content="0" 
-               x:Name="lblScoreAnswer2" 
-               Foreground="Lime" 
-               HorizontalAlignment="Left" 
-               Margin="604,228,0,0" 
-               VerticalAlignment="Top" 
-               RenderTransformOrigin="0.699,1.657" 
-               FontSize="20"/>
-        <Label Content="0" 
-               x:Name="lblScoreAnswer3" 
-               Foreground="Lime" 
-               HorizontalAlignment="Left" 
-               Margin="604,259,0,0" 
-               VerticalAlignment="Top" 
-               FontSize="20"/>
-        <Label Content="0" 
-               x:Name="lblScoreAnswer4" 
-               Foreground="Lime" 
-               HorizontalAlignment="Left" 
-               Margin="604,290,0,0" 
-               VerticalAlignment="Top" 
-               FontSize="20"/>
-        <Label Content="0" 
-               x:Name="lblScoreAnswer5" 
-               Foreground="Lime" 
-               HorizontalAlignment="Left" 
-               Margin="604,319,0,0" 
-               VerticalAlignment="Top" 
-               FontSize="20"/>
-        <Label x:Name="lblQuestion" 
-               Content="Question" FontSize="24" 
-               HorizontalAlignment="Left" 
-               Margin="198,155,0,0" 
-               VerticalAlignment="Top" 
-               Foreground="White" 
-               Width="444" 
-               HorizontalContentAlignment="Center"
-               VerticalContentAlignment="Center"/>
-        <Button x:Name="btnPlay" 
-                Content="¡Jugar!" 
-                HorizontalAlignment="Left" 
-                Margin="400,407,0,0" 
-                VerticalAlignment="Top" 
-                FontSize="22" 
-                Foreground="#FF00298C" 
-                BorderBrush="#FF71FF00" 
-                Click="btnPlay_Click"/>
+        <Rectangle 
+            HorizontalAlignment="Left" 
+            Height="77" Margin="573,17,0,0" 
+            VerticalAlignment="Top" 
+            Width="77" 
+            Fill="#FFA0FF00"
+         />
+        <Label 
+            x:Name="lblScore" 
+            Content="" 
+            HorizontalAlignment="Left" 
+            Margin="669,37,0,0" 
+            VerticalAlignment="Top" 
+            Foreground="White" 
+            FontSize="22"
+         />
+        <Label 
+            x:Name="lblScorePoints" 
+            Content="0" 
+            HorizontalAlignment="Left" 
+            Margin="576,32,0,0" 
+            VerticalAlignment="Top" 
+            Foreground="Black" 
+            Height="52" Width="72" 
+            FontSize="24" 
+            VerticalContentAlignment="Center" 
+            HorizontalContentAlignment="Center" 
+            BorderBrush="#FFA0FF00" 
+            Background="#00000000" 
+            FontWeight="Bold"
+         />
+        <Rectangle 
+            Fill="#000" 
+            HorizontalAlignment="Left" 
+            Height="225" 
+            Margin="198,151,0,0" 
+            Stroke="#000" 
+            VerticalAlignment="Top" 
+            Width="444"
+         />
+        <Label 
+            Content="1.-" 
+            Foreground="Lime" 
+            HorizontalAlignment="Left" 
+            Margin="222,197,0,0" 
+            VerticalAlignment="Top" 
+            FontSize="20"
+         />
+        <Label 
+            Content="2.-" 
+            Foreground="Lime" 
+            HorizontalAlignment="Left" 
+            Margin="222,228,0,0" 
+            VerticalAlignment="Top" 
+            FontSize="20"
+         />
+        <Label 
+            Content="3.-" 
+            Foreground="Lime" 
+            HorizontalAlignment="Left" 
+            Margin="222,259,0,0" 
+            VerticalAlignment="Top" 
+            FontSize="20"
+         />
+        <Label 
+            Content="4.-" 
+            Foreground="Lime" 
+            HorizontalAlignment="Left" 
+            Margin="222,290,0,0" 
+            VerticalAlignment="Top" 
+            FontSize="20"
+         />
+        <Label 
+            Content="5.-" 
+            Foreground="Lime" 
+            HorizontalAlignment="Left" 
+            Margin="222,319,0,0" 
+            VerticalAlignment="Top" 
+            FontSize="20"
+        />
+        <Label 
+            x:Name="lblAnswer1" 
+            Foreground="Lime"  
+            Content=". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ." 
+            HorizontalAlignment="Left" 
+            Margin="251,197,0,0" 
+            VerticalAlignment="Top" 
+            RenderTransformOrigin="0.202,2.034" 
+            FontSize="20"
+         />
+        <Label 
+            x:Name="lblAnswer2" 
+            Foreground="Lime"  
+            Content=". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ." 
+            HorizontalAlignment="Left" 
+            Margin="251,228,0,0" 
+            VerticalAlignment="Top" 
+            RenderTransformOrigin="0.202,2.034" 
+            FontSize="20"
+         />
+        <Label 
+            x:Name="lblAnswer3" 
+            Foreground="Lime"  
+            Content=". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ." 
+            HorizontalAlignment="Left" 
+            Margin="251,259,0,0" 
+            VerticalAlignment="Top" 
+            RenderTransformOrigin="0.202,2.034" 
+            FontSize="20"
+         />
+        <Label 
+            x:Name="lblAnswer4" 
+            Foreground="Lime"  
+            Content=". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ." 
+            HorizontalAlignment="Left" 
+            Margin="251,290,0,0" 
+            VerticalAlignment="Top" 
+            RenderTransformOrigin="0.202,2.034" 
+            FontSize="20"
+         />
+        <Label 
+            x:Name="lblAnswer5"  
+            Foreground="Lime"  
+            Content=". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ." 
+            HorizontalAlignment="Left" 
+            Margin="251,319,0,0" 
+            VerticalAlignment="Top" 
+            RenderTransformOrigin="0.202,2.034" 
+            FontSize="20"
+         />
+        <Label 
+            Content="0" 
+            x:Name="lblScoreAnswer1" 
+            Foreground="Lime" 
+            HorizontalAlignment="Left" 
+            Margin="604,197,0,0" 
+            VerticalAlignment="Top" 
+            FontSize="20"
+         />
+        <Label 
+            Content="0" 
+            x:Name="lblScoreAnswer2" 
+            Foreground="Lime" 
+            HorizontalAlignment="Left" 
+            Margin="604,228,0,0" 
+            VerticalAlignment="Top" 
+            RenderTransformOrigin="0.699,1.657" 
+            FontSize="20"
+         />
+        <Label 
+            Content="0" 
+            x:Name="lblScoreAnswer3" 
+            Foreground="Lime" 
+            HorizontalAlignment="Left" 
+            Margin="604,259,0,0" 
+            VerticalAlignment="Top" 
+            FontSize="20"
+         />
+        <Label 
+            Content="0" 
+            x:Name="lblScoreAnswer4" 
+            Foreground="Lime" 
+            HorizontalAlignment="Left" 
+            Margin="604,290,0,0" 
+            VerticalAlignment="Top" 
+            FontSize="20"
+         />
+        <Label 
+            Content="0" 
+            x:Name="lblScoreAnswer5" 
+            Foreground="Lime" 
+            HorizontalAlignment="Left" 
+            Margin="604,319,0,0" 
+            VerticalAlignment="Top" 
+            FontSize="20"
+         />
+        <Label 
+            x:Name="lblQuestion" 
+            Content="Question" 
+            FontSize="24" 
+            HorizontalAlignment="Left" 
+            Margin="198,155,0,0" 
+            VerticalAlignment="Top" 
+            Foreground="White" 
+            Width="444" 
+            HorizontalContentAlignment="Center" 
+            VerticalContentAlignment="Center"
+         />
+        <Button 
+            x:Name="btnPlay" 
+            Content="" 
+            HorizontalAlignment="Left" 
+            Margin="371,409,0,0" 
+            VerticalAlignment="Top" 
+            FontSize="22" 
+            Foreground="#FF001546" 
+            BorderBrush="#FF71FF00" 
+            Click="btnPlay_Click" 
+            Background="#FFFF8906" 
+            Width="108" 
+            Height="41"
+         />
+        <Button x:Name="btnBack" Content="" HorizontalAlignment="Left" Margin="29,398,0,0" VerticalAlignment="Top" Width="80" Height="52" BorderBrush="{x:Null}" Click="btnBack_Click">
+            <Button.Background>
+                <ImageBrush Stretch="Uniform" ImageSource="/Images/back.png"/>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </Page>

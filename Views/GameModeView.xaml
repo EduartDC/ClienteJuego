@@ -8,7 +8,104 @@
       d:DesignHeight="600" d:DesignWidth="800"
       Title="GameModeView">
 
-    <Grid Background="#0f0e17">
-        
+    <Grid Background="#FF0F0E17">
+        <Image 
+            Margin="181,-21,24,299" 
+            Source="/Images/ok3.png" 
+            Opacity="0.3" 
+            RenderTransformOrigin="0.5,0.5" 
+            Stretch="UniformToFill" 
+            StretchDirection="DownOnly"            
+        >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Label 
+            x:Name="lblTitleLobby" 
+            Content="" 
+            HorizontalAlignment="Center" 
+            Margin="0,28,0,0" 
+            VerticalAlignment="Top" 
+            Foreground="White" 
+            FontSize="18" 
+            Width="361" 
+            HorizontalContentAlignment="Center" 
+            VerticalContentAlignment="Center" 
+            FontWeight="Bold"
+        />
+        <Button 
+            x:Name="btnSingleMode" 
+            Content="" 
+            HorizontalAlignment="Left" 
+            Margin="76,167,0,0" 
+            VerticalAlignment="Top" 
+            Height="204" Width="226" 
+            BorderBrush="{x:Null}" 
+            Foreground="{x:Null}" Click="btnSingleMode_Click"
+        >
+            <Button.Background>
+                <ImageBrush 
+                    ImageSource="/Images/usuario.png" 
+                    Stretch="Uniform"
+                 />
+            </Button.Background>
+        </Button>
+        <Button 
+            x:Name="btnMultiplayerMode" 
+            Content="" HorizontalAlignment="Left" 
+            Margin="486,158,0,0" 
+            VerticalAlignment="Top" 
+            Height="232" Width="252" 
+            BorderBrush="{x:Null}" 
+            Foreground="{x:Null}" Click="btnMultiplayerMode_Click"
+         >
+            <Button.Background>
+                <ImageBrush 
+                    ImageSource="/Images/grupo.png" 
+                    Stretch="Uniform"
+                 />
+            </Button.Background>
+        </Button>
+        <Button 
+            x:Name="btnCancel" 
+            Content="" 
+            HorizontalAlignment="Left" 
+            Margin="314,482,0,0" 
+            VerticalAlignment="Top" 
+            Background="#FFFF8906" 
+            Height="67" Width="180" 
+            Foreground="White" 
+            FontWeight="Bold" 
+            FontSize="22" Click="btnCancel_Click"
+         />
+        <Label 
+            x:Name="lblSingleMode" 
+            Content="" 
+            HorizontalAlignment="Left" 
+            Margin="95,376,0,0" 
+            VerticalAlignment="Top" 
+            Foreground="White" 
+            FontWeight="Bold" 
+            FontSize="20" 
+            Width="193" 
+            HorizontalContentAlignment="Center" 
+            VerticalContentAlignment="Center"
+         />
+        <Label 
+            x:Name="lblMultiplayerMode" 
+            Content="" 
+            HorizontalAlignment="Left" Margin="486,376,0,0" 
+            VerticalAlignment="Top" Foreground="White" 
+            FontWeight="Bold" FontSize="20" Width="252" 
+            HorizontalContentAlignment="Center" 
+            VerticalContentAlignment="Center"
+         />
+
     </Grid>
 </Page>
