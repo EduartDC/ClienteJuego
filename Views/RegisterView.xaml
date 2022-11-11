@@ -7,6 +7,7 @@
       mc:Ignorable="d"
       xmlns:p = "clr-namespace:ClienteJuego.Properties"
       d:DesignHeight="600" d:DesignWidth="800"
+      MaxHeight="600" MaxWidth="800"
       Title="RegisterView">
 
     <Grid Background="#0f0e17">

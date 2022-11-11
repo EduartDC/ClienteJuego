@@ -120,6 +120,9 @@
   <data name="btnCancel" xml:space="preserve">
     <value>Cancelar</value>
   </data>
+  <data name="btnCredits" xml:space="preserve">
+    <value>Créditos</value>
+  </data>
   <data name="btnLogin" xml:space="preserve">
     <value>Iniciar Sesión</value>
   </data>
@@ -131,6 +134,18 @@
   </data>
   <data name="btnSave" xml:space="preserve">
     <value>Guardar</value>
+  </data>
+  <data name="btnScore" xml:space="preserve">
+    <value>Puntaje</value>
+  </data>
+  <data name="lblAccount" xml:space="preserve">
+    <value>Cuenta</value>
+  </data>
+  <data name="lblCredits" xml:space="preserve">
+    <value>Créditos</value>
+  </data>
+  <data name="lblDevelopers" xml:space="preserve">
+    <value>Desarrolladores</value>
   </data>
   <data name="lblEmail" xml:space="preserve">
     <value>Correo Electrónico</value>
@@ -156,8 +171,14 @@
   <data name="lblForgotPassword" xml:space="preserve">
     <value>¿Olvidaste tu contraseña?</value>
   </data>
+  <data name="lblGraphicDesigners" xml:space="preserve">
+    <value>Diseñadores Gráficos</value>
+  </data>
   <data name="lblGuestPlayer" xml:space="preserve">
     <value>Jugar como invitado</value>
+  </data>
+  <data name="lblHelp" xml:space="preserve">
+    <value>Ayuda</value>
   </data>
   <data name="lblLanguage" xml:space="preserve">
     <value>Idioma</value>
@@ -167,6 +188,9 @@
   </data>
   <data name="lblMultiplayerMode" xml:space="preserve">
     <value>¡Jugar con amigos(as)!</value>
+  </data>
+  <data name="lblOptions" xml:space="preserve">
+    <value>Opciones</value>
   </data>
   <data name="lblPassword" xml:space="preserve">
     <value>Contraseña</value>
@@ -185,9 +209,6 @@
   </data>
   <data name="lblTheme" xml:space="preserve">
     <value>Tema</value>
-  </data>
-  <data name="lblTitleLobby" xml:space="preserve">
-    <value>Sala Pre-Juego</value>
   </data>
   <data name="lblUserName" xml:space="preserve">
     <value>Nombre de Usuario</value>

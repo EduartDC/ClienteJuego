@@ -27,7 +27,7 @@ namespace ClienteJuego.Views
 
         private void btnMultiplayerMode_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("Views/LobbyView.xaml", UriKind.Relative));
+            //NavigationService.Navigate(new Uri("Views/LobbyView.xaml", UriKind.Relative));
         }
 
         private void btnSingleMode_Click(object sender, RoutedEventArgs e)
@@ -36,6 +36,11 @@ namespace ClienteJuego.Views
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("Views/InicioView.xaml", UriKind.Relative));
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("Views/InicioView.xaml", UriKind.Relative));
         }

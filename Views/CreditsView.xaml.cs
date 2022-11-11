@@ -24,5 +24,10 @@ namespace ClienteJuego.Views
         {
             InitializeComponent();
         }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("Views/SettingsView.xaml", UriKind.Relative));
+        }
     }
 }

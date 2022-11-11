@@ -239,5 +239,26 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ok3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\developer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\graphicDesigner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\playJUE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\credits.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

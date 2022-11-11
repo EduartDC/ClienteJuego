@@ -61,9 +61,9 @@ namespace ClienteJuego.Views
         public void cargar_ronda(int i)
         {
             resetValues();
-            lblStatusRoundOff.Content = "Ronda Iniciada";
-            lblQuestion.Content = questions[i].Answers;
-            MessageBox.Show("Cargando la \'Ronda " + (i + 1) + "\'");
+            lblStatusRoundOff.Content = Properties.Resources.textStatusRoundOn;
+            //lblQuestion.Content = questions[i].Answers;
+            //MessageBox.Show("Cargando la \'Ronda " + (i + 1) + "\'");
         }
 
         private void btnPlay_Click(object sender, RoutedEventArgs e)
@@ -74,7 +74,11 @@ namespace ClienteJuego.Views
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-
+            int resultado = (int)MessageBox.Show("¿Estás seguro(a) de salir de la ronda?", "¡Regresar a modo de juego?", MessageBoxButton.YesNo);
+            if (resultado == 6)
+            {
+                NavigationService.Navigate(new Uri("Views/InicioView.xaml", UriKind.Relative));
+            }            
         }
     }
 }

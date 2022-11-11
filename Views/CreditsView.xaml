@@ -5,10 +5,187 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ClienteJuego.Views"
       mc:Ignorable="d" 
+      xmlns:p="clr-namespace:ClienteJuego.Properties"
       d:DesignHeight="600" d:DesignWidth="800"
+      MaxHeight="600" MaxWidth="800"
       Title="CreditsView">
 
     <Grid Background="#0f0e17">
-        
+        <Image 
+            Margin="180,-21,25,299" 
+            Source="/Images/ok3.png" 
+            Opacity="0.3" 
+            RenderTransformOrigin="0.5,0.5" 
+            Stretch="UniformToFill" 
+            StretchDirection="DownOnly"            
+        >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+
+        <Button 
+            x:Name="btnBack" 
+            Content="" 
+            HorizontalAlignment="Left" 
+            Margin="32,482,0,0" 
+            VerticalAlignment="Top" 
+            Width="80" Height="52" 
+            BorderBrush="{x:Null}" 
+            Click="btnBack_Click" 
+         >
+            <Button.Background>
+                <ImageBrush 
+                    Stretch="Uniform" 
+                    ImageSource="/Images/back.png"
+                />
+            </Button.Background>
+        </Button>
+        <Label 
+            x:Name="lblCredits" 
+            Content="{x:Static p:Resources.btnCredits}" 
+            HorizontalAlignment="Center" 
+            Margin="0,8,0,0" 
+            VerticalAlignment="Top" 
+            Foreground="White" 
+            FontWeight="Bold" 
+            FontSize="48" 
+            Width="418" 
+            HorizontalContentAlignment="Center" 
+            VerticalContentAlignment="Center"
+        />
+        <Label 
+            x:Name="lblDevelopers" 
+            Content="{x:Static p:Resources.lblDevelopers}" 
+            HorizontalAlignment="Left" 
+            Margin="72,109,0,0" 
+            VerticalAlignment="Top" 
+            Foreground="White" 
+            FontWeight="Bold" 
+            FontSize="36"
+         />
+        <Label 
+            x:Name="lblDeveloperEduart" 
+            Content="Eduart Ussiel Dircio Cayon" 
+            HorizontalAlignment="Left" 
+            Margin="112,174,0,0" 
+            VerticalAlignment="Top" 
+            Foreground="White" 
+            FontWeight="Bold" 
+            FontSize="22" 
+            Width="328" 
+            Height="41" RenderTransformOrigin="0.5,0.5" FontFamily="Century"
+        >
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="1.091"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.314"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label 
+            x:Name="lblDeveloperCristopher" 
+            Content="Cristopher Rodríguez Salamanca" 
+            HorizontalAlignment="Left" 
+            Margin="112,209,0,0" 
+            VerticalAlignment="Top" 
+            Foreground="White" 
+            FontWeight="Bold" 
+            FontSize="22" 
+            Width="364" 
+            Height="41" RenderTransformOrigin="0.5,0.5" FontFamily="Century"
+        >
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="1.091"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.314"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label 
+            x:Name="lblGraphicDesigners" 
+            Content="{x:Static p:Resources.lblGraphicDesigners}" 
+            HorizontalAlignment="Left" 
+            Margin="72,0,0,0" 
+            VerticalAlignment="Center" 
+            Foreground="White" 
+            FontWeight="Bold" 
+            FontSize="36"
+         />
+        <Label 
+            x:Name="lblDeveloperEduart_Copy" 
+            Content="Eduart Ussiel Dircio Cayon" 
+            HorizontalAlignment="Left" 
+            Margin="112,340,0,0" 
+            VerticalAlignment="Top" 
+            Foreground="White" 
+            FontWeight="Bold" 
+            FontSize="22" 
+            Width="328" 
+            Height="41" RenderTransformOrigin="0.5,0.5" FontFamily="Century"
+        >
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="1.091"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.314"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label 
+            x:Name="lblDeveloperCristopher_Copy" 
+            Content="Cristopher Rodríguez Salamanca" 
+            HorizontalAlignment="Left" 
+            Margin="112,375,0,0" 
+            VerticalAlignment="Top" 
+            Foreground="White" 
+            FontWeight="Bold" 
+            FontSize="22" 
+            Width="364" 
+            Height="41" RenderTransformOrigin="0.5,0.5" FontFamily="Century"
+        >
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="1.091"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.314"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label 
+            x:Name="lblDeveloperCristopher_Copy1" 
+            Content="Mark Brayam Rentería Morales" 
+            HorizontalAlignment="Left" 
+            Margin="112,410,0,0" 
+            VerticalAlignment="Top" 
+            Foreground="White" 
+            FontWeight="Bold" 
+            FontSize="22" 
+            Width="364" 
+            Height="41" RenderTransformOrigin="0.5,0.5" FontFamily="Century"
+        >
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="1.091"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.314"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Image HorizontalAlignment="Left" Height="161" Margin="497,98,0,0" VerticalAlignment="Top" Width="161" Source="/Images/developer.png"/>
+        <Image HorizontalAlignment="Left" Height="199" Margin="538,332,0,0" VerticalAlignment="Top" Width="199" Source="/Images/graphicDesigner.png"/>
+
     </Grid>
 </Page>

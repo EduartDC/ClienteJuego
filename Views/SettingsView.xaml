@@ -7,16 +7,16 @@
       mc:Ignorable="d"
       xmlns:p="clr-namespace:ClienteJuego.Properties"
       d:DesignHeight="600" d:DesignWidth="800"
+      MaxHeight="600" MaxWidth="800"
       Title="SettingsView">
 
     <Grid Background="#FF0F0E17">
         <Image 
-            Margin="181,-21,24,299" 
+            Margin="345,138,-140,140" 
             Source="/Images/ok3.png" 
             Opacity="0.3" 
             RenderTransformOrigin="0.5,0.5" 
-            Stretch="UniformToFill" 
-            StretchDirection="DownOnly"            
+            Stretch="Fill"            
         >
             <Image.RenderTransform>
                 <TransformGroup>
@@ -106,6 +106,16 @@
             Margin="449,372,0,0" 
             VerticalAlignment="Top" 
             Background="#FFFF8906" 
+            Foreground="White" 
+            FontWeight="Bold" 
+            FontSize="16" Height="40" Width="75" Click="btnSave_Click"
+         />
+        <Button x:Name="btnCredits" 
+            Content="{x:Static p:Resources.btnCredits}" 
+            HorizontalAlignment="Left" 
+            Margin="59,519,0,0" 
+            VerticalAlignment="Top" 
+            Background="#FF0665FF" 
             Foreground="White" 
             FontWeight="Bold" 
             FontSize="16" Height="40" Width="75" Click="btnSave_Click"

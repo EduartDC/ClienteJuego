@@ -37,7 +37,7 @@ namespace ClienteJuego.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new Uri("Views/GameModeView.xaml", UriKind.Relative));
         }
     }
 }

@@ -5,63 +5,32 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ClienteJuego.Views"
       mc:Ignorable="d"
-      xmlns:leng ="clr-namespace:ClienteJuego.Properties"
+      xmlns:p ="clr-namespace:ClienteJuego.Properties"
       d:DesignHeight="600" d:DesignWidth="800"
+      MaxHeight="600" MaxWidth="800"
       Title="InicioView">
 
 
     <Grid Background="#FF0F0E17">
-        <Button Name="btnOptions" 
-                Background="{x:Null}" 
-                Margin="717,10,10,512" Click="btnOptions_Click" BorderBrush="{x:Null}" >
-            <Image Source="/Images/barra-de-menus.png" />
-        </Button>
-        <Image 
-            HorizontalAlignment="Center" 
-            Height="423" 
-            VerticalAlignment="Top" 
-            Width="802" 
-            Source="/Images/ok3.png" 
-            RenderTransformOrigin="0.5,0.5" 
-            Margin="0,1,0,0" 
-            Opacity="0.3"
-         >
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform 
-                        Angle="180"
-                     />
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Image 
-            HorizontalAlignment="Center" 
-            Height="152" 
-            Margin="0,183,0,0" 
-            VerticalAlignment="Top" 
-            Width="142" 
-            Source="/Images/ppGame.png"
-         />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="600"/>
+        </Grid.RowDefinitions>
         <Label 
             x:Name="lblNameUsuario" 
             Content="Label" 
             HorizontalAlignment="Center" 
-            Margin="0,342,0,0" 
             VerticalAlignment="Top" 
             Foreground="White" 
             FontWeight="Bold" 
             FontSize="16" 
             Width="300" 
             HorizontalContentAlignment="Center" 
-            VerticalContentAlignment="Center"
+            VerticalContentAlignment="Center" Margin="0,269,0,0"
          />
-        <Button 
+        <Button x:Name="btnPlay" 
             Content="" 
             HorizontalAlignment="Center" 
-            Margin="0,395,0,0" 
+            Margin="0,311,0,0" 
             VerticalAlignment="Top" 
             Height="100" Width="142" 
             BorderBrush="#00000000" 
@@ -69,12 +38,57 @@
          >
             <Button.Background>
                 <ImageBrush 
-                    ImageSource="/Images/play.png" 
+                    ImageSource="/Images/playJUE.png" 
                     Stretch="Uniform"
                  />
             </Button.Background>
         </Button>
-        <Button x:Name="btnScore" Content="Score" HorizontalAlignment="Left" Margin="382,537,0,0" VerticalAlignment="Top"/>
+        <Image 
+            HorizontalAlignment="Center" 
+            Height="794" Margin="0,1,0,0" 
+            VerticalAlignment="Top" 
+            Width="794" 
+            Source="/Images/ok3.png" 
+            RenderTransformOrigin="0.5,0.5"
+            Opacity="0.3"
+         >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="180"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image 
+            HorizontalAlignment="Center" 
+            Height="152" 
+            Margin="0,99,0,0" 
+            VerticalAlignment="Top" 
+            Width="142" 
+            Source="/Images/ppGame.png"
+         />
+        <Button x:Name="btnOptions" 
+                Background="{x:Null}" 
+                Margin="718,10,10,512" Click="btnOptions_Click" BorderBrush="{x:Null}" >
+            <Image 
+                Source="/Images/barra-de-menus.png" 
+             />
+        </Button>
+        <Button 
+            x:Name="btnScore" 
+            Content="{x:Static p:Resources.btnScore}" 
+            HorizontalAlignment="Center" 
+            Margin="0,447,0,0" 
+            VerticalAlignment="Top" 
+            Background="#FFFF8906" 
+            BorderBrush="#FFFF8906" 
+            FontWeight="Bold" 
+            Foreground="White" 
+            Height="33" 
+            Width="70"
+         />
 
 
     </Grid>
