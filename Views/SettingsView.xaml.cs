@@ -27,12 +27,12 @@ namespace ClienteJuego.Views
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("Views/InicioView.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("Views/MenuOptionsView.xaml", UriKind.Relative));
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("Views/CreditsView.xaml", UriKind.Relative));
+            
         }
     }
 }

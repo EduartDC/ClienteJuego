@@ -14,6 +14,7 @@
 
     <Grid Background="#0f0e17">
 
+
         <Label 
         x:Name="lblOptions" 
         Content="{x:Static Properties:Resources.lblOptions}" 
@@ -31,7 +32,7 @@
             x:Name="lblAccount" 
             Content="{x:Static p:Resources.lblAccount}" 
             HorizontalAlignment="Left" 
-            Margin="400,100,0,0" 
+            Margin="400,135,0,0" 
             VerticalAlignment="Top" 
             Foreground="White" 
             FontWeight="Bold" 
@@ -40,27 +41,28 @@
         <Image 
             HorizontalAlignment="Left" 
             Height="61" 
-            Margin="336,85,0,0" 
+            Margin="332,121,0,0" 
             VerticalAlignment="Top" 
-            Width="61" 
+            Width="60" 
             Source="/Images/usuario.png"
          />
         <Button 
             x:Name="btnAccount" 
             Content="" 
             HorizontalAlignment="Center" 
-            Margin="0,87,0,0" 
+            Margin="0,121,0,0" 
             VerticalAlignment="Top" 
-            Background="#00000000" 
+            Background="{x:Null}" 
             BorderBrush="#00000000" 
-            Width="126" 
-            Height="61"
+            Width="143" 
+            Height="62" 
+            Click="btnAccount_Click"
          />
         <Label 
             x:Name="lblHelp" 
             Content="{x:Static p:Resources.lblHelp}" 
             HorizontalAlignment="Left" 
-            Margin="400,177,0,0" 
+            Margin="400,213,0,0" 
             VerticalAlignment="Top" 
             Foreground="White" 
             FontWeight="Bold" 
@@ -69,27 +71,29 @@
         <Image 
             HorizontalAlignment="Left" 
             Height="61" 
-            Margin="336,162,0,0" 
+            Margin="334,198,0,0" 
             VerticalAlignment="Top" 
-            Width="61" 
+            Width="62" 
             Source="/Images/information.png"
          />
         <Button 
-            x:Name="btnAccount_Copy" 
+            x:Name="btnHelp" 
             Content="" 
-            HorizontalAlignment="Left" 
-            Margin="330,162,0,0" 
+            HorizontalAlignment="Center" 
+            Margin="0,188,0,0" 
             VerticalAlignment="Top" 
-            Background="#00000000" 
+            Background="{x:Null}" 
             BorderBrush="#00000000" 
-            Width="127" 
-            Height="61"
+            Width="144" 
+            Height="71" 
+            Click="btnHelp_Click"
          />
+
         <Label 
             x:Name="lblCredits" 
             Content="{x:Static p:Resources.lblCredits}" 
             HorizontalAlignment="Left" 
-            Margin="400,248,0,0" 
+            Margin="400,281,0,0" 
             VerticalAlignment="Top" 
             Foreground="White" 
             FontWeight="Bold" 
@@ -98,21 +102,104 @@
         <Image 
             HorizontalAlignment="Left" 
             Height="66" 
-            Margin="334,228,0,0" 
+            Margin="334,264,0,0" 
             VerticalAlignment="Top" 
             Width="75" 
-            Source="/Images/credits.png" OpacityMask="#FFED0000"
+            Source="/Images/credits.png" 
+            OpacityMask="#FFED0000"
          />
+        <Image Source="/Images/setting.png" 
+               Margin="330,325,0,0"
+               VerticalAlignment="Top"
+               Height="67"
+               HorizontalAlignment="Left" />
+
+
+        <Label Content="Settings" 
+               HorizontalAlignment="Left" 
+               Margin="400,346,0,0" 
+               VerticalAlignment="Top" 
+               Foreground="White" 
+               FontSize="16" 
+               FontWeight="Bold"/>
+        <Image Source="/Images/logout.png" 
+               Margin="332,397,0,0" 
+               VerticalAlignment="Top"
+               Height="60" 
+               HorizontalAlignment="Left" />
+        <Label Content="LogOut" 
+               HorizontalAlignment="Left" 
+               Margin="400,418,0,0" 
+               VerticalAlignment="Top" 
+               Foreground="White" 
+               FontWeight="Bold" 
+               FontSize="16"/>
         <Button 
-            x:Name="btnAccount_Copy1" 
+            x:Name="btnBack" 
             Content="" 
             HorizontalAlignment="Left" 
-            Margin="468,235,0,0" 
+            Margin="64,484,0,0" 
             VerticalAlignment="Top" 
-            Background="#00000000" 
+            Width="136" Height="62" 
+            BorderBrush="{x:Null}" 
+            Click="btnBack_Click" 
+         >
+            <Button.Background>
+                <ImageBrush 
+                    Stretch="Uniform" 
+                    ImageSource="/Images/back.png"
+                />
+            </Button.Background>
+        </Button>
+
+        <Image Source="/Images/ok3.png" 
+               Margin="394,67,-198,78"
+               RenderTransformOrigin="0.5,0.5" 
+               Opacity="0.3">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-89.975"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Button 
+            x:Name="btnCredits" 
+            Content="" 
+            HorizontalAlignment="Center" 
+            Margin="0,266,0,0" 
+            VerticalAlignment="Top" 
+            Background="{x:Null}" 
             BorderBrush="#00000000" 
-            Width="127" 
-            Height="61"
+            Width="143" 
+            Height="62" 
+            Click="btnCredits_Click"
+         />
+        <Button 
+            x:Name="btnSettings" 
+            Content="" 
+            HorizontalAlignment="Left" 
+            Margin="330,325,0,0" 
+            VerticalAlignment="Top" 
+            Background="{x:Null}" 
+            BorderBrush="#00000000" 
+            Width="143" 
+            Height="62" 
+            Click="btnSettings_Click"
+         />
+        <Button 
+            x:Name="btnLogOut" 
+            Content="" 
+            HorizontalAlignment="Center" 
+            Margin="0,395,0,0" 
+            VerticalAlignment="Top" 
+            Background="{x:Null}" 
+            BorderBrush="#00000000" 
+            Width="143" 
+            Height="62" 
+            Click="btnLogOut_Click"
          />
     </Grid>
 </Page>

@@ -52,7 +52,9 @@ namespace ClienteJuego.Views
                 }
                 else
                 {
+                    
                     NavigationService.Navigate(new Uri("Views/InicioView.xaml", UriKind.Relative));
+                    SendInfoMenu(player);
                 }
                 Console.WriteLine(result);
             }
@@ -75,6 +77,16 @@ namespace ClienteJuego.Views
                 result = true;
             }
             return result;
+        }
+
+        private void SendInfoMenu(Player player)
+        {
+            var mainWindows = new InicioView();
+            ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
+
+            Player playerInfo = client.SearchPlayer(player.userName);
+            mainWindows.PlayerLogin(playerInfo);
+
         }
 
         private void textUserName_GotFocus(object sender, RoutedEventArgs e)

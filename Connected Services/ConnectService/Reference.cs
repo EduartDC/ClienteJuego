@@ -752,6 +752,18 @@ namespace ClienteJuego.ConnectService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/ValidateExistantPlayer", ReplyAction="http://tempuri.org/IUserManager/ValidateExistantPlayerResponse")]
         System.Threading.Tasks.Task<int> ValidateExistantPlayerAsync(ClienteJuego.ConnectService.Player player);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/UpdatePlayer", ReplyAction="http://tempuri.org/IUserManager/UpdatePlayerResponse")]
+        int UpdatePlayer(ClienteJuego.ConnectService.Player newPlayer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/UpdatePlayer", ReplyAction="http://tempuri.org/IUserManager/UpdatePlayerResponse")]
+        System.Threading.Tasks.Task<int> UpdatePlayerAsync(ClienteJuego.ConnectService.Player newPlayer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/SearchPlayer", ReplyAction="http://tempuri.org/IUserManager/SearchPlayerResponse")]
+        ClienteJuego.ConnectService.Player SearchPlayer(string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/SearchPlayer", ReplyAction="http://tempuri.org/IUserManager/SearchPlayerResponse")]
+        System.Threading.Tasks.Task<ClienteJuego.ConnectService.Player> SearchPlayerAsync(string userName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -803,6 +815,22 @@ namespace ClienteJuego.ConnectService {
         
         public System.Threading.Tasks.Task<int> ValidateExistantPlayerAsync(ClienteJuego.ConnectService.Player player) {
             return base.Channel.ValidateExistantPlayerAsync(player);
+        }
+        
+        public int UpdatePlayer(ClienteJuego.ConnectService.Player newPlayer) {
+            return base.Channel.UpdatePlayer(newPlayer);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdatePlayerAsync(ClienteJuego.ConnectService.Player newPlayer) {
+            return base.Channel.UpdatePlayerAsync(newPlayer);
+        }
+        
+        public ClienteJuego.ConnectService.Player SearchPlayer(string userName) {
+            return base.Channel.SearchPlayer(userName);
+        }
+        
+        public System.Threading.Tasks.Task<ClienteJuego.ConnectService.Player> SearchPlayerAsync(string userName) {
+            return base.Channel.SearchPlayerAsync(userName);
         }
     }
     
@@ -925,17 +953,23 @@ namespace ClienteJuego.ConnectService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMatchService/StartLobby", ReplyAction="http://tempuri.org/IMatchService/StartLobbyResponse")]
         System.Threading.Tasks.Task StartLobbyAsync(ClienteJuego.ConnectService.Player[] players, ClienteJuego.ConnectService.Match newMatch);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMatchService/StartMatch", ReplyAction="http://tempuri.org/IMatchService/StartMatchResponse")]
-        void StartMatch(ClienteJuego.ConnectService.Match newMatch);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMatchService/CreatetMatch", ReplyAction="http://tempuri.org/IMatchService/CreatetMatchResponse")]
+        void CreatetMatch(ClienteJuego.ConnectService.Match newMatch);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMatchService/StartMatch", ReplyAction="http://tempuri.org/IMatchService/StartMatchResponse")]
-        System.Threading.Tasks.Task StartMatchAsync(ClienteJuego.ConnectService.Match newMatch);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMatchService/CreatetMatch", ReplyAction="http://tempuri.org/IMatchService/CreatetMatchResponse")]
+        System.Threading.Tasks.Task CreatetMatchAsync(ClienteJuego.ConnectService.Match newMatch);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMatchService/EndMatch", ReplyAction="http://tempuri.org/IMatchService/EndMatchResponse")]
-        void EndMatch();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMatchService/DisconnectFromMatch", ReplyAction="http://tempuri.org/IMatchService/DisconnectFromMatchResponse")]
+        void DisconnectFromMatch(ClienteJuego.ConnectService.Match match);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMatchService/EndMatch", ReplyAction="http://tempuri.org/IMatchService/EndMatchResponse")]
-        System.Threading.Tasks.Task EndMatchAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMatchService/DisconnectFromMatch", ReplyAction="http://tempuri.org/IMatchService/DisconnectFromMatchResponse")]
+        System.Threading.Tasks.Task DisconnectFromMatchAsync(ClienteJuego.ConnectService.Match match);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMatchService/ConnectToMatch", ReplyAction="http://tempuri.org/IMatchService/ConnectToMatchResponse")]
+        void ConnectToMatch(ClienteJuego.ConnectService.Match match);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMatchService/ConnectToMatch", ReplyAction="http://tempuri.org/IMatchService/ConnectToMatchResponse")]
+        System.Threading.Tasks.Task ConnectToMatchAsync(ClienteJuego.ConnectService.Match match);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -973,20 +1007,28 @@ namespace ClienteJuego.ConnectService {
             return base.Channel.StartLobbyAsync(players, newMatch);
         }
         
-        public void StartMatch(ClienteJuego.ConnectService.Match newMatch) {
-            base.Channel.StartMatch(newMatch);
+        public void CreatetMatch(ClienteJuego.ConnectService.Match newMatch) {
+            base.Channel.CreatetMatch(newMatch);
         }
         
-        public System.Threading.Tasks.Task StartMatchAsync(ClienteJuego.ConnectService.Match newMatch) {
-            return base.Channel.StartMatchAsync(newMatch);
+        public System.Threading.Tasks.Task CreatetMatchAsync(ClienteJuego.ConnectService.Match newMatch) {
+            return base.Channel.CreatetMatchAsync(newMatch);
         }
         
-        public void EndMatch() {
-            base.Channel.EndMatch();
+        public void DisconnectFromMatch(ClienteJuego.ConnectService.Match match) {
+            base.Channel.DisconnectFromMatch(match);
         }
         
-        public System.Threading.Tasks.Task EndMatchAsync() {
-            return base.Channel.EndMatchAsync();
+        public System.Threading.Tasks.Task DisconnectFromMatchAsync(ClienteJuego.ConnectService.Match match) {
+            return base.Channel.DisconnectFromMatchAsync(match);
+        }
+        
+        public void ConnectToMatch(ClienteJuego.ConnectService.Match match) {
+            base.Channel.ConnectToMatch(match);
+        }
+        
+        public System.Threading.Tasks.Task ConnectToMatchAsync(ClienteJuego.ConnectService.Match match) {
+            return base.Channel.ConnectToMatchAsync(match);
         }
     }
 }

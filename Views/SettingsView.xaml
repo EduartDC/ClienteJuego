@@ -11,18 +11,15 @@
       Title="SettingsView">
 
     <Grid Background="#FF0F0E17">
-        <Image 
-            Margin="345,138,-140,140" 
-            Source="/Images/ok3.png" 
-            Opacity="0.3" 
-            RenderTransformOrigin="0.5,0.5" 
-            Stretch="Fill"            
-        >
+        <Image Source="/Images/ok3.png" 
+               Margin="393,74,-196,72"
+               RenderTransformOrigin="0.5,0.5" 
+               Opacity="0.3">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
-                    <RotateTransform Angle="-90"/>
+                    <RotateTransform Angle="-89.975"/>
                     <TranslateTransform/>
                 </TransformGroup>
             </Image.RenderTransform>
@@ -93,32 +90,22 @@
         <Button x:Name="btnCancel" 
             Content="{x:Static p:Resources.btnCancel}" 
             HorizontalAlignment="Left" 
-            Margin="255,372,0,0" 
+            Margin="229,372,0,0" 
             VerticalAlignment="Top" 
             Background="#FFBB6200" 
             Foreground="White" 
             FontWeight="Bold" 
-            FontSize="16" Height="40" Width="75" Click="btnCancel_Click"
+            FontSize="16" Height="40" Width="101" Click="btnCancel_Click"
          />
         <Button x:Name="btnSave" 
             Content="{x:Static p:Resources.btnSave}" 
             HorizontalAlignment="Left" 
-            Margin="449,372,0,0" 
+            Margin="419,372,0,0" 
             VerticalAlignment="Top" 
             Background="#FFFF8906" 
             Foreground="White" 
             FontWeight="Bold" 
-            FontSize="16" Height="40" Width="75" Click="btnSave_Click"
-         />
-        <Button x:Name="btnCredits" 
-            Content="{x:Static p:Resources.btnCredits}" 
-            HorizontalAlignment="Left" 
-            Margin="59,519,0,0" 
-            VerticalAlignment="Top" 
-            Background="#FF0665FF" 
-            Foreground="White" 
-            FontWeight="Bold" 
-            FontSize="16" Height="40" Width="75" Click="btnSave_Click"
+            FontSize="16" Height="40" Width="105" Click="btnSave_Click"
          />
 
     </Grid>

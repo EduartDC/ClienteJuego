@@ -10,6 +10,84 @@
       Title="AccountView">
 
     <Grid Background="#0f0e17">
-        
+        <Image Source="/Avatars/avatarCuatro.jpg" 
+               Margin="308,92,308,338" />
+        <Button x:Name="btnCancel" 
+                Content="Cancel" 
+                HorizontalAlignment="Left" 
+                Margin="219,504,0,0" 
+                VerticalAlignment="Top" 
+                Foreground="White" 
+                FontWeight="Bold" 
+                Background="#FFCC720B" 
+                Height="26" 
+                Width="137" Click="btnCancel_Click"/>
+        <Button x:Name="btnEdit" 
+                Content="Edit" 
+                HorizontalAlignment="Left" 
+                Margin="430,504,0,0" 
+                VerticalAlignment="Top" 
+                Background="#FFFF8906" 
+                FontWeight="Bold" 
+                Foreground="White" 
+                Height="26" 
+                Width="136"/>
+        <TextBox x:Name="textNombre" 
+                 HorizontalAlignment="Center" 
+                 Margin="0,300,0,0" 
+                 TextWrapping="Wrap" 
+                 Text="TextBox" 
+                 VerticalAlignment="Top" 
+                 Width="120" 
+                 BorderBrush="{x:Null}" 
+                 Foreground="White" 
+                 FontSize="14" 
+                 Background="{x:Null}" 
+                 FontWeight="Bold"/>
+        <TextBox x:Name="testEmail" 
+                 HorizontalAlignment="Center" 
+                 Margin="0,346,0,0" 
+                 TextWrapping="Wrap" 
+                 Text="TextBox" 
+                 VerticalAlignment="Top" 
+                 Width="120" 
+                 Background="{x:Null}" 
+                 Foreground="White" 
+                 FontSize="14" 
+                 FontWeight="Bold" 
+                 BorderBrush="{x:Null}"/>
+        <TextBox x:Name="textUserName" 
+                 HorizontalAlignment="Center" 
+                 Margin="0,390,0,0" 
+                 TextWrapping="Wrap" 
+                 Text="TextBox" 
+                 VerticalAlignment="Top" 
+                 Width="120" 
+                 Background="{x:Null}" 
+                 BorderBrush="{x:Null}" 
+                 Foreground="White" 
+                 FontSize="14" 
+                 FontWeight="Bold"/>
+        <PasswordBox HorizontalAlignment="Center" 
+                     Margin="0,436,0,0" 
+                     VerticalAlignment="Top" 
+                     Width="120" 
+                     Background="{x:Null}" 
+                     BorderBrush="{x:Null}"/>
+        <Image Source="/Images/ok3.png" 
+               Margin="393,74,-196,72"
+               RenderTransformOrigin="0.5,0.5" 
+               Opacity="0.3">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-89.975"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+
+
     </Grid>
 </Page>

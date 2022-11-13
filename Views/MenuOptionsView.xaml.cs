@@ -24,5 +24,35 @@ namespace ClienteJuego.Views
         {
             InitializeComponent();
         }
+
+        private void btnAccount_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("Views/AccountView.xaml", UriKind.Relative));
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("Views/InicioView.xaml", UriKind.Relative));
+        }
+
+        private void btnHelp_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("Views/ReportView.xaml", UriKind.Relative));
+        }
+
+        private void btnCredits_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("Views/CreditsView.xaml", UriKind.Relative));
+        }
+
+        private void btnSettings_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("Views/SettingsView.xaml", UriKind.Relative));
+        }
+
+        private void btnLogOut_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("Views/LoginView.xaml", UriKind.Relative));
+        }
     }
 }

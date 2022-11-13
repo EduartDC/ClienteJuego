@@ -11,6 +11,19 @@
       Title="RegisterView">
 
     <Grid Background="#0f0e17">
+        <Image Source="/Images/ok3.png" 
+               Margin="393,74,-196,72"
+               RenderTransformOrigin="0.5,0.5" 
+               Opacity="0.3">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-89.975"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
         <Button 
             x:Name="btnRegister" 
             Content = "{x:Static p:Resources.btnRegister}"

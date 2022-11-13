@@ -45,7 +45,8 @@
         </Button>
         <Image 
             HorizontalAlignment="Center" 
-            Height="794" Margin="0,1,0,0" 
+            Height="794" 
+            Margin="0,1,0,0" 
             VerticalAlignment="Top" 
             Width="794" 
             Source="/Images/ok3.png" 
@@ -67,7 +68,7 @@
             Margin="0,99,0,0" 
             VerticalAlignment="Top" 
             Width="142" 
-            Source="/Images/ppGame.png"
+            Source="/Avatars/avatarOcho.jpg"
          />
         <Button x:Name="btnOptions" 
                 Background="{x:Null}" 
@@ -87,7 +88,7 @@
             FontWeight="Bold" 
             Foreground="White" 
             Height="33" 
-            Width="70"
+            Width="70" Click="btnScore_Click"
          />
 
 

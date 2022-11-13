@@ -100,6 +100,9 @@
     <Compile Include="Views\ReportView.xaml.cs">
       <DependentUpon>ReportView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ScoreView.xaml.cs">
+      <DependentUpon>ScoreView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
@@ -154,6 +157,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ScoreView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\SettingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -180,6 +187,9 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Connected Services\ConnectService\ClienteJuego.ConnectService.Player.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ConnectService\item.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -259,6 +269,16 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\credits.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Avatars\avatarCinco.jpg" />
+    <Resource Include="Avatars\avatarCuatro.jpg" />
+    <Resource Include="Avatars\avatarDos.jpg" />
+    <Resource Include="Avatars\avatarOcho.jpg" />
+    <Resource Include="Avatars\avatarSeis.jpg" />
+    <Resource Include="Avatars\avatarSiete.jpg" />
+    <Resource Include="Avatars\avatarTres.jpg" />
+    <Resource Include="Avatars\avatarUno.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

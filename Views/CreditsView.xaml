@@ -11,24 +11,19 @@
       Title="CreditsView">
 
     <Grid Background="#0f0e17">
-        <Image 
-            Margin="180,-21,25,299" 
-            Source="/Images/ok3.png" 
-            Opacity="0.3" 
-            RenderTransformOrigin="0.5,0.5" 
-            Stretch="UniformToFill" 
-            StretchDirection="DownOnly"            
-        >
+        <Image Source="/Images/ok3.png" 
+               Margin="393,74,-196,72"
+               RenderTransformOrigin="0.5,0.5" 
+               Opacity="0.3">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
-                    <RotateTransform Angle="-90"/>
+                    <RotateTransform Angle="-89.975"/>
                     <TranslateTransform/>
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-
         <Button 
             x:Name="btnBack" 
             Content="" 

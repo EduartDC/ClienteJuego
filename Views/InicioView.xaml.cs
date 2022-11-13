@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClienteJuego.ConnectService;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,13 @@ namespace ClienteJuego.Views
     /// </summary>
     public partial class InicioView : Page
     {
+
+        private Player playerInfo;
         public InicioView()
         {
             InitializeComponent();
+            
+            
         }
 
         private void btnPlay_Click(object sender, RoutedEventArgs e)
@@ -39,5 +44,20 @@ namespace ClienteJuego.Views
         {
             NavigationService.Navigate(new Uri("Views/GameModeView.xaml", UriKind.Relative));
         }
+
+        private void btnScore_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("Views/ScoreView.xaml", UriKind.Relative));
+        }
+
+        public void PlayerLogin(Player player)
+        {
+            Console.WriteLine(player.userName);
+            Console.WriteLine(player.email);
+            lblNameUsuario.Content = player.userName;
+            this.playerInfo = player;
+        }
+
+        
     }
 }

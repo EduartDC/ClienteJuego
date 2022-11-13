@@ -16,18 +16,18 @@ using System.Windows.Shapes;
 namespace ClienteJuego.Views
 {
     /// <summary>
-    /// Interaction logic for CreditsView.xaml
+    /// Interaction logic for ScoreView.xaml
     /// </summary>
-    public partial class CreditsView : Page
+    public partial class ScoreView : Page
     {
-        public CreditsView()
+        public ScoreView()
         {
             InitializeComponent();
         }
 
-        private void btnBack_Click(object sender, RoutedEventArgs e)
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("Views/MenuOptionsView.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("Views/InicioView.xaml", UriKind.Relative));
         }
     }
 }
