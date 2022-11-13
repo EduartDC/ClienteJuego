@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace ClienteJuego.Properties
 {
@@ -20,5 +22,16 @@ namespace ClienteJuego.Properties
             return hashedPassword.ToString();
         }
 
+        public static void RegexSpecial(KeyEventArgs e)
+        {
+            bool resultado = Regex.IsMatch(e.Key.ToString(), @"^[^ ][a-zA-Z ]+[^ ]$");
+
+
+            if (resultado)
+            {
+                e.Handled = true;
+                return;
+            }
+        }
     }
 }

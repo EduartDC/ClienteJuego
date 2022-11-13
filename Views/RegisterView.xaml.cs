@@ -81,10 +81,17 @@ namespace ClienteJuego.Views
         {
             ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
             var result = true;
-            var consultResult = client.ValidateExistantPlayer(player);
-            if (consultResult == 1)
+            try
             {
-                result = false;
+                var consultResult = client.ValidateExistantPlayer(player);
+                if (consultResult == 1)
+                {
+                    result = false;
+                }
+            }
+            catch (EndpointNotFoundException)
+            {
+                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
             }
             return result;
         }
@@ -222,6 +229,33 @@ namespace ClienteJuego.Views
             }
         }
 
+        private void TextFisrtName_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            //Se valida si es un caracter especial
+            Accessories.RegexSpecial(e); 
+
+        }
+
+        private void TextLastName_KeyDown(object sender, KeyEventArgs e)
+        {
+            Accessories.RegexSpecial(e);
+        }
+
+        private void TextEmail_KeyDown(object sender, KeyEventArgs e)
+        {
+            Accessories.RegexSpecial(e);
+        }
+
+        private void TextUserName_KeyDown(object sender, KeyEventArgs e)
+        {
+            Accessories.RegexSpecial(e);
+        }
+
+        private void TextPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            Accessories.RegexSpecial(e);
+        }
     }
 
 }

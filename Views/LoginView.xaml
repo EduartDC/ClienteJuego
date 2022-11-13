@@ -16,14 +16,18 @@
             Content = "{x:Static p:Resources.lblUserName}"
             HorizontalAlignment="Left" 
             Margin="335,308,0,0" 
-            VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+            VerticalAlignment="Top" 
+            Foreground="White" 
+            FontWeight="Bold"/>
         <Label 
             x:Name="lblPassword" 
             Content= "{x:Static p:Resources.lblPassword}" 
             HorizontalAlignment="Left" 
             Margin="335,374,0,0" 
             VerticalAlignment="Top" 
-            RenderTransformOrigin="0.447,0.31" Foreground="White" FontWeight="Bold"
+            RenderTransformOrigin="0.447,0.31" 
+            Foreground="White" 
+            FontWeight="Bold"
         />
         <Image 
             HorizontalAlignment="Left" 
@@ -43,7 +47,10 @@
             Margin="344,487,0,0" 
             VerticalAlignment="Top" 
             Width="104" 
-            Click="btnLogin_Click" Foreground="White" Background="#FFFF8906" FontWeight="Bold"/>
+            Click="btnLogin_Click" 
+            Foreground="White" 
+            Background="#FFFF8906" 
+            FontWeight="Bold"/>
         <Label 
             x:Name="lblExampleUserName" 
 			Content="{x:Static p:Resources.lblExampleUserName}" 
@@ -51,9 +58,11 @@
             Margin="326,326,0,0" 
             VerticalAlignment="Top" 
             Foreground="#FF6E7471" 
-            Width="120" Height="28" 
+            Width="120" 
+            Height="28" 
             VerticalContentAlignment="Center" 
-            HorizontalContentAlignment="Center" FontStyle="Italic"
+            HorizontalContentAlignment="Center" 
+            FontStyle="Italic"
         />
         <TextBox 
             x:Name="textUserName" 
@@ -68,7 +77,8 @@
             LostFocus="textUserName_LostFocus" 
             Foreground="Gray"
             BorderBrush="#FFFF8906" 
-            BorderThickness="0,0,0,2"
+            BorderThickness="0,0,0,2" 
+            KeyDown="TextUserName_KeyDown"
         />
         <Label 
             x:Name="lblExamplePassword" 
@@ -76,7 +86,8 @@
             HorizontalAlignment="Left" 
             Margin="340,400,0,0" 
             VerticalAlignment="Top" 
-            Foreground="#FF6B7471" Width="99"
+            Foreground="#FF6B7471" 
+            Width="99"
         />
         <PasswordBox 
             x:Name="textPassword" 
@@ -89,7 +100,8 @@
             GotFocus="textPassword_GotFocus"
             Foreground="#FFA7A9BE"
             BorderBrush="#FFFF8906" 
-            BorderThickness="0,0,0,2"
+            BorderThickness="0,0,0,2" 
+            KeyDown="TextPassword_KeyDonw"
         />
         <Button 
             x:Name="btnRegister"  
@@ -97,8 +109,10 @@
             Content="{x:Static p:Resources.btnRegister}"
             Margin="344,531,0,0" 
             VerticalAlignment="Top" 
-            Width="104" Click="btnRegister_Click" 
+            Width="104" 
+            Click="btnRegister_Click" 
             Foreground="White" 
-            Background="#FFFF8906" FontWeight="Bold"/>
+            Background="#FFFF8906" 
+            FontWeight="Bold"/>
     </Grid>
 </Page>

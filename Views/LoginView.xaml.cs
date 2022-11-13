@@ -45,18 +45,27 @@ namespace ClienteJuego.Views
 
             if (ValidateFields())
             {
-                int result = client.ValidatePlayer(player);
-                if (result == 0)
+                try
                 {
-                    MessageBox.Show("Error occurred, registration didn't take effect");
+                    int result = client.ValidatePlayer(player);
+                    if (result == 0)
+                    {
+                        MessageBox.Show("Error occurred, registration didn't take effect");
+                    }
+                    else
+                    {
+
+                        NavigationService.Navigate(new Uri("Views/InicioView.xaml", UriKind.Relative));
+                        SendInfoMenu(player);
+                    }
                 }
-                else
+                catch (EndpointNotFoundException)
                 {
-                    
-                    NavigationService.Navigate(new Uri("Views/InicioView.xaml", UriKind.Relative));
-                    SendInfoMenu(player);
+                    MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
                 }
-                Console.WriteLine(result);
+                
+                
+                
             }
 
         }
@@ -128,6 +137,16 @@ namespace ClienteJuego.Views
 
             NavigationService.Navigate(new Uri("Views/RegisterView.xaml", UriKind.Relative));
 
+        }
+
+        private void TextUserName_KeyDown(object sender, KeyEventArgs e)
+        {
+            Accessories.RegexSpecial(e);
+        }
+
+        private void TextPassword_KeyDonw(object sender, KeyEventArgs e)
+        {
+            Accessories.RegexSpecial(e);
         }
     }
 }

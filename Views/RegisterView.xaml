@@ -34,7 +34,8 @@
             Foreground="#FFFBFBFB" 
             FontWeight="Bold" 
             Width="120" 
-            BorderBrush="#FFFBFBFB" Background="#FFFF8906"/>
+            BorderBrush="#FFFBFBFB" 
+            Background="#FFFF8906"/>
 
         <Label 
             x:Name="lblFirstName" 
@@ -115,7 +116,8 @@
             Foreground="#FFA7A9BE" 
             Height="23" 
             GotFocus="TextFirsName_GotFocus" 
-            LostFocus="TextFirsName_LostFocus"
+            LostFocus="TextFirsName_LostFocus" 
+            KeyDown="TextFisrtName_KeyDown"
           />
         <TextBox 
             x:Name="textLastName" 
@@ -129,7 +131,8 @@
             Foreground="#FFA7A9BE" 
             Height="23" 
             LostFocus="TextLastName_LostFocus" 
-            GotFocus="TextLastName_GotFocus"
+            GotFocus="TextLastName_GotFocus" 
+            KeyDown="TextLastName_KeyDown"
         />
         <Label 
             x:Name="lblExampleLastName" 
@@ -167,7 +170,8 @@
             Height="24" 
             Margin="0,286,0,0" 
             GotFocus="TextEmail_GotFocus" 
-            LostFocus="TextEmail_LostFocus"
+            LostFocus="TextEmail_LostFocus" 
+            KeyDown="TextEmail_KeyDown"
         />
         <TextBox 
             x:Name="textUserName" 
@@ -181,7 +185,8 @@
             Background="{x:Null}" 
             Height="25" 
             GotFocus="TextUserName_GotFocus" 
-            LostFocus="TextUserName_LostFocus"
+            LostFocus="TextUserName_LostFocus" 
+            KeyDown="TextUserName_KeyDown"
         />
         <PasswordBox 
             x:Name="textPassword" 
@@ -192,7 +197,8 @@
             BorderThickness="0,0,0,2" 
             Background="{x:Null}" 
             Foreground="#FFA7A9BE" 
-            Height="24"
+            Height="24" 
+            KeyDown="TextPassword_KeyDown"
         />
 
 
