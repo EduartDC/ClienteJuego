@@ -8,6 +8,6 @@
              xmlns:local="clr-namespace:ClienteJuego"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        
     </Application.Resources>
 </Application>

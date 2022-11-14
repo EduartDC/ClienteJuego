@@ -22,13 +22,19 @@ namespace ClienteJuego.Views
     public partial class InicioView : Page
     {
 
-        private Player playerInfo;
+        public Player playerInfo;
+        private string userName;
+
         public InicioView()
         {
             InitializeComponent();
-            
-            
+            string selected_dept = (App.Current as App).DeptName;
+            userName = selected_dept;
+            TextUserName.Text = selected_dept;
+
         }
+
+       
 
         private void btnPlay_Click(object sender, RoutedEventArgs e)
         {
@@ -49,15 +55,6 @@ namespace ClienteJuego.Views
         {
             NavigationService.Navigate(new Uri("Views/ScoreView.xaml", UriKind.Relative));
         }
-
-        public void PlayerLogin(Player player)
-        {
-            Console.WriteLine(player.userName);
-            Console.WriteLine(player.email);
-            lblNameUsuario.Content = player.userName;
-            this.playerInfo = player;
-        }
-
-        
+       
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClienteJuego.ConnectService;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,15 @@ namespace ClienteJuego.Views
     /// </summary>
     public partial class AccountView : Page
     {
+
+        
         public AccountView()
         {
             InitializeComponent();
+            string selected_dept = (App.Current as App).DeptName;
+            //ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
+            MessageBox.Show(selected_dept);
+            //Player playerInfo = client.SearchPlayer(player.userName);
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)

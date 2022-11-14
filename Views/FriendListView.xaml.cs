@@ -12,20 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ClienteJuego.Views;
 
-namespace ClienteJuego
+namespace ClienteJuego.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for FriendListView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class FriendListView : Page
     {
-        public MainWindow()
+        public FriendListView()
         {
             InitializeComponent();
-            Contenedor.NavigationService.Navigate(new LoginView());
-            
         }
     }
 }

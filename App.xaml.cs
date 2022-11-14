@@ -13,6 +13,8 @@ namespace ClienteJuego
     /// </summary>
     public partial class App : Application
     {
+
+        public string DeptName { get; set; }
         App()
         {
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("es-MX");
