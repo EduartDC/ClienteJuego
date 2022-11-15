@@ -35,11 +35,6 @@ namespace ClienteJuego.Views
             NavigationService.Navigate(new Uri("Views/TableroView.xaml", UriKind.Relative));
         }
 
-        private void btnCancel_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Uri("Views/InicioView.xaml", UriKind.Relative));
-        }
-
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("Views/InicioView.xaml", UriKind.Relative));

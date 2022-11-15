@@ -304,5 +304,11 @@
     <Resource Include="Avatars\avatarTres.jpg" />
     <Resource Include="Avatars\avatarUno.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\iconMexico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\iconUSA.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
