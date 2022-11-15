@@ -71,18 +71,6 @@
                  />
             </Button.Background>
         </Button>
-        <Button 
-            x:Name="btnCancel" 
-            Content="{x:Static p:Resources.btnCancel}" 
-            HorizontalAlignment="Left" 
-            Margin="314,482,0,0" 
-            VerticalAlignment="Top" 
-            Background="#FFFF8906" 
-            Height="67" Width="180" 
-            Foreground="White" 
-            FontWeight="Bold" 
-            FontSize="22" Click="btnCancel_Click"
-         />
         <Label 
             x:Name="lblSingleMode" 
             Content="{x:Static p:Resources.lblSingleMode}" 
