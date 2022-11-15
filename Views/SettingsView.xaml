@@ -38,41 +38,10 @@
             HorizontalContentAlignment="Center"
          />
         <Label 
-            x:Name="lblTheme" 
-            Content="{x:Static p:Resources.lblTheme}" 
-            HorizontalAlignment="Center" 
-            Margin="0,116,0,0" 
-            VerticalAlignment="Top" 
-            Foreground="White" 
-            FontWeight="Bold" 
-            FontSize="22" 
-            Width="308" 
-            VerticalContentAlignment="Center" 
-            HorizontalContentAlignment="Center"
-         />
-        <RadioButton x:Name="radioBtnDark"            
-            Content="{x:Static p:Resources.radioBtnDark}" 
-            HorizontalAlignment="Left" 
-            Margin="246,167,0,0" 
-            VerticalAlignment="Top"
-                     Foreground="White" 
-                     FontWeight="Bold" 
-                     FontSize="18"
-         />
-        <RadioButton x:Name="radioBtnNormal"            
-            Content="Normal" 
-            HorizontalAlignment="Left" 
-            Margin="454,167,0,0" 
-            VerticalAlignment="Top"
-                     Foreground="White" 
-                     FontWeight="Bold" 
-                     FontSize="18"
-         />
-        <Label 
             x:Name="lblLanguage" 
             Content="{x:Static p:Resources.lblLanguage}" 
             HorizontalAlignment="Center" 
-            Margin="0,214,0,0" 
+            Margin="0,109,0,0" 
             VerticalAlignment="Top" 
             Foreground="White" 
             FontWeight="Bold" 
@@ -80,21 +49,6 @@
             Width="308" 
             VerticalContentAlignment="Center" 
             HorizontalContentAlignment="Center"
-         />
-        <RadioButton x:Name="radioBSpanish"            
-            Content="{x:Static p:Resources.radioBSpanish}" 
-            HorizontalAlignment="Left" 
-            Margin="246,265,0,0" 
-            VerticalAlignment="Top" 
-                     Foreground="White" 
-                     FontWeight="Bold" 
-                     FontSize="18"
-         />
-        <RadioButton x:Name="radioBEnglish"            
-            Content="{x:Static p:Resources.radioBEnglish}" 
-            HorizontalAlignment="Left" 
-            Margin="454,265,0,0" 
-            VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="18"
          />
         <Button x:Name="btnCancel" 
             Content="{x:Static p:Resources.btnCancel}" 
@@ -115,6 +69,48 @@
             Foreground="White" 
             FontWeight="Bold" 
             FontSize="16" Height="40" Width="105" Click="btnSave_Click"
+         />
+        <Image 
+            HorizontalAlignment="Left" 
+            Height="42" Margin="222,150,0,0" 
+            VerticalAlignment="Top" 
+            Width="63" 
+            Source="/Views/iconMexico.png"
+         />
+        <Image 
+            HorizontalAlignment="Left" 
+            Height="39" Margin="439,148,0,0" 
+            VerticalAlignment="Top" 
+            Width="51" 
+            Source="/Images/iconUSA.png"
+         />
+        <Button 
+            x:Name="btnSpanishLanguage" 
+            HorizontalContentAlignment="Right" 
+            Content="{x:Static p:Resources.radioBSpanish}" 
+            HorizontalAlignment="Left" 
+            Margin="222,148,0,0" 
+            VerticalAlignment="Top" 
+            Foreground="White" 
+            Background="#00000000" 
+            FontWeight="Bold" 
+            FontSize="18" 
+            Width="129" 
+            Height="44" BorderBrush="#00000000"
+         />
+        <Button 
+            x:Name="btnEnglishLanguage" 
+            HorizontalContentAlignment="Right" 
+            Content="{x:Static p:Resources.radioBEnglish}" 
+            HorizontalAlignment="Left" 
+            Margin="439,148,0,0" 
+            VerticalAlignment="Top" 
+            Foreground="White" 
+            Background="#00000000" 
+            FontWeight="Bold" 
+            FontSize="18" 
+            Width="105" 
+            Height="44" BorderBrush="#00000000"
          />
 
     </Grid>

@@ -88,6 +88,15 @@ namespace ClienteJuego.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Log Out.
+        /// </summary>
+        public static string btnLogOut {
+            get {
+                return ResourceManager.GetString("btnLogOut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a To Play!.
         /// </summary>
         public static string btnPlay {
