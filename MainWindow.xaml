@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClienteJuego"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800">
+        Title="100 Mexicanos Dijeron" Height="600" Width="800"
+        MaxHeight="600" MaxWidth="800">
     <Grid>
         <Frame x:Name="Contenedor" NavigationUIVisibility="Hidden"/>
     </Grid>

@@ -49,7 +49,7 @@ namespace ClienteJuego.Views
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("Views/EditAccountsView.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("Views/EditAccountView.xaml", UriKind.Relative));
         }
     }
 }

@@ -49,7 +49,7 @@ namespace ClienteJuego.Views
             }
             else if (!ValidatePlayerExistence(player))
             {
-
+                MessageBox.Show("Exte usuario ya se encuentra registrado, Utilice otro correo y otro nombre de usuario.");
             }
             else
             {
@@ -64,6 +64,7 @@ namespace ClienteJuego.Views
                     else
                     {
                         MessageBox.Show("Successful registration.");
+                        ClearFields();
                     }
                 }
                 catch (EndpointNotFoundException)
@@ -157,7 +158,15 @@ namespace ClienteJuego.Views
                 return false;
             }
         }
-
+        public void ClearFields()
+        {
+            textFirsName.Text = "";
+            textLastName.Text = "";
+            textEmail.Text = "";
+            textUserName.Text = "";
+            textPassword.Password = "";
+                
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 

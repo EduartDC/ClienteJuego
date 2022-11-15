@@ -85,7 +85,7 @@
                Foreground="White" 
                FontSize="22" 
                FontWeight="Bold" 
-               Width="142"/>
+               Width="156"/>
         <Label Content="{x:Static p:Resources.btnLogOut}" 
                HorizontalAlignment="Left" 
                Margin="412,430,0,0" 
@@ -190,14 +190,14 @@
                 VerticalAlignment="Top" 
                 Background="{x:Null}" 
                 BorderBrush="#00000000" 
-                Width="227" 
+                Width="226" 
                 Height="68" 
                 Click="btnSettings_Click" 
             Foreground="White" 
             FontWeight="Bold" 
             FontSize="22"
             HorizontalAlignment="Left" 
-            Margin="327,333,0,0"
+            Margin="330,333,0,0"
          />
         <Button 
                 x:Name="btnLogOut"

@@ -4,76 +4,62 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ClienteJuego.Views"
-      mc:Ignorable="d" 
+      mc:Ignorable="d"
+      xmlns:p = "clr-namespace:ClienteJuego.Properties"
       d:DesignHeight="600" d:DesignWidth="800"
       MaxHeight="600" MaxWidth="800"
       Title="AccountView">
 
     <Grid Background="#0f0e17">
         <Image Source="/Avatars/avatarCuatro.jpg" 
-               Margin="308,92,308,338" />
+               Margin="314,88,314,342"/>
         <Button x:Name="btnCancel" 
                 Content="Cancel" 
                 HorizontalAlignment="Left" 
-                Margin="219,504,0,0" 
-                VerticalAlignment="Top" 
+                Margin="219,0,0,70" 
                 Foreground="White" 
                 FontWeight="Bold" 
                 Background="#FFCC720B" 
-                Height="26" 
-                Width="137" Click="btnCancel_Click"/>
+                Width="137" Click="btnCancel_Click" Height="26" VerticalAlignment="Bottom"/>
         <Button x:Name="btnEdit" 
                 Content="Edit" 
-                HorizontalAlignment="Left" 
-                Margin="430,504,0,0" 
-                VerticalAlignment="Top" 
+                Margin="430,0,0,70" 
                 Background="#FFFF8906" 
                 FontWeight="Bold" 
-                Foreground="White" 
-                Height="26" 
-                Width="136" Click="btnEdit_Click"/>
+                Foreground="White" Click="btnEdit_Click" HorizontalAlignment="Left" Width="136" Height="26" VerticalAlignment="Bottom"/>
         <TextBox x:Name="textNombre" 
-                 HorizontalAlignment="Center" 
-                 Margin="0,300,0,0" 
+                 Margin="340,313,340,0" 
                  TextWrapping="Wrap" 
                  Text="TextBox" 
                  VerticalAlignment="Top" 
-                 Width="120" 
                  BorderBrush="{x:Null}" 
                  Foreground="White" 
                  FontSize="14" 
                  Background="{x:Null}" 
-                 FontWeight="Bold"/>
+                 FontWeight="Bold" 
+                 IsEnabled="False"/>
         <TextBox x:Name="textEmail" 
-                 HorizontalAlignment="Center" 
-                 Margin="0,346,0,0" 
+                 Margin="340,362,209,0" 
                  TextWrapping="Wrap" 
                  Text="TextBox" 
                  VerticalAlignment="Top" 
-                 Width="120" 
                  Background="{x:Null}" 
                  Foreground="White" 
                  FontSize="14" 
                  FontWeight="Bold" 
-                 BorderBrush="{x:Null}"/>
+                 BorderBrush="{x:Null}" 
+                 IsEnabled="False"/>
         <TextBox x:Name="textUserName" 
-                 HorizontalAlignment="Center" 
-                 Margin="0,390,0,0" 
+                 Margin="340,419,340,0" 
                  TextWrapping="Wrap" 
                  Text="TextBox" 
                  VerticalAlignment="Top" 
-                 Width="120" 
                  Background="{x:Null}" 
                  BorderBrush="{x:Null}" 
                  Foreground="White" 
                  FontSize="14" 
-                 FontWeight="Bold"/>
-        <PasswordBox HorizontalAlignment="Center" 
-                     Margin="0,436,0,0" 
-                     VerticalAlignment="Top" 
-                     Width="120" 
-                     Background="{x:Null}" 
-                     BorderBrush="{x:Null}"/>
+                 FontWeight="Bold" 
+                 IsEnabled="False"/>
         <Image Source="/Images/ok3.png" 
                Margin="393,74,-196,72"
                RenderTransformOrigin="0.5,0.5" 
@@ -87,6 +73,26 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
+        <Label Content="{x:Static p:Resources.lblFirstName}" 
+               Margin="340,287,275,0" 
+               VerticalAlignment="Top" 
+               Foreground="White" 
+               FontSize="16" 
+               FontWeight="Bold"/>
+        <Label Content="{x:Static p:Resources.lblEmail}" 
+               Margin="340,334,275,0" 
+               VerticalAlignment="Top" 
+               Foreground="White" 
+               FontSize="16" 
+               FontWeight="Bold"/>
+        <Label Content="{x:Static p:Resources.lblUserName}" 
+               Margin="340,388,275,0" 
+               VerticalAlignment="Top" 
+               Foreground="White" 
+               FontSize="16" 
+               FontWeight="Bold" 
+               Height="31" 
+               />
 
 
     </Grid>

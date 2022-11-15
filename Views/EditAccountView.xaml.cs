@@ -32,7 +32,12 @@ namespace ClienteJuego.Views
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-
+            
+            int resultado = (int)MessageBox.Show("¿Estás seguro(a) de salir? No se guardarán las modificaciones.", "Cuidado!", MessageBoxButton.YesNo);
+            if (resultado == 6)
+            {
+                NavigationService.Navigate(new Uri("Views/AccountView.xaml", UriKind.Relative));
+            }
         }
     }
 }
