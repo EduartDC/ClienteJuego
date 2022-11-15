@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
-using System.ServiceModel.Configuration;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -18,24 +16,23 @@ using System.Windows.Shapes;
 namespace ClienteJuego.Views
 {
     /// <summary>
-    /// Interaction logic for SettingsView.xaml
+    /// Interaction logic for EditAccountView.xaml
     /// </summary>
-    public partial class SettingsView : Page
+    public partial class EditAccountView : Page
     {
-        private readonly Configuration configuration;
-        public SettingsView()
+        public EditAccountView()
         {
             InitializeComponent();
         }
 
-        private void btnCancel_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Uri("Views/MenuOptionsView.xaml", UriKind.Relative));
-        }
-
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            
+
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

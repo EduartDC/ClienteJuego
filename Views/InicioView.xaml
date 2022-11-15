@@ -10,7 +10,6 @@
       MaxHeight="600" MaxWidth="800"
       Title="InicioView">
 
-
     <Grid Background="#FF0F0E17" >
         <Grid.RowDefinitions>
             <RowDefinition Height="600"/>
@@ -85,7 +84,7 @@
                  TextWrapping="Wrap" 
                  Text="TextBox" 
                  VerticalAlignment="Top" 
-                 Width="140" 
+                 Width="254" 
                  Height="33" 
                  Foreground="White" 
                  FontWeight="Bold" 

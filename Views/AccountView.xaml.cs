@@ -21,20 +21,35 @@ namespace ClienteJuego.Views
     /// </summary>
     public partial class AccountView : Page
     {
-
+        String userName;
         
         public AccountView()
         {
             InitializeComponent();
-            string selected_dept = (App.Current as App).DeptName;
-            //ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
-            MessageBox.Show(selected_dept);
-            //Player playerInfo = client.SearchPlayer(player.userName);
+            userName = (App.Current as App).DeptName;
+            Player player = LoadData();
+            
+            textNombre.Text = player.firstName + " " + player.lastName;
+            textEmail.Text = player.email;
+            textUserName.Text = player.userName;
+
+            
         }
 
+        Player LoadData()
+        {
+            ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
+            Player playerInfo = client.SearchPlayer(userName);
+            return playerInfo;
+        }
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("Views/MenuOptionsView.xaml", UriKind.Relative));
+        }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("Views/EditAccountsView.xaml", UriKind.Relative));
         }
     }
 }

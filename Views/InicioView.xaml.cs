@@ -30,11 +30,9 @@ namespace ClienteJuego.Views
             InitializeComponent();
             string selected_dept = (App.Current as App).DeptName;
             userName = selected_dept;
-            TextUserName.Text = selected_dept;
+            TextUserName.Text = "Hola de nuevo "+selected_dept;
 
         }
-
-       
 
         private void btnPlay_Click(object sender, RoutedEventArgs e)
         {
@@ -55,6 +53,6 @@ namespace ClienteJuego.Views
         {
             NavigationService.Navigate(new Uri("Views/ScoreView.xaml", UriKind.Relative));
         }
-       
+
     }
 }

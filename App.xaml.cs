@@ -19,6 +19,9 @@ namespace ClienteJuego
         {
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("es-MX");
             //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-USA"); 
+
+            
         }
+
     }
 }
