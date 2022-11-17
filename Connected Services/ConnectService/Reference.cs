@@ -747,11 +747,17 @@ namespace ClienteJuego.ConnectService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/ValidatePlayer", ReplyAction="http://tempuri.org/IUserManager/ValidatePlayerResponse")]
         System.Threading.Tasks.Task<int> ValidatePlayerAsync(ClienteJuego.ConnectService.Player player);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/ValidateExistantPlayer", ReplyAction="http://tempuri.org/IUserManager/ValidateExistantPlayerResponse")]
-        int ValidateExistantPlayer(ClienteJuego.ConnectService.Player player);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/ValidateEmailPlayer", ReplyAction="http://tempuri.org/IUserManager/ValidateEmailPlayerResponse")]
+        int ValidateEmailPlayer(ClienteJuego.ConnectService.Player player);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/ValidateExistantPlayer", ReplyAction="http://tempuri.org/IUserManager/ValidateExistantPlayerResponse")]
-        System.Threading.Tasks.Task<int> ValidateExistantPlayerAsync(ClienteJuego.ConnectService.Player player);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/ValidateEmailPlayer", ReplyAction="http://tempuri.org/IUserManager/ValidateEmailPlayerResponse")]
+        System.Threading.Tasks.Task<int> ValidateEmailPlayerAsync(ClienteJuego.ConnectService.Player player);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/ValidateUserNamePlayer", ReplyAction="http://tempuri.org/IUserManager/ValidateUserNamePlayerResponse")]
+        int ValidateUserNamePlayer(ClienteJuego.ConnectService.Player player);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/ValidateUserNamePlayer", ReplyAction="http://tempuri.org/IUserManager/ValidateUserNamePlayerResponse")]
+        System.Threading.Tasks.Task<int> ValidateUserNamePlayerAsync(ClienteJuego.ConnectService.Player player);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/UpdatePlayer", ReplyAction="http://tempuri.org/IUserManager/UpdatePlayerResponse")]
         int UpdatePlayer(ClienteJuego.ConnectService.Player newPlayer);
@@ -809,12 +815,20 @@ namespace ClienteJuego.ConnectService {
             return base.Channel.ValidatePlayerAsync(player);
         }
         
-        public int ValidateExistantPlayer(ClienteJuego.ConnectService.Player player) {
-            return base.Channel.ValidateExistantPlayer(player);
+        public int ValidateEmailPlayer(ClienteJuego.ConnectService.Player player) {
+            return base.Channel.ValidateEmailPlayer(player);
         }
         
-        public System.Threading.Tasks.Task<int> ValidateExistantPlayerAsync(ClienteJuego.ConnectService.Player player) {
-            return base.Channel.ValidateExistantPlayerAsync(player);
+        public System.Threading.Tasks.Task<int> ValidateEmailPlayerAsync(ClienteJuego.ConnectService.Player player) {
+            return base.Channel.ValidateEmailPlayerAsync(player);
+        }
+        
+        public int ValidateUserNamePlayer(ClienteJuego.ConnectService.Player player) {
+            return base.Channel.ValidateUserNamePlayer(player);
+        }
+        
+        public System.Threading.Tasks.Task<int> ValidateUserNamePlayerAsync(ClienteJuego.ConnectService.Player player) {
+            return base.Channel.ValidateUserNamePlayerAsync(player);
         }
         
         public int UpdatePlayer(ClienteJuego.ConnectService.Player newPlayer) {

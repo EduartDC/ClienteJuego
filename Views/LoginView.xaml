@@ -57,7 +57,7 @@
             HorizontalAlignment="Left" 
             Margin="326,326,0,0" 
             VerticalAlignment="Top" 
-            Foreground="#FF6E7471" 
+            Foreground="#FFA7A9BE" 
             Width="120" 
             Height="28" 
             VerticalContentAlignment="Center" 
@@ -84,9 +84,9 @@
             x:Name="lblExamplePassword" 
             Content="●●●●●●●●●●" 
             HorizontalAlignment="Left" 
-            Margin="340,400,0,0" 
+            Margin="340,396,0,0" 
             VerticalAlignment="Top" 
-            Foreground="#FF6B7471" 
+            Foreground="#FFA7A9BE" 
             Width="99"
         />
         <PasswordBox 

@@ -104,6 +104,39 @@
             VerticalAlignment="Top" 
             Foreground="#FFA7A9BE"
         />
+        <Label 
+            x:Name="lblExamplePassword" 
+            Content="●●●●●●●●●●" 
+            HorizontalAlignment="Left" 
+            Margin="297,399,0,0" 
+            VerticalAlignment="Top" 
+            Foreground="#FFA7A9BE" 
+            Width="99"
+        />
+        <Label 
+            x:Name="lblExampleLastName" 
+            Content="{x:Static p:Resources.lblExampleLastName}" 
+            HorizontalAlignment="Left" 
+            Margin="300,224,0,0" 
+            VerticalAlignment="Top" 
+            Foreground="#FFA7A9BE"
+        />
+        <Label 
+            x:Name="lblExampleEmail" 
+            Content="{x:Static p:Resources.lblExampleEmail}" 
+            HorizontalAlignment="Left" 
+            Margin="300,283,0,0" 
+            VerticalAlignment="Top" 
+            Foreground="#FFA7A9BE"
+        />
+        <Label 
+            x:Name="lblExampleUser" 
+            Content="{x:Static p:Resources.lblExampleUser}" 
+            HorizontalAlignment="Left" 
+            Margin="300,340,0,0" 
+            VerticalAlignment="Top" 
+            Foreground="#FFA7A9BE"
+        />
         <TextBox 
             x:Name="textFirsName" 
             Margin="0,173,0,0" 
@@ -133,30 +166,6 @@
             LostFocus="TextLastName_LostFocus" 
             GotFocus="TextLastName_GotFocus" 
             KeyDown="TextLastName_KeyDown"
-        />
-        <Label 
-            x:Name="lblExampleLastName" 
-            Content="{x:Static p:Resources.lblExampleLastName}" 
-            HorizontalAlignment="Left" 
-            Margin="300,224,0,0" 
-            VerticalAlignment="Top" 
-            Foreground="#FFA7A9BE"
-        />
-        <Label 
-            x:Name="lblExampleEmail" 
-            Content="{x:Static p:Resources.lblExampleEmail}" 
-            HorizontalAlignment="Left" 
-            Margin="300,283,0,0" 
-            VerticalAlignment="Top" 
-            Foreground="#FFA7A9BE"
-        />
-        <Label 
-            x:Name="lblExampleUser" 
-            Content="{x:Static p:Resources.lblExampleUser}" 
-            HorizontalAlignment="Left" 
-            Margin="300,340,0,0" 
-            VerticalAlignment="Top" 
-            Foreground="#FFA7A9BE"
         />
         <TextBox 
             x:Name="textEmail" 
@@ -198,8 +207,12 @@
             Background="{x:Null}" 
             Foreground="#FFA7A9BE" 
             Height="24" 
-            KeyDown="TextPassword_KeyDown"
+            KeyDown="TextPassword_KeyDown" 
+            GotFocus="textPassword_GotFocus" 
+            LostFocus="textPassword_LostFocus"
         />
+        
+        
 
 
     </Grid>

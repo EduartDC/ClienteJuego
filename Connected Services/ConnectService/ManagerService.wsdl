@@ -107,11 +107,17 @@
   <wsdl:message name="IUserManager_ValidatePlayer_OutputMessage">
     <wsdl:part name="parameters" element="tns:ValidatePlayerResponse" />
   </wsdl:message>
-  <wsdl:message name="IUserManager_ValidateExistantPlayer_InputMessage">
-    <wsdl:part name="parameters" element="tns:ValidateExistantPlayer" />
+  <wsdl:message name="IUserManager_ValidateEmailPlayer_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateEmailPlayer" />
   </wsdl:message>
-  <wsdl:message name="IUserManager_ValidateExistantPlayer_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ValidateExistantPlayerResponse" />
+  <wsdl:message name="IUserManager_ValidateEmailPlayer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateEmailPlayerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserManager_ValidateUserNamePlayer_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateUserNamePlayer" />
+  </wsdl:message>
+  <wsdl:message name="IUserManager_ValidateUserNamePlayer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateUserNamePlayerResponse" />
   </wsdl:message>
   <wsdl:message name="IUserManager_UpdatePlayer_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdatePlayer" />
@@ -188,9 +194,13 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IUserManager/ValidatePlayer" message="tns:IUserManager_ValidatePlayer_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserManager/ValidatePlayerResponse" message="tns:IUserManager_ValidatePlayer_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ValidateExistantPlayer">
-      <wsdl:input wsaw:Action="http://tempuri.org/IUserManager/ValidateExistantPlayer" message="tns:IUserManager_ValidateExistantPlayer_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IUserManager/ValidateExistantPlayerResponse" message="tns:IUserManager_ValidateExistantPlayer_OutputMessage" />
+    <wsdl:operation name="ValidateEmailPlayer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserManager/ValidateEmailPlayer" message="tns:IUserManager_ValidateEmailPlayer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserManager/ValidateEmailPlayerResponse" message="tns:IUserManager_ValidateEmailPlayer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUserNamePlayer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserManager/ValidateUserNamePlayer" message="tns:IUserManager_ValidateUserNamePlayer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserManager/ValidateUserNamePlayerResponse" message="tns:IUserManager_ValidateUserNamePlayer_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="UpdatePlayer">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserManager/UpdatePlayer" message="tns:IUserManager_UpdatePlayer_InputMessage" />
@@ -270,8 +280,17 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ValidateExistantPlayer">
-      <soap12:operation soapAction="http://tempuri.org/IUserManager/ValidateExistantPlayer" style="document" />
+    <wsdl:operation name="ValidateEmailPlayer">
+      <soap12:operation soapAction="http://tempuri.org/IUserManager/ValidateEmailPlayer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUserNamePlayer">
+      <soap12:operation soapAction="http://tempuri.org/IUserManager/ValidateUserNamePlayer" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

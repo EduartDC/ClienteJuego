@@ -58,6 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Avatars\Avatar.cs" />
     <Compile Include="Connected Services\ConnectService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -305,10 +306,13 @@
     <Resource Include="Avatars\avatarUno.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Views\iconMexico.png" />
+    <Resource Include="Images\iconMexico.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\iconUSA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Avatars\avatarDef.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

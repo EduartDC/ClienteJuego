@@ -49,7 +49,7 @@ namespace ClienteJuego.Views
             }
             else if (!ValidatePlayerExistence(player))
             {
-                MessageBox.Show("Exte usuario ya se encuentra registrado, Utilice otro correo y otro nombre de usuario.");
+                
             }
             else
             {
@@ -82,10 +82,27 @@ namespace ClienteJuego.Views
         {
             ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
             var result = true;
+            
             try
             {
-                var consultResult = client.ValidateExistantPlayer(player);
-                if (consultResult == 1)
+                var validateEmail = false;
+                var validateUser = false;
+
+                var emailResult = client.ValidateEmailPlayer(player);
+                if (emailResult == 1)
+                {
+                    MessageBox.Show("Exte usuario ya se encuentra registrado, Utilice otro correo.");
+                    validateEmail = true;
+                }
+
+                var userResult = client.ValidateUserNamePlayer(player);
+                if (userResult == 1)
+                {
+                    MessageBox.Show("Exte usuario ya se encuentra registrado, Utilice otro nombre de usuario.");
+                    validateUser = true;
+                }
+
+                if (validateEmail || validateUser)
                 {
                     result = false;
                 }
@@ -264,6 +281,22 @@ namespace ClienteJuego.Views
         private void TextPassword_KeyDown(object sender, KeyEventArgs e)
         {
             Accessories.RegexSpecial(e);
+        }
+
+        private void textPassword_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (!textUserName.Text.Equals("") || !textUserName.Text.Equals(null))
+            {
+                lblExamplePassword.Visibility = Visibility.Hidden;
+
+            }
+        }
+        private void textPassword_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (textUserName.Text.Equals("") || textUserName.Text.Equals(null))
+            {
+                lblExamplePassword.Visibility = Visibility.Visible;
+            }
         }
     }
 

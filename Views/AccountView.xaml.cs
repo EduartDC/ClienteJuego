@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -38,8 +39,17 @@ namespace ClienteJuego.Views
 
         Player LoadData()
         {
-            ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
-            Player playerInfo = client.SearchPlayer(userName);
+            Player playerInfo = new Player();
+            try
+            {
+                ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
+                playerInfo = client.SearchPlayer(userName);
+
+            }
+            catch (EndpointNotFoundException)
+            {
+                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+            }
             return playerInfo;
         }
         private void btnCancel_Click(object sender, RoutedEventArgs e)

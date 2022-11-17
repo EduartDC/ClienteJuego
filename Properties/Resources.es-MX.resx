@@ -192,6 +192,9 @@
   <data name="lblMultiplayerMode" xml:space="preserve">
     <value>¡Jugar con amigos(as)!</value>
   </data>
+  <data name="lblName" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
   <data name="lblOptions" xml:space="preserve">
     <value>Opciones</value>
   </data>

@@ -55,7 +55,8 @@
             Margin="0,99,0,0" 
             VerticalAlignment="Top" 
             Width="142" 
-            Source="/Avatars/avatarOcho.jpg"
+            Source="/Avatars/avatarDef.png"
+
          />
         <Button x:Name="btnOptions" 
                 Background="{x:Null}" 
