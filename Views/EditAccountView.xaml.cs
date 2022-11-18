@@ -1,10 +1,12 @@
 ﻿using ClienteJuego.Avatars;
 using ClienteJuego.ConnectService;
+using ClienteJuego.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,6 +26,7 @@ namespace ClienteJuego.Views
     public partial class EditAccountView : Page
     {
         String userName;
+        Player playerInfo = new Player();
         public EditAccountView()
         {
             InitializeComponent();
@@ -40,7 +43,7 @@ namespace ClienteJuego.Views
 
         Player LoadData()
         {
-            Player playerInfo = new Player();
+            
             try
             {
                 ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
@@ -56,8 +59,28 @@ namespace ClienteJuego.Views
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            Avatar avatar = (Avatar)comBoxAvatar.SelectedItem;
-            Console.WriteLine(avatar.Url );
+            var password = HashPassword();
+            var userName = ValidateUserName();
+            if (ValidateFields())
+            {
+                MessageBox.Show("Los campos no pueden estar vacios.");
+            }
+            else if(password == null)
+            {
+                MessageBox.Show("Contraseña incorrecta");
+            }
+            else if (userName == null)
+            {
+
+            }
+            else
+            {
+                Avatar avatar = new Avatar();
+                avatar = comBoxAvatar.SelectedItem as Avatar;
+                Accessories.SaveProfileAvatar(playerInfo.userName, avatar.Url);
+                Accessories.LoadConfigPlayer(playerInfo.userName);
+                MessageBox.Show("Si jalo");
+            }
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
@@ -69,9 +92,86 @@ namespace ClienteJuego.Views
                 NavigationService.Navigate(new Uri("Views/AccountView.xaml", UriKind.Relative));
             }
         }
-        private void DataPlayer()
+        
+        private string ValidateUserName()
+        {
+            string userName = null;
+            
+            Player player = new Player();
+            player.userName = textUserName.Text;
+            ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
+            try
+            {
+                if (playerInfo.userName.Equals(textUserName.Text))
+                {
+                    userName = playerInfo.userName;
+                }
+                else if (client.ValidateUserNamePlayer(player) == 1)
+                {
+                    MessageBox.Show("Exte usuario ya se encuentra registrado, Utilice otro nombre de usuario.");
+
+                }
+                else
+                {
+                    userName = textUserName.Text;
+                }
+            }
+            catch (EndpointNotFoundException)
+            {
+                MessageBox.Show("Error de conexion con el servidor, Intentelo más tarde");
+            }
+
+            return userName;
+        }
+
+        private string HashPassword()
+        {
+            string password = null;
+
+            if (textPassword.Text == "")
+            {
+                 password = playerInfo.password;
+            }
+            else if (!ValidatePassword(textPassword.Text))
+            {
+                MessageBox.Show("Error ocurred, the password does not meet the requirements");
+            }
+            else if (!playerInfo.password.Equals( Accessories.Hash(textPassword.Text)))
+            {
+                MessageBox.Show("La nueva contraseña tiene que ser diferente a la antigua.");
+            }
+            else
+            {
+                 password = Accessories.Hash(textPassword.Text);
+            }
+
+
+            return password;
+        }
+
+        public bool ValidatePassword(string password)
+        {
+            var hasUpperLetter = new Regex(@"[A-Z]+");
+            var hasNumber = new Regex(@"[0-9]+");
+            var hasMiniumDigits = new Regex(@".{8,}");
+            var result = false;
+
+            if (hasNumber.IsMatch(password) &&
+                hasUpperLetter.IsMatch(password) &&
+                hasMiniumDigits.IsMatch(password))
+            {
+                result = true;
+            }
+
+            return result;
+        }
+
+        private bool ValidateFields()
         {
 
+            return string.IsNullOrEmpty(textFirstName.Text) ||
+                string.IsNullOrEmpty(textLastName.Text) ||
+                string.IsNullOrEmpty(textUserName.Text);
         }
         private void LoadCombo()
         {

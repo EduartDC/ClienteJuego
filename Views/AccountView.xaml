@@ -111,7 +111,8 @@
                HorizontalAlignment="Left" 
                Width="185" 
                />
-        <Image Source="/Avatars/avatarDef.png" 
+        <Image x:Name="imgAvatar" 
+               Source="/Avatars/avatarDef.png" 
                Margin="315,62,0,0" 
                HorizontalAlignment="Left" 
                Width="184" 

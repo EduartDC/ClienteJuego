@@ -1,4 +1,5 @@
 ﻿using ClienteJuego.ConnectService;
+using ClienteJuego.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +32,8 @@ namespace ClienteJuego.Views
             string selected_dept = (App.Current as App).DeptName;
             userName = selected_dept;
             TextUserName.Text = "Hola de nuevo "+selected_dept;
+            ImageSource imageSource = new ImageSourceConverter().ConvertFromString(Accessories.LoadConfigPlayer(selected_dept)) as ImageSource;
+            imgAvatar.Source = imageSource;
 
         }
 

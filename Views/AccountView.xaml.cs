@@ -1,4 +1,5 @@
 ﻿using ClienteJuego.ConnectService;
+using ClienteJuego.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +35,9 @@ namespace ClienteJuego.Views
             textEmail.Text = player.email;
             textUserName.Text = player.userName;
 
-            
+            ImageSource imageSource = new ImageSourceConverter().ConvertFromString(Accessories.LoadConfigPlayer(userName)) as ImageSource;
+            imgAvatar.Source = imageSource;
+
         }
 
         Player LoadData()

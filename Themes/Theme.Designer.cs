@@ -61,7 +61,7 @@ namespace ClienteJuego.Themes {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to FFFF8906.
+        ///   Looks up a localized string similar to #FFFF8906.
         /// </summary>
         public static string colAzul {
             get {
