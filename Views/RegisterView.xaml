@@ -180,7 +180,7 @@
             Margin="0,286,0,0" 
             GotFocus="TextEmail_GotFocus" 
             LostFocus="TextEmail_LostFocus" 
-            KeyDown="TextEmail_KeyDown"
+            
         />
         <TextBox 
             x:Name="textUserName" 

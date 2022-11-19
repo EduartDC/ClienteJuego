@@ -57,11 +57,13 @@ namespace ClienteJuego.Views
         }
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
+            Accessories.PlaySoundsEffects();
             NavigationService.Navigate(new Uri("Views/MenuOptionsView.xaml", UriKind.Relative));
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
+            Accessories.PlaySoundsEffects();
             NavigationService.Navigate(new Uri("Views/EditAccountView.xaml", UriKind.Relative));
         }
     }

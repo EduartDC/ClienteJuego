@@ -59,6 +59,7 @@ namespace ClienteJuego.Views
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
+            Accessories.PlaySoundsEffects();
             var password = HashPassword();
             var userName = ValidateUserName();
             if (ValidateFields())
@@ -79,13 +80,44 @@ namespace ClienteJuego.Views
                 avatar = comBoxAvatar.SelectedItem as Avatar;
                 Accessories.SaveProfileAvatar(playerInfo.userName, avatar.Url);
                 Accessories.LoadConfigPlayer(playerInfo.userName);
-                MessageBox.Show("Si jalo");
+                ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
+                Player player = DataPlayer();
+                if (!ValidateInfo(player))
+                {
+                    try
+                    {
+
+
+                        var result = client.UpdatePlayer(player);
+                        if (result == 1)
+                        {
+                            MessageBox.Show("Exito");
+                            NavigationService.Navigate(new Uri("Views/AccountView.xaml", UriKind.Relative));
+                        }
+                        else
+                        {
+                            MessageBox.Show("El sistema no pudo guardar el cambio");
+                        }
+                    }
+                    catch (EndpointNotFoundException)
+                    {
+                        MessageBox.Show("Error de conexion con el servidor, Intentelo más tarde");
+                    }
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Exito");
+                    NavigationService.Navigate(new Uri("Views/AccountView.xaml", UriKind.Relative));
+                }
+                
             }
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            
+            Accessories.PlaySoundsEffects();
+
             int resultado = (int)MessageBox.Show("¿Estás seguro(a) de salir? No se guardarán las modificaciones.", "Cuidado!", MessageBoxButton.YesNo);
             if (resultado == 6)
             {
@@ -93,6 +125,33 @@ namespace ClienteJuego.Views
             }
         }
         
+        private bool ValidateInfo(Player player)
+        {
+            var result = false;
+            if (playerInfo.firstName.Equals(player.firstName) &&
+            playerInfo.lastName.Equals( player.lastName) &&
+            playerInfo.userName.Equals( player.userName) &&
+            playerInfo.password.Equals( player.password))
+            {
+                result = true;
+            }
+            
+
+            return result;
+        }
+        
+        private Player DataPlayer()
+        {
+            Player player = new Player();
+            player.idPlayer = playerInfo.idPlayer;
+            player.firstName = textFirstName.Text;
+            player.lastName = textLastName.Text;
+            player.userName = textUserName.Text;
+            player.password = HashPassword();
+
+            return player;
+        }
+
         private string ValidateUserName()
         {
             string userName = null;
@@ -240,6 +299,26 @@ namespace ClienteJuego.Views
                 lblExamplePassword.Visibility = Visibility.Hidden;
 
             }
+        }
+
+        private void textFirstName_KeyDown(object sender, KeyEventArgs e)
+        {
+            Accessories.RegexSpecial(e);
+        }
+
+        private void textLastName_KeyDown(object sender, KeyEventArgs e)
+        {
+            Accessories.RegexSpecial(e);
+        }
+
+        private void textUserName_KeyDown(object sender, KeyEventArgs e)
+        {
+            Accessories.RegexSpecial(e);
+        }
+
+        private void textPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            Accessories.RegexSpecial(e);
         }
     }
 }

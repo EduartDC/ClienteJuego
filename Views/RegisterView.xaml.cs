@@ -25,12 +25,15 @@ namespace ClienteJuego.Views
     /// </summary>
     public partial class RegisterView : Page
     {
+
+
         public RegisterView()
         {
             InitializeComponent();
         }
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
+            Accessories.PlaySoundsEffects();
             ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
             Player player = PlayerData();
 
@@ -65,6 +68,7 @@ namespace ClienteJuego.Views
                     {
                         MessageBox.Show("Successful registration.");
                         ClearFields();
+                        Accessories.SaveProfileAvatar(player.userName, "/Avatars/avatarDef.png");
                     }
                 }
                 catch (EndpointNotFoundException)
@@ -186,7 +190,7 @@ namespace ClienteJuego.Views
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            Accessories.PlaySoundsEffects();
             NavigationService.Navigate(new Uri("Views/LoginView.xaml", UriKind.Relative));
 
         }
@@ -264,11 +268,6 @@ namespace ClienteJuego.Views
         }
 
         private void TextLastName_KeyDown(object sender, KeyEventArgs e)
-        {
-            Accessories.RegexSpecial(e);
-        }
-
-        private void TextEmail_KeyDown(object sender, KeyEventArgs e)
         {
             Accessories.RegexSpecial(e);
         }

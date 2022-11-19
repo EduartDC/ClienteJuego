@@ -70,7 +70,7 @@
                  Height="21" 
                  VerticalAlignment="Top" 
                  HorizontalAlignment="Left" 
-                 Width="170"/>
+                 Width="170" KeyDown="textFirstName_KeyDown"/>
         <TextBox x:Name="textLastName" 
                  Margin="315,343,0,0" 
                  TextWrapping="Wrap" 
@@ -83,7 +83,7 @@
                  Height="21" 
                  VerticalAlignment="Top" 
                  HorizontalAlignment="Left" 
-                 Width="170"/>
+                 Width="170" KeyDown="textLastName_KeyDown"/>
         <TextBox x:Name="textUserName" 
                  Margin="315,400,0,0" 
                  TextWrapping="Wrap" 
@@ -96,7 +96,7 @@
                  Height="21" 
                  VerticalAlignment="Top" 
                  HorizontalAlignment="Left" 
-                 Width="170"/>
+                 Width="170" KeyDown="textUserName_KeyDown"/>
         <TextBox x:Name="textPassword" 
                  Margin="315,465,0,0" 
                  TextWrapping="Wrap" 
@@ -109,7 +109,7 @@
                  Height="21" 
                  VerticalAlignment="Top" 
                  HorizontalAlignment="Left" 
-                 Width="170" LostFocus="textPassword_LostFocus" GotFocus="textPassword_GotFocus"/>
+                 Width="170" LostFocus="textPassword_LostFocus" GotFocus="textPassword_GotFocus" KeyDown="textPassword_KeyDown"/>
         <Label  
                Content="{x:Static p:Resources.lblFirstName}" 
                Margin="315,250,0,0" 

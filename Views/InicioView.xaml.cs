@@ -29,6 +29,7 @@ namespace ClienteJuego.Views
         public InicioView()
         {
             InitializeComponent();
+            Accessories.PlayMusic();
             string selected_dept = (App.Current as App).DeptName;
             userName = selected_dept;
             TextUserName.Text = "Hola de nuevo "+selected_dept;
@@ -39,21 +40,25 @@ namespace ClienteJuego.Views
 
         private void btnPlay_Click(object sender, RoutedEventArgs e)
         {
+            Accessories.PlaySoundsEffects();
             NavigationService.Navigate(new Uri("Views/GameModeView.xaml", UriKind.Relative));
         }
 
         private void btnOptions_Click(object sender, RoutedEventArgs e)
         {
+            Accessories.PlaySoundsEffects();
             NavigationService.Navigate(new Uri("Views/MenuOptionsView.xaml", UriKind.Relative));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            Accessories.PlaySoundsEffects();
             NavigationService.Navigate(new Uri("Views/GameModeView.xaml", UriKind.Relative));
         }
 
         private void btnScore_Click(object sender, RoutedEventArgs e)
         {
+            Accessories.PlaySoundsEffects();
             NavigationService.Navigate(new Uri("Views/ScoreView.xaml", UriKind.Relative));
         }
 

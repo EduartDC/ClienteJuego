@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClienteJuego.Properties;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,11 +33,13 @@ namespace ClienteJuego.Views
 
         private void btnSingleMode_Click(object sender, RoutedEventArgs e)
         {
+            Accessories.PlaySoundsEffects();
             NavigationService.Navigate(new Uri("Views/TableroView.xaml", UriKind.Relative));
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
+            Accessories.PlaySoundsEffects();
             NavigationService.Navigate(new Uri("Views/InicioView.xaml", UriKind.Relative));
         }
     }

@@ -30,6 +30,7 @@ namespace ClienteJuego.Views
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
+            Accessories.PlaySoundsEffects();
             ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
 
             String userName = textUserName.Text;
@@ -124,7 +125,7 @@ namespace ClienteJuego.Views
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
-
+            Accessories.PlaySoundsEffects();
             NavigationService.Navigate(new Uri("Views/RegisterView.xaml", UriKind.Relative));
 
         }
@@ -138,5 +139,7 @@ namespace ClienteJuego.Views
         {
             Accessories.RegexSpecial(e);
         }
+
+        
     }
 }

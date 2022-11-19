@@ -75,7 +75,7 @@
             Height="42" Margin="222,150,0,0" 
             VerticalAlignment="Top" 
             Width="63" 
-            Source="/Views/iconMexico.png"
+            Source="/Images/iconMexico.png"
          />
         <Image 
             HorizontalAlignment="Left" 
@@ -96,7 +96,7 @@
             FontWeight="Bold" 
             FontSize="18" 
             Width="129" 
-            Height="44" BorderBrush="#00000000"
+            Height="44" BorderBrush="#00000000" Click="btnSpanishLanguage_Click"
          />
         <Button 
             x:Name="btnEnglishLanguage" 
@@ -110,8 +110,85 @@
             FontWeight="Bold" 
             FontSize="18" 
             Width="105" 
-            Height="44" BorderBrush="#00000000"
+            Height="44" BorderBrush="#00000000" Click="btnEnglishLanguage_Click"
          />
+
+        <ToggleButton x:Name="SoundsEffects" 
+                      Margin="460,0,0,0" 
+                      
+                      Height="30" 
+                      VerticalAlignment="Center" 
+                      HorizontalAlignment="Left" 
+                      Width="84" Unchecked="SoundsUnchecked" Checked="SoundsChecked">
+            <ToggleButton.Template>
+                <ControlTemplate TargetType="ToggleButton">
+                    <Border x:Name="B1" 
+                            Background="#FFD05757" 
+                            CornerRadius="3" 
+                            Padding=".3">
+                        <Border x:Name="B2" 
+                                Background="White" 
+                                Width="{TemplateBinding Height}" 
+                                CornerRadius="15" 
+                                HorizontalAlignment="Left">
+                            <ContentPresenter HorizontalAlignment="Left" 
+                                              Width="30" Height="29" 
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" 
+                                 Value="True">
+                            <Setter TargetName="B2" 
+                                    Property="HorizontalAlignment" 
+                                    Value="Right"/>
+                            <Setter TargetName="B1" 
+                                    Property="Background" 
+                                    Value="lightGreen"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </ToggleButton.Template>
+        </ToggleButton>
+
+        <ToggleButton x:Name="MusicEffects" 
+                      Margin="286,0,0,0" 
+                      
+                      Height="30" 
+                      VerticalAlignment="Center" 
+                      HorizontalAlignment="Left" 
+                      Width="84" Checked="MusicChecked" Unchecked="MusicUnchecked">
+            <ToggleButton.Template>
+                <ControlTemplate TargetType="ToggleButton">
+                    <Border x:Name="B1" 
+                            Background="#FFD05757" 
+                            CornerRadius="3" 
+                            Padding=".3">
+                        <Border x:Name="B2" 
+                                Background="White" 
+                                Width="{TemplateBinding Height}" 
+                                CornerRadius="15" 
+                                HorizontalAlignment="Left">
+                            <ContentPresenter HorizontalAlignment="Left" 
+                                              Width="30" Height="29" 
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" 
+                                 Value="True">
+                            <Setter TargetName="B2" 
+                                    Property="HorizontalAlignment" 
+                                    Value="Right"/>
+                            <Setter TargetName="B1" 
+                                    Property="Background" 
+                                    Value="lightGreen"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </ToggleButton.Template>
+        </ToggleButton>
+
 
     </Grid>
 </Page>
