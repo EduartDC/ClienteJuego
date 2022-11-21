@@ -89,20 +89,20 @@
   <xs:element name="Connect">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DataBase" minOccurs="0" name="client" nillable="true" type="q7:Player" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DataBase" minOccurs="0" name="player" nillable="true" type="q7:Player" />
+        <xs:element minOccurs="0" name="idMatch" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ConnectResponse">
     <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="ConnectResult" type="xs:boolean" />
-      </xs:sequence>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="Say">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="idMatch" type="xs:int" />
         <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/MessageService" minOccurs="0" name="msg" nillable="true" type="q8:Message" />
       </xs:sequence>
     </xs:complexType>
@@ -111,28 +111,28 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/MessageService" minOccurs="0" name="msg" nillable="true" type="q9:Message" />
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/DataBase" minOccurs="0" name="receiver" nillable="true" type="q10:Player" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/DataBase" minOccurs="0" name="player" nillable="true" type="q10:Player" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Disconnect">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/DataBase" minOccurs="0" name="client" nillable="true" type="q11:Player" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/DataBase" minOccurs="0" name="player" nillable="true" type="q11:Player" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="RefreshClients">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/DataBase" minOccurs="0" name="clients" nillable="true" type="q12:ArrayOfPlayer" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/DataBase" minOccurs="0" name="players" nillable="true" type="q12:ArrayOfPlayer" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Receive">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/MessageService" minOccurs="0" name="msg" nillable="true" type="q13:Message" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/MessageService" minOccurs="0" name="messages" nillable="true" type="q13:ArrayOfMessage" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -140,21 +140,21 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/MessageService" minOccurs="0" name="msg" nillable="true" type="q14:Message" />
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/DataBase" minOccurs="0" name="receiver" nillable="true" type="q15:Player" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/DataBase" minOccurs="0" name="player" nillable="true" type="q15:Player" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UserJoin">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/DataBase" minOccurs="0" name="client" nillable="true" type="q16:Player" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/DataBase" minOccurs="0" name="player" nillable="true" type="q16:Player" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UserLeave">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/DataBase" minOccurs="0" name="client" nillable="true" type="q17:Player" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/DataBase" minOccurs="0" name="player" nillable="true" type="q17:Player" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -203,6 +203,67 @@
     </xs:complexType>
   </xs:element>
   <xs:element name="ConnectToMatchResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQuestions">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQuestionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/DataBase" minOccurs="0" name="GetQuestionsResult" nillable="true" type="q23:ArrayOfQuestion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAnswers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/DataBase" minOccurs="0" name="question" nillable="true" type="q24:Question" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAnswersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/DataBase" minOccurs="0" name="GetAnswersResult" nillable="true" type="q25:ArrayOfAnswer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addPoints">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/DataBase" minOccurs="0" name="player" nillable="true" type="q26:Player" />
+        <xs:element minOccurs="0" name="score" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addPointsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addPointsResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateBoard">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateBoardResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateStrikes">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateStrikesResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>

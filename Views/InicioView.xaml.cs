@@ -30,10 +30,9 @@ namespace ClienteJuego.Views
         {
             InitializeComponent();
             Accessories.PlayMusic();
-            string selected_dept = (App.Current as App).DeptName;
-            userName = selected_dept;
-            TextUserName.Text = "Hola de nuevo "+selected_dept;
-            ImageSource imageSource = new ImageSourceConverter().ConvertFromString(Accessories.LoadConfigPlayer(selected_dept)) as ImageSource;
+            userName = (App.Current as App).DeptName;
+            TextUserName.Text = "Hola de nuevo "+ userName;
+            ImageSource imageSource = new ImageSourceConverter().ConvertFromString(Accessories.LoadConfigPlayer(userName)) as ImageSource;
             imgAvatar.Source = imageSource;
 
         }
@@ -62,5 +61,9 @@ namespace ClienteJuego.Views
             NavigationService.Navigate(new Uri("Views/ScoreView.xaml", UriKind.Relative));
         }
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("Views/ChatView.xaml", UriKind.Relative));
+        }
     }
 }

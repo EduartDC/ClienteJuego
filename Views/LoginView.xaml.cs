@@ -139,7 +139,5 @@ namespace ClienteJuego.Views
         {
             Accessories.RegexSpecial(e);
         }
-
-        
     }
 }

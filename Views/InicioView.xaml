@@ -95,6 +95,7 @@
                  Background="{x:Null}" 
                  TextAlignment="Center" 
                  IsEnabled="False"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="620,447,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
 
 
     </Grid>
