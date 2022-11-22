@@ -25,12 +25,15 @@ namespace ClienteJuego.Views
     /// </summary>
     public partial class RegisterView : Page
     {
+
+
         public RegisterView()
         {
             InitializeComponent();
         }
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
+            Accessories.PlaySoundsEffects();
             ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
             Player player = PlayerData();
 
@@ -49,7 +52,7 @@ namespace ClienteJuego.Views
             }
             else if (!ValidatePlayerExistence(player))
             {
-
+                
             }
             else
             {
@@ -64,6 +67,8 @@ namespace ClienteJuego.Views
                     else
                     {
                         MessageBox.Show("Successful registration.");
+                        ClearFields();
+                        Accessories.SaveProfileAvatar(player.userName, "/Avatars/avatarDef.png");
                     }
                 }
                 catch (EndpointNotFoundException)
@@ -81,10 +86,27 @@ namespace ClienteJuego.Views
         {
             ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
             var result = true;
+            
             try
             {
-                var consultResult = client.ValidateExistantPlayer(player);
-                if (consultResult == 1)
+                var validateEmail = false;
+                var validateUser = false;
+
+                var emailResult = client.ValidateEmailPlayer(player);
+                if (emailResult == 1)
+                {
+                    MessageBox.Show("Exte usuario ya se encuentra registrado, Utilice otro correo.");
+                    validateEmail = true;
+                }
+
+                var userResult = client.ValidateUserNamePlayer(player);
+                if (userResult == 1)
+                {
+                    MessageBox.Show("Exte usuario ya se encuentra registrado, Utilice otro nombre de usuario.");
+                    validateUser = true;
+                }
+
+                if (validateEmail || validateUser)
                 {
                     result = false;
                 }
@@ -157,10 +179,18 @@ namespace ClienteJuego.Views
                 return false;
             }
         }
-
+        public void ClearFields()
+        {
+            textFirsName.Text = "";
+            textLastName.Text = "";
+            textEmail.Text = "";
+            textUserName.Text = "";
+            textPassword.Password = "";
+                
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            Accessories.PlaySoundsEffects();
             NavigationService.Navigate(new Uri("Views/LoginView.xaml", UriKind.Relative));
 
         }
@@ -242,11 +272,6 @@ namespace ClienteJuego.Views
             Accessories.RegexSpecial(e);
         }
 
-        private void TextEmail_KeyDown(object sender, KeyEventArgs e)
-        {
-            Accessories.RegexSpecial(e);
-        }
-
         private void TextUserName_KeyDown(object sender, KeyEventArgs e)
         {
             Accessories.RegexSpecial(e);
@@ -255,6 +280,22 @@ namespace ClienteJuego.Views
         private void TextPassword_KeyDown(object sender, KeyEventArgs e)
         {
             Accessories.RegexSpecial(e);
+        }
+
+        private void textPassword_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (!textUserName.Text.Equals("") || !textUserName.Text.Equals(null))
+            {
+                lblExamplePassword.Visibility = Visibility.Hidden;
+
+            }
+        }
+        private void textPassword_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (textUserName.Text.Equals("") || textUserName.Text.Equals(null))
+            {
+                lblExamplePassword.Visibility = Visibility.Visible;
+            }
         }
     }
 

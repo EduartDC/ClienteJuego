@@ -669,9 +669,6 @@ namespace ClienteJuego.ConnectService {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SenderField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime TimeField;
-        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -708,19 +705,6 @@ namespace ClienteJuego.ConnectService {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime Time {
-            get {
-                return this.TimeField;
-            }
-            set {
-                if ((this.TimeField.Equals(value) != true)) {
-                    this.TimeField = value;
-                    this.RaisePropertyChanged("Time");
-                }
-            }
-        }
-        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -747,11 +731,17 @@ namespace ClienteJuego.ConnectService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/ValidatePlayer", ReplyAction="http://tempuri.org/IUserManager/ValidatePlayerResponse")]
         System.Threading.Tasks.Task<int> ValidatePlayerAsync(ClienteJuego.ConnectService.Player player);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/ValidateExistantPlayer", ReplyAction="http://tempuri.org/IUserManager/ValidateExistantPlayerResponse")]
-        int ValidateExistantPlayer(ClienteJuego.ConnectService.Player player);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/ValidateEmailPlayer", ReplyAction="http://tempuri.org/IUserManager/ValidateEmailPlayerResponse")]
+        int ValidateEmailPlayer(ClienteJuego.ConnectService.Player player);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/ValidateExistantPlayer", ReplyAction="http://tempuri.org/IUserManager/ValidateExistantPlayerResponse")]
-        System.Threading.Tasks.Task<int> ValidateExistantPlayerAsync(ClienteJuego.ConnectService.Player player);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/ValidateEmailPlayer", ReplyAction="http://tempuri.org/IUserManager/ValidateEmailPlayerResponse")]
+        System.Threading.Tasks.Task<int> ValidateEmailPlayerAsync(ClienteJuego.ConnectService.Player player);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/ValidateUserNamePlayer", ReplyAction="http://tempuri.org/IUserManager/ValidateUserNamePlayerResponse")]
+        int ValidateUserNamePlayer(ClienteJuego.ConnectService.Player player);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/ValidateUserNamePlayer", ReplyAction="http://tempuri.org/IUserManager/ValidateUserNamePlayerResponse")]
+        System.Threading.Tasks.Task<int> ValidateUserNamePlayerAsync(ClienteJuego.ConnectService.Player player);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/UpdatePlayer", ReplyAction="http://tempuri.org/IUserManager/UpdatePlayerResponse")]
         int UpdatePlayer(ClienteJuego.ConnectService.Player newPlayer);
@@ -809,12 +799,20 @@ namespace ClienteJuego.ConnectService {
             return base.Channel.ValidatePlayerAsync(player);
         }
         
-        public int ValidateExistantPlayer(ClienteJuego.ConnectService.Player player) {
-            return base.Channel.ValidateExistantPlayer(player);
+        public int ValidateEmailPlayer(ClienteJuego.ConnectService.Player player) {
+            return base.Channel.ValidateEmailPlayer(player);
         }
         
-        public System.Threading.Tasks.Task<int> ValidateExistantPlayerAsync(ClienteJuego.ConnectService.Player player) {
-            return base.Channel.ValidateExistantPlayerAsync(player);
+        public System.Threading.Tasks.Task<int> ValidateEmailPlayerAsync(ClienteJuego.ConnectService.Player player) {
+            return base.Channel.ValidateEmailPlayerAsync(player);
+        }
+        
+        public int ValidateUserNamePlayer(ClienteJuego.ConnectService.Player player) {
+            return base.Channel.ValidateUserNamePlayer(player);
+        }
+        
+        public System.Threading.Tasks.Task<int> ValidateUserNamePlayerAsync(ClienteJuego.ConnectService.Player player) {
+            return base.Channel.ValidateUserNamePlayerAsync(player);
         }
         
         public int UpdatePlayer(ClienteJuego.ConnectService.Player newPlayer) {
@@ -839,47 +837,47 @@ namespace ClienteJuego.ConnectService {
     public interface IChatService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChatService/Connect", ReplyAction="http://tempuri.org/IChatService/ConnectResponse")]
-        bool Connect(ClienteJuego.ConnectService.Player client);
+        void Connect(ClienteJuego.ConnectService.Player player, int idMatch);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChatService/Connect", ReplyAction="http://tempuri.org/IChatService/ConnectResponse")]
-        System.Threading.Tasks.Task<bool> ConnectAsync(ClienteJuego.ConnectService.Player client);
+        System.Threading.Tasks.Task ConnectAsync(ClienteJuego.ConnectService.Player player, int idMatch);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/Say")]
-        void Say(ClienteJuego.ConnectService.Message msg);
+        void Say(int idMatch, ClienteJuego.ConnectService.Message msg);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/Say")]
-        System.Threading.Tasks.Task SayAsync(ClienteJuego.ConnectService.Message msg);
+        System.Threading.Tasks.Task SayAsync(int idMatch, ClienteJuego.ConnectService.Message msg);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/Whisper")]
-        void Whisper(ClienteJuego.ConnectService.Message msg, ClienteJuego.ConnectService.Player receiver);
+        void Whisper(ClienteJuego.ConnectService.Message msg, ClienteJuego.ConnectService.Player player);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/Whisper")]
-        System.Threading.Tasks.Task WhisperAsync(ClienteJuego.ConnectService.Message msg, ClienteJuego.ConnectService.Player receiver);
+        System.Threading.Tasks.Task WhisperAsync(ClienteJuego.ConnectService.Message msg, ClienteJuego.ConnectService.Player player);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, IsTerminating=true, Action="http://tempuri.org/IChatService/Disconnect")]
-        void Disconnect(ClienteJuego.ConnectService.Player client);
+        void Disconnect(ClienteJuego.ConnectService.Player player);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, IsTerminating=true, Action="http://tempuri.org/IChatService/Disconnect")]
-        System.Threading.Tasks.Task DisconnectAsync(ClienteJuego.ConnectService.Player client);
+        System.Threading.Tasks.Task DisconnectAsync(ClienteJuego.ConnectService.Player player);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IChatServiceCallback {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/RefreshClients")]
-        void RefreshClients(ClienteJuego.ConnectService.Player[] clients);
+        void RefreshClients(ClienteJuego.ConnectService.Player[] players);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/Receive")]
-        void Receive(ClienteJuego.ConnectService.Message msg);
+        void Receive(ClienteJuego.ConnectService.Message[] messages);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/ReceiveWhisper")]
-        void ReceiveWhisper(ClienteJuego.ConnectService.Message msg, ClienteJuego.ConnectService.Player receiver);
+        void ReceiveWhisper(ClienteJuego.ConnectService.Message msg, ClienteJuego.ConnectService.Player player);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/UserJoin")]
-        void UserJoin(ClienteJuego.ConnectService.Player client);
+        void UserJoin(ClienteJuego.ConnectService.Player player);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/UserLeave")]
-        void UserLeave(ClienteJuego.ConnectService.Player client);
+        void UserLeave(ClienteJuego.ConnectService.Player player);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -910,36 +908,36 @@ namespace ClienteJuego.ConnectService {
                 base(callbackInstance, binding, remoteAddress) {
         }
         
-        public bool Connect(ClienteJuego.ConnectService.Player client) {
-            return base.Channel.Connect(client);
+        public void Connect(ClienteJuego.ConnectService.Player player, int idMatch) {
+            base.Channel.Connect(player, idMatch);
         }
         
-        public System.Threading.Tasks.Task<bool> ConnectAsync(ClienteJuego.ConnectService.Player client) {
-            return base.Channel.ConnectAsync(client);
+        public System.Threading.Tasks.Task ConnectAsync(ClienteJuego.ConnectService.Player player, int idMatch) {
+            return base.Channel.ConnectAsync(player, idMatch);
         }
         
-        public void Say(ClienteJuego.ConnectService.Message msg) {
-            base.Channel.Say(msg);
+        public void Say(int idMatch, ClienteJuego.ConnectService.Message msg) {
+            base.Channel.Say(idMatch, msg);
         }
         
-        public System.Threading.Tasks.Task SayAsync(ClienteJuego.ConnectService.Message msg) {
-            return base.Channel.SayAsync(msg);
+        public System.Threading.Tasks.Task SayAsync(int idMatch, ClienteJuego.ConnectService.Message msg) {
+            return base.Channel.SayAsync(idMatch, msg);
         }
         
-        public void Whisper(ClienteJuego.ConnectService.Message msg, ClienteJuego.ConnectService.Player receiver) {
-            base.Channel.Whisper(msg, receiver);
+        public void Whisper(ClienteJuego.ConnectService.Message msg, ClienteJuego.ConnectService.Player player) {
+            base.Channel.Whisper(msg, player);
         }
         
-        public System.Threading.Tasks.Task WhisperAsync(ClienteJuego.ConnectService.Message msg, ClienteJuego.ConnectService.Player receiver) {
-            return base.Channel.WhisperAsync(msg, receiver);
+        public System.Threading.Tasks.Task WhisperAsync(ClienteJuego.ConnectService.Message msg, ClienteJuego.ConnectService.Player player) {
+            return base.Channel.WhisperAsync(msg, player);
         }
         
-        public void Disconnect(ClienteJuego.ConnectService.Player client) {
-            base.Channel.Disconnect(client);
+        public void Disconnect(ClienteJuego.ConnectService.Player player) {
+            base.Channel.Disconnect(player);
         }
         
-        public System.Threading.Tasks.Task DisconnectAsync(ClienteJuego.ConnectService.Player client) {
-            return base.Channel.DisconnectAsync(client);
+        public System.Threading.Tasks.Task DisconnectAsync(ClienteJuego.ConnectService.Player player) {
+            return base.Channel.DisconnectAsync(player);
         }
     }
     
@@ -1029,6 +1027,109 @@ namespace ClienteJuego.ConnectService {
         
         public System.Threading.Tasks.Task ConnectToMatchAsync(ClienteJuego.ConnectService.Match match) {
             return base.Channel.ConnectToMatchAsync(match);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ConnectService.IGameService")]
+    public interface IGameService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/GetQuestions", ReplyAction="http://tempuri.org/IGameService/GetQuestionsResponse")]
+        ClienteJuego.ConnectService.Question[] GetQuestions();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/GetQuestions", ReplyAction="http://tempuri.org/IGameService/GetQuestionsResponse")]
+        System.Threading.Tasks.Task<ClienteJuego.ConnectService.Question[]> GetQuestionsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/GetAnswers", ReplyAction="http://tempuri.org/IGameService/GetAnswersResponse")]
+        ClienteJuego.ConnectService.Answer[] GetAnswers(ClienteJuego.ConnectService.Question question);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/GetAnswers", ReplyAction="http://tempuri.org/IGameService/GetAnswersResponse")]
+        System.Threading.Tasks.Task<ClienteJuego.ConnectService.Answer[]> GetAnswersAsync(ClienteJuego.ConnectService.Question question);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/addPoints", ReplyAction="http://tempuri.org/IGameService/addPointsResponse")]
+        int addPoints(ClienteJuego.ConnectService.Player player, int score);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/addPoints", ReplyAction="http://tempuri.org/IGameService/addPointsResponse")]
+        System.Threading.Tasks.Task<int> addPointsAsync(ClienteJuego.ConnectService.Player player, int score);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/UpdateBoard", ReplyAction="http://tempuri.org/IGameService/UpdateBoardResponse")]
+        void UpdateBoard();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/UpdateBoard", ReplyAction="http://tempuri.org/IGameService/UpdateBoardResponse")]
+        System.Threading.Tasks.Task UpdateBoardAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/UpdateStrikes", ReplyAction="http://tempuri.org/IGameService/UpdateStrikesResponse")]
+        void UpdateStrikes();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/UpdateStrikes", ReplyAction="http://tempuri.org/IGameService/UpdateStrikesResponse")]
+        System.Threading.Tasks.Task UpdateStrikesAsync();
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IGameServiceChannel : ClienteJuego.ConnectService.IGameService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GameServiceClient : System.ServiceModel.ClientBase<ClienteJuego.ConnectService.IGameService>, ClienteJuego.ConnectService.IGameService {
+        
+        public GameServiceClient() {
+        }
+        
+        public GameServiceClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public GameServiceClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public GameServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public GameServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public ClienteJuego.ConnectService.Question[] GetQuestions() {
+            return base.Channel.GetQuestions();
+        }
+        
+        public System.Threading.Tasks.Task<ClienteJuego.ConnectService.Question[]> GetQuestionsAsync() {
+            return base.Channel.GetQuestionsAsync();
+        }
+        
+        public ClienteJuego.ConnectService.Answer[] GetAnswers(ClienteJuego.ConnectService.Question question) {
+            return base.Channel.GetAnswers(question);
+        }
+        
+        public System.Threading.Tasks.Task<ClienteJuego.ConnectService.Answer[]> GetAnswersAsync(ClienteJuego.ConnectService.Question question) {
+            return base.Channel.GetAnswersAsync(question);
+        }
+        
+        public int addPoints(ClienteJuego.ConnectService.Player player, int score) {
+            return base.Channel.addPoints(player, score);
+        }
+        
+        public System.Threading.Tasks.Task<int> addPointsAsync(ClienteJuego.ConnectService.Player player, int score) {
+            return base.Channel.addPointsAsync(player, score);
+        }
+        
+        public void UpdateBoard() {
+            base.Channel.UpdateBoard();
+        }
+        
+        public System.Threading.Tasks.Task UpdateBoardAsync() {
+            return base.Channel.UpdateBoardAsync();
+        }
+        
+        public void UpdateStrikes() {
+            base.Channel.UpdateStrikes();
+        }
+        
+        public System.Threading.Tasks.Task UpdateStrikesAsync() {
+            return base.Channel.UpdateStrikesAsync();
         }
     }
 }

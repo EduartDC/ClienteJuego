@@ -1,4 +1,5 @@
 ﻿using ClienteJuego.ConnectService;
+using ClienteJuego.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,33 +29,41 @@ namespace ClienteJuego.Views
         public InicioView()
         {
             InitializeComponent();
-            string selected_dept = (App.Current as App).DeptName;
-            userName = selected_dept;
-            TextUserName.Text = selected_dept;
+            Accessories.PlayMusic();
+            userName = (App.Current as App).DeptName;
+            TextUserName.Text = "Hola de nuevo "+ userName;
+            ImageSource imageSource = new ImageSourceConverter().ConvertFromString(Accessories.LoadConfigPlayer(userName)) as ImageSource;
+            imgAvatar.Source = imageSource;
 
         }
 
-       
-
         private void btnPlay_Click(object sender, RoutedEventArgs e)
         {
+            Accessories.PlaySoundsEffects();
             NavigationService.Navigate(new Uri("Views/GameModeView.xaml", UriKind.Relative));
         }
 
         private void btnOptions_Click(object sender, RoutedEventArgs e)
         {
+            Accessories.PlaySoundsEffects();
             NavigationService.Navigate(new Uri("Views/MenuOptionsView.xaml", UriKind.Relative));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            Accessories.PlaySoundsEffects();
             NavigationService.Navigate(new Uri("Views/GameModeView.xaml", UriKind.Relative));
         }
 
         private void btnScore_Click(object sender, RoutedEventArgs e)
         {
+            Accessories.PlaySoundsEffects();
             NavigationService.Navigate(new Uri("Views/ScoreView.xaml", UriKind.Relative));
         }
-       
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("Views/ChatView.xaml", UriKind.Relative));
+        }
     }
 }

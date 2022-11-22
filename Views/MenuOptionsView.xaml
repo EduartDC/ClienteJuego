@@ -9,7 +9,7 @@
     x:Class="ClienteJuego.Views.MenuOptionsView"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800"
-      MaxHeight="600" MaxWidth="800"
+      MaxHeight="620" MaxWidth="800"
       Title="MenuOptionsView">
 
     <Grid Background="#0f0e17">
@@ -26,7 +26,8 @@
         FontSize="36" 
         Width="308" 
         VerticalContentAlignment="Center" 
-        HorizontalContentAlignment="Center" FontFamily="Arial Rounded MT Bold"
+        HorizontalContentAlignment="Center" 
+            FontFamily="Arial Rounded MT Bold"
          />
         <Image 
             HorizontalAlignment="Left" 
@@ -44,15 +45,55 @@
             Width="62" 
             Source="/Images/information.png"
          />
-        <Image 
-            HorizontalAlignment="Left" 
-            Height="68" 
-            Margin="334,268,0,0" 
-            VerticalAlignment="Top" 
-            Width="67" 
-            Source="/Images/credits.png" 
-            OpacityMask="#FFED0000"
-         />
+        <Image Source="/Images/credits.png" 
+               Margin="334,268,0,0"
+               Height="65"
+               Width="70"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"/>
+
+        <Label Content="{x:Static p:Resources.lblAccount}" 
+               HorizontalAlignment="Left" 
+               Margin="412,142,0,0" 
+               VerticalAlignment="Top" 
+               Foreground="White" 
+               FontSize="22" 
+               FontWeight="Bold" 
+               Width="142"/>
+        <Label Content="{x:Static p:Resources.lblHelp}" 
+               HorizontalAlignment="Left" 
+               Margin="412,208,0,0" 
+               VerticalAlignment="Top" 
+               Foreground="White" 
+               FontSize="22" 
+               FontWeight="Bold" 
+               Width="142"/>
+        <Label Content="{x:Static p:Resources.lblCredits}" 
+               Margin="412,279,0,0" 
+               Foreground="White" 
+               FontSize="22" 
+               FontWeight="Bold" 
+               Width="142"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               
+               />
+        <Label Content="{x:Static p:Resources.lblSettings}" 
+               HorizontalAlignment="Left" 
+               Margin="412,348,0,0" 
+               VerticalAlignment="Top" 
+               Foreground="White" 
+               FontSize="22" 
+               FontWeight="Bold" 
+               Width="156"/>
+        <Label Content="{x:Static p:Resources.btnLogOut}" 
+               HorizontalAlignment="Left" 
+               Margin="412,430,0,0" 
+               VerticalAlignment="Top" 
+               Foreground="White" 
+               FontSize="22" 
+               FontWeight="Bold" 
+               Width="156"/>
         <Button 
             x:Name="btnBack" 
             Content="" 
@@ -72,7 +113,7 @@
         </Button>
 
         <Image Source="/Images/ok3.png" 
-               Margin="394,67,-198,78"
+               Margin="394,73,-198,72"
                RenderTransformOrigin="0.5,0.5" 
                Opacity="0.3">
             <Image.RenderTransform>
@@ -87,69 +128,94 @@
         <Image Source="/Images/logout.png" 
                 VerticalAlignment="Top"
                 Height="60" 
-                HorizontalAlignment="Left" Margin="336,407,0,0" />
+                HorizontalAlignment="Left" 
+               Margin="332,409,0,0" />
         <Image Source="/Images/setting.png"
                 Height="68"
-                HorizontalAlignment="Left" VerticalAlignment="Top" Margin="334,333,0,0" />
+                HorizontalAlignment="Left" 
+               VerticalAlignment="Top" 
+               Margin="327,334,0,0" />
         <Button 
             x:Name="btnAccount"
             HorizontalContentAlignment="Right"
-            Content="{x:Static p:Resources.lblAccount}" 
+            Content="" 
             VerticalAlignment="Top" 
             Background="{x:Null}" 
             BorderBrush="#00000000" 
-            Width="134" 
+            Width="222" 
             Height="62" 
-            Click="btnAccount_Click" Foreground="White" FontWeight="Bold" FontSize="22"
-            HorizontalAlignment="Center" Margin="0,121,0,0"
+            Click="btnAccount_Click" 
+            Foreground="White" 
+            FontWeight="Bold" 
+            FontSize="22"
+            HorizontalAlignment="Left" 
+            Margin="332,122,0,0"
          />
         <Button 
             x:Name="btnHelp"
             HorizontalContentAlignment="Right"
-            Content="{x:Static p:Resources.lblHelp}" 
+            Content="" 
             VerticalAlignment="Top" 
             Background="{x:Null}" 
             BorderBrush="#00000000" 
-            Width="134" 
+            Width="209" 
             Height="62" 
-            Click="btnHelp_Click" Foreground="White" FontWeight="Bold" FontSize="22"
-            HorizontalAlignment="Center" Margin="0,196,0,0"
+            Click="btnHelp_Click" 
+            Foreground="White" 
+            FontWeight="Bold" 
+            FontSize="22"
+            HorizontalAlignment="Left" 
+            Margin="333,197,0,0"
          />
         <Button 
             x:Name="btnCredits"
             HorizontalContentAlignment="Right"
-            Content="{x:Static p:Resources.lblCredits}" 
+            Content="" 
             VerticalAlignment="Center" 
             Background="{x:Null}" 
             BorderBrush="#00000000" 
-            Width="154" 
-            Height="42" 
-            Click="btnCredits_Click" Foreground="White" FontWeight="Bold" FontSize="22"
-            HorizontalAlignment="Left" Margin="332,0,0,0"
+            Width="228" 
+            Height="58" 
+            Click="btnCredits_Click" 
+            Foreground="White" 
+            FontWeight="Bold" 
+            FontSize="22"
+            HorizontalAlignment="Left" 
+            Margin="64,0,0,0"
          />
         <Button 
                 x:Name="btnSettings"
                 HorizontalContentAlignment="Right"
-                Content="{x:Static p:Resources.lblSettings}" 
+                Content="" 
                 VerticalAlignment="Top" 
                 Background="{x:Null}" 
                 BorderBrush="#00000000" 
-                Width="238" 
-                Height="62" 
-                Click="btnSettings_Click" Foreground="White" FontWeight="Bold" FontSize="22"
-         HorizontalAlignment="Left" Margin="334,333,0,0"
+                Width="226" 
+                Height="68" 
+                Click="btnSettings_Click" 
+            Foreground="White" 
+            FontWeight="Bold" 
+            FontSize="22"
+            HorizontalAlignment="Left" 
+            Margin="330,333,0,0"
          />
         <Button 
                 x:Name="btnLogOut"
                 HorizontalContentAlignment="Right"
-                Content="{x:Static p:Resources.btnLogOut}" 
+                Content="" 
                 VerticalAlignment="Top" 
                 Background="{x:Null}" 
                 BorderBrush="#00000000" 
-                Width="208" 
+                Width="227" 
                 Height="62" 
-                Click="btnLogOut_Click" Foreground="White" FontWeight="Bold" FontSize="22"
-         Margin="334,407,0,0" HorizontalAlignment="Left"
+                Click="btnLogOut_Click" 
+            Foreground="White" 
+            FontWeight="Bold" 
+            FontSize="22"
+            Margin="327,407,0,0"
+            HorizontalAlignment="Left"
          />
+
+
     </Grid>
 </Page>

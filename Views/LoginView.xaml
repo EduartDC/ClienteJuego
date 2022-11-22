@@ -10,6 +10,10 @@
       MaxHeight="600" MaxWidth="800"
       Title="LoginView">
 
+    <Page.Resources>
+
+    </Page.Resources>
+
     <Grid Background="#0f0e17">
         <Label 
             x:Name="lblUserName" 
@@ -37,14 +41,12 @@
             Width="325" 
             Source="/Images/logoFc.png"
 
-            
-
         />
         <Button 
             x:Name="btnLogin" 
             Content="{x:Static p:Resources.btnLogin}"  
             HorizontalAlignment="Left" 
-            Margin="344,487,0,0" 
+            Margin="344,463,0,0" 
             VerticalAlignment="Top" 
             Width="104" 
             Click="btnLogin_Click" 
@@ -57,7 +59,7 @@
             HorizontalAlignment="Left" 
             Margin="326,326,0,0" 
             VerticalAlignment="Top" 
-            Foreground="#FF6E7471" 
+            Foreground="#FFA7A9BE" 
             Width="120" 
             Height="28" 
             VerticalContentAlignment="Center" 
@@ -84,9 +86,9 @@
             x:Name="lblExamplePassword" 
             Content="●●●●●●●●●●" 
             HorizontalAlignment="Left" 
-            Margin="340,400,0,0" 
+            Margin="340,396,0,0" 
             VerticalAlignment="Top" 
-            Foreground="#FF6B7471" 
+            Foreground="#FFA7A9BE" 
             Width="99"
         />
         <PasswordBox 
@@ -107,12 +109,17 @@
             x:Name="btnRegister"  
             HorizontalAlignment="Left" 
             Content="{x:Static p:Resources.btnRegister}"
-            Margin="344,531,0,0" 
+            Margin="344,507,0,0" 
             VerticalAlignment="Top" 
             Width="104" 
             Click="btnRegister_Click" 
             Foreground="White" 
             Background="#FFFF8906" 
             FontWeight="Bold"/>
+
+
+
+
     </Grid>
+
 </Page>

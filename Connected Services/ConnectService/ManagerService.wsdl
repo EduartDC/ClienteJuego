@@ -87,6 +87,35 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IGameService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8082/?xsd=xsd0" namespace="http://tempuri.org/" />
@@ -107,11 +136,17 @@
   <wsdl:message name="IUserManager_ValidatePlayer_OutputMessage">
     <wsdl:part name="parameters" element="tns:ValidatePlayerResponse" />
   </wsdl:message>
-  <wsdl:message name="IUserManager_ValidateExistantPlayer_InputMessage">
-    <wsdl:part name="parameters" element="tns:ValidateExistantPlayer" />
+  <wsdl:message name="IUserManager_ValidateEmailPlayer_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateEmailPlayer" />
   </wsdl:message>
-  <wsdl:message name="IUserManager_ValidateExistantPlayer_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ValidateExistantPlayerResponse" />
+  <wsdl:message name="IUserManager_ValidateEmailPlayer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateEmailPlayerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserManager_ValidateUserNamePlayer_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateUserNamePlayer" />
+  </wsdl:message>
+  <wsdl:message name="IUserManager_ValidateUserNamePlayer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateUserNamePlayerResponse" />
   </wsdl:message>
   <wsdl:message name="IUserManager_UpdatePlayer_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdatePlayer" />
@@ -179,6 +214,36 @@
   <wsdl:message name="IMatchService_ConnectToMatch_OutputMessage">
     <wsdl:part name="parameters" element="tns:ConnectToMatchResponse" />
   </wsdl:message>
+  <wsdl:message name="IGameService_GetQuestions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuestions" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_GetQuestions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuestionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_GetAnswers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnswers" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_GetAnswers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnswersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_addPoints_InputMessage">
+    <wsdl:part name="parameters" element="tns:addPoints" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_addPoints_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addPointsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_UpdateBoard_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBoard" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_UpdateBoard_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBoardResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_UpdateStrikes_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateStrikes" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_UpdateStrikes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateStrikesResponse" />
+  </wsdl:message>
   <wsdl:portType name="IUserManager">
     <wsdl:operation name="AddPlayer">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserManager/AddPlayer" message="tns:IUserManager_AddPlayer_InputMessage" />
@@ -188,9 +253,13 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IUserManager/ValidatePlayer" message="tns:IUserManager_ValidatePlayer_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserManager/ValidatePlayerResponse" message="tns:IUserManager_ValidatePlayer_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ValidateExistantPlayer">
-      <wsdl:input wsaw:Action="http://tempuri.org/IUserManager/ValidateExistantPlayer" message="tns:IUserManager_ValidateExistantPlayer_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IUserManager/ValidateExistantPlayerResponse" message="tns:IUserManager_ValidateExistantPlayer_OutputMessage" />
+    <wsdl:operation name="ValidateEmailPlayer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserManager/ValidateEmailPlayer" message="tns:IUserManager_ValidateEmailPlayer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserManager/ValidateEmailPlayerResponse" message="tns:IUserManager_ValidateEmailPlayer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUserNamePlayer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserManager/ValidateUserNamePlayer" message="tns:IUserManager_ValidateUserNamePlayer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserManager/ValidateUserNamePlayerResponse" message="tns:IUserManager_ValidateUserNamePlayer_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="UpdatePlayer">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserManager/UpdatePlayer" message="tns:IUserManager_UpdatePlayer_InputMessage" />
@@ -249,6 +318,28 @@
       <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/ConnectToMatchResponse" message="tns:IMatchService_ConnectToMatch_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
+  <wsdl:portType name="IGameService">
+    <wsdl:operation name="GetQuestions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/GetQuestions" message="tns:IGameService_GetQuestions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/GetQuestionsResponse" message="tns:IGameService_GetQuestions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAnswers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/GetAnswers" message="tns:IGameService_GetAnswers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/GetAnswersResponse" message="tns:IGameService_GetAnswers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addPoints">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/addPoints" message="tns:IGameService_addPoints_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/addPointsResponse" message="tns:IGameService_addPoints_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBoard">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/UpdateBoard" message="tns:IGameService_UpdateBoard_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/UpdateBoardResponse" message="tns:IGameService_UpdateBoard_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStrikes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/UpdateStrikes" message="tns:IGameService_UpdateStrikes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/UpdateStrikesResponse" message="tns:IGameService_UpdateStrikes_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IUserManager" type="tns:IUserManager">
     <wsp:PolicyReference URI="#NetTcpBinding_IUserManager_policy" />
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
@@ -270,8 +361,17 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ValidateExistantPlayer">
-      <soap12:operation soapAction="http://tempuri.org/IUserManager/ValidateExistantPlayer" style="document" />
+    <wsdl:operation name="ValidateEmailPlayer">
+      <soap12:operation soapAction="http://tempuri.org/IUserManager/ValidateEmailPlayer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUserNamePlayer">
+      <soap12:operation soapAction="http://tempuri.org/IUserManager/ValidateUserNamePlayer" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -399,6 +499,55 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IGameService" type="tns:IGameService">
+    <wsp:PolicyReference URI="#NetTcpBinding_IGameService_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="GetQuestions">
+      <soap12:operation soapAction="http://tempuri.org/IGameService/GetQuestions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnswers">
+      <soap12:operation soapAction="http://tempuri.org/IGameService/GetAnswers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addPoints">
+      <soap12:operation soapAction="http://tempuri.org/IGameService/addPoints" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBoard">
+      <soap12:operation soapAction="http://tempuri.org/IGameService/UpdateBoard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStrikes">
+      <soap12:operation soapAction="http://tempuri.org/IGameService/UpdateStrikes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
   <wsdl:service name="ManagerService">
     <wsdl:port name="NetTcpBinding_IUserManager" binding="tns:NetTcpBinding_IUserManager">
       <soap12:address location="net.tcp://localhost:8081/MessageService" />
@@ -419,6 +568,15 @@
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_IMatchService" binding="tns:NetTcpBinding_IMatchService">
+      <soap12:address location="net.tcp://localhost:8081/MessageService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8081/MessageService</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>DESKTOP-F2DQ5DU\Eduar</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IGameService" binding="tns:NetTcpBinding_IGameService">
       <soap12:address location="net.tcp://localhost:8081/MessageService" />
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8081/MessageService</wsa10:Address>

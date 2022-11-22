@@ -6,12 +6,12 @@
       xmlns:local="clr-namespace:ClienteJuego.Views"
       mc:Ignorable="d"
       xmlns:p ="clr-namespace:ClienteJuego.Properties"
+      xmlns:t ="clr-namespace:ClienteJuego.Themes"
       d:DesignHeight="600" d:DesignWidth="800"
       MaxHeight="600" MaxWidth="800"
       Title="InicioView">
 
-
-    <Grid Background="#FF0F0E17" >
+    <Grid Background="#0f0e17" >
         <Grid.RowDefinitions>
             <RowDefinition Height="600"/>
         </Grid.RowDefinitions>
@@ -50,13 +50,14 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image 
+        <Image x:Name="imgAvatar" 
             HorizontalAlignment="Center" 
             Height="152" 
             Margin="0,99,0,0" 
             VerticalAlignment="Top" 
             Width="142" 
-            Source="/Avatars/avatarOcho.jpg"
+            Source="/Avatars/avatarDef.png"
+
          />
         <Button x:Name="btnOptions" 
                 Background="{x:Null}" 
@@ -85,7 +86,7 @@
                  TextWrapping="Wrap" 
                  Text="TextBox" 
                  VerticalAlignment="Top" 
-                 Width="140" 
+                 Width="254" 
                  Height="33" 
                  Foreground="White" 
                  FontWeight="Bold" 
@@ -94,6 +95,7 @@
                  Background="{x:Null}" 
                  TextAlignment="Center" 
                  IsEnabled="False"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="620,447,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
 
 
     </Grid>
