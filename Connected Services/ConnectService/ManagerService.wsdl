@@ -120,7 +120,7 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8082/?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8082/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:8082/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DataBase" />
+      <xsd:import schemaLocation="http://localhost:8082/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DataAcces" />
       <xsd:import schemaLocation="http://localhost:8082/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MessageService" />
     </xsd:schema>
   </wsdl:types>
@@ -162,9 +162,6 @@
   </wsdl:message>
   <wsdl:message name="IChatService_Connect_InputMessage">
     <wsdl:part name="parameters" element="tns:Connect" />
-  </wsdl:message>
-  <wsdl:message name="IChatService_Connect_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ConnectResponse" />
   </wsdl:message>
   <wsdl:message name="IChatService_Say_InputMessage">
     <wsdl:part name="parameters" element="tns:Say" />
@@ -273,7 +270,6 @@
   <wsdl:portType msc:usingSession="true" name="IChatService">
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Connect">
       <wsdl:input wsaw:Action="http://tempuri.org/IChatService/Connect" message="tns:IChatService_Connect_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IChatService/ConnectResponse" message="tns:IChatService_Connect_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Say">
       <wsdl:input wsaw:Action="http://tempuri.org/IChatService/Say" message="tns:IChatService_Say_InputMessage" />
@@ -281,7 +277,7 @@
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Whisper">
       <wsdl:input wsaw:Action="http://tempuri.org/IChatService/Whisper" message="tns:IChatService_Whisper_InputMessage" />
     </wsdl:operation>
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="true" name="Disconnect">
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Disconnect">
       <wsdl:input wsaw:Action="http://tempuri.org/IChatService/Disconnect" message="tns:IChatService_Disconnect_InputMessage" />
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="RefreshClients">
@@ -406,9 +402,6 @@
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="Say">
       <soap12:operation soapAction="http://tempuri.org/IChatService/Say" style="document" />

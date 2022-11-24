@@ -15,7 +15,7 @@ namespace ClienteJuego.ConnectService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Player", Namespace="http://schemas.datacontract.org/2004/07/DataBase")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Player", Namespace="http://schemas.datacontract.org/2004/07/DataAcces")]
     [System.SerializableAttribute()]
     public partial class Player : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -188,7 +188,7 @@ namespace ClienteJuego.ConnectService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Friend", Namespace="http://schemas.datacontract.org/2004/07/DataBase")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Friend", Namespace="http://schemas.datacontract.org/2004/07/DataAcces")]
     [System.SerializableAttribute()]
     public partial class Friend : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -199,16 +199,16 @@ namespace ClienteJuego.ConnectService {
         private ClienteJuego.ConnectService.Player PlayerField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Player_idPlayerField;
+        private System.DateTime creationDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime dateField;
+        private int gameFriendField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int idFriendField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int idPlayerOneField;
+        private int ownerPlayerField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -234,27 +234,27 @@ namespace ClienteJuego.ConnectService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Player_idPlayer {
+        public System.DateTime creationDate {
             get {
-                return this.Player_idPlayerField;
+                return this.creationDateField;
             }
             set {
-                if ((this.Player_idPlayerField.Equals(value) != true)) {
-                    this.Player_idPlayerField = value;
-                    this.RaisePropertyChanged("Player_idPlayer");
+                if ((this.creationDateField.Equals(value) != true)) {
+                    this.creationDateField = value;
+                    this.RaisePropertyChanged("creationDate");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime date {
+        public int gameFriend {
             get {
-                return this.dateField;
+                return this.gameFriendField;
             }
             set {
-                if ((this.dateField.Equals(value) != true)) {
-                    this.dateField = value;
-                    this.RaisePropertyChanged("date");
+                if ((this.gameFriendField.Equals(value) != true)) {
+                    this.gameFriendField = value;
+                    this.RaisePropertyChanged("gameFriend");
                 }
             }
         }
@@ -273,14 +273,14 @@ namespace ClienteJuego.ConnectService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int idPlayerOne {
+        public int ownerPlayer {
             get {
-                return this.idPlayerOneField;
+                return this.ownerPlayerField;
             }
             set {
-                if ((this.idPlayerOneField.Equals(value) != true)) {
-                    this.idPlayerOneField = value;
-                    this.RaisePropertyChanged("idPlayerOne");
+                if ((this.ownerPlayerField.Equals(value) != true)) {
+                    this.ownerPlayerField = value;
+                    this.RaisePropertyChanged("ownerPlayer");
                 }
             }
         }
@@ -297,7 +297,7 @@ namespace ClienteJuego.ConnectService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Match", Namespace="http://schemas.datacontract.org/2004/07/DataBase")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Match", Namespace="http://schemas.datacontract.org/2004/07/DataAcces")]
     [System.SerializableAttribute()]
     public partial class Match : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -438,7 +438,7 @@ namespace ClienteJuego.ConnectService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Question", Namespace="http://schemas.datacontract.org/2004/07/DataBase")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Question", Namespace="http://schemas.datacontract.org/2004/07/DataAcces")]
     [System.SerializableAttribute()]
     public partial class Question : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -547,7 +547,7 @@ namespace ClienteJuego.ConnectService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Answer", Namespace="http://schemas.datacontract.org/2004/07/DataBase")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Answer", Namespace="http://schemas.datacontract.org/2004/07/DataAcces")]
     [System.SerializableAttribute()]
     public partial class Answer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -836,10 +836,10 @@ namespace ClienteJuego.ConnectService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ConnectService.IChatService", CallbackContract=typeof(ClienteJuego.ConnectService.IChatServiceCallback), SessionMode=System.ServiceModel.SessionMode.Required)]
     public interface IChatService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChatService/Connect", ReplyAction="http://tempuri.org/IChatService/ConnectResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/Connect")]
         void Connect(ClienteJuego.ConnectService.Player player, int idMatch);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChatService/Connect", ReplyAction="http://tempuri.org/IChatService/ConnectResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/Connect")]
         System.Threading.Tasks.Task ConnectAsync(ClienteJuego.ConnectService.Player player, int idMatch);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/Say")]
@@ -854,10 +854,10 @@ namespace ClienteJuego.ConnectService {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/Whisper")]
         System.Threading.Tasks.Task WhisperAsync(ClienteJuego.ConnectService.Message msg, ClienteJuego.ConnectService.Player player);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, IsTerminating=true, Action="http://tempuri.org/IChatService/Disconnect")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/Disconnect")]
         void Disconnect(ClienteJuego.ConnectService.Player player);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, IsTerminating=true, Action="http://tempuri.org/IChatService/Disconnect")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/Disconnect")]
         System.Threading.Tasks.Task DisconnectAsync(ClienteJuego.ConnectService.Player player);
     }
     

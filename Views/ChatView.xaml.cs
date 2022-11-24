@@ -49,7 +49,7 @@ namespace ClienteJuego.Views
             }
             catch (EndpointNotFoundException)
             {
-                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                MessageBox.Show("Error de conexion con el servidor, Intentelo más tarde");
             }
         }
         private Player LoadData()
@@ -63,7 +63,7 @@ namespace ClienteJuego.Views
             }
             catch (EndpointNotFoundException)
             {
-                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                MessageBox.Show("Error de conexion con el servidor, Intentelo más tarde");
             }
             return playerInfo;
         }
@@ -105,7 +105,15 @@ namespace ClienteJuego.Views
             Message msg = new Message();
             msg.Sender = playerData.userName;
             msg.Content = textMessage.Text;
-            chatServiceClient.Say(1, msg);
+            try
+            {
+                chatServiceClient.Say(1, msg);
+            }
+            catch (CommunicationException)
+            {
+                MessageBox.Show("Su mensaje no fue entregado, Intentelo más tarde");
+            }
+            
             textMessage.Text = "";
         }
     }
