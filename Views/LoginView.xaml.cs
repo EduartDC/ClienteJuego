@@ -38,7 +38,7 @@ namespace ClienteJuego.Views
 
             password = Accessories.Hash(password);
 
-            Player player = new Player
+            PlayerServer player = new PlayerServer
             {
                 userName = userName,
                 password = password
@@ -138,6 +138,21 @@ namespace ClienteJuego.Views
         private void TextPassword_KeyDonw(object sender, KeyEventArgs e)
         {
             Accessories.RegexSpecial(e);
+        }
+
+        private void test_Click(object sender, RoutedEventArgs e)
+        {
+            ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
+         
+            
+                var friend = client.GetFriend(2);
+
+            Console.WriteLine(friend.idFriend);
+            
+            
+            
+
+            
         }
     }
 }

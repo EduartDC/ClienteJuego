@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,7 +27,7 @@ namespace ClienteJuego.Views
 
         private readonly ChatServiceClient chatServiceClient;
         private string userName;
-        private Player playerData;
+        private PlayerServer playerData;
         public ChatView()
         {
             
@@ -49,12 +50,12 @@ namespace ClienteJuego.Views
             }
             catch (EndpointNotFoundException)
             {
-                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                MessageBox.Show("Error de conexion con el servidor, Intentelo más tarde");
             }
         }
-        private Player LoadData()
+        private PlayerServer LoadData()
         {
-            Player playerInfo = new Player();
+            PlayerServer playerInfo = new PlayerServer();
             try
             {
                 ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
@@ -63,12 +64,12 @@ namespace ClienteJuego.Views
             }
             catch (EndpointNotFoundException)
             {
-                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                MessageBox.Show("Error de conexion con el servidor, Intentelo más tarde");
             }
             return playerInfo;
         }
 
-        public void Receive(Message[] messages)
+        public void Receive(MessageServer[] messages)
         {
             ChatTextBox.Clear();
             foreach (var message in messages)
@@ -78,34 +79,42 @@ namespace ClienteJuego.Views
             
         }
 
-        public void ReceiveWhisper(Message msg, Player receiver)
+        public void ReceiveWhisper(MessageServer msg, PlayerServer receiver)
         {
             throw new NotImplementedException();
         }
 
-        public void RefreshClients(Player[] clients)
+        public void RefreshClients(PlayerServer[] players)
         {
             
-            listPlayers.Items.Add(clients);
+            listPlayers.Items.Add(players);
         }
 
-        public void UserJoin(Player client)
+        public void UserJoin(PlayerServer player)
         {
             
-            ChatTextBox.AppendText("Bienvenido" + ": " + client.userName + "\n");
+            ChatTextBox.AppendText("Bienvenido" + ": " + player.userName + "\n");
         }
 
-        public void UserLeave(Player client)
+        public void UserLeave(PlayerServer player)
         {
             throw new NotImplementedException();
         }
 
         private void SendButtonClick(object sender, RoutedEventArgs e)
         {
-            Message msg = new Message();
+            MessageServer msg = new MessageServer();
             msg.Sender = playerData.userName;
             msg.Content = textMessage.Text;
-            chatServiceClient.Say(1, msg);
+            try
+            {
+                chatServiceClient.Say(1, msg);
+            }
+            catch (CommunicationException)
+            {
+                MessageBox.Show("Su mensaje no fue entregado, Intentelo más tarde");
+            }
+            
             textMessage.Text = "";
         }
     }

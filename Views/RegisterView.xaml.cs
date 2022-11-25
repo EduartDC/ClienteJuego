@@ -35,7 +35,7 @@ namespace ClienteJuego.Views
         {
             Accessories.PlaySoundsEffects();
             ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
-            Player player = PlayerData();
+            PlayerServer player = PlayerData();
 
             if (!ValidateFields())
             {
@@ -82,7 +82,7 @@ namespace ClienteJuego.Views
 
         }
 
-        private bool ValidatePlayerExistence(Player player)
+        private bool ValidatePlayerExistence(PlayerServer player)
         {
             ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
             var result = true;
@@ -118,11 +118,11 @@ namespace ClienteJuego.Views
             return result;
         }
 
-        private Player PlayerData()
+        private PlayerServer PlayerData()
         {
             var password = Accessories.Hash(textPassword.Password.ToString());
 
-            Player player = new Player
+            PlayerServer player = new PlayerServer
             {
                 firstName = textFirsName.Text,
                 lastName = textLastName.Text,

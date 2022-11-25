@@ -23,7 +23,7 @@ namespace ClienteJuego.Views
     public partial class InicioView : Page
     {
 
-        public Player playerInfo;
+        public PlayerServer playerInfo;
         private string userName;
 
         public InicioView()

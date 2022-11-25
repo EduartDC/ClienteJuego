@@ -30,7 +30,7 @@ namespace ClienteJuego.Views
         private static int value4;
         private static int value5;
         private static int round = -1;
-        static List<Question> questions;
+        static List<QuestionServer> questions;
 
         public TableroView()
         {

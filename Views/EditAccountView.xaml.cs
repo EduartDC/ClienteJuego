@@ -26,13 +26,13 @@ namespace ClienteJuego.Views
     public partial class EditAccountView : Page
     {
         String userName;
-        Player playerInfo = new Player();
+        PlayerServer playerInfo = new PlayerServer();
         public EditAccountView()
         {
             InitializeComponent();
             userName = (App.Current as App).DeptName;
-            
-            Player player = LoadData();
+
+            PlayerServer player = LoadData();
 
             textFirstName.Text = player.firstName;
             textLastName.Text = player.lastName;
@@ -41,7 +41,7 @@ namespace ClienteJuego.Views
             
         }
 
-        Player LoadData()
+        PlayerServer LoadData()
         {
             
             try
@@ -81,7 +81,7 @@ namespace ClienteJuego.Views
                 Accessories.SaveProfileAvatar(playerInfo.userName, avatar.Url);
                 Accessories.LoadConfigPlayer(playerInfo.userName);
                 ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
-                Player player = DataPlayer();
+                PlayerServer player = DataPlayer();
                 if (!ValidateInfo(player))
                 {
                     try
@@ -125,7 +125,7 @@ namespace ClienteJuego.Views
             }
         }
         
-        private bool ValidateInfo(Player player)
+        private bool ValidateInfo(PlayerServer player)
         {
             var result = false;
             if (playerInfo.firstName.Equals(player.firstName) &&
@@ -140,9 +140,9 @@ namespace ClienteJuego.Views
             return result;
         }
         
-        private Player DataPlayer()
+        private PlayerServer DataPlayer()
         {
-            Player player = new Player();
+            PlayerServer player = new PlayerServer();
             player.idPlayer = playerInfo.idPlayer;
             player.firstName = textFirstName.Text;
             player.lastName = textLastName.Text;
@@ -155,8 +155,8 @@ namespace ClienteJuego.Views
         private string ValidateUserName()
         {
             string userName = null;
-            
-            Player player = new Player();
+
+            PlayerServer player = new PlayerServer();
             player.userName = textUserName.Text;
             ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
             try

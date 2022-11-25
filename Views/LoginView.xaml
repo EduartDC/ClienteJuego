@@ -116,6 +116,7 @@
             Foreground="White" 
             Background="#FFFF8906" 
             FontWeight="Bold"/>
+        <Button x:Name="test" Content="Button" HorizontalAlignment="Left" Margin="588,473,0,0" VerticalAlignment="Top" Click="test_Click"/>
 
 
 

@@ -15,18 +15,12 @@ namespace ClienteJuego.ConnectService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Player", Namespace="http://schemas.datacontract.org/2004/07/DataBase")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PlayerServer", Namespace="http://schemas.datacontract.org/2004/07/MessageService.Domain")]
     [System.SerializableAttribute()]
-    public partial class Player : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class PlayerServer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ClienteJuego.ConnectService.Friend[] FriendsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ClienteJuego.ConnectService.Match[] MatchesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string emailField;
@@ -56,32 +50,6 @@ namespace ClienteJuego.ConnectService {
             }
             set {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ClienteJuego.ConnectService.Friend[] Friends {
-            get {
-                return this.FriendsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FriendsField, value) != true)) {
-                    this.FriendsField = value;
-                    this.RaisePropertyChanged("Friends");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ClienteJuego.ConnectService.Match[] Matches {
-            get {
-                return this.MatchesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MatchesField, value) != true)) {
-                    this.MatchesField = value;
-                    this.RaisePropertyChanged("Matches");
-                }
             }
         }
         
@@ -188,27 +156,24 @@ namespace ClienteJuego.ConnectService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Friend", Namespace="http://schemas.datacontract.org/2004/07/DataBase")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FriendServer", Namespace="http://schemas.datacontract.org/2004/07/MessageService.Domain")]
     [System.SerializableAttribute()]
-    public partial class Friend : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class FriendServer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ClienteJuego.ConnectService.Player PlayerField;
+        private System.DateTime creationDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Player_idPlayerField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime dateField;
+        private int gameFriendField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int idFriendField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int idPlayerOneField;
+        private int ownerPlayerField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -221,40 +186,27 @@ namespace ClienteJuego.ConnectService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public ClienteJuego.ConnectService.Player Player {
+        public System.DateTime creationDate {
             get {
-                return this.PlayerField;
+                return this.creationDateField;
             }
             set {
-                if ((object.ReferenceEquals(this.PlayerField, value) != true)) {
-                    this.PlayerField = value;
-                    this.RaisePropertyChanged("Player");
+                if ((this.creationDateField.Equals(value) != true)) {
+                    this.creationDateField = value;
+                    this.RaisePropertyChanged("creationDate");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Player_idPlayer {
+        public int gameFriend {
             get {
-                return this.Player_idPlayerField;
+                return this.gameFriendField;
             }
             set {
-                if ((this.Player_idPlayerField.Equals(value) != true)) {
-                    this.Player_idPlayerField = value;
-                    this.RaisePropertyChanged("Player_idPlayer");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime date {
-            get {
-                return this.dateField;
-            }
-            set {
-                if ((this.dateField.Equals(value) != true)) {
-                    this.dateField = value;
-                    this.RaisePropertyChanged("date");
+                if ((this.gameFriendField.Equals(value) != true)) {
+                    this.gameFriendField = value;
+                    this.RaisePropertyChanged("gameFriend");
                 }
             }
         }
@@ -273,14 +225,14 @@ namespace ClienteJuego.ConnectService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int idPlayerOne {
+        public int ownerPlayer {
             get {
-                return this.idPlayerOneField;
+                return this.ownerPlayerField;
             }
             set {
-                if ((this.idPlayerOneField.Equals(value) != true)) {
-                    this.idPlayerOneField = value;
-                    this.RaisePropertyChanged("idPlayerOne");
+                if ((this.ownerPlayerField.Equals(value) != true)) {
+                    this.ownerPlayerField = value;
+                    this.RaisePropertyChanged("ownerPlayer");
                 }
             }
         }
@@ -297,18 +249,73 @@ namespace ClienteJuego.ConnectService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Match", Namespace="http://schemas.datacontract.org/2004/07/DataBase")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MessageServer", Namespace="http://schemas.datacontract.org/2004/07/MessageService.Domain")]
     [System.SerializableAttribute()]
-    public partial class Match : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class MessageServer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ClienteJuego.ConnectService.Player[] PlayersField;
+        private string ContentField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ClienteJuego.ConnectService.Question[] QuestionsField;
+        private string SenderField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Content {
+            get {
+                return this.ContentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ContentField, value) != true)) {
+                    this.ContentField = value;
+                    this.RaisePropertyChanged("Content");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Sender {
+            get {
+                return this.SenderField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SenderField, value) != true)) {
+                    this.SenderField = value;
+                    this.RaisePropertyChanged("Sender");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MatchServer", Namespace="http://schemas.datacontract.org/2004/07/MessageService.Domain")]
+    [System.SerializableAttribute()]
+    public partial class MatchServer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int idMatchField;
@@ -332,32 +339,6 @@ namespace ClienteJuego.ConnectService {
             }
             set {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ClienteJuego.ConnectService.Player[] Players {
-            get {
-                return this.PlayersField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PlayersField, value) != true)) {
-                    this.PlayersField = value;
-                    this.RaisePropertyChanged("Players");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ClienteJuego.ConnectService.Question[] Questions {
-            get {
-                return this.QuestionsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.QuestionsField, value) != true)) {
-                    this.QuestionsField = value;
-                    this.RaisePropertyChanged("Questions");
-                }
             }
         }
         
@@ -438,127 +419,15 @@ namespace ClienteJuego.ConnectService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Question", Namespace="http://schemas.datacontract.org/2004/07/DataBase")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AnswerServer", Namespace="http://schemas.datacontract.org/2004/07/MessageService.Domain")]
     [System.SerializableAttribute()]
-    public partial class Question : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class AnswerServer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ClienteJuego.ConnectService.Answer[] AnswersField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ClienteJuego.ConnectService.Match[] MatchesField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int idQuestionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string question1Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string questionClassField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ClienteJuego.ConnectService.Answer[] Answers {
-            get {
-                return this.AnswersField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AnswersField, value) != true)) {
-                    this.AnswersField = value;
-                    this.RaisePropertyChanged("Answers");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ClienteJuego.ConnectService.Match[] Matches {
-            get {
-                return this.MatchesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MatchesField, value) != true)) {
-                    this.MatchesField = value;
-                    this.RaisePropertyChanged("Matches");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int idQuestion {
-            get {
-                return this.idQuestionField;
-            }
-            set {
-                if ((this.idQuestionField.Equals(value) != true)) {
-                    this.idQuestionField = value;
-                    this.RaisePropertyChanged("idQuestion");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string question1 {
-            get {
-                return this.question1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.question1Field, value) != true)) {
-                    this.question1Field = value;
-                    this.RaisePropertyChanged("question1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string questionClass {
-            get {
-                return this.questionClassField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.questionClassField, value) != true)) {
-                    this.questionClassField = value;
-                    this.RaisePropertyChanged("questionClass");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Answer", Namespace="http://schemas.datacontract.org/2004/07/DataBase")]
-    [System.SerializableAttribute()]
-    public partial class Answer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ClienteJuego.ConnectService.Question[] QuestionsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string answer1Field;
+        private string answerField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int idAnswerField;
@@ -580,27 +449,14 @@ namespace ClienteJuego.ConnectService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public ClienteJuego.ConnectService.Question[] Questions {
+        public string answer {
             get {
-                return this.QuestionsField;
+                return this.answerField;
             }
             set {
-                if ((object.ReferenceEquals(this.QuestionsField, value) != true)) {
-                    this.QuestionsField = value;
-                    this.RaisePropertyChanged("Questions");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string answer1 {
-            get {
-                return this.answer1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.answer1Field, value) != true)) {
-                    this.answer1Field = value;
-                    this.RaisePropertyChanged("answer1");
+                if ((object.ReferenceEquals(this.answerField, value) != true)) {
+                    this.answerField = value;
+                    this.RaisePropertyChanged("answer");
                 }
             }
         }
@@ -656,18 +512,21 @@ namespace ClienteJuego.ConnectService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Message", Namespace="http://schemas.datacontract.org/2004/07/MessageService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="QuestionServer", Namespace="http://schemas.datacontract.org/2004/07/MessageService.Domain")]
     [System.SerializableAttribute()]
-    public partial class Message : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class QuestionServer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ContentField;
+        private int idQuestionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SenderField;
+        private string questionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string questionClassField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -680,27 +539,40 @@ namespace ClienteJuego.ConnectService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Content {
+        public int idQuestion {
             get {
-                return this.ContentField;
+                return this.idQuestionField;
             }
             set {
-                if ((object.ReferenceEquals(this.ContentField, value) != true)) {
-                    this.ContentField = value;
-                    this.RaisePropertyChanged("Content");
+                if ((this.idQuestionField.Equals(value) != true)) {
+                    this.idQuestionField = value;
+                    this.RaisePropertyChanged("idQuestion");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Sender {
+        public string question {
             get {
-                return this.SenderField;
+                return this.questionField;
             }
             set {
-                if ((object.ReferenceEquals(this.SenderField, value) != true)) {
-                    this.SenderField = value;
-                    this.RaisePropertyChanged("Sender");
+                if ((object.ReferenceEquals(this.questionField, value) != true)) {
+                    this.questionField = value;
+                    this.RaisePropertyChanged("question");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string questionClass {
+            get {
+                return this.questionClassField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.questionClassField, value) != true)) {
+                    this.questionClassField = value;
+                    this.RaisePropertyChanged("questionClass");
                 }
             }
         }
@@ -720,40 +592,46 @@ namespace ClienteJuego.ConnectService {
     public interface IUserManager {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/AddPlayer", ReplyAction="http://tempuri.org/IUserManager/AddPlayerResponse")]
-        int AddPlayer(ClienteJuego.ConnectService.Player player);
+        int AddPlayer(ClienteJuego.ConnectService.PlayerServer player);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/AddPlayer", ReplyAction="http://tempuri.org/IUserManager/AddPlayerResponse")]
-        System.Threading.Tasks.Task<int> AddPlayerAsync(ClienteJuego.ConnectService.Player player);
+        System.Threading.Tasks.Task<int> AddPlayerAsync(ClienteJuego.ConnectService.PlayerServer player);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/ValidatePlayer", ReplyAction="http://tempuri.org/IUserManager/ValidatePlayerResponse")]
-        int ValidatePlayer(ClienteJuego.ConnectService.Player player);
+        int ValidatePlayer(ClienteJuego.ConnectService.PlayerServer player);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/ValidatePlayer", ReplyAction="http://tempuri.org/IUserManager/ValidatePlayerResponse")]
-        System.Threading.Tasks.Task<int> ValidatePlayerAsync(ClienteJuego.ConnectService.Player player);
+        System.Threading.Tasks.Task<int> ValidatePlayerAsync(ClienteJuego.ConnectService.PlayerServer player);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/ValidateEmailPlayer", ReplyAction="http://tempuri.org/IUserManager/ValidateEmailPlayerResponse")]
-        int ValidateEmailPlayer(ClienteJuego.ConnectService.Player player);
+        int ValidateEmailPlayer(ClienteJuego.ConnectService.PlayerServer player);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/ValidateEmailPlayer", ReplyAction="http://tempuri.org/IUserManager/ValidateEmailPlayerResponse")]
-        System.Threading.Tasks.Task<int> ValidateEmailPlayerAsync(ClienteJuego.ConnectService.Player player);
+        System.Threading.Tasks.Task<int> ValidateEmailPlayerAsync(ClienteJuego.ConnectService.PlayerServer player);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/ValidateUserNamePlayer", ReplyAction="http://tempuri.org/IUserManager/ValidateUserNamePlayerResponse")]
-        int ValidateUserNamePlayer(ClienteJuego.ConnectService.Player player);
+        int ValidateUserNamePlayer(ClienteJuego.ConnectService.PlayerServer player);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/ValidateUserNamePlayer", ReplyAction="http://tempuri.org/IUserManager/ValidateUserNamePlayerResponse")]
-        System.Threading.Tasks.Task<int> ValidateUserNamePlayerAsync(ClienteJuego.ConnectService.Player player);
+        System.Threading.Tasks.Task<int> ValidateUserNamePlayerAsync(ClienteJuego.ConnectService.PlayerServer player);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/UpdatePlayer", ReplyAction="http://tempuri.org/IUserManager/UpdatePlayerResponse")]
-        int UpdatePlayer(ClienteJuego.ConnectService.Player newPlayer);
+        int UpdatePlayer(ClienteJuego.ConnectService.PlayerServer newPlayer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/UpdatePlayer", ReplyAction="http://tempuri.org/IUserManager/UpdatePlayerResponse")]
-        System.Threading.Tasks.Task<int> UpdatePlayerAsync(ClienteJuego.ConnectService.Player newPlayer);
+        System.Threading.Tasks.Task<int> UpdatePlayerAsync(ClienteJuego.ConnectService.PlayerServer newPlayer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/SearchPlayer", ReplyAction="http://tempuri.org/IUserManager/SearchPlayerResponse")]
-        ClienteJuego.ConnectService.Player SearchPlayer(string userName);
+        ClienteJuego.ConnectService.PlayerServer SearchPlayer(string userName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/SearchPlayer", ReplyAction="http://tempuri.org/IUserManager/SearchPlayerResponse")]
-        System.Threading.Tasks.Task<ClienteJuego.ConnectService.Player> SearchPlayerAsync(string userName);
+        System.Threading.Tasks.Task<ClienteJuego.ConnectService.PlayerServer> SearchPlayerAsync(string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/GetFriend", ReplyAction="http://tempuri.org/IUserManager/GetFriendResponse")]
+        ClienteJuego.ConnectService.FriendServer GetFriend(int idFriend);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/GetFriend", ReplyAction="http://tempuri.org/IUserManager/GetFriendResponse")]
+        System.Threading.Tasks.Task<ClienteJuego.ConnectService.FriendServer> GetFriendAsync(int idFriend);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -783,52 +661,60 @@ namespace ClienteJuego.ConnectService {
                 base(binding, remoteAddress) {
         }
         
-        public int AddPlayer(ClienteJuego.ConnectService.Player player) {
+        public int AddPlayer(ClienteJuego.ConnectService.PlayerServer player) {
             return base.Channel.AddPlayer(player);
         }
         
-        public System.Threading.Tasks.Task<int> AddPlayerAsync(ClienteJuego.ConnectService.Player player) {
+        public System.Threading.Tasks.Task<int> AddPlayerAsync(ClienteJuego.ConnectService.PlayerServer player) {
             return base.Channel.AddPlayerAsync(player);
         }
         
-        public int ValidatePlayer(ClienteJuego.ConnectService.Player player) {
+        public int ValidatePlayer(ClienteJuego.ConnectService.PlayerServer player) {
             return base.Channel.ValidatePlayer(player);
         }
         
-        public System.Threading.Tasks.Task<int> ValidatePlayerAsync(ClienteJuego.ConnectService.Player player) {
+        public System.Threading.Tasks.Task<int> ValidatePlayerAsync(ClienteJuego.ConnectService.PlayerServer player) {
             return base.Channel.ValidatePlayerAsync(player);
         }
         
-        public int ValidateEmailPlayer(ClienteJuego.ConnectService.Player player) {
+        public int ValidateEmailPlayer(ClienteJuego.ConnectService.PlayerServer player) {
             return base.Channel.ValidateEmailPlayer(player);
         }
         
-        public System.Threading.Tasks.Task<int> ValidateEmailPlayerAsync(ClienteJuego.ConnectService.Player player) {
+        public System.Threading.Tasks.Task<int> ValidateEmailPlayerAsync(ClienteJuego.ConnectService.PlayerServer player) {
             return base.Channel.ValidateEmailPlayerAsync(player);
         }
         
-        public int ValidateUserNamePlayer(ClienteJuego.ConnectService.Player player) {
+        public int ValidateUserNamePlayer(ClienteJuego.ConnectService.PlayerServer player) {
             return base.Channel.ValidateUserNamePlayer(player);
         }
         
-        public System.Threading.Tasks.Task<int> ValidateUserNamePlayerAsync(ClienteJuego.ConnectService.Player player) {
+        public System.Threading.Tasks.Task<int> ValidateUserNamePlayerAsync(ClienteJuego.ConnectService.PlayerServer player) {
             return base.Channel.ValidateUserNamePlayerAsync(player);
         }
         
-        public int UpdatePlayer(ClienteJuego.ConnectService.Player newPlayer) {
+        public int UpdatePlayer(ClienteJuego.ConnectService.PlayerServer newPlayer) {
             return base.Channel.UpdatePlayer(newPlayer);
         }
         
-        public System.Threading.Tasks.Task<int> UpdatePlayerAsync(ClienteJuego.ConnectService.Player newPlayer) {
+        public System.Threading.Tasks.Task<int> UpdatePlayerAsync(ClienteJuego.ConnectService.PlayerServer newPlayer) {
             return base.Channel.UpdatePlayerAsync(newPlayer);
         }
         
-        public ClienteJuego.ConnectService.Player SearchPlayer(string userName) {
+        public ClienteJuego.ConnectService.PlayerServer SearchPlayer(string userName) {
             return base.Channel.SearchPlayer(userName);
         }
         
-        public System.Threading.Tasks.Task<ClienteJuego.ConnectService.Player> SearchPlayerAsync(string userName) {
+        public System.Threading.Tasks.Task<ClienteJuego.ConnectService.PlayerServer> SearchPlayerAsync(string userName) {
             return base.Channel.SearchPlayerAsync(userName);
+        }
+        
+        public ClienteJuego.ConnectService.FriendServer GetFriend(int idFriend) {
+            return base.Channel.GetFriend(idFriend);
+        }
+        
+        public System.Threading.Tasks.Task<ClienteJuego.ConnectService.FriendServer> GetFriendAsync(int idFriend) {
+            return base.Channel.GetFriendAsync(idFriend);
         }
     }
     
@@ -836,48 +722,48 @@ namespace ClienteJuego.ConnectService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ConnectService.IChatService", CallbackContract=typeof(ClienteJuego.ConnectService.IChatServiceCallback), SessionMode=System.ServiceModel.SessionMode.Required)]
     public interface IChatService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChatService/Connect", ReplyAction="http://tempuri.org/IChatService/ConnectResponse")]
-        void Connect(ClienteJuego.ConnectService.Player player, int idMatch);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/Connect")]
+        void Connect(ClienteJuego.ConnectService.PlayerServer player, int idMatch);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChatService/Connect", ReplyAction="http://tempuri.org/IChatService/ConnectResponse")]
-        System.Threading.Tasks.Task ConnectAsync(ClienteJuego.ConnectService.Player player, int idMatch);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/Say")]
-        void Say(int idMatch, ClienteJuego.ConnectService.Message msg);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/Connect")]
+        System.Threading.Tasks.Task ConnectAsync(ClienteJuego.ConnectService.PlayerServer player, int idMatch);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/Say")]
-        System.Threading.Tasks.Task SayAsync(int idMatch, ClienteJuego.ConnectService.Message msg);
+        void Say(int idMatch, ClienteJuego.ConnectService.MessageServer msg);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/Say")]
+        System.Threading.Tasks.Task SayAsync(int idMatch, ClienteJuego.ConnectService.MessageServer msg);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/Whisper")]
-        void Whisper(ClienteJuego.ConnectService.Message msg, ClienteJuego.ConnectService.Player player);
+        void Whisper(ClienteJuego.ConnectService.MessageServer msg, ClienteJuego.ConnectService.PlayerServer player);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/Whisper")]
-        System.Threading.Tasks.Task WhisperAsync(ClienteJuego.ConnectService.Message msg, ClienteJuego.ConnectService.Player player);
+        System.Threading.Tasks.Task WhisperAsync(ClienteJuego.ConnectService.MessageServer msg, ClienteJuego.ConnectService.PlayerServer player);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, IsTerminating=true, Action="http://tempuri.org/IChatService/Disconnect")]
-        void Disconnect(ClienteJuego.ConnectService.Player player);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/Disconnect")]
+        void Disconnect(ClienteJuego.ConnectService.PlayerServer player);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, IsTerminating=true, Action="http://tempuri.org/IChatService/Disconnect")]
-        System.Threading.Tasks.Task DisconnectAsync(ClienteJuego.ConnectService.Player player);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/Disconnect")]
+        System.Threading.Tasks.Task DisconnectAsync(ClienteJuego.ConnectService.PlayerServer player);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IChatServiceCallback {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/RefreshClients")]
-        void RefreshClients(ClienteJuego.ConnectService.Player[] players);
+        void RefreshClients(ClienteJuego.ConnectService.PlayerServer[] players);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/Receive")]
-        void Receive(ClienteJuego.ConnectService.Message[] messages);
+        void Receive(ClienteJuego.ConnectService.MessageServer[] messages);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/ReceiveWhisper")]
-        void ReceiveWhisper(ClienteJuego.ConnectService.Message msg, ClienteJuego.ConnectService.Player player);
+        void ReceiveWhisper(ClienteJuego.ConnectService.MessageServer msg, ClienteJuego.ConnectService.PlayerServer player);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/UserJoin")]
-        void UserJoin(ClienteJuego.ConnectService.Player player);
+        void UserJoin(ClienteJuego.ConnectService.PlayerServer player);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/UserLeave")]
-        void UserLeave(ClienteJuego.ConnectService.Player player);
+        void UserLeave(ClienteJuego.ConnectService.PlayerServer player);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -908,35 +794,35 @@ namespace ClienteJuego.ConnectService {
                 base(callbackInstance, binding, remoteAddress) {
         }
         
-        public void Connect(ClienteJuego.ConnectService.Player player, int idMatch) {
+        public void Connect(ClienteJuego.ConnectService.PlayerServer player, int idMatch) {
             base.Channel.Connect(player, idMatch);
         }
         
-        public System.Threading.Tasks.Task ConnectAsync(ClienteJuego.ConnectService.Player player, int idMatch) {
+        public System.Threading.Tasks.Task ConnectAsync(ClienteJuego.ConnectService.PlayerServer player, int idMatch) {
             return base.Channel.ConnectAsync(player, idMatch);
         }
         
-        public void Say(int idMatch, ClienteJuego.ConnectService.Message msg) {
+        public void Say(int idMatch, ClienteJuego.ConnectService.MessageServer msg) {
             base.Channel.Say(idMatch, msg);
         }
         
-        public System.Threading.Tasks.Task SayAsync(int idMatch, ClienteJuego.ConnectService.Message msg) {
+        public System.Threading.Tasks.Task SayAsync(int idMatch, ClienteJuego.ConnectService.MessageServer msg) {
             return base.Channel.SayAsync(idMatch, msg);
         }
         
-        public void Whisper(ClienteJuego.ConnectService.Message msg, ClienteJuego.ConnectService.Player player) {
+        public void Whisper(ClienteJuego.ConnectService.MessageServer msg, ClienteJuego.ConnectService.PlayerServer player) {
             base.Channel.Whisper(msg, player);
         }
         
-        public System.Threading.Tasks.Task WhisperAsync(ClienteJuego.ConnectService.Message msg, ClienteJuego.ConnectService.Player player) {
+        public System.Threading.Tasks.Task WhisperAsync(ClienteJuego.ConnectService.MessageServer msg, ClienteJuego.ConnectService.PlayerServer player) {
             return base.Channel.WhisperAsync(msg, player);
         }
         
-        public void Disconnect(ClienteJuego.ConnectService.Player player) {
+        public void Disconnect(ClienteJuego.ConnectService.PlayerServer player) {
             base.Channel.Disconnect(player);
         }
         
-        public System.Threading.Tasks.Task DisconnectAsync(ClienteJuego.ConnectService.Player player) {
+        public System.Threading.Tasks.Task DisconnectAsync(ClienteJuego.ConnectService.PlayerServer player) {
             return base.Channel.DisconnectAsync(player);
         }
     }
@@ -946,28 +832,46 @@ namespace ClienteJuego.ConnectService {
     public interface IMatchService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMatchService/StartLobby", ReplyAction="http://tempuri.org/IMatchService/StartLobbyResponse")]
-        void StartLobby(ClienteJuego.ConnectService.Player[] players, ClienteJuego.ConnectService.Match newMatch);
+        void StartLobby(ClienteJuego.ConnectService.PlayerServer[] players, ClienteJuego.ConnectService.MatchServer newMatch);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMatchService/StartLobby", ReplyAction="http://tempuri.org/IMatchService/StartLobbyResponse")]
-        System.Threading.Tasks.Task StartLobbyAsync(ClienteJuego.ConnectService.Player[] players, ClienteJuego.ConnectService.Match newMatch);
+        System.Threading.Tasks.Task StartLobbyAsync(ClienteJuego.ConnectService.PlayerServer[] players, ClienteJuego.ConnectService.MatchServer newMatch);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMatchService/CreatetMatch", ReplyAction="http://tempuri.org/IMatchService/CreatetMatchResponse")]
-        void CreatetMatch(ClienteJuego.ConnectService.Match newMatch);
+        void CreatetMatch(ClienteJuego.ConnectService.MatchServer newMatch);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMatchService/CreatetMatch", ReplyAction="http://tempuri.org/IMatchService/CreatetMatchResponse")]
-        System.Threading.Tasks.Task CreatetMatchAsync(ClienteJuego.ConnectService.Match newMatch);
+        System.Threading.Tasks.Task CreatetMatchAsync(ClienteJuego.ConnectService.MatchServer newMatch);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMatchService/DisconnectFromMatch", ReplyAction="http://tempuri.org/IMatchService/DisconnectFromMatchResponse")]
-        void DisconnectFromMatch(ClienteJuego.ConnectService.Match match);
+        void DisconnectFromMatch(ClienteJuego.ConnectService.MatchServer match);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMatchService/DisconnectFromMatch", ReplyAction="http://tempuri.org/IMatchService/DisconnectFromMatchResponse")]
-        System.Threading.Tasks.Task DisconnectFromMatchAsync(ClienteJuego.ConnectService.Match match);
+        System.Threading.Tasks.Task DisconnectFromMatchAsync(ClienteJuego.ConnectService.MatchServer match);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMatchService/ConnectToMatch", ReplyAction="http://tempuri.org/IMatchService/ConnectToMatchResponse")]
-        void ConnectToMatch(ClienteJuego.ConnectService.Match match);
+        void ConnectToMatch(ClienteJuego.ConnectService.MatchServer match);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMatchService/ConnectToMatch", ReplyAction="http://tempuri.org/IMatchService/ConnectToMatchResponse")]
-        System.Threading.Tasks.Task ConnectToMatchAsync(ClienteJuego.ConnectService.Match match);
+        System.Threading.Tasks.Task ConnectToMatchAsync(ClienteJuego.ConnectService.MatchServer match);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMatchService/GetAnswer", ReplyAction="http://tempuri.org/IMatchService/GetAnswerResponse")]
+        ClienteJuego.ConnectService.AnswerServer GetAnswer(int idAnswer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMatchService/GetAnswer", ReplyAction="http://tempuri.org/IMatchService/GetAnswerResponse")]
+        System.Threading.Tasks.Task<ClienteJuego.ConnectService.AnswerServer> GetAnswerAsync(int idAnswer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMatchService/GetQuestion", ReplyAction="http://tempuri.org/IMatchService/GetQuestionResponse")]
+        ClienteJuego.ConnectService.QuestionServer GetQuestion(int idQuestion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMatchService/GetQuestion", ReplyAction="http://tempuri.org/IMatchService/GetQuestionResponse")]
+        System.Threading.Tasks.Task<ClienteJuego.ConnectService.QuestionServer> GetQuestionAsync(int idQuestion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMatchService/GetMatch", ReplyAction="http://tempuri.org/IMatchService/GetMatchResponse")]
+        ClienteJuego.ConnectService.MatchServer GetMatch(int idMatch);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMatchService/GetMatch", ReplyAction="http://tempuri.org/IMatchService/GetMatchResponse")]
+        System.Threading.Tasks.Task<ClienteJuego.ConnectService.MatchServer> GetMatchAsync(int idMatch);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -997,36 +901,60 @@ namespace ClienteJuego.ConnectService {
                 base(binding, remoteAddress) {
         }
         
-        public void StartLobby(ClienteJuego.ConnectService.Player[] players, ClienteJuego.ConnectService.Match newMatch) {
+        public void StartLobby(ClienteJuego.ConnectService.PlayerServer[] players, ClienteJuego.ConnectService.MatchServer newMatch) {
             base.Channel.StartLobby(players, newMatch);
         }
         
-        public System.Threading.Tasks.Task StartLobbyAsync(ClienteJuego.ConnectService.Player[] players, ClienteJuego.ConnectService.Match newMatch) {
+        public System.Threading.Tasks.Task StartLobbyAsync(ClienteJuego.ConnectService.PlayerServer[] players, ClienteJuego.ConnectService.MatchServer newMatch) {
             return base.Channel.StartLobbyAsync(players, newMatch);
         }
         
-        public void CreatetMatch(ClienteJuego.ConnectService.Match newMatch) {
+        public void CreatetMatch(ClienteJuego.ConnectService.MatchServer newMatch) {
             base.Channel.CreatetMatch(newMatch);
         }
         
-        public System.Threading.Tasks.Task CreatetMatchAsync(ClienteJuego.ConnectService.Match newMatch) {
+        public System.Threading.Tasks.Task CreatetMatchAsync(ClienteJuego.ConnectService.MatchServer newMatch) {
             return base.Channel.CreatetMatchAsync(newMatch);
         }
         
-        public void DisconnectFromMatch(ClienteJuego.ConnectService.Match match) {
+        public void DisconnectFromMatch(ClienteJuego.ConnectService.MatchServer match) {
             base.Channel.DisconnectFromMatch(match);
         }
         
-        public System.Threading.Tasks.Task DisconnectFromMatchAsync(ClienteJuego.ConnectService.Match match) {
+        public System.Threading.Tasks.Task DisconnectFromMatchAsync(ClienteJuego.ConnectService.MatchServer match) {
             return base.Channel.DisconnectFromMatchAsync(match);
         }
         
-        public void ConnectToMatch(ClienteJuego.ConnectService.Match match) {
+        public void ConnectToMatch(ClienteJuego.ConnectService.MatchServer match) {
             base.Channel.ConnectToMatch(match);
         }
         
-        public System.Threading.Tasks.Task ConnectToMatchAsync(ClienteJuego.ConnectService.Match match) {
+        public System.Threading.Tasks.Task ConnectToMatchAsync(ClienteJuego.ConnectService.MatchServer match) {
             return base.Channel.ConnectToMatchAsync(match);
+        }
+        
+        public ClienteJuego.ConnectService.AnswerServer GetAnswer(int idAnswer) {
+            return base.Channel.GetAnswer(idAnswer);
+        }
+        
+        public System.Threading.Tasks.Task<ClienteJuego.ConnectService.AnswerServer> GetAnswerAsync(int idAnswer) {
+            return base.Channel.GetAnswerAsync(idAnswer);
+        }
+        
+        public ClienteJuego.ConnectService.QuestionServer GetQuestion(int idQuestion) {
+            return base.Channel.GetQuestion(idQuestion);
+        }
+        
+        public System.Threading.Tasks.Task<ClienteJuego.ConnectService.QuestionServer> GetQuestionAsync(int idQuestion) {
+            return base.Channel.GetQuestionAsync(idQuestion);
+        }
+        
+        public ClienteJuego.ConnectService.MatchServer GetMatch(int idMatch) {
+            return base.Channel.GetMatch(idMatch);
+        }
+        
+        public System.Threading.Tasks.Task<ClienteJuego.ConnectService.MatchServer> GetMatchAsync(int idMatch) {
+            return base.Channel.GetMatchAsync(idMatch);
         }
     }
     
@@ -1035,22 +963,22 @@ namespace ClienteJuego.ConnectService {
     public interface IGameService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/GetQuestions", ReplyAction="http://tempuri.org/IGameService/GetQuestionsResponse")]
-        ClienteJuego.ConnectService.Question[] GetQuestions();
+        ClienteJuego.ConnectService.QuestionServer[] GetQuestions();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/GetQuestions", ReplyAction="http://tempuri.org/IGameService/GetQuestionsResponse")]
-        System.Threading.Tasks.Task<ClienteJuego.ConnectService.Question[]> GetQuestionsAsync();
+        System.Threading.Tasks.Task<ClienteJuego.ConnectService.QuestionServer[]> GetQuestionsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/GetAnswers", ReplyAction="http://tempuri.org/IGameService/GetAnswersResponse")]
-        ClienteJuego.ConnectService.Answer[] GetAnswers(ClienteJuego.ConnectService.Question question);
+        ClienteJuego.ConnectService.AnswerServer[] GetAnswers(ClienteJuego.ConnectService.QuestionServer question);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/GetAnswers", ReplyAction="http://tempuri.org/IGameService/GetAnswersResponse")]
-        System.Threading.Tasks.Task<ClienteJuego.ConnectService.Answer[]> GetAnswersAsync(ClienteJuego.ConnectService.Question question);
+        System.Threading.Tasks.Task<ClienteJuego.ConnectService.AnswerServer[]> GetAnswersAsync(ClienteJuego.ConnectService.QuestionServer question);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/addPoints", ReplyAction="http://tempuri.org/IGameService/addPointsResponse")]
-        int addPoints(ClienteJuego.ConnectService.Player player, int score);
+        int addPoints(ClienteJuego.ConnectService.PlayerServer player, int score);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/addPoints", ReplyAction="http://tempuri.org/IGameService/addPointsResponse")]
-        System.Threading.Tasks.Task<int> addPointsAsync(ClienteJuego.ConnectService.Player player, int score);
+        System.Threading.Tasks.Task<int> addPointsAsync(ClienteJuego.ConnectService.PlayerServer player, int score);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/UpdateBoard", ReplyAction="http://tempuri.org/IGameService/UpdateBoardResponse")]
         void UpdateBoard();
@@ -1092,27 +1020,27 @@ namespace ClienteJuego.ConnectService {
                 base(binding, remoteAddress) {
         }
         
-        public ClienteJuego.ConnectService.Question[] GetQuestions() {
+        public ClienteJuego.ConnectService.QuestionServer[] GetQuestions() {
             return base.Channel.GetQuestions();
         }
         
-        public System.Threading.Tasks.Task<ClienteJuego.ConnectService.Question[]> GetQuestionsAsync() {
+        public System.Threading.Tasks.Task<ClienteJuego.ConnectService.QuestionServer[]> GetQuestionsAsync() {
             return base.Channel.GetQuestionsAsync();
         }
         
-        public ClienteJuego.ConnectService.Answer[] GetAnswers(ClienteJuego.ConnectService.Question question) {
+        public ClienteJuego.ConnectService.AnswerServer[] GetAnswers(ClienteJuego.ConnectService.QuestionServer question) {
             return base.Channel.GetAnswers(question);
         }
         
-        public System.Threading.Tasks.Task<ClienteJuego.ConnectService.Answer[]> GetAnswersAsync(ClienteJuego.ConnectService.Question question) {
+        public System.Threading.Tasks.Task<ClienteJuego.ConnectService.AnswerServer[]> GetAnswersAsync(ClienteJuego.ConnectService.QuestionServer question) {
             return base.Channel.GetAnswersAsync(question);
         }
         
-        public int addPoints(ClienteJuego.ConnectService.Player player, int score) {
+        public int addPoints(ClienteJuego.ConnectService.PlayerServer player, int score) {
             return base.Channel.addPoints(player, score);
         }
         
-        public System.Threading.Tasks.Task<int> addPointsAsync(ClienteJuego.ConnectService.Player player, int score) {
+        public System.Threading.Tasks.Task<int> addPointsAsync(ClienteJuego.ConnectService.PlayerServer player, int score) {
             return base.Channel.addPointsAsync(player, score);
         }
         
