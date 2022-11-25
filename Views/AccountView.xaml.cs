@@ -29,7 +29,7 @@ namespace ClienteJuego.Views
         {
             InitializeComponent();
             userName = (App.Current as App).DeptName;
-            Player player = LoadData();
+            PlayerServer player = LoadData();
             
             textNombre.Text = player.firstName + " " + player.lastName;
             textEmail.Text = player.email;
@@ -40,9 +40,9 @@ namespace ClienteJuego.Views
 
         }
 
-        Player LoadData()
+        PlayerServer LoadData()
         {
-            Player playerInfo = new Player();
+            PlayerServer playerInfo = new PlayerServer();
             try
             {
                 ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();

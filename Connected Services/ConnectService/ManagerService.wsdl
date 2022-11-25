@@ -120,8 +120,7 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8082/?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8082/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:8082/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DataAcces" />
-      <xsd:import schemaLocation="http://localhost:8082/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MessageService" />
+      <xsd:import schemaLocation="http://localhost:8082/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MessageService.Domain" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IUserManager_AddPlayer_InputMessage">
@@ -159,6 +158,12 @@
   </wsdl:message>
   <wsdl:message name="IUserManager_SearchPlayer_OutputMessage">
     <wsdl:part name="parameters" element="tns:SearchPlayerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserManager_GetFriend_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFriend" />
+  </wsdl:message>
+  <wsdl:message name="IUserManager_GetFriend_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFriendResponse" />
   </wsdl:message>
   <wsdl:message name="IChatService_Connect_InputMessage">
     <wsdl:part name="parameters" element="tns:Connect" />
@@ -210,6 +215,24 @@
   </wsdl:message>
   <wsdl:message name="IMatchService_ConnectToMatch_OutputMessage">
     <wsdl:part name="parameters" element="tns:ConnectToMatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_GetAnswer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnswer" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_GetAnswer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnswerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_GetQuestion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuestion" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_GetQuestion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_GetMatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMatch" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_GetMatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMatchResponse" />
   </wsdl:message>
   <wsdl:message name="IGameService_GetQuestions_InputMessage">
     <wsdl:part name="parameters" element="tns:GetQuestions" />
@@ -266,6 +289,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IUserManager/SearchPlayer" message="tns:IUserManager_SearchPlayer_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserManager/SearchPlayerResponse" message="tns:IUserManager_SearchPlayer_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetFriend">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserManager/GetFriend" message="tns:IUserManager_GetFriend_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserManager/GetFriendResponse" message="tns:IUserManager_GetFriend_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType msc:usingSession="true" name="IChatService">
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Connect">
@@ -312,6 +339,18 @@
     <wsdl:operation name="ConnectToMatch">
       <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/ConnectToMatch" message="tns:IMatchService_ConnectToMatch_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/ConnectToMatchResponse" message="tns:IMatchService_ConnectToMatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAnswer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/GetAnswer" message="tns:IMatchService_GetAnswer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/GetAnswerResponse" message="tns:IMatchService_GetAnswer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuestion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/GetQuestion" message="tns:IMatchService_GetQuestion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/GetQuestionResponse" message="tns:IMatchService_GetQuestion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMatch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/GetMatch" message="tns:IMatchService_GetMatch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/GetMatchResponse" message="tns:IMatchService_GetMatch_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IGameService">
@@ -386,6 +425,15 @@
     </wsdl:operation>
     <wsdl:operation name="SearchPlayer">
       <soap12:operation soapAction="http://tempuri.org/IUserManager/SearchPlayer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFriend">
+      <soap12:operation soapAction="http://tempuri.org/IUserManager/GetFriend" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -484,6 +532,33 @@
     </wsdl:operation>
     <wsdl:operation name="ConnectToMatch">
       <soap12:operation soapAction="http://tempuri.org/IMatchService/ConnectToMatch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnswer">
+      <soap12:operation soapAction="http://tempuri.org/IMatchService/GetAnswer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuestion">
+      <soap12:operation soapAction="http://tempuri.org/IMatchService/GetQuestion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMatch">
+      <soap12:operation soapAction="http://tempuri.org/IMatchService/GetMatch" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

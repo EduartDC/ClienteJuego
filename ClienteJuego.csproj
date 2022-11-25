@@ -241,13 +241,19 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Theme.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Connected Services\ConnectService\ClienteJuego.ConnectService.Answer.datasource">
+    <None Include="Connected Services\ConnectService\ClienteJuego.ConnectService.AnswerServer.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ConnectService\ClienteJuego.ConnectService.Player.datasource">
+    <None Include="Connected Services\ConnectService\ClienteJuego.ConnectService.FriendServer.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ConnectService\ClienteJuego.ConnectService.Question.datasource">
+    <None Include="Connected Services\ConnectService\ClienteJuego.ConnectService.MatchServer.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ConnectService\ClienteJuego.ConnectService.PlayerServer.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ConnectService\ClienteJuego.ConnectService.QuestionServer.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ConnectService\item.xsd">
@@ -257,9 +263,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ConnectService\item2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ConnectService\item3.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ConnectService\ManagerService.wsdl" />

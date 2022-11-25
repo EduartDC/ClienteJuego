@@ -1,0 +1,94 @@
+﻿C:\Users\Eduar\source\repos\ClienteJuego\App.xaml
+C:\Users\Eduar\source\repos\ClienteJuego\Avatars\Avatar.cs
+C:\Users\Eduar\source\repos\ClienteJuego\Properties\Accessories.cs
+C:\Users\Eduar\source\repos\ClienteJuego\Views\AccountView.xaml.cs
+C:\Users\Eduar\source\repos\ClienteJuego\Views\ChatView.xaml.cs
+C:\Users\Eduar\source\repos\ClienteJuego\Views\CreditsView.xaml.cs
+C:\Users\Eduar\source\repos\ClienteJuego\Views\EditAccountView.xaml.cs
+C:\Users\Eduar\source\repos\ClienteJuego\Views\FriendListView.xaml.cs
+C:\Users\Eduar\source\repos\ClienteJuego\Views\GameModeView.xaml.cs
+C:\Users\Eduar\source\repos\ClienteJuego\Views\InicioView.xaml.cs
+C:\Users\Eduar\source\repos\ClienteJuego\Views\LobbyView.xaml.cs
+C:\Users\Eduar\source\repos\ClienteJuego\Views\LoginView.xaml.cs
+C:\Users\Eduar\source\repos\ClienteJuego\Views\MenuOptionsView.xaml.cs
+C:\Users\Eduar\source\repos\ClienteJuego\Views\RegisterView.xaml.cs
+C:\Users\Eduar\source\repos\ClienteJuego\Views\ReportView.xaml.cs
+C:\Users\Eduar\source\repos\ClienteJuego\Views\ScoreView.xaml.cs
+C:\Users\Eduar\source\repos\ClienteJuego\Views\SettingsView.xaml.cs
+C:\Users\Eduar\source\repos\ClienteJuego\Views\TableroView.xaml.cs
+C:\Users\Eduar\source\repos\ClienteJuego\App.xaml.cs
+C:\Users\Eduar\source\repos\ClienteJuego\MainWindow.xaml.cs
+C:\Users\Eduar\source\repos\ClienteJuego\Properties\AssemblyInfo.cs
+C:\Users\Eduar\source\repos\ClienteJuego\EffectSounds\musicOriginal.wav
+C:\Users\Eduar\source\repos\ClienteJuego\EffectSounds\ButtonClic.wav
+C:\Users\Eduar\source\repos\ClienteJuego\EffectSounds\Error.wav
+C:\Users\Eduar\source\repos\ClienteJuego\EffectSounds\Ganador.wav
+C:\Users\Eduar\source\repos\ClienteJuego\EffectSounds\Inicio.wav
+C:\Users\Eduar\source\repos\ClienteJuego\EffectSounds\Correcto.wav
+C:\Users\Eduar\source\repos\ClienteJuego\Properties\Resources.resx
+C:\Users\Eduar\source\repos\ClienteJuego\Themes\Theme.resx
+C:\Users\Eduar\source\repos\ClienteJuego\Properties\Resources.es-MX.resx
+C:\Users\Eduar\source\repos\ClienteJuego\Connected Services\ConnectService\ClienteJuego.ConnectService.Answer.datasource
+C:\Users\Eduar\source\repos\ClienteJuego\Connected Services\ConnectService\ClienteJuego.ConnectService.Player.datasource
+C:\Users\Eduar\source\repos\ClienteJuego\Connected Services\ConnectService\ClienteJuego.ConnectService.Question.datasource
+C:\Users\Eduar\source\repos\ClienteJuego\Connected Services\ConnectService\item.xsd
+C:\Users\Eduar\source\repos\ClienteJuego\Connected Services\ConnectService\item1.xsd
+C:\Users\Eduar\source\repos\ClienteJuego\Connected Services\ConnectService\item2.xsd
+C:\Users\Eduar\source\repos\ClienteJuego\Connected Services\ConnectService\item3.xsd
+C:\Users\Eduar\source\repos\ClienteJuego\Connected Services\ConnectService\ManagerService.wsdl
+C:\Users\Eduar\source\repos\ClienteJuego\packages.config
+C:\Users\Eduar\source\repos\ClienteJuego\Properties\Settings.settings
+C:\Users\Eduar\source\repos\ClienteJuego\App.config
+C:\Users\Eduar\source\repos\ClienteJuego\Connected Services\ConnectService\item.disco
+C:\Users\Eduar\source\repos\ClienteJuego\Connected Services\ConnectService\configuration91.svcinfo
+C:\Users\Eduar\source\repos\ClienteJuego\Connected Services\ConnectService\configuration.svcinfo
+C:\Users\Eduar\source\repos\ClienteJuego\Connected Services\ConnectService\Reference.svcmap
+C:\Users\Eduar\source\repos\ClienteJuego\MainWindow.xaml
+C:\Users\Eduar\source\repos\ClienteJuego\Views\AccountView.xaml
+C:\Users\Eduar\source\repos\ClienteJuego\Views\ChatView.xaml
+C:\Users\Eduar\source\repos\ClienteJuego\Views\CreditsView.xaml
+C:\Users\Eduar\source\repos\ClienteJuego\Views\EditAccountView.xaml
+C:\Users\Eduar\source\repos\ClienteJuego\Views\FriendListView.xaml
+C:\Users\Eduar\source\repos\ClienteJuego\Views\GameModeView.xaml
+C:\Users\Eduar\source\repos\ClienteJuego\Views\InicioView.xaml
+C:\Users\Eduar\source\repos\ClienteJuego\Views\LobbyView.xaml
+C:\Users\Eduar\source\repos\ClienteJuego\Views\LoginView.xaml
+C:\Users\Eduar\source\repos\ClienteJuego\Views\MenuOptionsView.xaml
+C:\Users\Eduar\source\repos\ClienteJuego\Views\RegisterView.xaml
+C:\Users\Eduar\source\repos\ClienteJuego\Views\ReportView.xaml
+C:\Users\Eduar\source\repos\ClienteJuego\Views\ScoreView.xaml
+C:\Users\Eduar\source\repos\ClienteJuego\Views\SettingsView.xaml
+C:\Users\Eduar\source\repos\ClienteJuego\Views\TableroView.xaml
+C:\Users\Eduar\source\repos\ClienteJuego\Images\logoFc.png
+C:\Users\Eduar\source\repos\ClienteJuego\Images\agregar-usuario.png
+C:\Users\Eduar\source\repos\ClienteJuego\Images\ajustes.png
+C:\Users\Eduar\source\repos\ClienteJuego\Images\barra-de-menus.png
+C:\Users\Eduar\source\repos\ClienteJuego\Images\cancelar.png
+C:\Users\Eduar\source\repos\ClienteJuego\Images\grupo.png
+C:\Users\Eduar\source\repos\ClienteJuego\Images\icons8-usuario-30.png
+C:\Users\Eduar\source\repos\ClienteJuego\Images\information(1).png
+C:\Users\Eduar\source\repos\ClienteJuego\Images\information.png
+C:\Users\Eduar\source\repos\ClienteJuego\Images\logout.png
+C:\Users\Eduar\source\repos\ClienteJuego\Images\ppGame.png
+C:\Users\Eduar\source\repos\ClienteJuego\Images\setting.png
+C:\Users\Eduar\source\repos\ClienteJuego\Images\usuario.png
+C:\Users\Eduar\source\repos\ClienteJuego\Images\play.png
+C:\Users\Eduar\source\repos\ClienteJuego\Images\ok3.png
+C:\Users\Eduar\source\repos\ClienteJuego\Images\back.png
+C:\Users\Eduar\source\repos\ClienteJuego\Images\developer.png
+C:\Users\Eduar\source\repos\ClienteJuego\Images\graphicDesigner.png
+C:\Users\Eduar\source\repos\ClienteJuego\Images\playJUE.png
+C:\Users\Eduar\source\repos\ClienteJuego\Images\credits.png
+C:\Users\Eduar\source\repos\ClienteJuego\Avatars\avatarCinco.jpg
+C:\Users\Eduar\source\repos\ClienteJuego\Avatars\avatarCuatro.jpg
+C:\Users\Eduar\source\repos\ClienteJuego\Avatars\avatarDos.jpg
+C:\Users\Eduar\source\repos\ClienteJuego\Avatars\avatarOcho.jpg
+C:\Users\Eduar\source\repos\ClienteJuego\Avatars\avatarSeis.jpg
+C:\Users\Eduar\source\repos\ClienteJuego\Avatars\avatarSiete.jpg
+C:\Users\Eduar\source\repos\ClienteJuego\Avatars\avatarTres.jpg
+C:\Users\Eduar\source\repos\ClienteJuego\Avatars\avatarUno.jpg
+C:\Users\Eduar\source\repos\ClienteJuego\Images\iconMexico.png
+C:\Users\Eduar\source\repos\ClienteJuego\Images\iconUSA.png
+C:\Users\Eduar\source\repos\ClienteJuego\Avatars\avatarDef.png
+C:\Users\Eduar\source\repos\ClienteJuego\Images\off.png
+C:\Users\Eduar\source\repos\ClienteJuego\Images\on.png

@@ -1,0 +1,44 @@
+﻿C:\Users\Eduar\source\repos\ClienteJuego\Avatars\Avatar.cs
+C:\Users\Eduar\source\repos\ClienteJuego\Properties\Accessories.cs
+C:\Users\Eduar\source\repos\ClienteJuego\Views\AccountView.xaml.cs
+C:\Users\Eduar\source\repos\ClienteJuego\Views\ChatView.xaml.cs
+C:\Users\Eduar\source\repos\ClienteJuego\Views\CreditsView.xaml.cs
+C:\Users\Eduar\source\repos\ClienteJuego\Views\EditAccountView.xaml.cs
+C:\Users\Eduar\source\repos\ClienteJuego\Views\FriendListView.xaml.cs
+C:\Users\Eduar\source\repos\ClienteJuego\Views\GameModeView.xaml.cs
+C:\Users\Eduar\source\repos\ClienteJuego\Views\InicioView.xaml.cs
+C:\Users\Eduar\source\repos\ClienteJuego\Views\LobbyView.xaml.cs
+C:\Users\Eduar\source\repos\ClienteJuego\Views\LoginView.xaml.cs
+C:\Users\Eduar\source\repos\ClienteJuego\Views\MenuOptionsView.xaml.cs
+C:\Users\Eduar\source\repos\ClienteJuego\Views\RegisterView.xaml.cs
+C:\Users\Eduar\source\repos\ClienteJuego\Views\ReportView.xaml.cs
+C:\Users\Eduar\source\repos\ClienteJuego\Views\ScoreView.xaml.cs
+C:\Users\Eduar\source\repos\ClienteJuego\Views\SettingsView.xaml.cs
+C:\Users\Eduar\source\repos\ClienteJuego\Views\TableroView.xaml.cs
+C:\Users\Eduar\source\repos\ClienteJuego\App.xaml.cs
+C:\Users\Eduar\source\repos\ClienteJuego\MainWindow.xaml.cs
+C:\Users\Eduar\source\repos\ClienteJuego\Properties\AssemblyInfo.cs
+C:\Users\Eduar\source\repos\ClienteJuego\EffectSounds\musicOriginal.wav
+C:\Users\Eduar\source\repos\ClienteJuego\EffectSounds\ButtonClic.wav
+C:\Users\Eduar\source\repos\ClienteJuego\EffectSounds\Error.wav
+C:\Users\Eduar\source\repos\ClienteJuego\EffectSounds\Ganador.wav
+C:\Users\Eduar\source\repos\ClienteJuego\EffectSounds\Inicio.wav
+C:\Users\Eduar\source\repos\ClienteJuego\EffectSounds\Correcto.wav
+C:\Users\Eduar\source\repos\ClienteJuego\Properties\Resources.es-MX.resx
+C:\Users\Eduar\source\repos\ClienteJuego\Properties\Resources.resx
+C:\Users\Eduar\source\repos\ClienteJuego\Themes\Theme.resx
+C:\Users\Eduar\source\repos\ClienteJuego\Connected Services\ConnectService\ClienteJuego.ConnectService.Answer.datasource
+C:\Users\Eduar\source\repos\ClienteJuego\Connected Services\ConnectService\ClienteJuego.ConnectService.Player.datasource
+C:\Users\Eduar\source\repos\ClienteJuego\Connected Services\ConnectService\ClienteJuego.ConnectService.Question.datasource
+C:\Users\Eduar\source\repos\ClienteJuego\Connected Services\ConnectService\item.xsd
+C:\Users\Eduar\source\repos\ClienteJuego\Connected Services\ConnectService\item1.xsd
+C:\Users\Eduar\source\repos\ClienteJuego\Connected Services\ConnectService\item2.xsd
+C:\Users\Eduar\source\repos\ClienteJuego\Connected Services\ConnectService\item3.xsd
+C:\Users\Eduar\source\repos\ClienteJuego\Connected Services\ConnectService\ManagerService.wsdl
+C:\Users\Eduar\source\repos\ClienteJuego\packages.config
+C:\Users\Eduar\source\repos\ClienteJuego\Properties\Settings.settings
+C:\Users\Eduar\source\repos\ClienteJuego\App.config
+C:\Users\Eduar\source\repos\ClienteJuego\Connected Services\ConnectService\item.disco
+C:\Users\Eduar\source\repos\ClienteJuego\Connected Services\ConnectService\configuration91.svcinfo
+C:\Users\Eduar\source\repos\ClienteJuego\Connected Services\ConnectService\configuration.svcinfo
+C:\Users\Eduar\source\repos\ClienteJuego\Connected Services\ConnectService\Reference.svcmap
