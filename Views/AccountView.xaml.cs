@@ -24,13 +24,13 @@ namespace ClienteJuego.Views
     public partial class AccountView : Page
     {
         String userName;
-        
+
         public AccountView()
         {
             InitializeComponent();
             userName = (App.Current as App).DeptName;
             PlayerServer player = LoadData();
-            
+
             textNombre.Text = player.firstName + " " + player.lastName;
             textEmail.Text = player.email;
             textUserName.Text = player.userName;

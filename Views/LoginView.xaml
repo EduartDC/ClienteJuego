@@ -1,126 +1,119 @@
-﻿<Page x:Class="ClienteJuego.Views.LoginView"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:ClienteJuego.Views"
-      mc:Ignorable="d"
-      xmlns:p="clr-namespace:ClienteJuego.Properties"
-      d:DesignHeight="600" d:DesignWidth="800"
-      MaxHeight="600" MaxWidth="800"
-      Title="LoginView">
+﻿<Page
+    x:Class="ClienteJuego.Views.LoginView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ClienteJuego.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:p="clr-namespace:ClienteJuego.Properties"
+    Title="LoginView"
+    d:DesignHeight="600"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
 
-    <Page.Resources>
-
-    </Page.Resources>
-
-    <Grid Background="#0f0e17">
-        <Label 
-            x:Name="lblUserName" 
-            Content = "{x:Static p:Resources.lblUserName}"
-            HorizontalAlignment="Left" 
-            Margin="335,308,0,0" 
-            VerticalAlignment="Top" 
-            Foreground="White" 
-            FontWeight="Bold"/>
-        <Label 
-            x:Name="lblPassword" 
-            Content= "{x:Static p:Resources.lblPassword}" 
-            HorizontalAlignment="Left" 
-            Margin="335,374,0,0" 
-            VerticalAlignment="Top" 
-            RenderTransformOrigin="0.447,0.31" 
-            Foreground="White" 
-            FontWeight="Bold"
-        />
-        <Image 
-            HorizontalAlignment="Left" 
-            Height="152" 
-            Margin="234,98,0,0" 
-            VerticalAlignment="Top" 
-            Width="325" 
-            Source="/Images/logoFc.png"
-
-        />
-        <Button 
-            x:Name="btnLogin" 
-            Content="{x:Static p:Resources.btnLogin}"  
-            HorizontalAlignment="Left" 
-            Margin="344,463,0,0" 
-            VerticalAlignment="Top" 
-            Width="104" 
-            Click="btnLogin_Click" 
-            Foreground="White" 
-            Background="#FFFF8906" 
-            FontWeight="Bold"/>
-        <Label 
-            x:Name="lblExampleUserName" 
-			Content="{x:Static p:Resources.lblExampleUserName}" 
-            HorizontalAlignment="Left" 
-            Margin="326,326,0,0" 
-            VerticalAlignment="Top" 
-            Foreground="#FFA7A9BE" 
-            Width="120" 
-            Height="28" 
-            VerticalContentAlignment="Center" 
-            HorizontalContentAlignment="Center" 
-            FontStyle="Italic"
-        />
-        <TextBox 
-            x:Name="textUserName" 
-            HorizontalAlignment="Center" 
-            Margin="0,336,0,0" 
-            TextWrapping="Wrap" 
-            VerticalAlignment="Top" 
-            Width="120" 
-            RenderTransformOrigin="0.504,-5.037" 
-            Background="#00000000" 
-            GotFocus="textUserName_GotFocus" 
-            LostFocus="textUserName_LostFocus" 
-            Foreground="Gray"
-            BorderBrush="#FFFF8906" 
-            BorderThickness="0,0,0,2" 
-            KeyDown="TextUserName_KeyDown"
-        />
-        <Label 
-            x:Name="lblExamplePassword" 
-            Content="●●●●●●●●●●" 
-            HorizontalAlignment="Left" 
-            Margin="340,396,0,0" 
-            VerticalAlignment="Top" 
-            Foreground="#FFA7A9BE" 
-            Width="99"
-        />
-        <PasswordBox 
-            x:Name="textPassword" 
-            HorizontalAlignment="Center" 
-            Margin="0,404,0,0" 
-            VerticalAlignment="Top" 
-            Width="120" 
-            Background="#00000000" 
-            LostFocus="textPassword_LostFocus" 
-            GotFocus="textPassword_GotFocus"
-            Foreground="#FFA7A9BE"
-            BorderBrush="#FFFF8906" 
-            BorderThickness="0,0,0,2" 
-            KeyDown="TextPassword_KeyDonw"
-        />
-        <Button 
-            x:Name="btnRegister"  
-            HorizontalAlignment="Left" 
-            Content="{x:Static p:Resources.btnRegister}"
-            Margin="344,507,0,0" 
-            VerticalAlignment="Top" 
-            Width="104" 
-            Click="btnRegister_Click" 
-            Foreground="White" 
-            Background="#FFFF8906" 
-            FontWeight="Bold"/>
-        <Button x:Name="test" Content="Button" HorizontalAlignment="Left" Margin="588,473,0,0" VerticalAlignment="Top" Click="test_Click"/>
+    <Viewbox Stretch="Fill" StretchDirection="Both">
+        <Grid
+            Width="800"
+            Height="600"
+            Background="#0f0e17">
+            <Label
+                x:Name="lblUserName"
+                Margin="335,308,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="{x:Static p:Resources.lblUserName}"
+                FontWeight="Bold"
+                Foreground="White" />
+            <Label
+                x:Name="lblPassword"
+                Margin="335,374,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="{x:Static p:Resources.lblPassword}"
+                FontWeight="Bold"
+                Foreground="White"
+                RenderTransformOrigin="0.447,0.31" />
+            <Image
+                Width="372"
+                Height="180"
+                Margin="0,101,0,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Source="/Images/logoFc.png" />
+            <Button
+                x:Name="btnLogin"
+                Width="104"
+                Margin="344,463,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="#FFFF8906"
+                Click="btnLogin_Click"
+                Content="{x:Static p:Resources.btnLogin}"
+                FontWeight="Bold"
+                Foreground="White" />
+            <Label
+                x:Name="lblExampleUserName"
+                Width="120"
+                Height="28"
+                Margin="322,326,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Content="{x:Static p:Resources.lblExampleUserName}"
+                FontStyle="Italic"
+                Foreground="#FFA7A9BE" />
+            <TextBox
+                x:Name="textUserName"
+                Width="120"
+                Margin="0,336,0,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Background="#00000000"
+                BorderBrush="#FFFF8906"
+                BorderThickness="0,0,0,2"
+                Foreground="Gray"
+                GotFocus="textUserName_GotFocus"
+                KeyDown="TextUserName_KeyDown"
+                LostFocus="textUserName_LostFocus"
+                RenderTransformOrigin="0.504,-5.037"
+                TextWrapping="Wrap" />
+            <Label
+                x:Name="lblExamplePassword"
+                Width="99"
+                Margin="340,396,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="●●●●●●●●●●"
+                Foreground="#FFA7A9BE" />
+            <PasswordBox
+                x:Name="textPassword"
+                Width="120"
+                Margin="0,404,0,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Background="#00000000"
+                BorderBrush="#FFFF8906"
+                BorderThickness="0,0,0,2"
+                Foreground="#FFA7A9BE"
+                GotFocus="textPassword_GotFocus"
+                KeyDown="TextPassword_KeyDonw"
+                LostFocus="textPassword_LostFocus" />
+            <Button
+                x:Name="btnRegister"
+                Width="104"
+                Margin="344,507,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="#FFFF8906"
+                Click="btnRegister_Click"
+                Content="{x:Static p:Resources.btnRegister}"
+                FontWeight="Bold"
+                Foreground="White" />
 
 
 
 
-    </Grid>
-
+        </Grid>
+    </Viewbox>
 </Page>

@@ -63,7 +63,8 @@ namespace ClienteJuego.Views
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("Views/ChatView.xaml", UriKind.Relative));
+            var roomchat = (MainWindow) App.Current.MainWindow;
+            roomchat.ContenedorChat.Navigate(new ChatView());
         }
     }
 }

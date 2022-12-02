@@ -56,6 +56,7 @@ namespace ClienteJuego.Views
                     else
                     {
                         (App.Current as App).DeptName = player.userName;
+                        
                         NavigationService.Navigate(new Uri("Views/InicioView.xaml?value=15", UriKind.Relative));
                         
                     }
@@ -140,19 +141,6 @@ namespace ClienteJuego.Views
             Accessories.RegexSpecial(e);
         }
 
-        private void test_Click(object sender, RoutedEventArgs e)
-        {
-            ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
-         
-            
-                var friend = client.GetFriend(2);
-
-            Console.WriteLine(friend.idFriend);
-            
-            
-            
-
-            
-        }
+        
     }
 }
