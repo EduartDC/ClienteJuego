@@ -244,9 +244,6 @@
     <None Include="Connected Services\ConnectService\ClienteJuego.ConnectService.AnswerServer.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ConnectService\ClienteJuego.ConnectService.FriendServer.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\ConnectService\ClienteJuego.ConnectService.MatchServer.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -360,6 +357,8 @@
     <Content Include="EffectSounds\Ganador.wav" />
     <Content Include="EffectSounds\Inicio.wav" />
     <Content Include="EffectSounds\Correcto.wav" />
+    <Resource Include="Images\timer.png" />
+    <Resource Include="Images\Search.png" />
     <Resource Include="Images\off.png" />
     <Resource Include="Images\on.png" />
   </ItemGroup>

@@ -123,6 +123,18 @@
       <xsd:import schemaLocation="http://localhost:8082/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MessageService.Domain" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IUserManager_MatchingFriends_InputMessage">
+    <wsdl:part name="parameters" element="tns:MatchingFriends" />
+  </wsdl:message>
+  <wsdl:message name="IUserManager_MatchingFriends_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MatchingFriendsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserManager_AddFriend_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddFriend" />
+  </wsdl:message>
+  <wsdl:message name="IUserManager_AddFriend_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddFriendResponse" />
+  </wsdl:message>
   <wsdl:message name="IUserManager_AddPlayer_InputMessage">
     <wsdl:part name="parameters" element="tns:AddPlayer" />
   </wsdl:message>
@@ -265,6 +277,14 @@
     <wsdl:part name="parameters" element="tns:UpdateStrikesResponse" />
   </wsdl:message>
   <wsdl:portType name="IUserManager">
+    <wsdl:operation name="MatchingFriends">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserManager/MatchingFriends" message="tns:IUserManager_MatchingFriends_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserManager/MatchingFriendsResponse" message="tns:IUserManager_MatchingFriends_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFriend">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserManager/AddFriend" message="tns:IUserManager_AddFriend_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserManager/AddFriendResponse" message="tns:IUserManager_AddFriend_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="AddPlayer">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserManager/AddPlayer" message="tns:IUserManager_AddPlayer_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserManager/AddPlayerResponse" message="tns:IUserManager_AddPlayer_OutputMessage" />
@@ -378,6 +398,24 @@
   <wsdl:binding name="NetTcpBinding_IUserManager" type="tns:IUserManager">
     <wsp:PolicyReference URI="#NetTcpBinding_IUserManager_policy" />
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="MatchingFriends">
+      <soap12:operation soapAction="http://tempuri.org/IUserManager/MatchingFriends" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFriend">
+      <soap12:operation soapAction="http://tempuri.org/IUserManager/AddFriend" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="AddPlayer">
       <soap12:operation soapAction="http://tempuri.org/IUserManager/AddPlayer" style="document" />
       <wsdl:input>
@@ -622,7 +660,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8081/MessageService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>DESKTOP-F2DQ5DU\Eduar</Upn>
+          <Upn>HYBOOK-PLUS\crisa</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -631,7 +669,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8081/MessageService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>DESKTOP-F2DQ5DU\Eduar</Upn>
+          <Upn>HYBOOK-PLUS\crisa</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -640,7 +678,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8081/MessageService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>DESKTOP-F2DQ5DU\Eduar</Upn>
+          <Upn>HYBOOK-PLUS\crisa</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -649,7 +687,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8081/MessageService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>DESKTOP-F2DQ5DU\Eduar</Upn>
+          <Upn>HYBOOK-PLUS\crisa</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

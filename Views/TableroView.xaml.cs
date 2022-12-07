@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace ClienteJuego.Views
 {
@@ -21,6 +22,7 @@ namespace ClienteJuego.Views
     /// </summary>
     public partial class TableroView : Page
     {
+        private int count;
 
         private static int allvalue;
 
@@ -35,6 +37,7 @@ namespace ClienteJuego.Views
         public TableroView()
         {
             InitializeComponent();
+            count = 0;
         }
 
         public void resetValues()
@@ -58,7 +61,7 @@ namespace ClienteJuego.Views
             allvalue = 0;
         }
 
-        public void cargar_ronda(int i)
+        public void chargeRound(int i)
         {
             resetValues();
             lblStatusRoundOff.Content = Properties.Resources.textStatusRoundOn;
@@ -69,16 +72,44 @@ namespace ClienteJuego.Views
         private void btnPlay_Click(object sender, RoutedEventArgs e)
         {
             round = 0;
-            cargar_ronda(round);
+            chargeRound(round);
+            startStopwatch(true);
+        }
+
+        private void startStopwatch(Boolean status)
+        {            
+            DispatcherTimer objectTimer = new DispatcherTimer();
+            objectTimer.Interval = new TimeSpan(0, 0, 0, 0, 1000);
+            objectTimer.Tick += (a, b) =>
+            {
+                count++;
+                lblTimer.Content = count.ToString();
+            };
+
+            if (status == true)
+            {
+                objectTimer.Start();
+            }
+            else if(status == false)
+            {
+                objectTimer.Stop();
+                count = 0;
+            }
+
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            int resultado = (int)MessageBox.Show("¿Estás seguro(a) de salir de la ronda?", "¡Regresar a modo de juego?", MessageBoxButton.YesNo);
-            if (resultado == 6)
+            int result = (int)MessageBox.Show("¿Estás seguro(a) de salir de la ronda?", "¡Regresar a modo de juego?", MessageBoxButton.YesNo);
+            if (result == 6)
             {
                 NavigationService.Navigate(new Uri("Views/InicioView.xaml", UriKind.Relative));
             }            
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            startStopwatch(false);
         }
     }
 }

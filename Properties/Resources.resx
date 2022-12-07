@@ -174,6 +174,9 @@
   <data name="lblForgotPassword" xml:space="preserve">
     <value>Forgot password?</value>
   </data>
+  <data name="lblFriendSearch" xml:space="preserve">
+    <value>Add new friendship</value>
+  </data>
   <data name="lblGraphicDesigners" xml:space="preserve">
     <value>Graphic Designers</value>
   </data>
@@ -182,6 +185,9 @@
   </data>
   <data name="lblHelp" xml:space="preserve">
     <value>Help</value>
+  </data>
+  <data name="lblInstructionLobby" xml:space="preserve">
+    <value>Enter the username to add</value>
   </data>
   <data name="lblLanguage" xml:space="preserve">
     <value>Language</value>
@@ -221,6 +227,12 @@
   </data>
   <data name="messageBoxEmptyFields" xml:space="preserve">
     <value>There are one or more missing fields, please correct them.</value>
+  </data>
+  <data name="messageBoxFailAddFriend" xml:space="preserve">
+    <value>The user you entered does not exist in the user registry, please correct</value>
+  </data>
+  <data name="messageBoxSuccessFriendAdd" xml:space="preserve">
+    <value>You have created a new friendship!</value>
   </data>
   <data name="messageBoxWelcomeGame" xml:space="preserve">
     <value>Welcome to 100 Mexicanos Dijieron!</value>

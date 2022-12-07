@@ -247,6 +247,9 @@
                 <ImageBrush Stretch="Uniform" ImageSource="/Images/back.png"/>
             </Button.Background>
         </Button>
+        <Image HorizontalAlignment="Left" Height="100" Margin="29,155,0,0" VerticalAlignment="Top" Width="100" Source="/Images/timer.png"/>
+        <Label x:Name="lblTimer" Content="Label" HorizontalAlignment="Left" Margin="47,197,0,0" VerticalAlignment="Top" Width="62" Foreground="White" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+        <Button x:Name="btnPrueba" Content="Button" HorizontalAlignment="Left" Margin="109,319,0,0" VerticalAlignment="Top" Click="Button_Click"/>
 
     </Grid>
 </Page>

@@ -139,20 +139,5 @@ namespace ClienteJuego.Views
         {
             Accessories.RegexSpecial(e);
         }
-
-        private void test_Click(object sender, RoutedEventArgs e)
-        {
-            ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
-         
-            
-                var friend = client.GetFriend(2);
-
-            Console.WriteLine(friend.idFriend);
-            
-            
-            
-
-            
-        }
     }
 }

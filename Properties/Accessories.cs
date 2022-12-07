@@ -16,14 +16,14 @@ namespace ClienteJuego.Properties
 {
     internal class Accessories
     {
+        
+        public static readonly SoundPlayer SOUNDSEFFECTS = new SoundPlayer("/Users/crisa/OneDrive - Universidad Veracruzana/UV/AGO-ENE23/TECNOLOGIAS/Proyecto Tecnologías A/ClienteCrisoforo/EffectSounds/buttonclic.wav");
+        public static readonly SoundPlayer ERROREFFECT = new SoundPlayer("/Users/crisa/OneDrive - Universidad Veracruzana/UV/AGO-ENE23/TECNOLOGIAS/Proyecto Tecnologías A/ClienteCrisoforo/EffectSounds/Error.wav");
+        public static readonly SoundPlayer WINNEREFFECT = new SoundPlayer("/Users/crisa/OneDrive - Universidad Veracruzana/UV/AGO-ENE23/TECNOLOGIAS/Proyecto Tecnologías A/ClienteCrisoforo/EffectSounds/Ganador.wav");
+        public static readonly SoundPlayer ANSWEREFFECT = new SoundPlayer("/Users/crisa/OneDrive - Universidad Veracruzana/UV/AGO-ENE23/TECNOLOGIAS/Proyecto Tecnologías A/ClienteCrisoforo/EffectSounds/Correcto.wav");
 
-        public static readonly SoundPlayer SOUNDSEFFECTS = new SoundPlayer("/users/eduar/source/repos/clientejuego/effectsounds/buttonclic.wav");
-        public static readonly SoundPlayer ERROREFFECT = new SoundPlayer("/users/eduar/source/repos/clientejuego/effectsounds/Error.wav");
-        public static readonly SoundPlayer WINNEREFFECT = new SoundPlayer("/users/eduar/source/repos/clientejuego/effectsounds/Ganador.wav");
-        public static readonly SoundPlayer ANSWEREFFECT = new SoundPlayer("/users/eduar/source/repos/clientejuego/effectsounds/Correcto.wav");
-
-        public static readonly SoundPlayer STARTMUSIC = new SoundPlayer("/users/eduar/source/repos/clientejuego/effectsounds/Inicio.wav");
-        public static readonly SoundPlayer ORIGINALMUSIC = new SoundPlayer("/users/eduar/source/repos/clientejuego/effectsounds/musicOriginal.wav");
+        public static readonly SoundPlayer STARTMUSIC = new SoundPlayer("/Users/crisa/OneDrive - Universidad Veracruzana/UV/AGO-ENE23/TECNOLOGIAS/Proyecto Tecnologías A/ClienteCrisoforo/EffectSounds/Inicio.wav");
+        public static readonly SoundPlayer ORIGINALMUSIC = new SoundPlayer("/Users/crisa/OneDrive - Universidad Veracruzana/UV/AGO-ENE23/TECNOLOGIAS/Proyecto Tecnologías A/ClienteCrisoforo/EffectSounds/musicOriginal.wav");
 
         public static string Hash(string password)
         {
@@ -58,14 +58,14 @@ namespace ClienteJuego.Properties
                 {
                     StreamWriter streamWriter = File.CreateText(fileName);
                     streamWriter.WriteLine(userName);
-                    streamWriter.WriteLine("/Users/Eduar/source/repos/ClienteJuego"+profilePicture);
+                    streamWriter.WriteLine("/Users/crisa/OneDrive - Universidad Veracruzana/UV/AGO-ENE23/TECNOLOGIAS/Proyecto Tecnologías A/ClienteCrisoforo" + profilePicture);
                     streamWriter.Close();
                 }
                 else
                 {
                     StreamWriter streamWriter = File.CreateText(fileName);
                     streamWriter.WriteLine(userName);
-                    streamWriter.WriteLine("/Users/Eduar/source/repos/ClienteJuego" + profilePicture);
+                    streamWriter.WriteLine("/Users/crisa/OneDrive - Universidad Veracruzana/UV/AGO-ENE23/TECNOLOGIAS/Proyecto Tecnologías A/ClienteCrisoforo" + profilePicture);
                     streamWriter.Close();
                 }
             }

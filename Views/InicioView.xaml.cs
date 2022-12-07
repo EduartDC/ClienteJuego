@@ -32,8 +32,8 @@ namespace ClienteJuego.Views
             Accessories.PlayMusic();
             userName = (App.Current as App).DeptName;
             TextUserName.Text = "Hola de nuevo "+ userName;
-            ImageSource imageSource = new ImageSourceConverter().ConvertFromString(Accessories.LoadConfigPlayer(userName)) as ImageSource;
-            imgAvatar.Source = imageSource;
+            //ImageSource imageSource = new ImageSourceConverter().ConvertFromString(Accessories.LoadConfigPlayer(userName)) as ImageSource;
+            //imgAvatar.Source = imageSource;
 
         }
 
