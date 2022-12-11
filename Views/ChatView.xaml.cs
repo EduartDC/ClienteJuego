@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using System.ServiceModel;
+using System.ServiceModel.Channels;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -30,12 +31,12 @@ namespace ClienteJuego.Views
         private PlayerServer playerData;
         public ChatView()
         {
-            
+
             chatServiceClient = new ChatServiceClient(new InstanceContext(this));
 
             StartView();
             InitializeComponent();
-            
+
         }
 
         private void StartView()
@@ -69,53 +70,79 @@ namespace ClienteJuego.Views
             return playerInfo;
         }
 
-        public void Receive(MessageServer[] messages)
+        public void Receive(MessageServer message)
         {
-            ChatTextBox.Clear();
-            foreach (var message in messages)
-            {
-                ChatTextBox.AppendText(message.Sender + ": " + message.Content + "\n");
-            }
-            
+
+            ChatTextBox.AppendText("From " + message.Sender + ": " + message.Content + "\n");
+
         }
 
-        public void ReceiveWhisper(MessageServer msg, PlayerServer receiver)
+        public void ReceiveWhisper(MessageServer message)
         {
-            throw new NotImplementedException();
+            ChatTextBox.AppendText("Wisp from " + message.Sender + ": " + message.Content + "\n");
         }
 
         public void RefreshClients(PlayerServer[] players)
         {
-            
-            listPlayers.Items.Add(players);
+            listPlayers.Items.Clear();
+            foreach (var player in players)
+            {
+                listPlayers.Items.Add(player.userName);
+            }
+
         }
 
         public void UserJoin(PlayerServer player)
         {
-            
-            ChatTextBox.AppendText("Bienvenido" + ": " + player.userName + "\n");
+            ChatTextBox.AppendText("System: " + "Bienvenido " + player.userName + "\n");
         }
 
         public void UserLeave(PlayerServer player)
         {
-            throw new NotImplementedException();
+            ChatTextBox.AppendText("System: " + player.userName + " Se ha desconectado\n");
         }
 
         private void SendButtonClick(object sender, RoutedEventArgs e)
         {
             MessageServer msg = new MessageServer();
             msg.Sender = playerData.userName;
-            msg.Content = textMessage.Text;
-            try
+
+            if (textMessage.Text.Contains(":"))
             {
-                chatServiceClient.Say(1, msg);
+                string[] words = textMessage.Text.Split(':');
+                var userName = words[0];
+                msg.Content = words[1];
+                try
+                {
+                    chatServiceClient.Whisper(msg, userName);
+                }
+                catch (CommunicationException)
+                {
+                    MessageBox.Show("Su mensaje no fue entregado, Intentelo más tarde");
+                }
             }
-            catch (CommunicationException)
+            else
             {
-                MessageBox.Show("Su mensaje no fue entregado, Intentelo más tarde");
+                msg.Content = textMessage.Text;
+                try
+                {
+                    chatServiceClient.Say(1, msg);
+                }
+                catch (CommunicationException)
+                {
+                    MessageBox.Show("Su mensaje no fue entregado, Intentelo más tarde");
+                }
             }
-            
+
             textMessage.Text = "";
+        }
+
+        private void btnMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            var roomchat = (MainWindow)App.Current.MainWindow;
+            roomchat.ContenedorChat.Content = null;
+
+            chatServiceClient.Disconnect(playerData);
         }
     }
 }

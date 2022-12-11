@@ -10,16 +10,14 @@
     d:DesignWidth="500"
     mc:Ignorable="d">
 
-    <Viewbox
-        Margin="20"
-        Stretch="Fill"
-        StretchDirection="Both">
+    <Viewbox >
         <Grid>
 
             <TextBox
                 x:Name="ChatTextBox"
                 Width="524"
-                Height="314"
+                Height="304"
+                Margin="0,20,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 FontSize="15"
@@ -27,16 +25,16 @@
                 TextWrapping="Wrap" />
             <TextBox
                 x:Name="textMessage"
-                Height="39"
-                Margin="0,322,164,0"
+                Height="30"
+                Margin="0,331,164,0"
                 VerticalAlignment="Top"
                 FontSize="15"
                 TextWrapping="Wrap" />
             <Button
                 x:Name="btnSend"
                 Width="159"
-                Height="39"
-                Margin="529,322,0,0"
+                Height="30"
+                Margin="529,331,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Click="SendButtonClick"
@@ -44,8 +42,18 @@
                 FontSize="20" />
             <ListBox
                 x:Name="listPlayers"
-                Margin="529,0,0,47"
+                Margin="529,21,0,46"
                 FontSize="15" />
+            <Button
+                x:Name="btnMinimize"
+                Width="33"
+                Height="16"
+                Margin="655,0,0,355"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                Click="btnMinimize_Click"
+                Content="--" />
         </Grid>
     </Viewbox>
+
 </Page>

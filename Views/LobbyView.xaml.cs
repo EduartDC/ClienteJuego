@@ -1,4 +1,5 @@
-﻿using ClienteJuego.Properties;
+﻿using ClienteJuego.ConnectService;
+using ClienteJuego.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,17 +22,23 @@ namespace ClienteJuego.Views
     /// </summary>
     public partial class LobbyView : Page
     {
+
+        public PlayerServer playerInfo;
+        private string userName;
         public LobbyView()
         {
             InitializeComponent();
+            Accessories.PlayMusic();
+            userName = (App.Current as App).DeptName;
+            TextUserName.Text = userName;
+            ImageSource imageSource = new ImageSourceConverter().ConvertFromString(Accessories.LoadConfigPlayer(userName)) as ImageSource;
+            imgAvatar.Source = imageSource;
         }
 
-        private void btnSettings_Click(object sender, RoutedEventArgs e)
+        private void btnListFriends_Click(object sender, RoutedEventArgs e)
         {
-            Accessories.PlaySoundsEffects();
-            NavigationService.Navigate(new Uri("Views/View.xaml", UriKind.Relative));
+            PlayerServer friend = new PlayerServer();
+            //friend.idPlayer =
         }
-
-        
     }
 }

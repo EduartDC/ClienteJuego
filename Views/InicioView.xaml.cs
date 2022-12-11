@@ -31,7 +31,7 @@ namespace ClienteJuego.Views
             InitializeComponent();
             Accessories.PlayMusic();
             userName = (App.Current as App).DeptName;
-            TextUserName.Text = "Hola de nuevo "+ userName;
+            TextUserName.Text = "Hola de nuevo " + userName;
             ImageSource imageSource = new ImageSourceConverter().ConvertFromString(Accessories.LoadConfigPlayer(userName)) as ImageSource;
             imgAvatar.Source = imageSource;
 
@@ -63,8 +63,9 @@ namespace ClienteJuego.Views
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            var roomchat = (MainWindow) App.Current.MainWindow;
+            var roomchat = (MainWindow)App.Current.MainWindow;
             roomchat.ContenedorChat.Navigate(new ChatView());
+
         }
     }
 }

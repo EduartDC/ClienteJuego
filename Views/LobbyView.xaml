@@ -27,6 +27,39 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
+
+        <Image
+            x:Name="imgAvatar"
+            Width="142"
+            Height="152"
+            Margin="97,208,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Source="/Avatars/avatarDef.png" />
+        <TextBox
+            x:Name="TextUserName"
+            Width="254"
+            Height="33"
+            Margin="41,368,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Background="{x:Null}"
+            BorderBrush="{x:Null}"
+            FontSize="16"
+            FontWeight="Bold"
+            Foreground="White"
+            IsEnabled="False"
+            Text="TextBox"
+            TextAlignment="Center"
+            TextWrapping="Wrap" />
+
+        <Button
+                x:Name="btnListFriends"
+                Margin="382,208,276,250"
+                Background="{x:Null}"
+                BorderBrush="{x:Null}" Click="btnListFriends_Click"
+                />
+        <Image Source="/Avatars/avatarDef.png" Margin="360,208,282,250" />
     </Grid>
 
 </Page>

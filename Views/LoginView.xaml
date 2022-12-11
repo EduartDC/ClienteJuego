@@ -77,7 +77,8 @@
                 KeyDown="TextUserName_KeyDown"
                 LostFocus="textUserName_LostFocus"
                 RenderTransformOrigin="0.504,-5.037"
-                TextWrapping="Wrap" />
+                TextWrapping="Wrap"
+                TabIndex="1"/>
             <Label
                 x:Name="lblExamplePassword"
                 Width="99"
@@ -98,7 +99,8 @@
                 Foreground="#FFA7A9BE"
                 GotFocus="textPassword_GotFocus"
                 KeyDown="TextPassword_KeyDonw"
-                LostFocus="textPassword_LostFocus" />
+                LostFocus="textPassword_LostFocus" 
+                TabIndex="2"/>
             <Button
                 x:Name="btnRegister"
                 Width="104"

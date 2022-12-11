@@ -123,6 +123,9 @@
     <Compile Include="Views\InicioView.xaml.cs">
       <DependentUpon>InicioView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\InvitationView.xaml.cs">
+      <DependentUpon>InvitationView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LobbyView.xaml.cs">
       <DependentUpon>LobbyView.xaml</DependentUpon>
     </Compile>
@@ -187,6 +190,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\InvitationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\LobbyView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -242,9 +249,6 @@
       <LastGenOutput>Theme.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Connected Services\ConnectService\ClienteJuego.ConnectService.AnswerServer.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ConnectService\ClienteJuego.ConnectService.FriendServer.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ConnectService\ClienteJuego.ConnectService.MatchServer.datasource">

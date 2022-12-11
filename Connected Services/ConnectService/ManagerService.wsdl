@@ -123,17 +123,29 @@
       <xsd:import schemaLocation="http://localhost:8082/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MessageService.Domain" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IUserManager_MatchingFriends_InputMessage">
+    <wsdl:part name="parameters" element="tns:MatchingFriends" />
+  </wsdl:message>
+  <wsdl:message name="IUserManager_MatchingFriends_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MatchingFriendsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserManager_AddFriend_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddFriend" />
+  </wsdl:message>
+  <wsdl:message name="IUserManager_AddFriend_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddFriendResponse" />
+  </wsdl:message>
   <wsdl:message name="IUserManager_AddPlayer_InputMessage">
     <wsdl:part name="parameters" element="tns:AddPlayer" />
   </wsdl:message>
   <wsdl:message name="IUserManager_AddPlayer_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddPlayerResponse" />
   </wsdl:message>
-  <wsdl:message name="IUserManager_ValidatePlayer_InputMessage">
-    <wsdl:part name="parameters" element="tns:ValidatePlayer" />
+  <wsdl:message name="IUserManager_UserConnect_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserConnect" />
   </wsdl:message>
-  <wsdl:message name="IUserManager_ValidatePlayer_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ValidatePlayerResponse" />
+  <wsdl:message name="IUserManager_UserConnect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserConnectResponse" />
   </wsdl:message>
   <wsdl:message name="IUserManager_ValidateEmailPlayer_InputMessage">
     <wsdl:part name="parameters" element="tns:ValidateEmailPlayer" />
@@ -198,6 +210,18 @@
   <wsdl:message name="IMatchService_StartLobby_OutputMessage">
     <wsdl:part name="parameters" element="tns:StartLobbyResponse" />
   </wsdl:message>
+  <wsdl:message name="IMatchService_SendInvitation_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendInvitation" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_SendInvitation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendInvitationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_AddToLobby_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddToLobby" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_AddToLobby_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddToLobbyResponse" />
+  </wsdl:message>
   <wsdl:message name="IMatchService_CreatetMatch_InputMessage">
     <wsdl:part name="parameters" element="tns:CreatetMatch" />
   </wsdl:message>
@@ -234,6 +258,12 @@
   <wsdl:message name="IMatchService_GetMatch_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetMatchResponse" />
   </wsdl:message>
+  <wsdl:message name="IMatchService_ShowInvitation_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ShowInvitation" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_UpdateLobby_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLobby" />
+  </wsdl:message>
   <wsdl:message name="IGameService_GetQuestions_InputMessage">
     <wsdl:part name="parameters" element="tns:GetQuestions" />
   </wsdl:message>
@@ -265,13 +295,21 @@
     <wsdl:part name="parameters" element="tns:UpdateStrikesResponse" />
   </wsdl:message>
   <wsdl:portType name="IUserManager">
+    <wsdl:operation name="MatchingFriends">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserManager/MatchingFriends" message="tns:IUserManager_MatchingFriends_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserManager/MatchingFriendsResponse" message="tns:IUserManager_MatchingFriends_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFriend">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserManager/AddFriend" message="tns:IUserManager_AddFriend_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserManager/AddFriendResponse" message="tns:IUserManager_AddFriend_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="AddPlayer">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserManager/AddPlayer" message="tns:IUserManager_AddPlayer_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserManager/AddPlayerResponse" message="tns:IUserManager_AddPlayer_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ValidatePlayer">
-      <wsdl:input wsaw:Action="http://tempuri.org/IUserManager/ValidatePlayer" message="tns:IUserManager_ValidatePlayer_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IUserManager/ValidatePlayerResponse" message="tns:IUserManager_ValidatePlayer_OutputMessage" />
+    <wsdl:operation name="UserConnect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserManager/UserConnect" message="tns:IUserManager_UserConnect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserManager/UserConnectResponse" message="tns:IUserManager_UserConnect_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ValidateEmailPlayer">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserManager/ValidateEmailPlayer" message="tns:IUserManager_ValidateEmailPlayer_InputMessage" />
@@ -328,6 +366,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/StartLobby" message="tns:IMatchService_StartLobby_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/StartLobbyResponse" message="tns:IMatchService_StartLobby_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="SendInvitation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/SendInvitation" message="tns:IMatchService_SendInvitation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/SendInvitationResponse" message="tns:IMatchService_SendInvitation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddToLobby">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/AddToLobby" message="tns:IMatchService_AddToLobby_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/AddToLobbyResponse" message="tns:IMatchService_AddToLobby_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="CreatetMatch">
       <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/CreatetMatch" message="tns:IMatchService_CreatetMatch_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/CreatetMatchResponse" message="tns:IMatchService_CreatetMatch_OutputMessage" />
@@ -351,6 +397,12 @@
     <wsdl:operation name="GetMatch">
       <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/GetMatch" message="tns:IMatchService_GetMatch_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/GetMatchResponse" message="tns:IMatchService_GetMatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowInvitation">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/ShowInvitation" message="tns:IMatchService_ShowInvitation_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLobby">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/UpdateLobby" message="tns:IMatchService_UpdateLobby_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IGameService">
@@ -378,6 +430,24 @@
   <wsdl:binding name="NetTcpBinding_IUserManager" type="tns:IUserManager">
     <wsp:PolicyReference URI="#NetTcpBinding_IUserManager_policy" />
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="MatchingFriends">
+      <soap12:operation soapAction="http://tempuri.org/IUserManager/MatchingFriends" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFriend">
+      <soap12:operation soapAction="http://tempuri.org/IUserManager/AddFriend" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="AddPlayer">
       <soap12:operation soapAction="http://tempuri.org/IUserManager/AddPlayer" style="document" />
       <wsdl:input>
@@ -387,8 +457,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ValidatePlayer">
-      <soap12:operation soapAction="http://tempuri.org/IUserManager/ValidatePlayer" style="document" />
+    <wsdl:operation name="UserConnect">
+      <soap12:operation soapAction="http://tempuri.org/IUserManager/UserConnect" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -512,6 +582,24 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="SendInvitation">
+      <soap12:operation soapAction="http://tempuri.org/IMatchService/SendInvitation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddToLobby">
+      <soap12:operation soapAction="http://tempuri.org/IMatchService/AddToLobby" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="CreatetMatch">
       <soap12:operation soapAction="http://tempuri.org/IMatchService/CreatetMatch" style="document" />
       <wsdl:input>
@@ -562,6 +650,18 @@
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowInvitation">
+      <soap12:operation soapAction="http://tempuri.org/IMatchService/ShowInvitation" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLobby">
+      <soap12:operation soapAction="http://tempuri.org/IMatchService/UpdateLobby" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

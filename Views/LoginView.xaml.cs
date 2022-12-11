@@ -48,7 +48,7 @@ namespace ClienteJuego.Views
             {
                 try
                 {
-                    int result = client.ValidatePlayer(player);
+                    int result = client.UserConnect(player);
                     if (result == 0)
                     {
                         MessageBox.Show("Error occurred, registration didn't take effect");
@@ -56,18 +56,19 @@ namespace ClienteJuego.Views
                     else
                     {
                         (App.Current as App).DeptName = player.userName;
-                        
+
+
                         NavigationService.Navigate(new Uri("Views/InicioView.xaml?value=15", UriKind.Relative));
-                        
+
                     }
                 }
                 catch (EndpointNotFoundException)
                 {
                     MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
                 }
-                
-                
-                
+
+
+
             }
 
         }
@@ -122,7 +123,7 @@ namespace ClienteJuego.Views
             }
         }
 
-     
+
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
@@ -141,6 +142,6 @@ namespace ClienteJuego.Views
             Accessories.RegexSpecial(e);
         }
 
-        
+
     }
 }
