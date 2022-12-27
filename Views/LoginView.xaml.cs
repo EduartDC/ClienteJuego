@@ -23,9 +23,11 @@ namespace ClienteJuego.Views
     /// </summary>
     public partial class LoginView : Page
     {
+
         public LoginView()
         {
             InitializeComponent();
+
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
@@ -56,8 +58,6 @@ namespace ClienteJuego.Views
                     else
                     {
                         (App.Current as App).DeptName = player.userName;
-
-
                         NavigationService.Navigate(new Uri("Views/InicioView.xaml?value=15", UriKind.Relative));
 
                     }
@@ -66,8 +66,6 @@ namespace ClienteJuego.Views
                 {
                     MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
                 }
-
-
 
             }
 
@@ -123,8 +121,6 @@ namespace ClienteJuego.Views
             }
         }
 
-
-
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
             Accessories.PlaySoundsEffects();
@@ -142,6 +138,9 @@ namespace ClienteJuego.Views
             Accessories.RegexSpecial(e);
         }
 
-
+        public void notification(string username)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

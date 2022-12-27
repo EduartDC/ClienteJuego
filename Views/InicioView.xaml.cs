@@ -3,6 +3,7 @@ using ClienteJuego.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,20 +21,28 @@ namespace ClienteJuego.Views
     /// <summary>
     /// Interaction logic for InicioView.xaml
     /// </summary>
-    public partial class InicioView : Page
+    public partial class InicioView : Page, ConnectService.INotificationServiceCallback
     {
 
-        public PlayerServer playerInfo;
         private string userName;
+        private readonly ConnectService.NotificationServiceClient clientN;
 
         public InicioView()
         {
             InitializeComponent();
+
             Accessories.PlayMusic();
+
             userName = (App.Current as App).DeptName;
             TextUserName.Text = "Hola de nuevo " + userName;
+
             ImageSource imageSource = new ImageSourceConverter().ConvertFromString(Accessories.LoadConfigPlayer(userName)) as ImageSource;
             imgAvatar.Source = imageSource;
+
+            InstanceContext context = new InstanceContext(this);
+
+            clientN = new NotificationServiceClient(context);
+            clientN.SetCallBack(userName);
 
         }
 
@@ -65,6 +74,21 @@ namespace ClienteJuego.Views
         {
             var roomchat = (MainWindow)App.Current.MainWindow;
             roomchat.ContenedorChat.Navigate(new ChatView());
+
+        }
+
+        public void notification(string username, string code)
+        {
+            var window = (MainWindow)Application.Current.MainWindow;
+            window.ContenedorInvi.Navigate(new InvitationView(username, code));
+
+        }
+
+        public void LoadLobby(PlayerServer[] friend, string code)
+        {
+
+            var window = (MainWindow)Application.Current.MainWindow;
+            window.Contenedor.Navigate(new LobbyView(code));
 
         }
     }

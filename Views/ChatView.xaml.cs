@@ -27,12 +27,14 @@ namespace ClienteJuego.Views
     {
 
         private readonly ChatServiceClient chatServiceClient;
+
         private string userName;
         private PlayerServer playerData;
         public ChatView()
         {
 
             chatServiceClient = new ChatServiceClient(new InstanceContext(this));
+
 
             StartView();
             InitializeComponent();
@@ -44,10 +46,10 @@ namespace ClienteJuego.Views
 
             userName = (App.Current as App).DeptName;
             playerData = LoadData();
-            int idMatch = 1;
+            var code = "1";
             try
             {
-                chatServiceClient.Connect(playerData, idMatch);
+                chatServiceClient.Connect(playerData, code);
             }
             catch (EndpointNotFoundException)
             {

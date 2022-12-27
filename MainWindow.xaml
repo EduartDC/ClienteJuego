@@ -11,7 +11,7 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Grid>
-        <Frame x:Name="Contenedor" NavigationUIVisibility="Hidden" />
+        <Frame x:Name="Contenedor" NavigationUIVisibility="Hidden"  />
         <Frame x:Name="ContenedorChat" NavigationUIVisibility="Hidden" />
         <Frame x:Name="ContenedorList" NavigationUIVisibility="Hidden" />
         <Frame x:Name="ContenedorInvi" NavigationUIVisibility="Hidden" />

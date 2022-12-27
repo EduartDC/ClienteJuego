@@ -26,6 +26,7 @@ namespace ClienteJuego.Views
     public partial class EditAccountView : Page
     {
         String userName;
+
         PlayerServer playerInfo = new PlayerServer();
         public EditAccountView()
         {
@@ -38,17 +39,17 @@ namespace ClienteJuego.Views
             textLastName.Text = player.lastName;
             textUserName.Text = player.userName;
             LoadCombo();
-            
+
         }
 
         PlayerServer LoadData()
         {
-            
+
             try
             {
                 ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
                 playerInfo = client.SearchPlayer(userName);
-                
+
             }
             catch (EndpointNotFoundException)
             {
@@ -66,7 +67,7 @@ namespace ClienteJuego.Views
             {
                 MessageBox.Show("Los campos no pueden estar vacios.");
             }
-            else if(password == null)
+            else if (password == null)
             {
                 MessageBox.Show("Contraseña incorrecta");
             }
@@ -103,14 +104,14 @@ namespace ClienteJuego.Views
                     {
                         MessageBox.Show("Error de conexion con el servidor, Intentelo más tarde");
                     }
-                    
+
                 }
                 else
                 {
                     MessageBox.Show("Exito");
                     NavigationService.Navigate(new Uri("Views/AccountView.xaml", UriKind.Relative));
                 }
-                
+
             }
         }
 
@@ -124,22 +125,22 @@ namespace ClienteJuego.Views
                 NavigationService.Navigate(new Uri("Views/AccountView.xaml", UriKind.Relative));
             }
         }
-        
+
         private bool ValidateInfo(PlayerServer player)
         {
             var result = false;
             if (playerInfo.firstName.Equals(player.firstName) &&
-            playerInfo.lastName.Equals( player.lastName) &&
-            playerInfo.userName.Equals( player.userName) &&
-            playerInfo.password.Equals( player.password))
+            playerInfo.lastName.Equals(player.lastName) &&
+            playerInfo.userName.Equals(player.userName) &&
+            playerInfo.password.Equals(player.password))
             {
                 result = true;
             }
-            
+
 
             return result;
         }
-        
+
         private PlayerServer DataPlayer()
         {
             PlayerServer player = new PlayerServer();
@@ -189,19 +190,19 @@ namespace ClienteJuego.Views
 
             if (textPassword.Text == "")
             {
-                 password = playerInfo.password;
+                password = playerInfo.password;
             }
             else if (!ValidatePassword(textPassword.Text))
             {
                 MessageBox.Show("Error ocurred, the password does not meet the requirements");
             }
-            else if (!playerInfo.password.Equals( Accessories.Hash(textPassword.Text)))
+            else if (!playerInfo.password.Equals(Accessories.Hash(textPassword.Text)))
             {
                 MessageBox.Show("La nueva contraseña tiene que ser diferente a la antigua.");
             }
             else
             {
-                 password = Accessories.Hash(textPassword.Text);
+                password = Accessories.Hash(textPassword.Text);
             }
 
 

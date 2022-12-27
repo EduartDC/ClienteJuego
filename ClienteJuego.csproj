@@ -251,9 +251,6 @@
     <None Include="Connected Services\ConnectService\ClienteJuego.ConnectService.AnswerServer.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ConnectService\ClienteJuego.ConnectService.MatchServer.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\ConnectService\ClienteJuego.ConnectService.PlayerServer.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

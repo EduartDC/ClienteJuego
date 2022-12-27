@@ -8,7 +8,6 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
-using System.IO;
 using System.Media;
 using System.Configuration;
 
@@ -58,7 +57,7 @@ namespace ClienteJuego.Properties
                 {
                     StreamWriter streamWriter = File.CreateText(fileName);
                     streamWriter.WriteLine(userName);
-                    streamWriter.WriteLine("/Users/Eduar/source/repos/ClienteJuego"+profilePicture);
+                    streamWriter.WriteLine("/Users/Eduar/source/repos/ClienteJuego" + profilePicture);
                     streamWriter.Close();
                 }
                 else
@@ -73,7 +72,7 @@ namespace ClienteJuego.Properties
             {
                 Console.WriteLine("Exception: " + e.Message);
             }
-            
+
         }
 
         public static string LoadConfigPlayer(string userName)
@@ -89,7 +88,7 @@ namespace ClienteJuego.Properties
             {
                 Console.WriteLine("Exception: " + e.Message);
             }
-            
+
             return line;
         }
 
@@ -99,10 +98,10 @@ namespace ClienteJuego.Properties
             if (ConfigurationManager.AppSettings["SOUND_EFFECT"].Equals("true"))
             {
                 SOUNDSEFFECTS.Play();
-                
+
             }
-                  
-            
+
+
         }
 
         public static void PlayMusic()
@@ -115,6 +114,12 @@ namespace ClienteJuego.Properties
             }
 
 
+        }
+
+        public static int GenerateRandomCode()
+        {
+            var random = new Random();
+            return random.Next(100000, 999999);
         }
     }
 }

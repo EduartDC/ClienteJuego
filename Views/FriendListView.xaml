@@ -6,28 +6,68 @@
     xmlns:local="clr-namespace:ClienteJuego.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="FriendListView"
-    MaxWidth="800"
-    MaxHeight="600"
     d:DesignHeight="600"
     d:DesignWidth="800"
     mc:Ignorable="d">
-
-    <Grid Background="#0f0e17">
-        <Image
-            Margin="393,74,-196,72"
-            Opacity="0.3"
-            RenderTransformOrigin="0.5,0.5"
-            Source="/Images/ok3.png">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform />
-                    <SkewTransform />
-                    <RotateTransform Angle="-89.975" />
-                    <TranslateTransform />
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-
-
-    </Grid>
+    <Viewbox StretchDirection="Both">
+        <Grid Width="800" Height="600">
+            <ListView
+                x:Name="listFriends"
+                Margin="568,74,0,10"
+                d:ItemsSource="{d:SampleData ItemCount=10}"
+                Background="#FF0F0E17"
+                BorderBrush="{x:Null}"
+                FontWeight="Bold"
+                Foreground="White">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Width="50">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Source="/Avatars/avatarCuatro.jpg" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path =userName}" Header="User Name" />
+                        <GridViewColumn Width="50">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button
+                                        x:Name="btnDeleatFriend"
+                                        CommandParameter="{Binding}"
+                                        Width="35"
+                                        Height="35"
+                                        BorderBrush="#00000000"
+                                        Click="btnDeleatFriend_Click"
+                                        Content="">
+                                        <Button.Background>
+                                            <ImageBrush ImageSource="/Images/playJUE.png" Stretch="Uniform" />
+                                        </Button.Background>
+                                    </Button>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="50">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button
+                                        x:Name="btnSendInvitation"
+                                        Width="35"
+                                        Height="35"
+                                        BorderBrush="#00000000"
+                                        Click="btnSendInvitation_Click"
+                                        CommandParameter="{Binding}"
+                                        Content="">
+                                        <Button.Background>
+                                            <ImageBrush ImageSource="/Images/playJUE.png" Stretch="Uniform" />
+                                        </Button.Background>
+                                    </Button>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+    </Viewbox>
 </Page>

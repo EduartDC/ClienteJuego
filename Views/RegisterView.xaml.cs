@@ -30,6 +30,7 @@ namespace ClienteJuego.Views
         public RegisterView()
         {
             InitializeComponent();
+
         }
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
@@ -39,10 +40,10 @@ namespace ClienteJuego.Views
 
             if (!ValidateFields())
             {
-           
+
 
             }
-            else if(!ValidatePassword(textPassword.Password))
+            else if (!ValidatePassword(textPassword.Password))
             {
                 MessageBox.Show("Error ocurred, the password does not meet the requirements");
             }
@@ -52,7 +53,7 @@ namespace ClienteJuego.Views
             }
             else if (!ValidatePlayerExistence(player))
             {
-                
+
             }
             else
             {
@@ -75,8 +76,8 @@ namespace ClienteJuego.Views
                 {
                     MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
                 }
-                    
-                
+
+
             }
 
 
@@ -86,7 +87,7 @@ namespace ClienteJuego.Views
         {
             ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
             var result = true;
-            
+
             try
             {
                 var validateEmail = false;
@@ -186,7 +187,7 @@ namespace ClienteJuego.Views
             textEmail.Text = "";
             textUserName.Text = "";
             textPassword.Password = "";
-                
+
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -263,7 +264,7 @@ namespace ClienteJuego.Views
         {
 
             //Se valida si es un caracter especial
-            Accessories.RegexSpecial(e); 
+            Accessories.RegexSpecial(e);
 
         }
 
