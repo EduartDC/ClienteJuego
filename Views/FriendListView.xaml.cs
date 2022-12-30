@@ -79,5 +79,16 @@ namespace ClienteJuego.Views
         {
             throw new NotImplementedException();
         }
+
+        private void btnMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            var roomchat = (MainWindow)App.Current.MainWindow;
+            roomchat.ContenedorList.Content = null;
+        }
+
+        private void btnAddFriend_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

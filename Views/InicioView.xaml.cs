@@ -72,9 +72,8 @@ namespace ClienteJuego.Views
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            var roomchat = (MainWindow)App.Current.MainWindow;
-            roomchat.ContenedorChat.Navigate(new ChatView());
-
+            var num = Accessories.GenerateRandomCode();
+            Console.WriteLine(num);
         }
 
         public void notification(string username, string code)

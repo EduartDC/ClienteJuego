@@ -20,11 +20,11 @@ namespace ClienteJuego.ConnectService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteJuego.ConnectService.PlayerServer[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteJuego.ConnectService.FriendServer))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteJuego.ConnectService.MessageServer))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteJuego.ConnectService.MatchServer))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteJuego.ConnectService.QuestionServer[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteJuego.ConnectService.QuestionServer))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteJuego.ConnectService.AnswerServer[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteJuego.ConnectService.AnswerServer))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteJuego.ConnectService.MatchServer))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteJuego.ConnectService.ManagerService))]
     public partial class PlayerServer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -366,115 +366,6 @@ namespace ClienteJuego.ConnectService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="MatchServer", Namespace="http://schemas.datacontract.org/2004/07/MessageService.Domain")]
-    [System.SerializableAttribute()]
-    public partial class MatchServer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int idMatchField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string inviteCodeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int playerWinnerField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int scorePlayerOneField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int scorePlayerTwoField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int idMatch {
-            get {
-                return this.idMatchField;
-            }
-            set {
-                if ((this.idMatchField.Equals(value) != true)) {
-                    this.idMatchField = value;
-                    this.RaisePropertyChanged("idMatch");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string inviteCode {
-            get {
-                return this.inviteCodeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.inviteCodeField, value) != true)) {
-                    this.inviteCodeField = value;
-                    this.RaisePropertyChanged("inviteCode");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int playerWinner {
-            get {
-                return this.playerWinnerField;
-            }
-            set {
-                if ((this.playerWinnerField.Equals(value) != true)) {
-                    this.playerWinnerField = value;
-                    this.RaisePropertyChanged("playerWinner");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int scorePlayerOne {
-            get {
-                return this.scorePlayerOneField;
-            }
-            set {
-                if ((this.scorePlayerOneField.Equals(value) != true)) {
-                    this.scorePlayerOneField = value;
-                    this.RaisePropertyChanged("scorePlayerOne");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int scorePlayerTwo {
-            get {
-                return this.scorePlayerTwoField;
-            }
-            set {
-                if ((this.scorePlayerTwoField.Equals(value) != true)) {
-                    this.scorePlayerTwoField = value;
-                    this.RaisePropertyChanged("scorePlayerTwo");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="QuestionServer", Namespace="http://schemas.datacontract.org/2004/07/MessageService.Domain")]
     [System.SerializableAttribute()]
     public partial class QuestionServer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -630,6 +521,160 @@ namespace ClienteJuego.ConnectService {
                     this.scoreField = value;
                     this.RaisePropertyChanged("score");
                 }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MatchServer", Namespace="http://schemas.datacontract.org/2004/07/MessageService.Domain")]
+    [System.SerializableAttribute()]
+    public partial class MatchServer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idMatchField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string inviteCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int playerWinnerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ClienteJuego.ConnectService.PlayerServer[] playersField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int scorePlayerOneField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int scorePlayerTwoField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idMatch {
+            get {
+                return this.idMatchField;
+            }
+            set {
+                if ((this.idMatchField.Equals(value) != true)) {
+                    this.idMatchField = value;
+                    this.RaisePropertyChanged("idMatch");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string inviteCode {
+            get {
+                return this.inviteCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.inviteCodeField, value) != true)) {
+                    this.inviteCodeField = value;
+                    this.RaisePropertyChanged("inviteCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int playerWinner {
+            get {
+                return this.playerWinnerField;
+            }
+            set {
+                if ((this.playerWinnerField.Equals(value) != true)) {
+                    this.playerWinnerField = value;
+                    this.RaisePropertyChanged("playerWinner");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ClienteJuego.ConnectService.PlayerServer[] players {
+            get {
+                return this.playersField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.playersField, value) != true)) {
+                    this.playersField = value;
+                    this.RaisePropertyChanged("players");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int scorePlayerOne {
+            get {
+                return this.scorePlayerOneField;
+            }
+            set {
+                if ((this.scorePlayerOneField.Equals(value) != true)) {
+                    this.scorePlayerOneField = value;
+                    this.RaisePropertyChanged("scorePlayerOne");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int scorePlayerTwo {
+            get {
+                return this.scorePlayerTwoField;
+            }
+            set {
+                if ((this.scorePlayerTwoField.Equals(value) != true)) {
+                    this.scorePlayerTwoField = value;
+                    this.RaisePropertyChanged("scorePlayerTwo");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ManagerService", Namespace="http://schemas.datacontract.org/2004/07/MessageService")]
+    [System.SerializableAttribute()]
+    public partial class ManagerService : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
             }
         }
         
@@ -927,23 +972,47 @@ namespace ClienteJuego.ConnectService {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMatchService/AddToLobby")]
         System.Threading.Tasks.Task AddToLobbyAsync(string username, string code);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMatchService/CreatetMatch")]
-        void CreatetMatch(ClienteJuego.ConnectService.MatchServer newMatch);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMatchService/StartMatch")]
+        void StartMatch(string code);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMatchService/CreatetMatch")]
-        System.Threading.Tasks.Task CreatetMatchAsync(ClienteJuego.ConnectService.MatchServer newMatch);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMatchService/DisconnectFromLobby")]
-        void DisconnectFromLobby(ClienteJuego.ConnectService.PlayerServer player, string code);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMatchService/StartMatch")]
+        System.Threading.Tasks.Task StartMatchAsync(string code);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMatchService/DisconnectFromLobby")]
-        System.Threading.Tasks.Task DisconnectFromLobbyAsync(ClienteJuego.ConnectService.PlayerServer player, string code);
+        void DisconnectFromLobby(string username, string code);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMatchService/DisconnectFromLobby")]
+        System.Threading.Tasks.Task DisconnectFromLobbyAsync(string username, string code);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMatchService/DisconnectFromMatch")]
+        void DisconnectFromMatch(ClienteJuego.ConnectService.PlayerServer player);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMatchService/DisconnectFromMatch")]
+        System.Threading.Tasks.Task DisconnectFromMatchAsync(ClienteJuego.ConnectService.PlayerServer player);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMatchService/SetCallbackMatch")]
         void SetCallbackMatch(string username);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMatchService/SetCallbackMatch")]
         System.Threading.Tasks.Task SetCallbackMatchAsync(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMatchService/GetQuestions", ReplyAction="http://tempuri.org/IMatchService/GetQuestionsResponse")]
+        ClienteJuego.ConnectService.QuestionServer GetQuestions();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMatchService/GetQuestions", ReplyAction="http://tempuri.org/IMatchService/GetQuestionsResponse")]
+        System.Threading.Tasks.Task<ClienteJuego.ConnectService.QuestionServer> GetQuestionsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMatchService/GetAnswers", ReplyAction="http://tempuri.org/IMatchService/GetAnswersResponse")]
+        ClienteJuego.ConnectService.AnswerServer[] GetAnswers(int idQuestion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMatchService/GetAnswers", ReplyAction="http://tempuri.org/IMatchService/GetAnswersResponse")]
+        System.Threading.Tasks.Task<ClienteJuego.ConnectService.AnswerServer[]> GetAnswersAsync(int idQuestion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMatchService/UpdateBoard", ReplyAction="http://tempuri.org/IMatchService/UpdateBoardResponse")]
+        void UpdateBoard();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMatchService/UpdateBoard", ReplyAction="http://tempuri.org/IMatchService/UpdateBoardResponse")]
+        System.Threading.Tasks.Task UpdateBoardAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -951,6 +1020,15 @@ namespace ClienteJuego.ConnectService {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMatchService/UpdateLobby")]
         void UpdateLobby(ClienteJuego.ConnectService.PlayerServer[] plyers);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMatchService/LoadMatch")]
+        void LoadMatch(ClienteJuego.ConnectService.MatchServer match);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMatchService/LoadBroad")]
+        void LoadBroad(ClienteJuego.ConnectService.ManagerService match);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMatchService/ExitMatch")]
+        void ExitMatch();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -997,20 +1075,28 @@ namespace ClienteJuego.ConnectService {
             return base.Channel.AddToLobbyAsync(username, code);
         }
         
-        public void CreatetMatch(ClienteJuego.ConnectService.MatchServer newMatch) {
-            base.Channel.CreatetMatch(newMatch);
+        public void StartMatch(string code) {
+            base.Channel.StartMatch(code);
         }
         
-        public System.Threading.Tasks.Task CreatetMatchAsync(ClienteJuego.ConnectService.MatchServer newMatch) {
-            return base.Channel.CreatetMatchAsync(newMatch);
+        public System.Threading.Tasks.Task StartMatchAsync(string code) {
+            return base.Channel.StartMatchAsync(code);
         }
         
-        public void DisconnectFromLobby(ClienteJuego.ConnectService.PlayerServer player, string code) {
-            base.Channel.DisconnectFromLobby(player, code);
+        public void DisconnectFromLobby(string username, string code) {
+            base.Channel.DisconnectFromLobby(username, code);
         }
         
-        public System.Threading.Tasks.Task DisconnectFromLobbyAsync(ClienteJuego.ConnectService.PlayerServer player, string code) {
-            return base.Channel.DisconnectFromLobbyAsync(player, code);
+        public System.Threading.Tasks.Task DisconnectFromLobbyAsync(string username, string code) {
+            return base.Channel.DisconnectFromLobbyAsync(username, code);
+        }
+        
+        public void DisconnectFromMatch(ClienteJuego.ConnectService.PlayerServer player) {
+            base.Channel.DisconnectFromMatch(player);
+        }
+        
+        public System.Threading.Tasks.Task DisconnectFromMatchAsync(ClienteJuego.ConnectService.PlayerServer player) {
+            return base.Channel.DisconnectFromMatchAsync(player);
         }
         
         public void SetCallbackMatch(string username) {
@@ -1020,92 +1106,21 @@ namespace ClienteJuego.ConnectService {
         public System.Threading.Tasks.Task SetCallbackMatchAsync(string username) {
             return base.Channel.SetCallbackMatchAsync(username);
         }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ConnectService.IGameService")]
-    public interface IGameService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/GetQuestions", ReplyAction="http://tempuri.org/IGameService/GetQuestionsResponse")]
-        ClienteJuego.ConnectService.QuestionServer[] GetQuestions();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/GetQuestions", ReplyAction="http://tempuri.org/IGameService/GetQuestionsResponse")]
-        System.Threading.Tasks.Task<ClienteJuego.ConnectService.QuestionServer[]> GetQuestionsAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/GetAnswers", ReplyAction="http://tempuri.org/IGameService/GetAnswersResponse")]
-        ClienteJuego.ConnectService.AnswerServer[] GetAnswers(ClienteJuego.ConnectService.QuestionServer question);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/GetAnswers", ReplyAction="http://tempuri.org/IGameService/GetAnswersResponse")]
-        System.Threading.Tasks.Task<ClienteJuego.ConnectService.AnswerServer[]> GetAnswersAsync(ClienteJuego.ConnectService.QuestionServer question);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/addPoints", ReplyAction="http://tempuri.org/IGameService/addPointsResponse")]
-        int addPoints(ClienteJuego.ConnectService.PlayerServer player, int score);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/addPoints", ReplyAction="http://tempuri.org/IGameService/addPointsResponse")]
-        System.Threading.Tasks.Task<int> addPointsAsync(ClienteJuego.ConnectService.PlayerServer player, int score);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/UpdateBoard", ReplyAction="http://tempuri.org/IGameService/UpdateBoardResponse")]
-        void UpdateBoard();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/UpdateBoard", ReplyAction="http://tempuri.org/IGameService/UpdateBoardResponse")]
-        System.Threading.Tasks.Task UpdateBoardAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/UpdateStrikes", ReplyAction="http://tempuri.org/IGameService/UpdateStrikesResponse")]
-        void UpdateStrikes();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/UpdateStrikes", ReplyAction="http://tempuri.org/IGameService/UpdateStrikesResponse")]
-        System.Threading.Tasks.Task UpdateStrikesAsync();
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IGameServiceChannel : ClienteJuego.ConnectService.IGameService, System.ServiceModel.IClientChannel {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GameServiceClient : System.ServiceModel.ClientBase<ClienteJuego.ConnectService.IGameService>, ClienteJuego.ConnectService.IGameService {
-        
-        public GameServiceClient() {
-        }
-        
-        public GameServiceClient(string endpointConfigurationName) : 
-                base(endpointConfigurationName) {
-        }
-        
-        public GameServiceClient(string endpointConfigurationName, string remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
-        }
-        
-        public GameServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
-        }
-        
-        public GameServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(binding, remoteAddress) {
-        }
-        
-        public ClienteJuego.ConnectService.QuestionServer[] GetQuestions() {
+        public ClienteJuego.ConnectService.QuestionServer GetQuestions() {
             return base.Channel.GetQuestions();
         }
         
-        public System.Threading.Tasks.Task<ClienteJuego.ConnectService.QuestionServer[]> GetQuestionsAsync() {
+        public System.Threading.Tasks.Task<ClienteJuego.ConnectService.QuestionServer> GetQuestionsAsync() {
             return base.Channel.GetQuestionsAsync();
         }
         
-        public ClienteJuego.ConnectService.AnswerServer[] GetAnswers(ClienteJuego.ConnectService.QuestionServer question) {
-            return base.Channel.GetAnswers(question);
+        public ClienteJuego.ConnectService.AnswerServer[] GetAnswers(int idQuestion) {
+            return base.Channel.GetAnswers(idQuestion);
         }
         
-        public System.Threading.Tasks.Task<ClienteJuego.ConnectService.AnswerServer[]> GetAnswersAsync(ClienteJuego.ConnectService.QuestionServer question) {
-            return base.Channel.GetAnswersAsync(question);
-        }
-        
-        public int addPoints(ClienteJuego.ConnectService.PlayerServer player, int score) {
-            return base.Channel.addPoints(player, score);
-        }
-        
-        public System.Threading.Tasks.Task<int> addPointsAsync(ClienteJuego.ConnectService.PlayerServer player, int score) {
-            return base.Channel.addPointsAsync(player, score);
+        public System.Threading.Tasks.Task<ClienteJuego.ConnectService.AnswerServer[]> GetAnswersAsync(int idQuestion) {
+            return base.Channel.GetAnswersAsync(idQuestion);
         }
         
         public void UpdateBoard() {
@@ -1114,14 +1129,6 @@ namespace ClienteJuego.ConnectService {
         
         public System.Threading.Tasks.Task UpdateBoardAsync() {
             return base.Channel.UpdateBoardAsync();
-        }
-        
-        public void UpdateStrikes() {
-            base.Channel.UpdateStrikes();
-        }
-        
-        public System.Threading.Tasks.Task UpdateStrikesAsync() {
-            return base.Channel.UpdateStrikesAsync();
         }
     }
     

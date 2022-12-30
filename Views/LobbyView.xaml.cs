@@ -54,21 +54,32 @@ namespace ClienteJuego.Views
         private void btnListFriends_Click(object sender, RoutedEventArgs e)
         {
 
-            var window = (MainWindow)Application.Current.MainWindow;
+            var window = (MainWindow)App.Current.MainWindow;
             window.ContenedorList.Navigate(new FriendListView(codeInvitation));
 
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
+            matchServiceClient.DisconnectFromLobby(userName, codeInvitation);
+
+            var inviViewm = (MainWindow)App.Current.MainWindow;
+            inviViewm.ContenedorList.Content = null;
+
+            var chatView = (MainWindow)App.Current.MainWindow;
+            chatView.ContenedorChat.Content = null;
+
             NavigationService.Navigate(new Uri("Views/GameModeView.xaml", UriKind.Relative));
         }
 
         public void UpdateLobby(PlayerServer[] plyers)
         {
+
+            listPlayersLobby.Items.Clear();
             foreach (var playersList in plyers)
             {
-                Console.WriteLine(playersList.userName);
+                listPlayersLobby.Items.Add(playersList);
+
             }
         }
 
@@ -77,6 +88,33 @@ namespace ClienteJuego.Views
             var roomchat = (MainWindow)App.Current.MainWindow;
             roomchat.ContenedorChat.Navigate(new ChatView());
 
+        }
+
+        public void LoadMatch(MatchServer match)
+        {
+            var room = (MainWindow)App.Current.MainWindow;
+            room.Contenedor.Navigate(new TableroView(match));
+        }
+
+        private void btnStart_Click(object sender, RoutedEventArgs e)
+        {
+            var inviViewm = (MainWindow)App.Current.MainWindow;
+            inviViewm.ContenedorList.Content = null;
+
+            var chatView = (MainWindow)App.Current.MainWindow;
+            chatView.ContenedorChat.Content = null;
+
+            matchServiceClient.StartMatch(codeInvitation);
+        }
+
+        public void LoadBroad(ManagerService match)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ExitMatch()
+        {
+            throw new NotImplementedException();
         }
     }
 }

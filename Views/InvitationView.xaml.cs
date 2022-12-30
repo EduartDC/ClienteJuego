@@ -47,6 +47,8 @@ namespace ClienteJuego.Views
         private void btnAccept_Click(object sender, RoutedEventArgs e)
         {
             client.AddToLobby(this.username, this.codeInvitation);
+            var roomchat = (MainWindow)App.Current.MainWindow;
+            roomchat.ContenedorInvi.Content = null;
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
@@ -56,6 +58,21 @@ namespace ClienteJuego.Views
         }
 
         public void UpdateLobby(PlayerServer[] plyers)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void LoadMatch(MatchServer match)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void LoadBroad(ManagerService match)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ExitMatch()
         {
             throw new NotImplementedException();
         }

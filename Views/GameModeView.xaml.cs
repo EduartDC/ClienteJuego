@@ -30,7 +30,7 @@ namespace ClienteJuego.Views
         {
             var codeInvitation = "1";
             var window = (MainWindow)Application.Current.MainWindow;
-            window.ContenedorList.Navigate(new LobbyView(codeInvitation));
+            window.Contenedor.Navigate(new LobbyView(codeInvitation));
         }
 
         private void btnSingleMode_Click(object sender, RoutedEventArgs e)

@@ -37,22 +37,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="MessageServer" nillable="true" type="tns:MessageServer" />
-  <xs:complexType name="MatchServer">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="idMatch" type="xs:int" />
-      <xs:element minOccurs="0" name="inviteCode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="playerWinner" type="xs:int" />
-      <xs:element minOccurs="0" name="scorePlayerOne" type="xs:int" />
-      <xs:element minOccurs="0" name="scorePlayerTwo" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="MatchServer" nillable="true" type="tns:MatchServer" />
-  <xs:complexType name="ArrayOfQuestionServer">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="QuestionServer" nillable="true" type="tns:QuestionServer" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfQuestionServer" nillable="true" type="tns:ArrayOfQuestionServer" />
   <xs:complexType name="QuestionServer">
     <xs:sequence>
       <xs:element minOccurs="0" name="idQuestion" type="xs:int" />
@@ -76,4 +60,15 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="AnswerServer" nillable="true" type="tns:AnswerServer" />
+  <xs:complexType name="MatchServer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idMatch" type="xs:int" />
+      <xs:element minOccurs="0" name="inviteCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="playerWinner" type="xs:int" />
+      <xs:element minOccurs="0" name="players" nillable="true" type="tns:ArrayOfPlayerServer" />
+      <xs:element minOccurs="0" name="scorePlayerOne" type="xs:int" />
+      <xs:element minOccurs="0" name="scorePlayerTwo" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MatchServer" nillable="true" type="tns:MatchServer" />
 </xs:schema>

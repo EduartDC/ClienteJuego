@@ -119,7 +119,7 @@ namespace ClienteJuego.Properties
         public static int GenerateRandomCode()
         {
             var random = new Random();
-            return random.Next(100000, 999999);
+            return random.Next(0, 30);
         }
     }
 }

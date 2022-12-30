@@ -16,8 +16,7 @@
     <Grid Background="#0f0e17">
         <Image
             Width="292"
-            Height="292"
-            Margin="0,10,0,0"
+            Height="144"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Source="/Images/logoFc.png" />
@@ -41,23 +40,23 @@
         <Rectangle
             Width="77"
             Height="77"
-            Margin="573,17,0,0"
+            Margin="664,213,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Fill="#FFA0FF00" />
         <Label
             x:Name="lblScore"
-            Margin="669,37,0,0"
+            Margin="664,290,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Content="{x:Static p:Resources.lblScore}"
             FontSize="22"
             Foreground="White" />
         <Label
-            x:Name="lblScorePoints"
-            Width="72"
-            Height="52"
-            Margin="576,32,0,0"
+            x:Name="lblScorePointsTwo"
+            Width="66"
+            Height="44"
+            Margin="667,228,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             HorizontalContentAlignment="Center"
@@ -70,7 +69,7 @@
             Foreground="Black" />
         <Rectangle
             Width="444"
-            Height="225"
+            Height="188"
             Margin="198,151,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
@@ -105,13 +104,6 @@
             FontSize="20"
             Foreground="Lime" />
         <Label
-            Margin="222,319,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="5.-"
-            FontSize="20"
-            Foreground="Lime" />
-        <Label
             x:Name="lblAnswer1"
             Margin="251,197,0,0"
             HorizontalAlignment="Left"
@@ -141,15 +133,6 @@
         <Label
             x:Name="lblAnswer4"
             Margin="251,290,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content=". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
-            FontSize="20"
-            Foreground="Lime"
-            RenderTransformOrigin="0.202,2.034" />
-        <Label
-            x:Name="lblAnswer5"
-            Margin="251,319,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Content=". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
@@ -190,14 +173,6 @@
             FontSize="20"
             Foreground="Lime" />
         <Label
-            x:Name="lblScoreAnswer5"
-            Margin="604,319,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="0"
-            FontSize="20"
-            Foreground="Lime" />
-        <Label
             x:Name="lblQuestion"
             Width="444"
             Margin="198,155,0,0"
@@ -212,20 +187,21 @@
             x:Name="btnPlay"
             Width="108"
             Height="41"
-            Margin="371,409,0,0"
+            Margin="560,37,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Background="#FFFF8906"
-            BorderBrush="#FF71FF00"
+            BorderBrush="{x:Null}"
             Click="btnPlay_Click"
             Content="{x:Static p:Resources.btnPlay}"
             FontSize="22"
-            Foreground="#FF001546" />
+            FontWeight="Bold"
+            Foreground="#FFFBFBFB" />
         <Button
             x:Name="btnBack"
             Width="80"
             Height="52"
-            Margin="29,398,0,0"
+            Margin="10,538,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             BorderBrush="{x:Null}"
@@ -235,6 +211,59 @@
                 <ImageBrush ImageSource="/Images/back.png" Stretch="Uniform" />
             </Button.Background>
         </Button>
+        <Rectangle
+            Width="77"
+            Height="77"
+            Margin="96,210,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Fill="#FFA0FF00" />
+        <Label
+            x:Name="lblScore_Copy"
+            Margin="96,287,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="{x:Static p:Resources.lblScore}"
+            FontSize="22"
+            Foreground="White" />
+        <Label
+            x:Name="lblScorePointsOne"
+            Width="66"
+            Height="44"
+            Margin="99,225,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            Background="#00000000"
+            BorderBrush="#FFA0FF00"
+            Content="0"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="Black" />
+        <Button
+            x:Name="btnChat"
+            Margin="10,346,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="RoomChat" />
+        <TextBox
+            Width="326"
+            Height="31"
+            Margin="198,348,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Text="TextBox"
+            TextWrapping="Wrap" FontSize="16" />
+        <Button
+            Width="113"
+            Height="31"
+            Margin="529,348,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Button" />
+        <Label x:Name="labelPlayerOne" Content="Label" HorizontalAlignment="Left" Margin="99,151,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" Width="74" FontSize="16"/>
+        <Label x:Name="labelPlayerTwo" Content="Label" HorizontalAlignment="Left" Margin="664,151,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Width="77" FontSize="16"/>
 
     </Grid>
 </Page>

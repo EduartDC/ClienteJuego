@@ -11,6 +11,17 @@
     mc:Ignorable="d">
     <Viewbox StretchDirection="Both">
         <Grid Width="800" Height="600">
+            <Button
+                x:Name="btnMinimize"
+                Width="33"
+                Height="18"
+                Margin="762,0,0,572"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                Background="#FFCA1F1F"
+                Click="btnMinimize_Click"
+                Content="X"
+                FontWeight="Bold" />
             <ListView
                 x:Name="listFriends"
                 Margin="568,74,0,10"
@@ -28,17 +39,17 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path =userName}" Header="User Name" />
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=userName}" Header="User Name" />
                         <GridViewColumn Width="50">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <Button
                                         x:Name="btnDeleatFriend"
-                                        CommandParameter="{Binding}"
                                         Width="35"
                                         Height="35"
                                         BorderBrush="#00000000"
                                         Click="btnDeleatFriend_Click"
+                                        CommandParameter="{Binding}"
                                         Content="">
                                         <Button.Background>
                                             <ImageBrush ImageSource="/Images/playJUE.png" Stretch="Uniform" />
@@ -68,6 +79,29 @@
                     </GridView>
                 </ListView.View>
             </ListView>
+
+            <Button
+                x:Name="btnAddFriend"
+                Margin="764,42,4,528"
+                Background="{x:Null}"
+                BorderBrush="{x:Null}"
+                Click="btnAddFriend_Click">
+                <Image Source="/Images/agregar-usuario.png" />
+            </Button>
+
+            <TextBox
+                x:Name="textNameFriend"
+                Width="186"
+                Margin="572,49,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{x:Null}"
+                BorderBrush="#FFFF8906"
+                BorderThickness="0,0,0,2"
+                FontSize="14"
+                Foreground="#FFFFFEFE"
+                Text="TextBox"
+                TextWrapping="Wrap" />
         </Grid>
     </Viewbox>
 </Page>

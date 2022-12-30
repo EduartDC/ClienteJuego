@@ -87,35 +87,6 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="NetTcpBinding_IGameService_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
-        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <wsp:Policy>
-            <sp:TransportToken>
-              <wsp:Policy>
-                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
-                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
-                </msf:WindowsTransportSecurity>
-              </wsp:Policy>
-            </sp:TransportToken>
-            <sp:AlgorithmSuite>
-              <wsp:Policy>
-                <sp:Basic256 />
-              </wsp:Policy>
-            </sp:AlgorithmSuite>
-            <sp:Layout>
-              <wsp:Policy>
-                <sp:Strict />
-              </wsp:Policy>
-            </sp:Layout>
-          </wsp:Policy>
-        </sp:TransportBinding>
-        <wsaw:UsingAddressing />
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
   <wsp:Policy wsu:Id="NetTcpBinding_INotificationService_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -150,6 +121,7 @@
       <xsd:import schemaLocation="http://localhost:8082/?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8082/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:8082/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MessageService.Domain" />
+      <xsd:import schemaLocation="http://localhost:8082/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MessageService" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IUserManager_MatchingFriends_InputMessage">
@@ -239,47 +211,47 @@
   <wsdl:message name="IMatchService_AddToLobby_InputMessage">
     <wsdl:part name="parameters" element="tns:AddToLobby" />
   </wsdl:message>
-  <wsdl:message name="IMatchService_CreatetMatch_InputMessage">
-    <wsdl:part name="parameters" element="tns:CreatetMatch" />
+  <wsdl:message name="IMatchService_StartMatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartMatch" />
   </wsdl:message>
   <wsdl:message name="IMatchService_DisconnectFromLobby_InputMessage">
     <wsdl:part name="parameters" element="tns:DisconnectFromLobby" />
   </wsdl:message>
+  <wsdl:message name="IMatchService_DisconnectFromMatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:DisconnectFromMatch" />
+  </wsdl:message>
   <wsdl:message name="IMatchService_SetCallbackMatch_InputMessage">
     <wsdl:part name="parameters" element="tns:SetCallbackMatch" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_GetQuestions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuestions" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_GetQuestions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuestionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_GetAnswers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnswers" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_GetAnswers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnswersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_UpdateBoard_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBoard" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_UpdateBoard_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBoardResponse" />
   </wsdl:message>
   <wsdl:message name="IMatchService_UpdateLobby_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:UpdateLobby" />
   </wsdl:message>
-  <wsdl:message name="IGameService_GetQuestions_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetQuestions" />
+  <wsdl:message name="IMatchService_LoadMatch_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:LoadMatch" />
   </wsdl:message>
-  <wsdl:message name="IGameService_GetQuestions_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetQuestionsResponse" />
+  <wsdl:message name="IMatchService_LoadBroad_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:LoadBroad" />
   </wsdl:message>
-  <wsdl:message name="IGameService_GetAnswers_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetAnswers" />
-  </wsdl:message>
-  <wsdl:message name="IGameService_GetAnswers_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetAnswersResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGameService_addPoints_InputMessage">
-    <wsdl:part name="parameters" element="tns:addPoints" />
-  </wsdl:message>
-  <wsdl:message name="IGameService_addPoints_OutputMessage">
-    <wsdl:part name="parameters" element="tns:addPointsResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGameService_UpdateBoard_InputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateBoard" />
-  </wsdl:message>
-  <wsdl:message name="IGameService_UpdateBoard_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateBoardResponse" />
-  </wsdl:message>
-  <wsdl:message name="IGameService_UpdateStrikes_InputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateStrikes" />
-  </wsdl:message>
-  <wsdl:message name="IGameService_UpdateStrikes_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateStrikesResponse" />
+  <wsdl:message name="IMatchService_ExitMatch_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ExitMatch" />
   </wsdl:message>
   <wsdl:message name="INotificationService_SetCallBack_InputMessage">
     <wsdl:part name="parameters" element="tns:SetCallBack" />
@@ -373,39 +345,41 @@
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="AddToLobby">
       <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/AddToLobby" message="tns:IMatchService_AddToLobby_InputMessage" />
     </wsdl:operation>
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="CreatetMatch">
-      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/CreatetMatch" message="tns:IMatchService_CreatetMatch_InputMessage" />
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="StartMatch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/StartMatch" message="tns:IMatchService_StartMatch_InputMessage" />
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="DisconnectFromLobby">
       <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/DisconnectFromLobby" message="tns:IMatchService_DisconnectFromLobby_InputMessage" />
     </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="DisconnectFromMatch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/DisconnectFromMatch" message="tns:IMatchService_DisconnectFromMatch_InputMessage" />
+    </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SetCallbackMatch">
       <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/SetCallbackMatch" message="tns:IMatchService_SetCallbackMatch_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetQuestions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/GetQuestions" message="tns:IMatchService_GetQuestions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/GetQuestionsResponse" message="tns:IMatchService_GetQuestions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetAnswers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/GetAnswers" message="tns:IMatchService_GetAnswers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/GetAnswersResponse" message="tns:IMatchService_GetAnswers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="UpdateBoard">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/UpdateBoard" message="tns:IMatchService_UpdateBoard_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/UpdateBoardResponse" message="tns:IMatchService_UpdateBoard_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="UpdateLobby">
       <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/UpdateLobby" message="tns:IMatchService_UpdateLobby_OutputCallbackMessage" />
     </wsdl:operation>
-  </wsdl:portType>
-  <wsdl:portType name="IGameService">
-    <wsdl:operation name="GetQuestions">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/GetQuestions" message="tns:IGameService_GetQuestions_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/GetQuestionsResponse" message="tns:IGameService_GetQuestions_OutputMessage" />
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="LoadMatch">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/LoadMatch" message="tns:IMatchService_LoadMatch_OutputCallbackMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetAnswers">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/GetAnswers" message="tns:IGameService_GetAnswers_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/GetAnswersResponse" message="tns:IGameService_GetAnswers_OutputMessage" />
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="LoadBroad">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/LoadBroad" message="tns:IMatchService_LoadBroad_OutputCallbackMessage" />
     </wsdl:operation>
-    <wsdl:operation name="addPoints">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/addPoints" message="tns:IGameService_addPoints_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/addPointsResponse" message="tns:IGameService_addPoints_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdateBoard">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/UpdateBoard" message="tns:IGameService_UpdateBoard_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/UpdateBoardResponse" message="tns:IGameService_UpdateBoard_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdateStrikes">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/UpdateStrikes" message="tns:IGameService_UpdateStrikes_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/UpdateStrikesResponse" message="tns:IGameService_UpdateStrikes_OutputMessage" />
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ExitMatch">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/ExitMatch" message="tns:IMatchService_ExitMatch_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="INotificationService">
@@ -582,8 +556,8 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
-    <wsdl:operation name="CreatetMatch">
-      <soap12:operation soapAction="http://tempuri.org/IMatchService/CreatetMatch" style="document" />
+    <wsdl:operation name="StartMatch">
+      <soap12:operation soapAction="http://tempuri.org/IMatchService/StartMatch" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -594,24 +568,20 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
+    <wsdl:operation name="DisconnectFromMatch">
+      <soap12:operation soapAction="http://tempuri.org/IMatchService/DisconnectFromMatch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
     <wsdl:operation name="SetCallbackMatch">
       <soap12:operation soapAction="http://tempuri.org/IMatchService/SetCallbackMatch" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
-    <wsdl:operation name="UpdateLobby">
-      <soap12:operation soapAction="http://tempuri.org/IMatchService/UpdateLobby" style="document" />
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-  </wsdl:binding>
-  <wsdl:binding name="NetTcpBinding_IGameService" type="tns:IGameService">
-    <wsp:PolicyReference URI="#NetTcpBinding_IGameService_policy" />
-    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
     <wsdl:operation name="GetQuestions">
-      <soap12:operation soapAction="http://tempuri.org/IGameService/GetQuestions" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/IMatchService/GetQuestions" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -620,16 +590,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetAnswers">
-      <soap12:operation soapAction="http://tempuri.org/IGameService/GetAnswers" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="addPoints">
-      <soap12:operation soapAction="http://tempuri.org/IGameService/addPoints" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/IMatchService/GetAnswers" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -638,7 +599,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="UpdateBoard">
-      <soap12:operation soapAction="http://tempuri.org/IGameService/UpdateBoard" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/IMatchService/UpdateBoard" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -646,11 +607,26 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UpdateStrikes">
-      <soap12:operation soapAction="http://tempuri.org/IGameService/UpdateStrikes" style="document" />
-      <wsdl:input>
+    <wsdl:operation name="UpdateLobby">
+      <soap12:operation soapAction="http://tempuri.org/IMatchService/UpdateLobby" style="document" />
+      <wsdl:output>
         <soap12:body use="literal" />
-      </wsdl:input>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadMatch">
+      <soap12:operation soapAction="http://tempuri.org/IMatchService/LoadMatch" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadBroad">
+      <soap12:operation soapAction="http://tempuri.org/IMatchService/LoadBroad" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExitMatch">
+      <soap12:operation soapAction="http://tempuri.org/IMatchService/ExitMatch" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
@@ -710,15 +686,6 @@
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_IMatchService" binding="tns:NetTcpBinding_IMatchService">
-      <soap12:address location="net.tcp://localhost:8081/MessageService" />
-      <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://localhost:8081/MessageService</wsa10:Address>
-        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>DESKTOP-F2DQ5DU\Eduar</Upn>
-        </Identity>
-      </wsa10:EndpointReference>
-    </wsdl:port>
-    <wsdl:port name="NetTcpBinding_IGameService" binding="tns:NetTcpBinding_IGameService">
       <soap12:address location="net.tcp://localhost:8081/MessageService" />
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8081/MessageService</wsa10:Address>

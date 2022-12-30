@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,57 +20,42 @@ namespace ClienteJuego.Views
     /// <summary>
     /// Interaction logic for TableroView.xaml
     /// </summary>
-    public partial class TableroView : Page
+    public partial class TableroView : Page, ConnectService.IMatchServiceCallback
     {
-
-        private static int allvalue;
-
-        private static int value1;
-        private static int value2;
-        private static int value3;
-        private static int value4;
-        private static int value5;
-        private static int round = -1;
-        static List<QuestionServer> questions;
-
-        public TableroView()
+        public MatchServer match { get; set; }
+        private readonly ConnectService.MatchServiceClient matchServiceClient;
+        QuestionServer question;
+        AnswerServer[] answers;
+        public TableroView(MatchServer match)
         {
+
             InitializeComponent();
-        }
+            matchServiceClient = new MatchServiceClient(new InstanceContext(this));
+            this.match = match;
+            question = matchServiceClient.GetQuestions();
+            answers = matchServiceClient.GetAnswers(question.idQuestion);
 
-        public void resetValues()
-        {
-            value1 = 0;
-            value2 = 0;
-            value3 = 0;
-            value4 = 0;
-            value5 = 0;
-            lblAnswer1.Content = ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .";
-            lblAnswer2.Content = ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .";
-            lblAnswer3.Content = ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .";
-            lblAnswer4.Content = ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .";
-            lblAnswer5.Content = ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .";
-            lblScoreAnswer1.Content = "0";
-            lblScoreAnswer2.Content = "0";
-            lblScoreAnswer3.Content = "0";
-            lblScoreAnswer4.Content = "0";
-            lblScoreAnswer5.Content = "0";
-            lblScorePoints.Content = "0";
-            allvalue = 0;
-        }
+            var list = match.players;
+            labelPlayerOne.Content = list[0].userName;
+            labelPlayerTwo.Content = list[1].userName;
 
-        public void cargar_ronda(int i)
-        {
-            resetValues();
+            lblQuestion.Content = question.question;
             lblStatusRoundOff.Content = Properties.Resources.textStatusRoundOn;
-            //lblQuestion.Content = questions[i].Answers;
-            //MessageBox.Show("Cargando la \'Ronda " + (i + 1) + "\'");
+        }
+
+        public void SetValues()
+        {
+
+
+
+
+
+
         }
 
         private void btnPlay_Click(object sender, RoutedEventArgs e)
         {
-            round = 0;
-            cargar_ronda(round);
+
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
@@ -78,7 +64,27 @@ namespace ClienteJuego.Views
             if (resultado == 6)
             {
                 NavigationService.Navigate(new Uri("Views/InicioView.xaml", UriKind.Relative));
-            }            
+            }
+        }
+
+        public void UpdateLobby(PlayerServer[] plyers)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void LoadMatch(MatchServer match)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void LoadBroad(ManagerService match)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ExitMatch()
+        {
+            throw new NotImplementedException();
         }
     }
 }
