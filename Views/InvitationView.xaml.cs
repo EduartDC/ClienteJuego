@@ -67,14 +67,5 @@ namespace ClienteJuego.Views
             throw new NotImplementedException();
         }
 
-        public void LoadBroad(ManagerService match)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ExitMatch()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

@@ -20,41 +20,39 @@ namespace ClienteJuego.Views
     /// <summary>
     /// Interaction logic for TableroView.xaml
     /// </summary>
-    public partial class TableroView : Page, ConnectService.IMatchServiceCallback
+    public partial class TableroView : Page, ConnectService.IGameServiceCallback
     {
         public MatchServer match { get; set; }
-        private readonly ConnectService.MatchServiceClient matchServiceClient;
-        QuestionServer question;
-        AnswerServer[] answers;
+        private readonly ConnectService.GameServiceClient gameServiceClient;
+        QuestionServer questionRaund;
+        AnswerServer[] answersRaund;
+        string username;
+        string turn;
+        int strike;
         public TableroView(MatchServer match)
         {
 
             InitializeComponent();
-            matchServiceClient = new MatchServiceClient(new InstanceContext(this));
+            gameServiceClient = new GameServiceClient(new InstanceContext(this));
+            username = (App.Current as App).DeptName;
             this.match = match;
-            question = matchServiceClient.GetQuestions();
-            answers = matchServiceClient.GetAnswers(question.idQuestion);
 
             var list = match.players;
             labelPlayerOne.Content = list[0].userName;
             labelPlayerTwo.Content = list[1].userName;
 
-            lblQuestion.Content = question.question;
-            lblStatusRoundOff.Content = Properties.Resources.textStatusRoundOn;
-        }
+            gameServiceClient.SetCallbackGame(username);
 
-        public void SetValues()
-        {
-
-
-
-
-
-
+            textAnswer.IsEnabled = false;
+            btnAnswer.IsEnabled = false;
+            SolidColorBrush brush = new SolidColorBrush(Colors.Red);
+            fgrPlayerOne.Fill = brush;
+            fgrPlayerTwo.Fill = brush;
         }
 
         private void btnPlay_Click(object sender, RoutedEventArgs e)
         {
+            gameServiceClient.StartRaund(username, match.inviteCode);
 
         }
 
@@ -67,24 +65,49 @@ namespace ClienteJuego.Views
             }
         }
 
-        public void UpdateLobby(PlayerServer[] plyers)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void LoadMatch(MatchServer match)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void LoadBroad(ManagerService match)
-        {
-            throw new NotImplementedException();
-        }
-
         public void ExitMatch()
         {
             throw new NotImplementedException();
+        }
+
+        private void btnChat_Click(object sender, RoutedEventArgs e)
+        {
+            var roomchat = (MainWindow)App.Current.MainWindow;
+            roomchat.ContenedorChat.Navigate(new ChatView());
+        }
+
+        public void SetRound(QuestionServer question, AnswerServer[] answers)
+        {
+            questionRaund = question;
+            answersRaund = answers;
+
+            lblQuestion.Content = question.question;
+            Console.WriteLine(answers[1].answer);
+            btnPlay.Visibility = Visibility.Hidden;
+            btnPlay.IsEnabled = false;
+            var list = match.players;
+            turn = list[0].userName;
+            SolidColorBrush brush = new SolidColorBrush(Colors.Green);
+            fgrPlayerOne.Fill = brush;
+            gameServiceClient.YouTurn(turn, match.inviteCode);
+
+
+        }
+
+        public void UpdateMatch(MatchServer match)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void btnAnswer_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        public void SetTurn()
+        {
+            textAnswer.IsEnabled = true;
+            btnAnswer.IsEnabled = true;
         }
     }
 }

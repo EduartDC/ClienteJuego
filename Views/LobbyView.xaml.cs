@@ -103,18 +103,17 @@ namespace ClienteJuego.Views
 
             var chatView = (MainWindow)App.Current.MainWindow;
             chatView.ContenedorChat.Content = null;
+            var conte = listPlayersLobby.Items.Count;
+            if (conte == 2)
+            {
+                matchServiceClient.StartMatch(codeInvitation);
+            }
+            else
+            {
+                MessageBox.Show("Para este medo se necesita minimo de 2 participantes.");
+            }
 
-            matchServiceClient.StartMatch(codeInvitation);
         }
 
-        public void LoadBroad(ManagerService match)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ExitMatch()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

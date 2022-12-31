@@ -116,12 +116,40 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IGameService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8082/?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8082/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:8082/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MessageService.Domain" />
-      <xsd:import schemaLocation="http://localhost:8082/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MessageService" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IUserManager_MatchingFriends_InputMessage">
@@ -223,35 +251,11 @@
   <wsdl:message name="IMatchService_SetCallbackMatch_InputMessage">
     <wsdl:part name="parameters" element="tns:SetCallbackMatch" />
   </wsdl:message>
-  <wsdl:message name="IMatchService_GetQuestions_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetQuestions" />
-  </wsdl:message>
-  <wsdl:message name="IMatchService_GetQuestions_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetQuestionsResponse" />
-  </wsdl:message>
-  <wsdl:message name="IMatchService_GetAnswers_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetAnswers" />
-  </wsdl:message>
-  <wsdl:message name="IMatchService_GetAnswers_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetAnswersResponse" />
-  </wsdl:message>
-  <wsdl:message name="IMatchService_UpdateBoard_InputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateBoard" />
-  </wsdl:message>
-  <wsdl:message name="IMatchService_UpdateBoard_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateBoardResponse" />
-  </wsdl:message>
   <wsdl:message name="IMatchService_UpdateLobby_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:UpdateLobby" />
   </wsdl:message>
   <wsdl:message name="IMatchService_LoadMatch_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:LoadMatch" />
-  </wsdl:message>
-  <wsdl:message name="IMatchService_LoadBroad_OutputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:LoadBroad" />
-  </wsdl:message>
-  <wsdl:message name="IMatchService_ExitMatch_OutputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:ExitMatch" />
   </wsdl:message>
   <wsdl:message name="INotificationService_SetCallBack_InputMessage">
     <wsdl:part name="parameters" element="tns:SetCallBack" />
@@ -270,6 +274,30 @@
   </wsdl:message>
   <wsdl:message name="INotificationService_LoadLobby_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:LoadLobby" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_UpdateBoard_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBoard" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_StartRaund_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartRaund" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_SetCallbackGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetCallbackGame" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_YouTurn_InputMessage">
+    <wsdl:part name="parameters" element="tns:YouTurn" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_SetRound_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:SetRound" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_UpdateMatch_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMatch" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_SetTurn_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:SetTurn" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_ExitMatch_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ExitMatch" />
   </wsdl:message>
   <wsdl:portType name="IUserManager">
     <wsdl:operation name="MatchingFriends">
@@ -357,29 +385,11 @@
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SetCallbackMatch">
       <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/SetCallbackMatch" message="tns:IMatchService_SetCallbackMatch_InputMessage" />
     </wsdl:operation>
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetQuestions">
-      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/GetQuestions" message="tns:IMatchService_GetQuestions_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/GetQuestionsResponse" message="tns:IMatchService_GetQuestions_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetAnswers">
-      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/GetAnswers" message="tns:IMatchService_GetAnswers_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/GetAnswersResponse" message="tns:IMatchService_GetAnswers_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="UpdateBoard">
-      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/UpdateBoard" message="tns:IMatchService_UpdateBoard_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/UpdateBoardResponse" message="tns:IMatchService_UpdateBoard_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="UpdateLobby">
       <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/UpdateLobby" message="tns:IMatchService_UpdateLobby_OutputCallbackMessage" />
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="LoadMatch">
       <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/LoadMatch" message="tns:IMatchService_LoadMatch_OutputCallbackMessage" />
-    </wsdl:operation>
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="LoadBroad">
-      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/LoadBroad" message="tns:IMatchService_LoadBroad_OutputCallbackMessage" />
-    </wsdl:operation>
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ExitMatch">
-      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/ExitMatch" message="tns:IMatchService_ExitMatch_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="INotificationService">
@@ -396,6 +406,32 @@
     </wsdl:operation>
     <wsdl:operation name="LoadLobby">
       <wsdl:output wsaw:Action="http://tempuri.org/INotificationService/LoadLobby" message="tns:INotificationService_LoadLobby_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType msc:usingSession="true" name="IGameService">
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="UpdateBoard">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/UpdateBoard" message="tns:IGameService_UpdateBoard_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="StartRaund">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/StartRaund" message="tns:IGameService_StartRaund_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SetCallbackGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/SetCallbackGame" message="tns:IGameService_SetCallbackGame_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="YouTurn">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/YouTurn" message="tns:IGameService_YouTurn_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SetRound">
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/SetRound" message="tns:IGameService_SetRound_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="UpdateMatch">
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/UpdateMatch" message="tns:IGameService_UpdateMatch_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SetTurn">
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/SetTurn" message="tns:IGameService_SetTurn_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ExitMatch">
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/ExitMatch" message="tns:IGameService_ExitMatch_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IUserManager" type="tns:IUserManager">
@@ -580,33 +616,6 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
-    <wsdl:operation name="GetQuestions">
-      <soap12:operation soapAction="http://tempuri.org/IMatchService/GetQuestions" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetAnswers">
-      <soap12:operation soapAction="http://tempuri.org/IMatchService/GetAnswers" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateBoard">
-      <soap12:operation soapAction="http://tempuri.org/IMatchService/UpdateBoard" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="UpdateLobby">
       <soap12:operation soapAction="http://tempuri.org/IMatchService/UpdateLobby" style="document" />
       <wsdl:output>
@@ -615,18 +624,6 @@
     </wsdl:operation>
     <wsdl:operation name="LoadMatch">
       <soap12:operation soapAction="http://tempuri.org/IMatchService/LoadMatch" style="document" />
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="LoadBroad">
-      <soap12:operation soapAction="http://tempuri.org/IMatchService/LoadBroad" style="document" />
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ExitMatch">
-      <soap12:operation soapAction="http://tempuri.org/IMatchService/ExitMatch" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
@@ -666,6 +663,58 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IGameService" type="tns:IGameService">
+    <wsp:PolicyReference URI="#NetTcpBinding_IGameService_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="UpdateBoard">
+      <soap12:operation soapAction="http://tempuri.org/IGameService/UpdateBoard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="StartRaund">
+      <soap12:operation soapAction="http://tempuri.org/IGameService/StartRaund" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SetCallbackGame">
+      <soap12:operation soapAction="http://tempuri.org/IGameService/SetCallbackGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="YouTurn">
+      <soap12:operation soapAction="http://tempuri.org/IGameService/YouTurn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SetRound">
+      <soap12:operation soapAction="http://tempuri.org/IGameService/SetRound" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMatch">
+      <soap12:operation soapAction="http://tempuri.org/IGameService/UpdateMatch" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTurn">
+      <soap12:operation soapAction="http://tempuri.org/IGameService/SetTurn" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExitMatch">
+      <soap12:operation soapAction="http://tempuri.org/IGameService/ExitMatch" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
   <wsdl:service name="ManagerService">
     <wsdl:port name="NetTcpBinding_IUserManager" binding="tns:NetTcpBinding_IUserManager">
       <soap12:address location="net.tcp://localhost:8081/MessageService" />
@@ -695,6 +744,15 @@
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_INotificationService" binding="tns:NetTcpBinding_INotificationService">
+      <soap12:address location="net.tcp://localhost:8081/MessageService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8081/MessageService</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>DESKTOP-F2DQ5DU\Eduar</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IGameService" binding="tns:NetTcpBinding_IGameService">
       <soap12:address location="net.tcp://localhost:8081/MessageService" />
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8081/MessageService</wsa10:Address>
