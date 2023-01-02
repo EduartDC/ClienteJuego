@@ -28,7 +28,9 @@ namespace ClienteJuego.Views
         AnswerServer[] answersRaund;
         string username;
         string turn;
-        int strike;
+        int strikePlayerOne;
+        int strikePlayerTwo;
+
         public TableroView(MatchServer match)
         {
 
@@ -101,7 +103,39 @@ namespace ClienteJuego.Views
 
         private void btnAnswer_Click(object sender, RoutedEventArgs e)
         {
+            //logica de strikes, cambio de turno, suma de puntos, validacion de preguntas
+            //respuesta buena = suma punto
+            //si el usuario responde todo bien se suman sus puntos y cambia de turno
+            //respuesta mala = sumar strike strike == 3 = cambio de turno
+            //cambio de turno por 3 strikes solo puede responder una ves 
+            //resp[uesta buena roba puntos
+            //respuesta mala se agrega otra pregunta nueva y el usuario se queda el turno
 
+        }
+
+        bool ValidateAnswer()
+        {
+            bool result = false;
+
+            var playerAnswer = textAnswer.Text;
+            foreach (var answer in answersRaund)
+            {
+                if (answer.answer.ToLower().Equals(playerAnswer.ToLower()))
+                {
+                    result = true;
+                }
+            }
+
+            var list = match.players;
+            if (!result && username.Equals(list[0]))
+            {
+                strikePlayerOne++;
+            }
+            else if (!result && username.Equals(list[1]))
+            {
+                strikePlayerTwo++;
+            }
+            return result;
         }
 
         public void SetTurn()
