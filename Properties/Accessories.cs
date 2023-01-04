@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
-using System.Reflection;
+using System.Media;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Input;
-using System.Windows.Media.Imaging;
-using System.Media;
-using System.Configuration;
 
 namespace ClienteJuego.Properties
 {
@@ -119,7 +115,7 @@ namespace ClienteJuego.Properties
         public static int GenerateRandomCode()
         {
             var random = new Random();
-            return random.Next(0, 30);
+            return random.Next(100, 999);
         }
     }
 }

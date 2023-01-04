@@ -275,9 +275,6 @@
   <wsdl:message name="INotificationService_LoadLobby_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:LoadLobby" />
   </wsdl:message>
-  <wsdl:message name="IGameService_UpdateBoard_InputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateBoard" />
-  </wsdl:message>
   <wsdl:message name="IGameService_StartRaund_InputMessage">
     <wsdl:part name="parameters" element="tns:StartRaund" />
   </wsdl:message>
@@ -286,6 +283,15 @@
   </wsdl:message>
   <wsdl:message name="IGameService_YouTurn_InputMessage">
     <wsdl:part name="parameters" element="tns:YouTurn" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_SetBoard_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetBoard" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_EndMatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:EndMatch" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_AddStrikes_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddStrikes" />
   </wsdl:message>
   <wsdl:message name="IGameService_SetRound_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:SetRound" />
@@ -296,8 +302,14 @@
   <wsdl:message name="IGameService_SetTurn_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:SetTurn" />
   </wsdl:message>
+  <wsdl:message name="IGameService_EndTurn_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:EndTurn" />
+  </wsdl:message>
   <wsdl:message name="IGameService_ExitMatch_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:ExitMatch" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_SetStrikes_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:SetStrikes" />
   </wsdl:message>
   <wsdl:portType name="IUserManager">
     <wsdl:operation name="MatchingFriends">
@@ -409,9 +421,6 @@
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType msc:usingSession="true" name="IGameService">
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="UpdateBoard">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/UpdateBoard" message="tns:IGameService_UpdateBoard_InputMessage" />
-    </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="StartRaund">
       <wsdl:input wsaw:Action="http://tempuri.org/IGameService/StartRaund" message="tns:IGameService_StartRaund_InputMessage" />
     </wsdl:operation>
@@ -420,6 +429,15 @@
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="YouTurn">
       <wsdl:input wsaw:Action="http://tempuri.org/IGameService/YouTurn" message="tns:IGameService_YouTurn_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SetBoard">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/SetBoard" message="tns:IGameService_SetBoard_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="EndMatch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/EndMatch" message="tns:IGameService_EndMatch_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="AddStrikes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/AddStrikes" message="tns:IGameService_AddStrikes_InputMessage" />
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SetRound">
       <wsdl:output wsaw:Action="http://tempuri.org/IGameService/SetRound" message="tns:IGameService_SetRound_OutputCallbackMessage" />
@@ -430,8 +448,14 @@
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SetTurn">
       <wsdl:output wsaw:Action="http://tempuri.org/IGameService/SetTurn" message="tns:IGameService_SetTurn_OutputCallbackMessage" />
     </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="EndTurn">
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/EndTurn" message="tns:IGameService_EndTurn_OutputCallbackMessage" />
+    </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ExitMatch">
       <wsdl:output wsaw:Action="http://tempuri.org/IGameService/ExitMatch" message="tns:IGameService_ExitMatch_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SetStrikes">
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/SetStrikes" message="tns:IGameService_SetStrikes_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IUserManager" type="tns:IUserManager">
@@ -666,12 +690,6 @@
   <wsdl:binding name="NetTcpBinding_IGameService" type="tns:IGameService">
     <wsp:PolicyReference URI="#NetTcpBinding_IGameService_policy" />
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
-    <wsdl:operation name="UpdateBoard">
-      <soap12:operation soapAction="http://tempuri.org/IGameService/UpdateBoard" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-    </wsdl:operation>
     <wsdl:operation name="StartRaund">
       <soap12:operation soapAction="http://tempuri.org/IGameService/StartRaund" style="document" />
       <wsdl:input>
@@ -686,6 +704,24 @@
     </wsdl:operation>
     <wsdl:operation name="YouTurn">
       <soap12:operation soapAction="http://tempuri.org/IGameService/YouTurn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SetBoard">
+      <soap12:operation soapAction="http://tempuri.org/IGameService/SetBoard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="EndMatch">
+      <soap12:operation soapAction="http://tempuri.org/IGameService/EndMatch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="AddStrikes">
+      <soap12:operation soapAction="http://tempuri.org/IGameService/AddStrikes" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -708,8 +744,20 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="EndTurn">
+      <soap12:operation soapAction="http://tempuri.org/IGameService/EndTurn" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ExitMatch">
       <soap12:operation soapAction="http://tempuri.org/IGameService/ExitMatch" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetStrikes">
+      <soap12:operation soapAction="http://tempuri.org/IGameService/SetStrikes" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

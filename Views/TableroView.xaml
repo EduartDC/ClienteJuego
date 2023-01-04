@@ -25,7 +25,7 @@
                 VerticalAlignment="Top"
                 Source="/Images/logoFc.png" />
             <Label
-                x:Name="lblStatusRoundOff"
+                x:Name="labelStatusRoundOff"
                 Width="219"
                 Height="42"
                 Margin="310,37,0,0"
@@ -45,23 +45,23 @@
                 x:Name="fgrPlayerTwo"
                 Width="77"
                 Height="77"
-                Margin="664,213,0,0"
+                Margin="649,213,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Fill="#FFA0FF00" />
             <Label
-                x:Name="lblScore"
-                Margin="664,290,0,0"
+                x:Name="labelTextScore"
+                Margin="649,290,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="{x:Static p:Resources.lblScore}"
                 FontSize="22"
                 Foreground="White" />
             <Label
-                x:Name="lblScorePointsTwo"
+                x:Name="labelScorePointsTwo"
                 Width="66"
                 Height="44"
-                Margin="667,228,0,0"
+                Margin="654,228,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 HorizontalContentAlignment="Center"
@@ -75,42 +75,42 @@
             <Rectangle
                 Width="444"
                 Height="160"
-                Margin="198,179,0,0"
+                Margin="185,179,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Fill="#000"
                 Stroke="#000" />
             <Label
-                Margin="222,197,0,0"
+                Margin="209,197,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="1.-"
                 FontSize="20"
                 Foreground="Lime" />
             <Label
-                Margin="222,228,0,0"
+                Margin="209,228,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="2.-"
                 FontSize="20"
                 Foreground="Lime" />
             <Label
-                Margin="222,259,0,0"
+                Margin="209,259,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="3.-"
                 FontSize="20"
                 Foreground="Lime" />
             <Label
-                Margin="222,290,0,0"
+                Margin="209,290,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="4.-"
                 FontSize="20"
                 Foreground="Lime" />
             <Label
-                x:Name="lblAnswer1"
-                Margin="251,197,0,0"
+                x:Name="labelAnswer1"
+                Margin="238,197,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content=". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
@@ -118,8 +118,8 @@
                 Foreground="Lime"
                 RenderTransformOrigin="0.202,2.034" />
             <Label
-                x:Name="lblAnswer2"
-                Margin="251,228,0,0"
+                x:Name="labelAnswer2"
+                Margin="238,228,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content=". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
@@ -127,8 +127,8 @@
                 Foreground="Lime"
                 RenderTransformOrigin="0.202,2.034" />
             <Label
-                x:Name="lblAnswer3"
-                Margin="251,259,0,0"
+                x:Name="labelAnswer3"
+                Margin="236,259,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content=". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
@@ -136,8 +136,8 @@
                 Foreground="Lime"
                 RenderTransformOrigin="0.202,2.034" />
             <Label
-                x:Name="lblAnswer4"
-                Margin="251,290,0,0"
+                x:Name="labelAnswer4"
+                Margin="238,290,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content=". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
@@ -145,16 +145,16 @@
                 Foreground="Lime"
                 RenderTransformOrigin="0.202,2.034" />
             <Label
-                x:Name="lblScoreAnswer1"
-                Margin="604,197,0,0"
+                x:Name="labelScoreAnswer1"
+                Margin="591,197,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="0"
                 FontSize="20"
                 Foreground="Lime" />
             <Label
-                x:Name="lblScoreAnswer2"
-                Margin="604,228,0,0"
+                x:Name="labelScoreAnswer2"
+                Margin="591,228,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="0"
@@ -162,23 +162,23 @@
                 Foreground="Lime"
                 RenderTransformOrigin="0.699,1.657" />
             <Label
-                x:Name="lblScoreAnswer3"
-                Margin="604,259,0,0"
+                x:Name="labelScoreAnswer3"
+                Margin="591,259,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="0"
                 FontSize="20"
                 Foreground="Lime" />
             <Label
-                x:Name="lblScoreAnswer4"
-                Margin="604,290,0,0"
+                x:Name="labelScoreAnswer4"
+                Margin="591,290,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="0"
                 FontSize="20"
                 Foreground="Lime" />
             <Label
-                x:Name="lblQuestion"
+                x:Name="labelQuestion"
                 Width="Auto"
                 Margin="198,121,0,0"
                 HorizontalAlignment="Left"
@@ -221,23 +221,23 @@
                 x:Name="fgrPlayerOne"
                 Width="77"
                 Height="77"
-                Margin="96,210,0,0"
+                Margin="83,210,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Fill="#FFA0FF00" />
             <Label
-                x:Name="lblScore_Copy"
-                Margin="96,287,0,0"
+                x:Name="labelTextScoreTwo"
+                Margin="83,287,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="{x:Static p:Resources.lblScore}"
                 FontSize="22"
                 Foreground="White" />
             <Label
-                x:Name="lblScorePointsOne"
+                x:Name="labelScorePointsOne"
                 Width="66"
                 Height="44"
-                Margin="99,225,0,0"
+                Margin="86,225,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 HorizontalContentAlignment="Center"
@@ -250,7 +250,7 @@
                 Foreground="Black" />
             <Button
                 x:Name="btnChat"
-                Margin="10,346,0,0"
+                Margin="730,570,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Click="btnChat_Click"
@@ -259,7 +259,7 @@
                 x:Name="textAnswer"
                 Width="326"
                 Height="31"
-                Margin="198,348,0,0"
+                Margin="183,348,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 FontSize="16"
@@ -269,7 +269,7 @@
                 x:Name="btnAnswer"
                 Width="113"
                 Height="31"
-                Margin="529,348,0,0"
+                Margin="514,348,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Click="btnAnswer_Click"
@@ -277,7 +277,7 @@
             <Label
                 x:Name="labelPlayerOne"
                 Width="Auto"
-                Margin="99,167,0,0"
+                Margin="86,167,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="Label"
@@ -287,13 +287,38 @@
             <Label
                 x:Name="labelPlayerTwo"
                 Width="Auto"
-                Margin="662,167,0,0"
+                Margin="647,167,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="Label"
                 FontSize="16"
                 FontWeight="Bold"
                 Foreground="White" />
+            <Image
+                x:Name="playerOneStrikeOne"
+                Margin="32,334,730,214"
+                Source="/Images/cancelar.png" />
+            <Image
+                x:Name="playerOneStrikeTwo"
+                Margin="79,334,683,214"
+                Source="/Images/cancelar.png" />
+            <Image
+                x:Name="playerOneStrikethree"
+                Margin="125,334,637,214"
+                Source="/Images/cancelar.png" />
+            <Image
+                x:Name="playerTwoStrikeOne"
+                Margin="644,334,118,214"
+                Source="/Images/cancelar.png" />
+            <Image
+                x:Name="playerTwoStrikeTwo"
+                Margin="691,334,71,214"
+                Source="/Images/cancelar.png" />
+            <Image
+                x:Name="playerTwoStrikethree"
+                Margin="737,334,25,214"
+                Source="/Images/cancelar.png" />
+            <Button Content="Button" HorizontalAlignment="Left" Margin="560,454,0,0" VerticalAlignment="Top" Click="Button_Click"/>
 
         </Grid>
     </Viewbox>

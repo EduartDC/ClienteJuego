@@ -1,21 +1,10 @@
 ﻿using ClienteJuego.Properties;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
 using System.Reflection;
-using System.ServiceModel.Configuration;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ClienteJuego.Views
 {
@@ -56,7 +45,7 @@ namespace ClienteJuego.Views
         private void MusicChecked(object sender, RoutedEventArgs e)
         {
             musicEffect.Value = "true";
-            
+
         }
 
         private void MusicUnchecked(object sender, RoutedEventArgs e)
@@ -72,7 +61,7 @@ namespace ClienteJuego.Views
         private void SoundsChecked(object sender, RoutedEventArgs e)
         {
             soundsEffect.Value = "true";
-            
+
         }
 
         private void btnSpanishLanguage_Click(object sender, RoutedEventArgs e)

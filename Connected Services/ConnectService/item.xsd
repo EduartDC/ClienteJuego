@@ -293,19 +293,10 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="UpdateBoard">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/MessageService.Domain" minOccurs="0" name="match" nillable="true" type="q23:MatchServer" />
-        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="StartRaund">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/MessageService.Domain" minOccurs="0" name="match" nillable="true" type="q23:MatchServer" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -324,29 +315,74 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SetRound">
+  <xs:element name="SetBoard">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/MessageService.Domain" minOccurs="0" name="question" nillable="true" type="q24:QuestionServer" />
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/MessageService.Domain" minOccurs="0" name="answers" nillable="true" type="q25:ArrayOfAnswerServer" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/MessageService.Domain" minOccurs="0" name="matchServer" nillable="true" type="q24:MatchServer" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/MessageService.Domain" minOccurs="0" name="answerServer" nillable="true" type="q25:AnswerServer" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="UpdateMatch">
+  <xs:element name="EndMatch">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/MessageService.Domain" minOccurs="0" name="match" nillable="true" type="q26:MatchServer" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="AddStrikes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strikesOne" type="xs:int" />
+        <xs:element minOccurs="0" name="strikesTwo" type="xs:int" />
+        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetRound">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/MessageService.Domain" minOccurs="0" name="question" nillable="true" type="q27:QuestionServer" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/MessageService.Domain" minOccurs="0" name="answers" nillable="true" type="q28:ArrayOfAnswerServer" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/MessageService.Domain" minOccurs="0" name="match" nillable="true" type="q29:MatchServer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateMatch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/MessageService.Domain" minOccurs="0" name="match" nillable="true" type="q30:MatchServer" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/MessageService.Domain" minOccurs="0" name="answerServer" nillable="true" type="q31:AnswerServer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="SetTurn">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EndTurn">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ExitMatch">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/MessageService.Domain" minOccurs="0" name="match" nillable="true" type="q32:MatchServer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetStrikes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="stikesOne" type="xs:int" />
+        <xs:element minOccurs="0" name="strikesTwo" type="xs:int" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
 </xs:schema>
