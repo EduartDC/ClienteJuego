@@ -17,7 +17,7 @@ namespace ClienteJuego.Views
     public partial class RegisterView : Page
     {
 
-
+        int errorConnection = 404;
         public RegisterView()
         {
             InitializeComponent();
@@ -56,7 +56,7 @@ namespace ClienteJuego.Views
                     {
                         MessageBox.Show("Error occurred, registration didn't take effect");
                     }
-                    else if (result == 404)
+                    else if (result == errorConnection)
                     {
 
                         MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
@@ -96,7 +96,7 @@ namespace ClienteJuego.Views
                     MessageBox.Show("Exte usuario ya se encuentra registrado, Utilice otro correo.");
                     validateEmail = true;
                 }
-                else if (emailResult == 404)
+                else if (emailResult == errorConnection)
                 {
                     MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
                 }
@@ -107,7 +107,7 @@ namespace ClienteJuego.Views
                     MessageBox.Show("Exte usuario ya se encuentra registrado, Utilice otro nombre de usuario.");
                     validateUser = true;
                 }
-                else if (emailResult == 404)
+                else if (emailResult == errorConnection)
                 {
                     MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
                 }

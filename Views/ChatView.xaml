@@ -37,7 +37,7 @@
                 Margin="631,560,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Click="SendButtonClick"
+                Click="btnSendButton_Click"
                 Content="Send"
                 FontSize="20" />
             <ListBox

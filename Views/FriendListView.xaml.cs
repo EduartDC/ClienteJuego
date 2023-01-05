@@ -12,6 +12,7 @@ namespace ClienteJuego.Views
     /// </summary>
     public partial class FriendListView : Page, ConnectService.INotificationServiceCallback
     {
+        int errorConnection = 404;
         public string codeInvitation { get; set; }
 
         private readonly NotificationServiceClient notificationServiceClient;
@@ -83,7 +84,7 @@ namespace ClienteJuego.Views
             try
             {
                 var result = client.DeleteFriend(player, username);
-                if (result == 404)
+                if (result == errorConnection)
                 {
                     MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
                     var window = (MainWindow)Application.Current.MainWindow;
@@ -138,7 +139,7 @@ namespace ClienteJuego.Views
             var name = textNameFriend.Text;
             try
             {
-                if (name.Equals(null))
+                if (!name.Equals(null))
                 {
                     var friend = client.SearchPlayer(name);
                     if (friend == null)

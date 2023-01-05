@@ -29,8 +29,6 @@ namespace ClienteJuego.Views
 
             ImageSource imageSource = new ImageSourceConverter().ConvertFromString(Accessories.LoadConfigPlayer(userName)) as ImageSource;
             imgAvatar.Source = imageSource;
-
-
         }
 
         PlayerServer LoadData()

@@ -130,7 +130,7 @@ namespace ClienteJuego.Views
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnChat_Click(object sender, RoutedEventArgs e)
         {
             var roomchat = (MainWindow)App.Current.MainWindow;
             roomchat.ContenedorChat.Navigate(new ChatView());

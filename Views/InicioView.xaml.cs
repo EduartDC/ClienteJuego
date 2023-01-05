@@ -16,7 +16,7 @@ namespace ClienteJuego.Views
     {
 
         private string userName;
-        private readonly ConnectService.NotificationServiceClient clientN;
+        private readonly ConnectService.NotificationServiceClient notificationClient;
 
         public InicioView()
         {
@@ -34,9 +34,9 @@ namespace ClienteJuego.Views
 
                 InstanceContext context = new InstanceContext(this);
 
-                clientN = new NotificationServiceClient(context);
+                notificationClient = new NotificationServiceClient(context);
 
-                clientN.SetCallBack(userName);
+                notificationClient.SetCallBack(userName);
             }
             catch (EndpointNotFoundException)
             {
@@ -65,12 +65,6 @@ namespace ClienteJuego.Views
         {
             Accessories.PlaySoundsEffects();
             NavigationService.Navigate(new Uri("Views/MenuOptionsView.xaml", UriKind.Relative));
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Accessories.PlaySoundsEffects();
-            NavigationService.Navigate(new Uri("Views/GameModeView.xaml", UriKind.Relative));
         }
 
         private void btnScore_Click(object sender, RoutedEventArgs e)

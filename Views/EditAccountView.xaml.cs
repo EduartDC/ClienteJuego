@@ -18,7 +18,8 @@ namespace ClienteJuego.Views
     public partial class EditAccountView : Page
     {
         String userName;
-
+        int errorConnection = 404;
+        int resultYes = 6;
         PlayerServer playerInfo = new PlayerServer();
         public EditAccountView()
         {
@@ -85,7 +86,7 @@ namespace ClienteJuego.Views
                             MessageBox.Show("Se guardaron los cambios");
                             NavigationService.Navigate(new Uri("Views/AccountView.xaml", UriKind.Relative));
                         }
-                        else if (result == 404)
+                        else if (result == errorConnection)
                         {
 
                             MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
@@ -118,7 +119,7 @@ namespace ClienteJuego.Views
             Accessories.PlaySoundsEffects();
 
             int resultado = (int)MessageBox.Show("¿Estás seguro(a) de salir? No se guardarán las modificaciones.", "Cuidado!", MessageBoxButton.YesNo);
-            if (resultado == 6)
+            if (resultado == resultYes)
             {
                 NavigationService.Navigate(new Uri("Views/AccountView.xaml", UriKind.Relative));
             }
@@ -170,7 +171,7 @@ namespace ClienteJuego.Views
                     MessageBox.Show("Exte usuario ya se encuentra registrado, Utilice otro nombre de usuario.");
 
                 }
-                else if (result == 404)
+                else if (result == errorConnection)
                 {
                     MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
                     var window = (MainWindow)Application.Current.MainWindow;

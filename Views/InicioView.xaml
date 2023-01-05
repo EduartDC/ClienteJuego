@@ -27,7 +27,7 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Top"
                 BorderBrush="#00000000"
-                Click="Button_Click"
+                Click="btnPlay_Click"
                 Content="">
                 <Button.Background>
                     <ImageBrush ImageSource="/Images/playJUE.png" Stretch="Uniform" />

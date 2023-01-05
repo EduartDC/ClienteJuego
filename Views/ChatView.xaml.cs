@@ -84,7 +84,6 @@ namespace ClienteJuego.Views
             {
                 listPlayers.Items.Add(player.userName);
             }
-
         }
 
         public void UserJoin(PlayerServer player)
@@ -97,7 +96,7 @@ namespace ClienteJuego.Views
             ChatTextBox.AppendText("System: " + player.userName + " Se ha desconectado\n");
         }
 
-        private void SendButtonClick(object sender, RoutedEventArgs e)
+        private void btnSendButton_Click(object sender, RoutedEventArgs e)
         {
             MessageServer msg = new MessageServer();
             msg.Sender = playerData.userName;
