@@ -52,7 +52,7 @@
                                         CommandParameter="{Binding}"
                                         Content="">
                                         <Button.Background>
-                                            <ImageBrush ImageSource="/Images/playJUE.png" Stretch="Uniform" />
+                                            <ImageBrush ImageSource="/Images/delete.png" Stretch="Uniform" />
                                         </Button.Background>
                                     </Button>
                                 </DataTemplate>
@@ -70,7 +70,7 @@
                                         CommandParameter="{Binding}"
                                         Content="">
                                         <Button.Background>
-                                            <ImageBrush ImageSource="/Images/playJUE.png" Stretch="Uniform" />
+                                            <ImageBrush ImageSource="/Images/sends.png" Stretch="Uniform" />
                                         </Button.Background>
                                     </Button>
                                 </DataTemplate>

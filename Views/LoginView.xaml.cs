@@ -41,16 +41,20 @@ namespace ClienteJuego.Views
             {
                 try
                 {
-                    int result = client.UserConnect(player);
-                    if (result == 0)
+                    var result = client.UserConnect(player);
+                    if (result == null)
                     {
-                        MessageBox.Show("Error occurred, registration didn't take effect");
+                        MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
                     }
-                    else
+                    else if (result.userName.Equals(player.userName))
                     {
                         (App.Current as App).DeptName = player.userName;
                         NavigationService.Navigate(new Uri("Views/InicioView.xaml?value=15", UriKind.Relative));
 
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuario o contraseña invalidos");
                     }
                 }
                 catch (EndpointNotFoundException)
@@ -132,6 +136,11 @@ namespace ClienteJuego.Views
         public void notification(string username)
         {
             throw new NotImplementedException();
+        }
+
+        private void btnGuest_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("Views/GuestView.xaml", UriKind.Relative));
         }
     }
 }

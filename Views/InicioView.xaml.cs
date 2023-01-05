@@ -21,26 +21,44 @@ namespace ClienteJuego.Views
         public InicioView()
         {
             InitializeComponent();
+            try
+            {
+                Accessories.PlayMusic();
 
-            Accessories.PlayMusic();
+                userName = (App.Current as App).DeptName;
+                TextUserName.Text = "Hola de nuevo " + userName;
 
-            userName = (App.Current as App).DeptName;
-            TextUserName.Text = "Hola de nuevo " + userName;
+                ImageSource imageSource = new ImageSourceConverter().ConvertFromString(Accessories.LoadConfigPlayer(userName)) as ImageSource;
 
-            ImageSource imageSource = new ImageSourceConverter().ConvertFromString(Accessories.LoadConfigPlayer(userName)) as ImageSource;
-            imgAvatar.Source = imageSource;
+                imgAvatar.Source = imageSource;
 
-            InstanceContext context = new InstanceContext(this);
+                InstanceContext context = new InstanceContext(this);
 
-            clientN = new NotificationServiceClient(context);
-            clientN.SetCallBack(userName);
+                clientN = new NotificationServiceClient(context);
+
+                clientN.SetCallBack(userName);
+            }
+            catch (EndpointNotFoundException)
+            {
+                throw new EndpointNotFoundException();
+
+            }
+
 
         }
 
         private void btnPlay_Click(object sender, RoutedEventArgs e)
         {
-            Accessories.PlaySoundsEffects();
-            NavigationService.Navigate(new Uri("Views/GameModeView.xaml", UriKind.Relative));
+            try
+            {
+                Accessories.PlaySoundsEffects();
+                NavigationService.Navigate(new Uri("Views/GameModeView.xaml", UriKind.Relative));
+            }
+            catch (EndpointNotFoundException)
+            {
+                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+            }
+
         }
 
         private void btnOptions_Click(object sender, RoutedEventArgs e)
@@ -61,12 +79,6 @@ namespace ClienteJuego.Views
             NavigationService.Navigate(new Uri("Views/ScoreView.xaml", UriKind.Relative));
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            var num = Accessories.GenerateRandomCode();
-            Console.WriteLine(num);
-        }
-
         public void notification(string username, string code)
         {
             var window = (MainWindow)Application.Current.MainWindow;
@@ -76,9 +88,18 @@ namespace ClienteJuego.Views
 
         public void LoadLobby(PlayerServer[] friend, string code)
         {
+            try
+            {
+                var window = (MainWindow)Application.Current.MainWindow;
+                window.Contenedor.Navigate(new LobbyView(code));
 
-            var window = (MainWindow)Application.Current.MainWindow;
-            window.Contenedor.Navigate(new LobbyView(code));
+            }
+            catch (EndpointNotFoundException)
+            {
+                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                var window = (MainWindow)Application.Current.MainWindow;
+                window.Contenedor.Navigate(new LoginView());
+            }
 
         }
     }

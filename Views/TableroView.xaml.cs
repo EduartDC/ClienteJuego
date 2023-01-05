@@ -39,7 +39,21 @@ namespace ClienteJuego.Views
             labelPlayerTwo.Content = list[1].userName;
             textAnswer.Text = null;
             turn = list[0].userName;
-            gameServiceClient.SetCallbackGame(username);
+            try
+            {
+                gameServiceClient.SetCallbackGame(username);
+            }
+            catch (CommunicationObjectFaultedException)
+            {
+                throw new EndpointNotFoundException();
+
+            }
+            catch (EndpointNotFoundException)
+            {
+                throw new EndpointNotFoundException();
+
+            }
+
 
             textAnswer.IsEnabled = false;
             btnAnswer.IsEnabled = false;
@@ -61,9 +75,18 @@ namespace ClienteJuego.Views
             newMatch.scorePlayerOne = match.scorePlayerOne;
             newMatch.scorePlayerTwo = match.scorePlayerTwo;
             newMatch.inviteCode = match.inviteCode;
+            try
+            {
+                gameServiceClient.StartRaund(newMatch);
+                gameServiceClient.YouTurn(turn, match.inviteCode);
+            }
+            catch (CommunicationObjectFaultedException)
+            {
+                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                var window = (MainWindow)Application.Current.MainWindow;
+                window.Contenedor.Navigate(new LoginView());
+            }
 
-            gameServiceClient.StartRaund(newMatch);
-            gameServiceClient.YouTurn(turn, match.inviteCode);
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
@@ -83,7 +106,17 @@ namespace ClienteJuego.Views
                     if (!player.userName.Equals(username))
                     {
                         newMatch.playerWinner = player.idPlayer;
-                        gameServiceClient.EndMatch(newMatch);
+                        try
+                        {
+                            gameServiceClient.EndMatch(newMatch);
+                        }
+                        catch (CommunicationObjectFaultedException)
+                        {
+                            MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                            var window = (MainWindow)Application.Current.MainWindow;
+                            window.Contenedor.Navigate(new LoginView());
+                        }
+
                     }
                 }
             }
@@ -99,8 +132,37 @@ namespace ClienteJuego.Views
                     MessageBox.Show("La partida ha terminado el ganador es " + player.userName);
                 }
             }
+            try
+            {
+                if (username.Equals("Guest"))
+                {
+                    ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
+                    try
+                    {
+                        client.UserDisconect((App.Current as App).DeptName);
+                        var window = (MainWindow)Application.Current.MainWindow;
+                        window.Contenedor.Navigate(new LoginView());
+                    }
+                    catch (EndpointNotFoundException)
+                    {
+                        var window = (MainWindow)Application.Current.MainWindow;
+                        window.Contenedor.Navigate(new LoginView());
+                    }
+                }
+                else
+                {
+                    var window = (MainWindow)Application.Current.MainWindow;
+                    window.Contenedor.Navigate(new InicioView());
+                }
 
-            NavigationService.Navigate(new Uri("Views/InicioView.xaml", UriKind.Relative));
+            }
+            catch (CommunicationObjectFaultedException)
+            {
+                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                var window = (MainWindow)Application.Current.MainWindow;
+                window.Contenedor.Navigate(new LoginView());
+            }
+
         }
 
         private void btnChat_Click(object sender, RoutedEventArgs e)
@@ -151,22 +213,52 @@ namespace ClienteJuego.Views
                 newMatch.scorePlayerOne = match.scorePlayerOne;
                 newMatch.scorePlayerTwo = match.scorePlayerTwo;
                 newMatch.inviteCode = match.inviteCode;
+                try
+                {
+                    gameServiceClient.StartRaund(newMatch);
+                    strikePlayerOne = 0;
+                    strikePlayerTwo = 0;
 
-                gameServiceClient.StartRaund(newMatch);
-                strikePlayerOne = 0;
-                strikePlayerTwo = 0;
-                gameServiceClient.AddStrikes(strikePlayerOne, strikePlayerTwo, match.inviteCode);
+                    gameServiceClient.AddStrikes(strikePlayerOne, strikePlayerTwo, match.inviteCode);
+                }
+                catch (CommunicationObjectFaultedException)
+                {
+                    MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                    var window = (MainWindow)Application.Current.MainWindow;
+                    window.Contenedor.Navigate(new LoginView());
+                }
+
 
                 var list = match.players;
                 if (turn.Equals(list[0].userName))
                 {
                     turn = list[1].userName;
-                    gameServiceClient.YouTurn(turn, match.inviteCode);
+                    try
+                    {
+                        gameServiceClient.YouTurn(turn, match.inviteCode);
+                    }
+                    catch (CommunicationObjectFaultedException)
+                    {
+                        MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                        var window = (MainWindow)Application.Current.MainWindow;
+                        window.Contenedor.Navigate(new LoginView());
+                    }
+
                 }
                 else if (turn.Equals(list[1].userName))
                 {
                     turn = list[0].userName;
-                    gameServiceClient.YouTurn(turn, match.inviteCode);
+                    try
+                    {
+                        gameServiceClient.YouTurn(turn, match.inviteCode);
+                    }
+                    catch (CommunicationObjectFaultedException)
+                    {
+                        MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                        var window = (MainWindow)Application.Current.MainWindow;
+                        window.Contenedor.Navigate(new LoginView());
+                    }
+
                 }
             }
             else
@@ -193,12 +285,32 @@ namespace ClienteJuego.Views
             if (!result && turn.Equals(list[0].userName))
             {
                 strikePlayerOne++;
-                gameServiceClient.AddStrikes(strikePlayerOne, strikePlayerTwo, match.inviteCode);
+                try
+                {
+                    gameServiceClient.AddStrikes(strikePlayerOne, strikePlayerTwo, match.inviteCode);
+                }
+                catch (CommunicationObjectFaultedException)
+                {
+                    MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                    var window = (MainWindow)Application.Current.MainWindow;
+                    window.Contenedor.Navigate(new LoginView());
+                }
+
             }
             else if (!result && turn.Equals(list[1].userName))
             {
                 strikePlayerTwo++;
-                gameServiceClient.AddStrikes(strikePlayerOne, strikePlayerTwo, match.inviteCode);
+                try
+                {
+                    gameServiceClient.AddStrikes(strikePlayerOne, strikePlayerTwo, match.inviteCode);
+                }
+                catch (CommunicationObjectFaultedException)
+                {
+                    MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                    var window = (MainWindow)Application.Current.MainWindow;
+                    window.Contenedor.Navigate(new LoginView());
+                }
+
             }
             return result;
         }
@@ -240,8 +352,17 @@ namespace ClienteJuego.Views
             newanswer.answer = correctAnswer.answer;
             newanswer.score = correctAnswer.score;
             newanswer.place = correctAnswer.place;
+            try
+            {
+                gameServiceClient.SetBoard(newMatch, newanswer);
+            }
+            catch (CommunicationObjectFaultedException)
+            {
+                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                var window = (MainWindow)Application.Current.MainWindow;
+                window.Contenedor.Navigate(new LoginView());
+            }
 
-            gameServiceClient.SetBoard(newMatch, newanswer);
 
             if (match.scorePlayerOne >= 400)
             {
@@ -252,9 +373,19 @@ namespace ClienteJuego.Views
                         try
                         {
                             newMatch.playerWinner = player.idPlayer;
-                            gameServiceClient.EndMatch(newMatch);
+                            try
+                            {
+                                gameServiceClient.EndMatch(newMatch);
+                            }
+                            catch (CommunicationObjectFaultedException)
+                            {
+                                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                                var window = (MainWindow)Application.Current.MainWindow;
+                                window.Contenedor.Navigate(new LoginView());
+                            }
+
                         }
-                        catch (EndpointNotFoundException)
+                        catch (CommunicationObjectFaultedException)
                         {
                             MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
                         }
@@ -270,7 +401,17 @@ namespace ClienteJuego.Views
                     {
                         newMatch.playerWinner = player.idPlayer;
                         newMatch.idMatch = match.idMatch;
-                        gameServiceClient.EndMatch(newMatch);
+                        try
+                        {
+                            gameServiceClient.EndMatch(newMatch);
+                        }
+                        catch (CommunicationObjectFaultedException)
+                        {
+                            MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                            var window = (MainWindow)Application.Current.MainWindow;
+                            window.Contenedor.Navigate(new LoginView());
+                        }
+
                     }
                 }
             }
@@ -285,12 +426,32 @@ namespace ClienteJuego.Views
                 if (turn.Equals(list[0].userName))
                 {
                     turn = list[1].userName;
-                    gameServiceClient.YouTurn(turn, match.inviteCode);
+                    try
+                    {
+                        gameServiceClient.YouTurn(turn, match.inviteCode);
+                    }
+                    catch (CommunicationObjectFaultedException)
+                    {
+                        MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                        var window = (MainWindow)Application.Current.MainWindow;
+                        window.Contenedor.Navigate(new LoginView());
+                    }
+
                 }
                 else if (turn.Equals(list[1].userName))
                 {
                     turn = list[0].userName;
-                    gameServiceClient.YouTurn(turn, match.inviteCode);
+                    try
+                    {
+                        gameServiceClient.YouTurn(turn, match.inviteCode);
+                    }
+                    catch (CommunicationObjectFaultedException)
+                    {
+                        MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                        var window = (MainWindow)Application.Current.MainWindow;
+                        window.Contenedor.Navigate(new LoginView());
+                    }
+
                 }
             }
         }
@@ -304,8 +465,16 @@ namespace ClienteJuego.Views
                 if (strikePlayerOne == 3)
                 {
                     turn = list[1].userName;
-                    gameServiceClient.YouTurn(turn, match.inviteCode);
-
+                    try
+                    {
+                        gameServiceClient.YouTurn(turn, match.inviteCode);
+                    }
+                    catch (CommunicationObjectFaultedException)
+                    {
+                        MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                        var window = (MainWindow)Application.Current.MainWindow;
+                        window.Contenedor.Navigate(new LoginView());
+                    }
                 }
             }
             else if (turn.Equals(list[1].userName))
@@ -313,8 +482,16 @@ namespace ClienteJuego.Views
                 if (strikePlayerTwo == 3)
                 {
                     turn = list[0].userName;
-                    gameServiceClient.YouTurn(turn, match.inviteCode);
-
+                    try
+                    {
+                        gameServiceClient.YouTurn(turn, match.inviteCode);
+                    }
+                    catch (CommunicationObjectFaultedException)
+                    {
+                        MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                        var window = (MainWindow)Application.Current.MainWindow;
+                        window.Contenedor.Navigate(new LoginView());
+                    }
                 }
             }
 
@@ -455,24 +632,6 @@ namespace ClienteJuego.Views
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
 
-            var list = match.players;
-            MatchServer newMatch = new MatchServer();
-            newMatch.scorePlayerOne = 400;
-            newMatch.scorePlayerTwo = 150;
-            newMatch.inviteCode = match.inviteCode;
-
-            foreach (var player in list)
-            {
-                if (player.userName.Equals(turn))
-                {
-                    newMatch.playerWinner = player.idPlayer;
-
-                    gameServiceClient.EndMatch(newMatch);
-                }
-            }
-        }
     }
 }

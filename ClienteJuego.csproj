@@ -120,6 +120,9 @@
     <Compile Include="Views\GameModeView.xaml.cs">
       <DependentUpon>GameModeView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\GuestView.xaml.cs">
+      <DependentUpon>GuestView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\InicioView.xaml.cs">
       <DependentUpon>InicioView.xaml</DependentUpon>
     </Compile>
@@ -183,6 +186,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\GameModeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GuestView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -355,6 +362,8 @@
     <Content Include="EffectSounds\Ganador.wav" />
     <Content Include="EffectSounds\Inicio.wav" />
     <Content Include="EffectSounds\Correcto.wav" />
+    <Resource Include="Images\sends.png" />
+    <Resource Include="Images\delete.png" />
     <Resource Include="Images\off.png" />
     <Resource Include="Images\on.png" />
   </ItemGroup>

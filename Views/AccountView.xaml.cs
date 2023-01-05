@@ -1,6 +1,7 @@
 ﻿using ClienteJuego.ConnectService;
 using ClienteJuego.Properties;
 using System;
+using System.Numerics;
 using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -39,6 +40,14 @@ namespace ClienteJuego.Views
             {
                 ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
                 playerInfo = client.SearchPlayer(userName);
+                if (playerInfo == null)
+                {
+
+                    MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                    var window = (MainWindow)Application.Current.MainWindow;
+                    window.Contenedor.Navigate(new LoginView());
+
+                }
 
             }
             catch (EndpointNotFoundException)

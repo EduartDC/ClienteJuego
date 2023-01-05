@@ -80,9 +80,10 @@ namespace ClienteJuego.Properties
                 var lines = File.ReadAllLines(fileName, Encoding.Default).ToList();
                 line = lines.FirstOrDefault(p => p.StartsWith("/"));
             }
-            catch (IOException e)
+            catch (IOException)
             {
-                Console.WriteLine("Exception: " + e.Message);
+                return "/Users/Eduar/source/repos/ClienteJuego/Avatars/avatarDef.png";
+
             }
 
             return line;

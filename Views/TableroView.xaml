@@ -318,7 +318,6 @@
                 x:Name="playerTwoStrikethree"
                 Margin="737,334,25,214"
                 Source="/Images/cancelar.png" />
-            <Button Content="Button" HorizontalAlignment="Left" Margin="560,454,0,0" VerticalAlignment="Top" Click="Button_Click"/>
 
         </Grid>
     </Viewbox>

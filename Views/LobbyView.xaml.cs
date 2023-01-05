@@ -31,27 +31,84 @@ namespace ClienteJuego.Views
             userName = (App.Current as App).DeptName;
             TextUserName.Text = userName;
 
+            if (userName.Equals("Guest"))
+            {
+                btnKick.Visibility = Visibility.Collapsed;
+            }
+
             ImageSource imageSource = new ImageSourceConverter().ConvertFromString(Accessories.LoadConfigPlayer(userName)) as ImageSource;
+
             imgAvatar.Source = imageSource;
 
             matchServiceClient = new MatchServiceClient(new InstanceContext(this));
+            try
+            {
+                matchServiceClient.SetCallbackMatch(userName);
+                matchServiceClient.StartLobby(userName, codeInvitation);
+            }
+            catch (CommunicationObjectFaultedException)
+            {
+                throw new EndpointNotFoundException();
 
-            matchServiceClient.SetCallbackMatch(userName);
-            matchServiceClient.StartLobby(userName, codeInvitation);
+            }
+            catch (EndpointNotFoundException)
+            {
+                throw new EndpointNotFoundException();
 
+            }
         }
 
         private void btnListFriends_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                var window = (MainWindow)App.Current.MainWindow;
+                window.ContenedorList.Navigate(new FriendListView(codeInvitation));
+            }
+            catch (EndpointNotFoundException)
+            {
+                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                var window = (MainWindow)Application.Current.MainWindow;
+                window.Contenedor.Navigate(new LoginView());
+            }
 
-            var window = (MainWindow)App.Current.MainWindow;
-            window.ContenedorList.Navigate(new FriendListView(codeInvitation));
 
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            matchServiceClient.DisconnectFromLobby(userName, codeInvitation);
+            try
+            {
+                matchServiceClient.DisconnectFromLobby(userName, codeInvitation);
+
+                if (userName.Equals("Guest"))
+                {
+                    ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
+                    try
+                    {
+                        client.UserDisconect((App.Current as App).DeptName);
+                        var window = (MainWindow)Application.Current.MainWindow;
+                        window.Contenedor.Navigate(new LoginView());
+                    }
+                    catch (EndpointNotFoundException)
+                    {
+                        var window = (MainWindow)Application.Current.MainWindow;
+                        window.Contenedor.Navigate(new LoginView());
+                    }
+
+                }
+                else
+                {
+                    var window = (MainWindow)Application.Current.MainWindow;
+                    window.Contenedor.Navigate(new InicioView());
+                }
+            }
+            catch (CommunicationObjectFaultedException)
+            {
+                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                var window = (MainWindow)Application.Current.MainWindow;
+                window.Contenedor.Navigate(new LoginView());
+            }
 
             var inviViewm = (MainWindow)App.Current.MainWindow;
             inviViewm.ContenedorList.Content = null;
@@ -82,8 +139,19 @@ namespace ClienteJuego.Views
 
         public void LoadMatch(MatchServer match)
         {
-            var room = (MainWindow)App.Current.MainWindow;
-            room.Contenedor.Navigate(new TableroView(match));
+            try
+            {
+                var room = (MainWindow)App.Current.MainWindow;
+                room.Contenedor.Navigate(new TableroView(match));
+            }
+            catch (EndpointNotFoundException)
+            {
+                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                var window = (MainWindow)Application.Current.MainWindow;
+                window.Contenedor.Navigate(new LoginView());
+
+            }
+
         }
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
@@ -96,14 +164,64 @@ namespace ClienteJuego.Views
             var conte = listPlayersLobby.Items.Count;
             if (conte == 2)
             {
-                matchServiceClient.StartMatch(codeInvitation);
+                try
+                {
+                    matchServiceClient.StartMatch(codeInvitation);
+                }
+                catch (CommunicationObjectFaultedException)
+                {
+                    MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                    var window = (MainWindow)Application.Current.MainWindow;
+                    window.Contenedor.Navigate(new LoginView());
+                }
+
             }
             else
             {
-                MessageBox.Show("Para este medo se necesita minimo de 2 participantes.");
+                MessageBox.Show("Para este medo se necesita un minimo de 2 participantes.");
             }
 
         }
 
+        private void btnKick_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                matchServiceClient.KickFromLobby(userName, codeInvitation);
+                matchServiceClient.StartLobby(userName, codeInvitation);
+            }
+            catch (CommunicationObjectFaultedException)
+            {
+                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                var window = (MainWindow)Application.Current.MainWindow;
+                window.Contenedor.Navigate(new LoginView());
+            }
+        }
+
+        public void Kicked()
+        {
+
+            if (userName.Equals("Guest"))
+            {
+                ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
+                try
+                {
+                    client.UserDisconect((App.Current as App).DeptName);
+                    var window = (MainWindow)Application.Current.MainWindow;
+                    window.Contenedor.Navigate(new LoginView());
+                }
+                catch (EndpointNotFoundException)
+                {
+                    var window = (MainWindow)Application.Current.MainWindow;
+                    window.Contenedor.Navigate(new LoginView());
+                }
+
+            }
+            else
+            {
+                var window = (MainWindow)Application.Current.MainWindow;
+                window.Contenedor.Navigate(new InicioView());
+            }
+        }
     }
 }

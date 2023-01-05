@@ -200,11 +200,23 @@
   <wsdl:message name="IUserManager_SearchPlayer_OutputMessage">
     <wsdl:part name="parameters" element="tns:SearchPlayerResponse" />
   </wsdl:message>
-  <wsdl:message name="IUserManager_GetFriend_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetFriend" />
+  <wsdl:message name="IUserManager_DeleteFriend_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFriend" />
   </wsdl:message>
-  <wsdl:message name="IUserManager_GetFriend_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetFriendResponse" />
+  <wsdl:message name="IUserManager_DeleteFriend_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFriendResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserManager_UserDisconect_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserDisconect" />
+  </wsdl:message>
+  <wsdl:message name="IUserManager_UserDisconect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserDisconectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserManager_ValidateLobby_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateLobby" />
+  </wsdl:message>
+  <wsdl:message name="IUserManager_ValidateLobby_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateLobbyResponse" />
   </wsdl:message>
   <wsdl:message name="IChatService_Connect_InputMessage">
     <wsdl:part name="parameters" element="tns:Connect" />
@@ -245,8 +257,8 @@
   <wsdl:message name="IMatchService_DisconnectFromLobby_InputMessage">
     <wsdl:part name="parameters" element="tns:DisconnectFromLobby" />
   </wsdl:message>
-  <wsdl:message name="IMatchService_DisconnectFromMatch_InputMessage">
-    <wsdl:part name="parameters" element="tns:DisconnectFromMatch" />
+  <wsdl:message name="IMatchService_KickFromLobby_InputMessage">
+    <wsdl:part name="parameters" element="tns:KickFromLobby" />
   </wsdl:message>
   <wsdl:message name="IMatchService_SetCallbackMatch_InputMessage">
     <wsdl:part name="parameters" element="tns:SetCallbackMatch" />
@@ -256,6 +268,9 @@
   </wsdl:message>
   <wsdl:message name="IMatchService_LoadMatch_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:LoadMatch" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_Kicked_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:Kicked" />
   </wsdl:message>
   <wsdl:message name="INotificationService_SetCallBack_InputMessage">
     <wsdl:part name="parameters" element="tns:SetCallBack" />
@@ -344,9 +359,17 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IUserManager/SearchPlayer" message="tns:IUserManager_SearchPlayer_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserManager/SearchPlayerResponse" message="tns:IUserManager_SearchPlayer_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetFriend">
-      <wsdl:input wsaw:Action="http://tempuri.org/IUserManager/GetFriend" message="tns:IUserManager_GetFriend_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IUserManager/GetFriendResponse" message="tns:IUserManager_GetFriend_OutputMessage" />
+    <wsdl:operation name="DeleteFriend">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserManager/DeleteFriend" message="tns:IUserManager_DeleteFriend_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserManager/DeleteFriendResponse" message="tns:IUserManager_DeleteFriend_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserDisconect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserManager/UserDisconect" message="tns:IUserManager_UserDisconect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserManager/UserDisconectResponse" message="tns:IUserManager_UserDisconect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateLobby">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserManager/ValidateLobby" message="tns:IUserManager_ValidateLobby_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserManager/ValidateLobbyResponse" message="tns:IUserManager_ValidateLobby_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType msc:usingSession="true" name="IChatService">
@@ -391,8 +414,8 @@
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="DisconnectFromLobby">
       <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/DisconnectFromLobby" message="tns:IMatchService_DisconnectFromLobby_InputMessage" />
     </wsdl:operation>
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="DisconnectFromMatch">
-      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/DisconnectFromMatch" message="tns:IMatchService_DisconnectFromMatch_InputMessage" />
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="KickFromLobby">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/KickFromLobby" message="tns:IMatchService_KickFromLobby_InputMessage" />
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SetCallbackMatch">
       <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/SetCallbackMatch" message="tns:IMatchService_SetCallbackMatch_InputMessage" />
@@ -402,6 +425,9 @@
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="LoadMatch">
       <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/LoadMatch" message="tns:IMatchService_LoadMatch_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Kicked">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/Kicked" message="tns:IMatchService_Kicked_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="INotificationService">
@@ -533,8 +559,26 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetFriend">
-      <soap12:operation soapAction="http://tempuri.org/IUserManager/GetFriend" style="document" />
+    <wsdl:operation name="DeleteFriend">
+      <soap12:operation soapAction="http://tempuri.org/IUserManager/DeleteFriend" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserDisconect">
+      <soap12:operation soapAction="http://tempuri.org/IUserManager/UserDisconect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateLobby">
+      <soap12:operation soapAction="http://tempuri.org/IUserManager/ValidateLobby" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -628,8 +672,8 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
-    <wsdl:operation name="DisconnectFromMatch">
-      <soap12:operation soapAction="http://tempuri.org/IMatchService/DisconnectFromMatch" style="document" />
+    <wsdl:operation name="KickFromLobby">
+      <soap12:operation soapAction="http://tempuri.org/IMatchService/KickFromLobby" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -648,6 +692,12 @@
     </wsdl:operation>
     <wsdl:operation name="LoadMatch">
       <soap12:operation soapAction="http://tempuri.org/IMatchService/LoadMatch" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Kicked">
+      <soap12:operation soapAction="http://tempuri.org/IMatchService/Kicked" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

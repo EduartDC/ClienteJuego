@@ -112,6 +112,17 @@
                 Content="{x:Static p:Resources.btnRegister}"
                 FontWeight="Bold"
                 Foreground="White" />
+            <Button
+                x:Name="btnGuest"
+                Width="104"
+                Margin="344,548,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="#FFFF8906"
+                
+                Content="Guest"
+                FontWeight="Bold"
+                Foreground="White" Click="btnGuest_Click" />
 
 
 

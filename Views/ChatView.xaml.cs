@@ -49,6 +49,14 @@ namespace ClienteJuego.Views
                 ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
                 playerInfo = client.SearchPlayer(userName);
 
+                if (playerInfo == null)
+                {
+
+                    MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                    var window = (MainWindow)Application.Current.MainWindow;
+                    window.Contenedor.Navigate(new LoginView());
+
+                }
             }
             catch (EndpointNotFoundException)
             {
@@ -128,8 +136,15 @@ namespace ClienteJuego.Views
         {
             var roomchat = (MainWindow)App.Current.MainWindow;
             roomchat.ContenedorChat.Content = null;
+            try
+            {
+                chatServiceClient.Disconnect(playerData);
+            }
+            catch (CommunicationObjectFaultedException)
+            {
 
-            chatServiceClient.Disconnect(playerData);
+            }
+
         }
     }
 }

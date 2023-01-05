@@ -1,5 +1,6 @@
 ﻿using ClienteJuego.Properties;
 using System;
+using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
@@ -24,8 +25,18 @@ namespace ClienteJuego.Views
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            Accessories.PlaySoundsEffects();
-            NavigationService.Navigate(new Uri("Views/InicioView.xaml", UriKind.Relative));
+            try
+            {
+                Accessories.PlaySoundsEffects();
+                var window = (MainWindow)Application.Current.MainWindow;
+                window.Contenedor.Navigate(new InicioView());
+            }
+            catch (EndpointNotFoundException)
+            {
+                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                var window = (MainWindow)Application.Current.MainWindow;
+                window.Contenedor.Navigate(new LoginView());
+            }
         }
 
         private void btnHelp_Click(object sender, RoutedEventArgs e)
@@ -49,7 +60,19 @@ namespace ClienteJuego.Views
         private void btnLogOut_Click(object sender, RoutedEventArgs e)
         {
             Accessories.PlaySoundsEffects();
-            NavigationService.Navigate(new Uri("Views/LoginView.xaml", UriKind.Relative));
+            ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
+            try
+            {
+                client.UserDisconect((App.Current as App).DeptName);
+                var window = (MainWindow)Application.Current.MainWindow;
+                window.Contenedor.Navigate(new LoginView());
+            }
+            catch (EndpointNotFoundException)
+            {
+                var window = (MainWindow)Application.Current.MainWindow;
+                window.Contenedor.Navigate(new LoginView());
+            }
+
         }
     }
 }

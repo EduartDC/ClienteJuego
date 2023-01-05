@@ -56,6 +56,12 @@ namespace ClienteJuego.Views
                     {
                         MessageBox.Show("Error occurred, registration didn't take effect");
                     }
+                    else if (result == 404)
+                    {
+
+                        MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+
+                    }
                     else
                     {
                         MessageBox.Show("Successful registration.");
@@ -90,12 +96,20 @@ namespace ClienteJuego.Views
                     MessageBox.Show("Exte usuario ya se encuentra registrado, Utilice otro correo.");
                     validateEmail = true;
                 }
+                else if (emailResult == 404)
+                {
+                    MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                }
 
                 var userResult = client.ValidateUserNamePlayer(player);
                 if (userResult == 1)
                 {
                     MessageBox.Show("Exte usuario ya se encuentra registrado, Utilice otro nombre de usuario.");
                     validateUser = true;
+                }
+                else if (emailResult == 404)
+                {
+                    MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
                 }
 
                 if (validateEmail || validateUser)
@@ -254,7 +268,7 @@ namespace ClienteJuego.Views
         private void TextFisrtName_KeyDown(object sender, KeyEventArgs e)
         {
 
-            //Se valida si es un caracter especial
+
             Accessories.RegexSpecial(e);
 
         }

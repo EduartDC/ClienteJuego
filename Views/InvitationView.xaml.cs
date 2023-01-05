@@ -33,9 +33,19 @@ namespace ClienteJuego.Views
 
         private void btnAccept_Click(object sender, RoutedEventArgs e)
         {
-            client.AddToLobby(this.username, this.codeInvitation);
-            var roomchat = (MainWindow)App.Current.MainWindow;
-            roomchat.ContenedorInvi.Content = null;
+            try
+            {
+                client.AddToLobby(this.username, this.codeInvitation);
+                var roomchat = (MainWindow)App.Current.MainWindow;
+                roomchat.ContenedorInvi.Content = null;
+            }
+            catch (CommunicationObjectFaultedException)
+            {
+                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                var window = (MainWindow)Application.Current.MainWindow;
+                window.Contenedor.Navigate(new LoginView());
+            }
+
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
@@ -54,5 +64,9 @@ namespace ClienteJuego.Views
             throw new NotImplementedException();
         }
 
+        public void Kicked()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

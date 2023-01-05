@@ -96,12 +96,6 @@
                 Text="TextBox"
                 TextAlignment="Center"
                 TextWrapping="Wrap" />
-            <Button
-                Margin="620,447,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Click="Button_Click_1"
-                Content="Button" />
 
 
         </Grid>

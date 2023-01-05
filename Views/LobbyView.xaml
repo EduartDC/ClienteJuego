@@ -106,13 +106,14 @@
             </ListView>
             <Button x:Name="btnChat"
                 Width="84"
-                Margin="586,132,0,0"
+                Margin="586,138,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Click="Button_Click"
                 Content="chat"
                 FontSize="16"
                 FontWeight="Bold" />
+            <Button x:Name="btnKick" Content="Sacar" HorizontalAlignment="Left" Margin="586,173,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Width="84" Click="btnKick_Click"/>
         </Grid>
     </Viewbox>
 </Page>

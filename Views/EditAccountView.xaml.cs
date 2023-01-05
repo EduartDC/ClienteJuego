@@ -79,13 +79,19 @@ namespace ClienteJuego.Views
                 {
                     try
                     {
-
-
                         var result = client.UpdatePlayer(player);
                         if (result == 1)
                         {
-                            MessageBox.Show("Exito");
+                            MessageBox.Show("Se guardaron los cambios");
                             NavigationService.Navigate(new Uri("Views/AccountView.xaml", UriKind.Relative));
+                        }
+                        else if (result == 404)
+                        {
+
+                            MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                            var window = (MainWindow)Application.Current.MainWindow;
+                            window.Contenedor.Navigate(new LoginView());
+
                         }
                         else
                         {
@@ -100,7 +106,7 @@ namespace ClienteJuego.Views
                 }
                 else
                 {
-                    MessageBox.Show("Exito");
+                    MessageBox.Show("Se guardaron los cambios");
                     NavigationService.Navigate(new Uri("Views/AccountView.xaml", UriKind.Relative));
                 }
 
@@ -152,16 +158,23 @@ namespace ClienteJuego.Views
             PlayerServer player = new PlayerServer();
             player.userName = textUserName.Text;
             ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
+            var result = client.ValidateUserNamePlayer(player);
             try
             {
                 if (playerInfo.userName.Equals(textUserName.Text))
                 {
                     userName = playerInfo.userName;
                 }
-                else if (client.ValidateUserNamePlayer(player) == 1)
+                else if (result == 1)
                 {
                     MessageBox.Show("Exte usuario ya se encuentra registrado, Utilice otro nombre de usuario.");
 
+                }
+                else if (result == 404)
+                {
+                    MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                    var window = (MainWindow)Application.Current.MainWindow;
+                    window.Contenedor.Navigate(new LoginView());
                 }
                 else
                 {

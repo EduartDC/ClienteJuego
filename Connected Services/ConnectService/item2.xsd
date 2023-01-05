@@ -11,6 +11,7 @@
       <xs:element minOccurs="0" name="chatCallback" nillable="true" type="xs:anyType" />
       <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="firstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="friends" nillable="true" type="tns:ArrayOfFriendServer" />
       <xs:element minOccurs="0" name="gameCallback" nillable="true" type="xs:anyType" />
       <xs:element minOccurs="0" name="idPlayer" type="xs:int" />
       <xs:element minOccurs="0" name="lastName" nillable="true" type="xs:string" />
@@ -22,6 +23,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="PlayerServer" nillable="true" type="tns:PlayerServer" />
+  <xs:complexType name="ArrayOfFriendServer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FriendServer" nillable="true" type="tns:FriendServer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFriendServer" nillable="true" type="tns:ArrayOfFriendServer" />
   <xs:complexType name="FriendServer">
     <xs:sequence>
       <xs:element minOccurs="0" name="creationDate" type="xs:dateTime" />
