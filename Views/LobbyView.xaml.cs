@@ -30,7 +30,7 @@ namespace ClienteJuego.Views
 
             userName = (App.Current as App).DeptName;
             TextUserName.Text = userName;
-
+            labelCode.Content = "Codigo: " + code;
             if (userName.Equals("Guest"))
             {
                 btnKick.Visibility = Visibility.Collapsed;
