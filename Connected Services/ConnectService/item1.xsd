@@ -177,14 +177,14 @@
   <xs:element name="Say">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/MessageService.Domain" minOccurs="0" name="msg" nillable="true" type="q12:MessageServer" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/MessageService.Domain" minOccurs="0" name="message" nillable="true" type="q12:MessageServer" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Whisper">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/MessageService.Domain" minOccurs="0" name="msg" nillable="true" type="q13:MessageServer" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/MessageService.Domain" minOccurs="0" name="message" nillable="true" type="q13:MessageServer" />
         <xs:element minOccurs="0" name="player" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -213,7 +213,7 @@
   <xs:element name="ReceiveWhisper">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/MessageService.Domain" minOccurs="0" name="msg" nillable="true" type="q17:MessageServer" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/MessageService.Domain" minOccurs="0" name="message" nillable="true" type="q17:MessageServer" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -479,11 +479,15 @@ namespace ClienteJuego.Views
 
         public void UpdateMatch(MatchServer matchServer, AnswerServer answerServer)
         {
-            foreach (var answer in answersRaund.Where(answer => answer.answer.ToLower().Equals(answerServer.answer.ToLower())))
+            foreach (var answer in answersRaund)
             {
-                answersRaund.Remove(answer);
-
+                if (answer.answer.ToLower().Equals(answerServer.answer.ToLower()))
+                {
+                    answersRaund.Remove(answer);
+                    break;
+                }
             }
+
 
             match.scorePlayerOne = matchServer.scorePlayerOne;
             match.scorePlayerTwo = matchServer.scorePlayerTwo;

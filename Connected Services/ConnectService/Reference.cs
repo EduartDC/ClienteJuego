@@ -919,16 +919,16 @@ namespace ClienteJuego.ConnectService {
         System.Threading.Tasks.Task ConnectAsync(ClienteJuego.ConnectService.PlayerServer player, string code);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/Say")]
-        void Say(ClienteJuego.ConnectService.MessageServer msg);
+        void Say(ClienteJuego.ConnectService.MessageServer message);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/Say")]
-        System.Threading.Tasks.Task SayAsync(ClienteJuego.ConnectService.MessageServer msg);
+        System.Threading.Tasks.Task SayAsync(ClienteJuego.ConnectService.MessageServer message);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/Whisper")]
-        void Whisper(ClienteJuego.ConnectService.MessageServer msg, string player);
+        void Whisper(ClienteJuego.ConnectService.MessageServer message, string player);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/Whisper")]
-        System.Threading.Tasks.Task WhisperAsync(ClienteJuego.ConnectService.MessageServer msg, string player);
+        System.Threading.Tasks.Task WhisperAsync(ClienteJuego.ConnectService.MessageServer message, string player);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/Disconnect")]
         void Disconnect(ClienteJuego.ConnectService.PlayerServer player);
@@ -947,7 +947,7 @@ namespace ClienteJuego.ConnectService {
         void Receive(ClienteJuego.ConnectService.MessageServer message);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/ReceiveWhisper")]
-        void ReceiveWhisper(ClienteJuego.ConnectService.MessageServer msg);
+        void ReceiveWhisper(ClienteJuego.ConnectService.MessageServer message);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/UserJoin")]
         void UserJoin(ClienteJuego.ConnectService.PlayerServer player);
@@ -992,20 +992,20 @@ namespace ClienteJuego.ConnectService {
             return base.Channel.ConnectAsync(player, code);
         }
         
-        public void Say(ClienteJuego.ConnectService.MessageServer msg) {
-            base.Channel.Say(msg);
+        public void Say(ClienteJuego.ConnectService.MessageServer message) {
+            base.Channel.Say(message);
         }
         
-        public System.Threading.Tasks.Task SayAsync(ClienteJuego.ConnectService.MessageServer msg) {
-            return base.Channel.SayAsync(msg);
+        public System.Threading.Tasks.Task SayAsync(ClienteJuego.ConnectService.MessageServer message) {
+            return base.Channel.SayAsync(message);
         }
         
-        public void Whisper(ClienteJuego.ConnectService.MessageServer msg, string player) {
-            base.Channel.Whisper(msg, player);
+        public void Whisper(ClienteJuego.ConnectService.MessageServer message, string player) {
+            base.Channel.Whisper(message, player);
         }
         
-        public System.Threading.Tasks.Task WhisperAsync(ClienteJuego.ConnectService.MessageServer msg, string player) {
-            return base.Channel.WhisperAsync(msg, player);
+        public System.Threading.Tasks.Task WhisperAsync(ClienteJuego.ConnectService.MessageServer message, string player) {
+            return base.Channel.WhisperAsync(message, player);
         }
         
         public void Disconnect(ClienteJuego.ConnectService.PlayerServer player) {
