@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://192.168.229.202:8082/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MessageService.Domain" />
+  <xs:import schemaLocation="http://localhost:8082/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MessageService.Domain" />
   <xs:element name="MatchingFriends">
     <xs:complexType>
       <xs:sequence>
@@ -116,7 +116,7 @@
   <xs:element name="DeleteFriend">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/MessageService.Domain" minOccurs="0" name="friend" nillable="true" type="q10:PlayerServer" />
+        <xs:element minOccurs="0" name="idPlayer" type="xs:int" />
         <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -154,6 +154,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GuestUser">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GuestUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/MessageService.Domain" minOccurs="0" name="GuestUserResult" nillable="true" type="q10:PlayerServer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="Connect">
     <xs:complexType>
       <xs:sequence>
@@ -165,7 +177,6 @@
   <xs:element name="Say">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="idMatch" type="xs:int" />
         <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/MessageService.Domain" minOccurs="0" name="msg" nillable="true" type="q12:MessageServer" />
       </xs:sequence>
     </xs:complexType>
@@ -310,7 +321,7 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="notification">
+  <xs:element name="Notification">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />

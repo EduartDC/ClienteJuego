@@ -31,7 +31,7 @@ namespace ClienteJuego.Views
 
             if (!ValidateFields())
             {
-
+                MessageBox.Show("An empty field was detected, to continue you must fill all text fields.");
 
             }
             else if (!ValidatePassword(textPassword.Password))
@@ -44,15 +44,15 @@ namespace ClienteJuego.Views
             }
             else if (!ValidatePlayerExistence(player))
             {
-
+                MessageBox.Show("Verifique se el correo que ingresa y el nombre sean validos");
             }
             else
             {
                 try
                 {
                     int result = client.AddPlayer(player);
-
-                    if (result == 0)
+                    int error = 1;
+                    if (result == error)
                     {
                         MessageBox.Show("Error occurred, registration didn't take effect");
                     }
@@ -91,7 +91,8 @@ namespace ClienteJuego.Views
                 var validateUser = false;
 
                 var emailResult = client.ValidateEmailPlayer(player);
-                if (emailResult == 1)
+                int inUse = 1;
+                if (emailResult == inUse)
                 {
                     MessageBox.Show("Exte usuario ya se encuentra registrado, Utilice otro correo.");
                     validateEmail = true;
@@ -102,7 +103,7 @@ namespace ClienteJuego.Views
                 }
 
                 var userResult = client.ValidateUserNamePlayer(player);
-                if (userResult == 1)
+                if (userResult == inUse)
                 {
                     MessageBox.Show("Exte usuario ya se encuentra registrado, Utilice otro nombre de usuario.");
                     validateUser = true;
@@ -143,16 +144,18 @@ namespace ClienteJuego.Views
 
         public bool ValidateFields()
         {
-            bool result = false;
-            if (textFirsName.Text.Length <= 0 || textLastName.Text.Length <= 0 || textEmail.Text.Length <= 0 ||
-                textUserName.Text.Length <= 0 || textPassword.Password.Length <= 0)
+            bool result = true;
+            var firsName = textFirsName.Text;
+            var lastName = textLastName.Text;
+            var email = textEmail.Text;
+            var userName = textUserName.Text;
+            var password = textPassword.Password.ToString();
+
+            if (string.IsNullOrEmpty(firsName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(password))
             {
-                MessageBox.Show("An empty field was detected, to continue you must fill all text fields.");
+                result = false;
             }
-            else
-            {
-                result = true;
-            }
+
             return result;
         }
 
@@ -175,15 +178,18 @@ namespace ClienteJuego.Views
 
         public static bool ValidateEmail(string emailAddress)
         {
+            var result = false;
             try
             {
                 var mailAddress = new MailAddress(emailAddress);
-                return true;
+
+                result = true;
             }
             catch (FormatException)
             {
-                return false;
+                result = false;
             }
+            return result;
         }
         public void ClearFields()
         {

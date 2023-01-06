@@ -36,10 +36,12 @@ namespace ClienteJuego.Views
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
+
             Accessories.PlaySoundsEffects();
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(language);
             audioConfiguration.Save();
             ConfigurationManager.RefreshSection("appSettings");
+            MessageBox.Show("Los cambios se aplicaron correctamente");
         }
 
         private void MusicChecked(object sender, RoutedEventArgs e)

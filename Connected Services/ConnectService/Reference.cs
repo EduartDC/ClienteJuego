@@ -760,10 +760,10 @@ namespace ClienteJuego.ConnectService {
         System.Threading.Tasks.Task<ClienteJuego.ConnectService.PlayerServer> SearchPlayerAsync(string userName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/DeleteFriend", ReplyAction="http://tempuri.org/IUserManager/DeleteFriendResponse")]
-        int DeleteFriend(ClienteJuego.ConnectService.PlayerServer friend, string username);
+        int DeleteFriend(int idPlayer, string username);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/DeleteFriend", ReplyAction="http://tempuri.org/IUserManager/DeleteFriendResponse")]
-        System.Threading.Tasks.Task<int> DeleteFriendAsync(ClienteJuego.ConnectService.PlayerServer friend, string username);
+        System.Threading.Tasks.Task<int> DeleteFriendAsync(int idPlayer, string username);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/UserDisconect", ReplyAction="http://tempuri.org/IUserManager/UserDisconectResponse")]
         void UserDisconect(string username);
@@ -776,6 +776,12 @@ namespace ClienteJuego.ConnectService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/ValidateLobby", ReplyAction="http://tempuri.org/IUserManager/ValidateLobbyResponse")]
         System.Threading.Tasks.Task<int> ValidateLobbyAsync(string code);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/GuestUser", ReplyAction="http://tempuri.org/IUserManager/GuestUserResponse")]
+        ClienteJuego.ConnectService.PlayerServer GuestUser();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/GuestUser", ReplyAction="http://tempuri.org/IUserManager/GuestUserResponse")]
+        System.Threading.Tasks.Task<ClienteJuego.ConnectService.PlayerServer> GuestUserAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -869,12 +875,12 @@ namespace ClienteJuego.ConnectService {
             return base.Channel.SearchPlayerAsync(userName);
         }
         
-        public int DeleteFriend(ClienteJuego.ConnectService.PlayerServer friend, string username) {
-            return base.Channel.DeleteFriend(friend, username);
+        public int DeleteFriend(int idPlayer, string username) {
+            return base.Channel.DeleteFriend(idPlayer, username);
         }
         
-        public System.Threading.Tasks.Task<int> DeleteFriendAsync(ClienteJuego.ConnectService.PlayerServer friend, string username) {
-            return base.Channel.DeleteFriendAsync(friend, username);
+        public System.Threading.Tasks.Task<int> DeleteFriendAsync(int idPlayer, string username) {
+            return base.Channel.DeleteFriendAsync(idPlayer, username);
         }
         
         public void UserDisconect(string username) {
@@ -892,6 +898,14 @@ namespace ClienteJuego.ConnectService {
         public System.Threading.Tasks.Task<int> ValidateLobbyAsync(string code) {
             return base.Channel.ValidateLobbyAsync(code);
         }
+        
+        public ClienteJuego.ConnectService.PlayerServer GuestUser() {
+            return base.Channel.GuestUser();
+        }
+        
+        public System.Threading.Tasks.Task<ClienteJuego.ConnectService.PlayerServer> GuestUserAsync() {
+            return base.Channel.GuestUserAsync();
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -905,10 +919,10 @@ namespace ClienteJuego.ConnectService {
         System.Threading.Tasks.Task ConnectAsync(ClienteJuego.ConnectService.PlayerServer player, string code);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/Say")]
-        void Say(int idMatch, ClienteJuego.ConnectService.MessageServer msg);
+        void Say(ClienteJuego.ConnectService.MessageServer msg);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/Say")]
-        System.Threading.Tasks.Task SayAsync(int idMatch, ClienteJuego.ConnectService.MessageServer msg);
+        System.Threading.Tasks.Task SayAsync(ClienteJuego.ConnectService.MessageServer msg);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatService/Whisper")]
         void Whisper(ClienteJuego.ConnectService.MessageServer msg, string player);
@@ -978,12 +992,12 @@ namespace ClienteJuego.ConnectService {
             return base.Channel.ConnectAsync(player, code);
         }
         
-        public void Say(int idMatch, ClienteJuego.ConnectService.MessageServer msg) {
-            base.Channel.Say(idMatch, msg);
+        public void Say(ClienteJuego.ConnectService.MessageServer msg) {
+            base.Channel.Say(msg);
         }
         
-        public System.Threading.Tasks.Task SayAsync(int idMatch, ClienteJuego.ConnectService.MessageServer msg) {
-            return base.Channel.SayAsync(idMatch, msg);
+        public System.Threading.Tasks.Task SayAsync(ClienteJuego.ConnectService.MessageServer msg) {
+            return base.Channel.SayAsync(msg);
         }
         
         public void Whisper(ClienteJuego.ConnectService.MessageServer msg, string player) {
@@ -1154,8 +1168,8 @@ namespace ClienteJuego.ConnectService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface INotificationServiceCallback {
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/INotificationService/notification")]
-        void notification(string username, string code);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/INotificationService/Notification")]
+        void Notification(string username, string code);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/INotificationService/LoadLobby")]
         void LoadLobby(ClienteJuego.ConnectService.PlayerServer[] players, string code);

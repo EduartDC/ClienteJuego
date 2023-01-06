@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace ClienteJuego.Properties
 {
-    internal class Accessories
+    internal static class Accessories
     {
 
         public static readonly SoundPlayer SOUNDSEFFECTS = new SoundPlayer("/users/eduar/source/repos/clientejuego/effectsounds/buttonclic.wav");
@@ -40,7 +40,7 @@ namespace ClienteJuego.Properties
             if (resultado)
             {
                 e.Handled = true;
-                return;
+
             }
         }
 
@@ -49,20 +49,12 @@ namespace ClienteJuego.Properties
             string fileName = userName + "Config.txt";
             try
             {
-                if (File.Exists(fileName))
-                {
-                    StreamWriter streamWriter = File.CreateText(fileName);
-                    streamWriter.WriteLine(userName);
-                    streamWriter.WriteLine("/Users/Eduar/source/repos/ClienteJuego" + profilePicture);
-                    streamWriter.Close();
-                }
-                else
-                {
-                    StreamWriter streamWriter = File.CreateText(fileName);
-                    streamWriter.WriteLine(userName);
-                    streamWriter.WriteLine("/Users/Eduar/source/repos/ClienteJuego" + profilePicture);
-                    streamWriter.Close();
-                }
+
+                StreamWriter streamWriter = File.CreateText(fileName);
+                streamWriter.WriteLine(userName);
+                streamWriter.WriteLine("/Users/Eduar/source/repos/ClienteJuego" + profilePicture);
+                streamWriter.Close();
+
             }
             catch (IOException e)
             {

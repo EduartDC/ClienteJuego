@@ -24,29 +24,23 @@ namespace ClienteJuego.Views
     public partial class GuestView : Page
     {
 
-        private string userName;
-
         public GuestView()
         {
             InitializeComponent();
             ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
-            PlayerServer player = new PlayerServer
-            {
-                userName = "Guest",
-                password = "123-.0-"
-            };
-            userName = player.userName;
+
+
             try
             {
-                var result = client.UserConnect(player);
-                if (result == null)
+                //sustituir po metodo que agregge al invitado
+                var player = client.GuestUser();
+                if (player == null)
                 {
                     MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
                 }
-                else if (result.userName.Equals(player.userName))
+                else
                 {
                     (App.Current as App).DeptName = player.userName;
-
                 }
             }
             catch (EndpointNotFoundException)
@@ -61,11 +55,11 @@ namespace ClienteJuego.Views
         {
             ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
             var code = textInvitationCode.Text;
-
-            if (!code.Equals(""))
+            int validLobby = 1;
+            if (!string.IsNullOrEmpty(code))
             {
                 var result = client.ValidateLobby(textInvitationCode.Text);
-                if (result == 1)
+                if (result == validLobby)
                 {
                     var window = (MainWindow)Application.Current.MainWindow;
                     window.Contenedor.Navigate(new LobbyView(code));

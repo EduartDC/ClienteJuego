@@ -18,12 +18,12 @@ namespace ClienteJuego.Views
     {
         public MatchServer match { get; set; }
         private readonly ConnectService.GameServiceClient gameServiceClient;
-        QuestionServer questionRaund;
         List<AnswerServer> answersRaund;
         string username;
         string turn;
         int strikePlayerOne;
         int strikePlayerTwo;
+        int strikeLimit = 3;
         AnswerServer correctAnswer = new AnswerServer();
 
         public TableroView(MatchServer match)
@@ -122,12 +122,12 @@ namespace ClienteJuego.Views
             }
         }
 
-        public void ExitMatch(MatchServer newMatch)
+        public void ExitMatch(MatchServer match)
         {
             var list = match.players;
             foreach (var player in list)
             {
-                if (player.idPlayer == newMatch.playerWinner)
+                if (player.idPlayer == match.playerWinner)
                 {
                     MessageBox.Show("La partida ha terminado el ganador es " + player.userName);
                 }
@@ -179,7 +179,6 @@ namespace ClienteJuego.Views
             btnPlay.Visibility = Visibility.Hidden;
             btnPlay.IsEnabled = false;
 
-            questionRaund = question;
             answersRaund = answers.ToList();
 
             labelScorePointsOne.Content = match.scorePlayerOne;
@@ -206,7 +205,7 @@ namespace ClienteJuego.Views
                 addPoints();
 
             }
-            else if (strikePlayerOne == 3 && strikePlayerTwo == 3)
+            else if (strikePlayerOne == strikeLimit && strikePlayerTwo == strikeLimit)
             {
                 MatchServer newMatch = new MatchServer();
 
@@ -272,13 +271,10 @@ namespace ClienteJuego.Views
             bool result = false;
 
             var playerAnswer = textAnswer.Text;
-            foreach (var answer in answersRaund)
+            foreach (var answers in answersRaund.Where(answer => answer.answer.ToLower().Equals(playerAnswer.ToLower())).Select(answer => new { }))
             {
-                if (answer.answer.ToLower().Equals(playerAnswer.ToLower()))
-                {
-                    result = true;
-                    break;
-                }
+                result = true;
+
             }
 
             var list = match.players;
@@ -318,16 +314,10 @@ namespace ClienteJuego.Views
         private void addPoints()
         {
             var playerAnswer = textAnswer.Text;
-
-
-            foreach (var answer in answersRaund)
+            foreach (var answer in answersRaund.Where(answer => answer.answer.ToLower().Equals(playerAnswer.ToLower())))
             {
-                if (answer.answer.ToLower().Equals(playerAnswer.ToLower()))
-                {
-                    correctAnswer = answer;
-                    break;
+                correctAnswer = answer;
 
-                }
             }
 
             var list = match.players;
@@ -363,44 +353,14 @@ namespace ClienteJuego.Views
                 window.Contenedor.Navigate(new LoginView());
             }
 
-
-            if (match.scorePlayerOne >= 400)
+            int pointsForWinning = 400;
+            if (match.scorePlayerOne >= pointsForWinning)
             {
-                foreach (var player in list)
+                foreach (var player in list.Where(player => player.userName.Equals(turn)))
                 {
-                    if (player.userName.Equals(turn))
-                    {
-                        try
-                        {
-                            newMatch.playerWinner = player.idPlayer;
-                            try
-                            {
-                                gameServiceClient.EndMatch(newMatch);
-                            }
-                            catch (CommunicationObjectFaultedException)
-                            {
-                                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
-                                var window = (MainWindow)Application.Current.MainWindow;
-                                window.Contenedor.Navigate(new LoginView());
-                            }
-
-                        }
-                        catch (CommunicationObjectFaultedException)
-                        {
-                            MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
-                        }
-
-                    }
-                }
-            }
-            else if (match.scorePlayerTwo >= 400)
-            {
-                foreach (var player in list)
-                {
-                    if (player.userName.Equals(turn))
+                    try
                     {
                         newMatch.playerWinner = player.idPlayer;
-                        newMatch.idMatch = match.idMatch;
                         try
                         {
                             gameServiceClient.EndMatch(newMatch);
@@ -412,6 +372,28 @@ namespace ClienteJuego.Views
                             window.Contenedor.Navigate(new LoginView());
                         }
 
+                    }
+                    catch (CommunicationObjectFaultedException)
+                    {
+                        MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                    }
+                }
+            }
+            else if (match.scorePlayerTwo >= pointsForWinning)
+            {
+                foreach (var player in list.Where(player => player.userName.Equals(turn)))
+                {
+                    newMatch.playerWinner = player.idPlayer;
+                    newMatch.idMatch = match.idMatch;
+                    try
+                    {
+                        gameServiceClient.EndMatch(newMatch);
+                    }
+                    catch (CommunicationObjectFaultedException)
+                    {
+                        MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                        var window = (MainWindow)Application.Current.MainWindow;
+                        window.Contenedor.Navigate(new LoginView());
                     }
                 }
             }
@@ -460,55 +442,49 @@ namespace ClienteJuego.Views
         {
 
             var list = match.players;
-            if (turn.Equals(list[0].userName))
+            if (turn.Equals(list[0].userName) && strikePlayerOne == strikeLimit)
             {
-                if (strikePlayerOne == 3)
+
+                turn = list[1].userName;
+                try
                 {
-                    turn = list[1].userName;
-                    try
-                    {
-                        gameServiceClient.YouTurn(turn, match.inviteCode);
-                    }
-                    catch (CommunicationObjectFaultedException)
-                    {
-                        MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
-                        var window = (MainWindow)Application.Current.MainWindow;
-                        window.Contenedor.Navigate(new LoginView());
-                    }
+                    gameServiceClient.YouTurn(turn, match.inviteCode);
                 }
+                catch (CommunicationObjectFaultedException)
+                {
+                    MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                    var window = (MainWindow)Application.Current.MainWindow;
+                    window.Contenedor.Navigate(new LoginView());
+                }
+
             }
-            else if (turn.Equals(list[1].userName))
+            else if (turn.Equals(list[1].userName) && strikePlayerTwo == strikeLimit)
             {
-                if (strikePlayerTwo == 3)
+
+                turn = list[0].userName;
+                try
                 {
-                    turn = list[0].userName;
-                    try
-                    {
-                        gameServiceClient.YouTurn(turn, match.inviteCode);
-                    }
-                    catch (CommunicationObjectFaultedException)
-                    {
-                        MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
-                        var window = (MainWindow)Application.Current.MainWindow;
-                        window.Contenedor.Navigate(new LoginView());
-                    }
+                    gameServiceClient.YouTurn(turn, match.inviteCode);
                 }
+                catch (CommunicationObjectFaultedException)
+                {
+                    MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                    var window = (MainWindow)Application.Current.MainWindow;
+                    window.Contenedor.Navigate(new LoginView());
+                }
+
             }
 
         }
 
         public void UpdateMatch(MatchServer matchServer, AnswerServer answerServer)
         {
-
-
-            foreach (var answer in answersRaund)
+            foreach (var answer in answersRaund.Where(answer => answer.answer.ToLower().Equals(answerServer.answer.ToLower())))
             {
-                if (answer.answer.ToLower().Equals(answerServer.answer.ToLower()))
-                {
-                    answersRaund.Remove(answer);
-                    break;
-                }
+                answersRaund.Remove(answer);
+
             }
+
             match.scorePlayerOne = matchServer.scorePlayerOne;
             match.scorePlayerTwo = matchServer.scorePlayerTwo;
             labelScorePointsOne.Content = matchServer.scorePlayerOne;

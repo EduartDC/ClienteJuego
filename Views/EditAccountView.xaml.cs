@@ -55,7 +55,7 @@ namespace ClienteJuego.Views
         {
             Accessories.PlaySoundsEffects();
             var password = HashPassword();
-            var userName = ValidateUserName();
+            var name = ValidateUserName();
             if (ValidateFields())
             {
                 MessageBox.Show("Los campos no pueden estar vacios.");
@@ -64,14 +64,14 @@ namespace ClienteJuego.Views
             {
                 MessageBox.Show("Contraseña incorrecta");
             }
-            else if (userName == null)
+            else if (name == null)
             {
-
+                MessageBox.Show("Seleccione otro nombre.");
             }
             else
             {
-                Avatar avatar = new Avatar();
-                avatar = comBoxAvatar.SelectedItem as Avatar;
+
+                Avatar avatar = comBoxAvatar.SelectedItem as Avatar;
                 Accessories.SaveProfileAvatar(playerInfo.userName, avatar.Url);
                 Accessories.LoadConfigPlayer(playerInfo.userName);
                 ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
@@ -118,8 +118,8 @@ namespace ClienteJuego.Views
         {
             Accessories.PlaySoundsEffects();
 
-            int resultado = (int)MessageBox.Show("¿Estás seguro(a) de salir? No se guardarán las modificaciones.", "Cuidado!", MessageBoxButton.YesNo);
-            if (resultado == resultYes)
+            int result = (int)MessageBox.Show("¿Estás seguro(a) de salir? No se guardarán las modificaciones.", "Cuidado!", MessageBoxButton.YesNo);
+            if (result == resultYes)
             {
                 NavigationService.Navigate(new Uri("Views/AccountView.xaml", UriKind.Relative));
             }
@@ -154,8 +154,8 @@ namespace ClienteJuego.Views
 
         private string ValidateUserName()
         {
-            string userName = null;
-
+            string name = null;
+            int userInUse = 1;
             PlayerServer player = new PlayerServer();
             player.userName = textUserName.Text;
             ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
@@ -164,11 +164,11 @@ namespace ClienteJuego.Views
             {
                 if (playerInfo.userName.Equals(textUserName.Text))
                 {
-                    userName = playerInfo.userName;
+                    name = playerInfo.userName;
                 }
-                else if (result == 1)
+                else if (result == userInUse)
                 {
-                    MessageBox.Show("Exte usuario ya se encuentra registrado, Utilice otro nombre de usuario.");
+                    MessageBox.Show("Este usuario ya se encuentra registrado, Utilice otro nombre de usuario.");
 
                 }
                 else if (result == errorConnection)
@@ -179,7 +179,7 @@ namespace ClienteJuego.Views
                 }
                 else
                 {
-                    userName = textUserName.Text;
+                    name = textUserName.Text;
                 }
             }
             catch (EndpointNotFoundException)
@@ -187,7 +187,7 @@ namespace ClienteJuego.Views
                 MessageBox.Show("Error de conexion con el servidor, Intentelo más tarde");
             }
 
-            return userName;
+            return name;
         }
 
         private string HashPassword()

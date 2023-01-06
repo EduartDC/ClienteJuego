@@ -15,6 +15,7 @@ namespace ClienteJuego.Views
 
         private string userName;
         private PlayerServer playerData;
+        int match = 1;
         public ChatView()
         {
 
@@ -31,7 +32,8 @@ namespace ClienteJuego.Views
 
             userName = (App.Current as App).DeptName;
             playerData = LoadData();
-            var code = "1";
+
+            var code = match.ToString();
             try
             {
                 chatServiceClient.Connect(playerData, code);
@@ -39,6 +41,9 @@ namespace ClienteJuego.Views
             catch (EndpointNotFoundException)
             {
                 MessageBox.Show("Error de conexion con el servidor, Intentelo más tarde");
+
+                var chatView = (MainWindow)App.Current.MainWindow;
+                chatView.ContenedorChat.Content = null;
             }
         }
         private PlayerServer LoadData()
@@ -98,17 +103,17 @@ namespace ClienteJuego.Views
 
         private void btnSendButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageServer msg = new MessageServer();
-            msg.Sender = playerData.userName;
+            MessageServer message = new MessageServer();
+            message.Sender = playerData.userName;
 
             if (textMessage.Text.Contains(":"))
             {
                 string[] words = textMessage.Text.Split(':');
-                var userName = words[0];
-                msg.Content = words[1];
+                var name = words[0];
+                message.Content = words[1];
                 try
                 {
-                    chatServiceClient.Whisper(msg, userName);
+                    chatServiceClient.Whisper(message, name);
                 }
                 catch (CommunicationException)
                 {
@@ -117,10 +122,10 @@ namespace ClienteJuego.Views
             }
             else
             {
-                msg.Content = textMessage.Text;
+                message.Content = textMessage.Text;
                 try
                 {
-                    chatServiceClient.Say(1, msg);
+                    chatServiceClient.Say(message);
                 }
                 catch (CommunicationException)
                 {
@@ -141,7 +146,7 @@ namespace ClienteJuego.Views
             }
             catch (CommunicationObjectFaultedException)
             {
-
+                MessageBox.Show("Su mensaje no fue entregado, Intentelo más tarde");
             }
 
         }

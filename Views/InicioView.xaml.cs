@@ -73,14 +73,14 @@ namespace ClienteJuego.Views
             NavigationService.Navigate(new Uri("Views/ScoreView.xaml", UriKind.Relative));
         }
 
-        public void notification(string username, string code)
+        public void Notification(string username, string code)
         {
             var window = (MainWindow)Application.Current.MainWindow;
             window.ContenedorInvi.Navigate(new InvitationView(username, code));
 
         }
 
-        public void LoadLobby(PlayerServer[] friend, string code)
+        public void LoadLobby(PlayerServer[] players, string code)
         {
             try
             {

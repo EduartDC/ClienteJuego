@@ -22,13 +22,17 @@ namespace ClienteJuego.Views
             InitializeComponent();
             userName = (App.Current as App).DeptName;
             PlayerServer player = LoadData();
+            if (player != null)
+            {
+                textNombre.Text = player.firstName + " " + player.lastName;
+                textEmail.Text = player.email;
+                textUserName.Text = player.userName;
 
-            textNombre.Text = player.firstName + " " + player.lastName;
-            textEmail.Text = player.email;
-            textUserName.Text = player.userName;
+                ImageSource imageSource = new ImageSourceConverter().ConvertFromString(Accessories.LoadConfigPlayer(userName)) as ImageSource;
+                imgAvatar.Source = imageSource;
+            }
 
-            ImageSource imageSource = new ImageSourceConverter().ConvertFromString(Accessories.LoadConfigPlayer(userName)) as ImageSource;
-            imgAvatar.Source = imageSource;
+
         }
 
         PlayerServer LoadData()

@@ -16,7 +16,7 @@ namespace ClienteJuego.Views
         public string codeInvitation { get; set; }
 
         private readonly NotificationServiceClient notificationServiceClient;
-
+        ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
         public FriendListView(string code)
         {
             this.codeInvitation = code;
@@ -28,12 +28,18 @@ namespace ClienteJuego.Views
             }
             catch (CommunicationObjectFaultedException)
             {
+                var inviViewm = (MainWindow)App.Current.MainWindow;
+                inviViewm.ContenedorList.Content = null;
                 throw new EndpointNotFoundException();
+
 
             }
             catch (EndpointNotFoundException)
             {
+                var inviViewm = (MainWindow)App.Current.MainWindow;
+                inviViewm.ContenedorList.Content = null;
                 throw new EndpointNotFoundException();
+
 
             }
         }
@@ -53,6 +59,7 @@ namespace ClienteJuego.Views
                 }
                 else
                 {
+                    listFriends.Items.Clear();
                     foreach (var player in friends)
                     {
                         listFriends.Items.Add(player);
@@ -69,37 +76,9 @@ namespace ClienteJuego.Views
             }
         }
 
-        public void notification(string username, string code)
+        public void Notification(string username, string code)
         {
             throw new NotImplementedException();
-        }
-
-        private void btnDeleatFriend_Click(object sender, RoutedEventArgs e)
-        {
-            Button button = sender as Button;
-
-            PlayerServer player = button.CommandParameter as PlayerServer;
-            ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
-            var username = (App.Current as App).DeptName;
-            try
-            {
-                var result = client.DeleteFriend(player, username);
-                if (result == errorConnection)
-                {
-                    MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
-                    var window = (MainWindow)Application.Current.MainWindow;
-                    window.Contenedor.Navigate(new LoginView());
-                }
-                else
-                {
-                    UpdateFriendList();
-                }
-            }
-            catch (EndpointNotFoundException)
-            {
-                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
-            }
-
         }
 
         private void btnSendInvitation_Click(object sender, RoutedEventArgs e)
@@ -133,7 +112,7 @@ namespace ClienteJuego.Views
 
         private void btnAddFriend_Click(object sender, RoutedEventArgs e)
         {
-            ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
+
             var username = (App.Current as App).DeptName;
 
             var name = textNameFriend.Text;
@@ -150,7 +129,7 @@ namespace ClienteJuego.Views
                     }
                     else
                     {
-                        if (friend.Equals(null))
+                        if (friend.userName != null)
                         {
                             var idFriend = friend.idPlayer;
                             var player = client.SearchPlayer(username);
@@ -178,6 +157,46 @@ namespace ClienteJuego.Views
             {
                 MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
             }
+            catch (CommunicationObjectFaultedException)
+            {
+                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+            }
+            catch (CommunicationException)
+            {
+                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+            }
+
+        }
+
+        private void btnDeleatFriend_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+
+            PlayerServer player = button.CommandParameter as PlayerServer;
+
+
+            var username = (App.Current as App).DeptName;
+
+            try
+            {
+                var result = client.DeleteFriend(player.idPlayer, username);
+
+                if (result == errorConnection)
+                {
+                    MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                    var window = (MainWindow)Application.Current.MainWindow;
+                    window.Contenedor.Navigate(new LoginView());
+                }
+                else
+                {
+                    UpdateFriendList();
+                }
+            }
+            catch (EndpointNotFoundException)
+            {
+                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+            }
+
 
         }
     }
