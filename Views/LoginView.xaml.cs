@@ -46,7 +46,7 @@ namespace ClienteJuego.Views
                     {
                         MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
                     }
-                    else if (!result.userName.Equals(null) && result.userName.Equals(player.userName))
+                    else if (result.userName != null && result.userName.Equals(player.userName))
                     {
                         (App.Current as App).DeptName = player.userName;
                         NavigationService.Navigate(new Uri("Views/InicioView.xaml?value=15", UriKind.Relative));
@@ -58,6 +58,10 @@ namespace ClienteJuego.Views
                     }
                 }
                 catch (EndpointNotFoundException)
+                {
+                    MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                }
+                catch (CommunicationException)
                 {
                     MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
                 }
