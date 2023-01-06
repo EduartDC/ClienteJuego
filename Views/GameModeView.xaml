@@ -43,26 +43,11 @@
                 FontWeight="Bold"
                 Foreground="White" />
             <Button
-                x:Name="btnSingleMode"
-                Width="226"
-                Height="204"
-                Margin="76,167,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                BorderBrush="{x:Null}"
-                Click="btnSingleMode_Click"
-                Content=""
-                Foreground="{x:Null}">
-                <Button.Background>
-                    <ImageBrush ImageSource="/Images/usuario.png" Stretch="Uniform" />
-                </Button.Background>
-            </Button>
-            <Button
                 x:Name="btnMultiplayerMode"
                 Width="252"
                 Height="232"
-                Margin="486,158,0,0"
-                HorizontalAlignment="Left"
+                Margin="0,158,0,0"
+                HorizontalAlignment="Center"
                 VerticalAlignment="Top"
                 BorderBrush="{x:Null}"
                 Click="btnMultiplayerMode_Click"
@@ -73,22 +58,10 @@
                 </Button.Background>
             </Button>
             <Label
-                x:Name="lblSingleMode"
-                Width="193"
-                Margin="95,376,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                HorizontalContentAlignment="Center"
-                VerticalContentAlignment="Center"
-                Content="{x:Static p:Resources.lblSingleMode}"
-                FontSize="20"
-                FontWeight="Bold"
-                Foreground="White" />
-            <Label
                 x:Name="lblMultiplayerMode"
                 Width="252"
-                Margin="486,376,0,0"
-                HorizontalAlignment="Left"
+                Margin="0,376,0,0"
+                HorizontalAlignment="Center"
                 VerticalAlignment="Top"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"

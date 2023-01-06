@@ -16,7 +16,7 @@ namespace ClienteJuego.Views
         public string codeInvitation { get; set; }
 
         private readonly NotificationServiceClient notificationServiceClient;
-        ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
+
         public FriendListView(string code)
         {
             this.codeInvitation = code;
@@ -112,7 +112,7 @@ namespace ClienteJuego.Views
 
         private void btnAddFriend_Click(object sender, RoutedEventArgs e)
         {
-
+            ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
             var username = (App.Current as App).DeptName;
 
             var name = textNameFriend.Text;
@@ -171,7 +171,7 @@ namespace ClienteJuego.Views
         private void btnDeleatFriend_Click(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;
-
+            ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
             PlayerServer player = button.CommandParameter as PlayerServer;
 
 
