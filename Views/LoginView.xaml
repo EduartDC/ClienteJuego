@@ -17,19 +17,19 @@
             Height="600"
             Background="#0f0e17">
             <Label
-                x:Name="lblUserName"
+                x:Name="labelUserName"
                 Margin="335,308,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Content="{x:Static p:Resources.lblUserName}"
+                Content="{x:Static p:Resources.labelUserName}"
                 FontWeight="Bold"
                 Foreground="White" />
             <Label
-                x:Name="lblPassword"
+                x:Name="labelPassword"
                 Margin="335,374,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Content="{x:Static p:Resources.lblPassword}"
+                Content="{x:Static p:Resources.labelPassword}"
                 FontWeight="Bold"
                 Foreground="White"
                 RenderTransformOrigin="0.447,0.31" />
@@ -52,7 +52,7 @@
                 FontWeight="Bold"
                 Foreground="White" />
             <Label
-                x:Name="lblExampleUserName"
+                x:Name="labelExampleUserName"
                 Width="120"
                 Height="28"
                 Margin="322,326,0,0"
@@ -60,7 +60,7 @@
                 VerticalAlignment="Top"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
-                Content="{x:Static p:Resources.lblExampleUserName}"
+                Content="{x:Static p:Resources.labelExampleUserName}"
                 FontStyle="Italic"
                 Foreground="#FFA7A9BE" />
             <TextBox
@@ -77,10 +77,10 @@
                 KeyDown="TextUserName_KeyDown"
                 LostFocus="textUserName_LostFocus"
                 RenderTransformOrigin="0.504,-5.037"
-                TextWrapping="Wrap"
-                TabIndex="1"/>
+                TabIndex="1"
+                TextWrapping="Wrap" />
             <Label
-                x:Name="lblExamplePassword"
+                x:Name="labelExamplePassword"
                 Width="99"
                 Margin="340,396,0,0"
                 HorizontalAlignment="Left"
@@ -99,8 +99,8 @@
                 Foreground="#FFA7A9BE"
                 GotFocus="textPassword_GotFocus"
                 KeyDown="TextPassword_KeyDonw"
-                LostFocus="textPassword_LostFocus" 
-                TabIndex="2"/>
+                LostFocus="textPassword_LostFocus"
+                TabIndex="2" />
             <Button
                 x:Name="btnRegister"
                 Width="104"
@@ -119,10 +119,10 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Background="#FFFF8906"
-                
+                Click="btnGuest_Click"
                 Content="Guest"
                 FontWeight="Bold"
-                Foreground="White" Click="btnGuest_Click" />
+                Foreground="White" />
 
 
 

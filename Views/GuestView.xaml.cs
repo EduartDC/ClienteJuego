@@ -36,7 +36,7 @@ namespace ClienteJuego.Views
                 var player = client.GuestUser();
                 if (player == null)
                 {
-                    MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                    MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                 }
                 else
                 {
@@ -45,7 +45,7 @@ namespace ClienteJuego.Views
             }
             catch (EndpointNotFoundException)
             {
-                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                MessageBox.Show(Properties.Resources.messageBoxConnectionError);
             }
 
         }
@@ -66,12 +66,12 @@ namespace ClienteJuego.Views
                 }
                 else
                 {
-                    MessageBox.Show("El codigo no es valido");
+                    MessageBox.Show(Properties.Resources.messageBoxErrorMessage);
                 }
             }
             else
             {
-                MessageBox.Show("El campo de texto esta vacio");
+                MessageBox.Show(Properties.Resources.messageBoxEmptyFields);
             }
 
         }

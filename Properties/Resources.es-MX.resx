@@ -120,8 +120,23 @@
   <data name="btnCancel" xml:space="preserve">
     <value>Cancelar</value>
   </data>
+  <data name="btnChat" xml:space="preserve">
+    <value>Chat</value>
+  </data>
   <data name="btnCredits" xml:space="preserve">
     <value>Créditos</value>
+  </data>
+  <data name="btnEdit" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="btnInvite" xml:space="preserve">
+    <value>Invitar</value>
+  </data>
+  <data name="btnJoin" xml:space="preserve">
+    <value>Unirse</value>
+  </data>
+  <data name="btnKick" xml:space="preserve">
+    <value>Sacar</value>
   </data>
   <data name="btnLogin" xml:space="preserve">
     <value>Iniciar Sesión</value>
@@ -141,92 +156,176 @@
   <data name="btnScore" xml:space="preserve">
     <value>Puntaje</value>
   </data>
-  <data name="lblAccount" xml:space="preserve">
+  <data name="btnSend" xml:space="preserve">
+    <value>Enviar</value>
+  </data>
+  <data name="btnStart" xml:space="preserve">
+    <value>Iniciar</value>
+  </data>
+  <data name="labelAccount" xml:space="preserve">
     <value>Cuenta</value>
   </data>
-  <data name="lblCredits" xml:space="preserve">
+  <data name="labelCode" xml:space="preserve">
+    <value>Codigo</value>
+  </data>
+  <data name="labelCredits" xml:space="preserve">
     <value>Créditos</value>
   </data>
-  <data name="lblDevelopers" xml:space="preserve">
+  <data name="labelDevelopers" xml:space="preserve">
     <value>Desarrolladores</value>
   </data>
-  <data name="lblEmail" xml:space="preserve">
+  <data name="labelEmail" xml:space="preserve">
     <value>Correo Electrónico</value>
   </data>
-  <data name="lblExampleEmail" xml:space="preserve">
+  <data name="labelExampleEmail" xml:space="preserve">
     <value>Ej.: revo.pa@uv.mx</value>
   </data>
-  <data name="lblExampleFirstName" xml:space="preserve">
+  <data name="labelExampleFirstName" xml:space="preserve">
     <value>Ej.: Juan Carlos</value>
   </data>
-  <data name="lblExampleLastName" xml:space="preserve">
+  <data name="labelExampleLastName" xml:space="preserve">
     <value>Ej.: Perez Arriaga</value>
   </data>
-  <data name="lblExampleUser" xml:space="preserve">
+  <data name="labelExampleUser" xml:space="preserve">
     <value>Ej.: RevoGamer</value>
   </data>
-  <data name="lblExampleUserName" xml:space="preserve">
+  <data name="labelExampleUserName" xml:space="preserve">
     <value>Ej.: LuisGamer</value>
   </data>
-  <data name="lblFirstName" xml:space="preserve">
+  <data name="labelFirstName" xml:space="preserve">
     <value>Nombre</value>
   </data>
-  <data name="lblForgotPassword" xml:space="preserve">
+  <data name="labelForgotPassword" xml:space="preserve">
     <value>¿Olvidaste tu contraseña?</value>
   </data>
-  <data name="lblGraphicDesigners" xml:space="preserve">
+  <data name="labelGameMode" xml:space="preserve">
+    <value>Modo de Juego</value>
+  </data>
+  <data name="labelGraphicDesigners" xml:space="preserve">
     <value>Diseñadores Gráficos</value>
   </data>
-  <data name="lblGuestPlayer" xml:space="preserve">
+  <data name="labelGuestInfo" xml:space="preserve">
+    <value>Para ingresar como invitado escriba el codigo de la sala.</value>
+  </data>
+  <data name="labelGuestPlayer" xml:space="preserve">
     <value>Jugar como invitado</value>
   </data>
-  <data name="lblHelp" xml:space="preserve">
+  <data name="labelHelp" xml:space="preserve">
     <value>Ayuda</value>
   </data>
-  <data name="lblLanguage" xml:space="preserve">
+  <data name="labelInvitation" xml:space="preserve">
+    <value>Te han invitado a unirte a un lobby!!</value>
+  </data>
+  <data name="labelLanguage" xml:space="preserve">
     <value>Idioma</value>
   </data>
-  <data name="lblLastName" xml:space="preserve">
+  <data name="labelLastName" xml:space="preserve">
     <value>Apellidos</value>
   </data>
-  <data name="lblMultiplayerMode" xml:space="preserve">
+  <data name="labelMultiplayerMode" xml:space="preserve">
     <value>¡Jugar con amigos(as)!</value>
   </data>
-  <data name="lblName" xml:space="preserve">
+  <data name="labelMusicEffects" xml:space="preserve">
+    <value>Musica</value>
+  </data>
+  <data name="labelName" xml:space="preserve">
     <value>Nombre</value>
   </data>
-  <data name="lblOptions" xml:space="preserve">
+  <data name="labelOptions" xml:space="preserve">
     <value>Opciones</value>
   </data>
-  <data name="lblPassword" xml:space="preserve">
+  <data name="labelPassword" xml:space="preserve">
     <value>Contraseña</value>
   </data>
-  <data name="lblScore" xml:space="preserve">
+  <data name="labelScore" xml:space="preserve">
     <value>Puntaje</value>
   </data>
-  <data name="lblSettings" xml:space="preserve">
+  <data name="labelSettings" xml:space="preserve">
     <value>Configuraciones</value>
   </data>
-  <data name="lblSingleMode" xml:space="preserve">
+  <data name="labelSingleMode" xml:space="preserve">
     <value>Modo un jugador</value>
   </data>
-  <data name="lblStatusRoundOff" xml:space="preserve">
+  <data name="labelSoundEffects" xml:space="preserve">
+    <value>Efectos de Sonido</value>
+  </data>
+  <data name="labelStatusRoundOff" xml:space="preserve">
     <value>Ronda no iniciada</value>
   </data>
-  <data name="lblTheme" xml:space="preserve">
+  <data name="labelTheme" xml:space="preserve">
     <value>Tema</value>
   </data>
-  <data name="lblUserName" xml:space="preserve">
+  <data name="labelUserName" xml:space="preserve">
     <value>Nombre de Usuario</value>
+  </data>
+  <data name="messageBoxCare" xml:space="preserve">
+    <value>cuidado!!</value>
+  </data>
+  <data name="messageBoxConnectionError" xml:space="preserve">
+    <value>Error de conexión con el servidor, Inténtelo más tarde</value>
   </data>
   <data name="messageBoxEmptyFields" xml:space="preserve">
     <value>Existen uno o más campos sin llenar, por favor corríge.</value>
   </data>
+  <data name="messageBoxEndGame" xml:space="preserve">
+    <value>La partida ha terminado el ganador es</value>
+  </data>
+  <data name="messageBoxErrorLobby" xml:space="preserve">
+    <value>Para este medo se necesita un minimo de 2 participantes.</value>
+  </data>
+  <data name="messageBoxErrorLogin" xml:space="preserve">
+    <value>Usuario o contraseña inválidos, verifique su información.</value>
+  </data>
+  <data name="messageBoxErrorMessage" xml:space="preserve">
+    <value>Su mensaje no fue entregado, Inténtelo más tarde</value>
+  </data>
+  <data name="messageBoxErrorRegister" xml:space="preserve">
+    <value>Se ha producido un error, el registro no ha surtido efecto</value>
+  </data>
+  <data name="messageBoxExitGame" xml:space="preserve">
+    <value>¿Estás seguro(a) de salir de la ronda? el contrincante ganara</value>
+  </data>
+  <data name="messageBoxInvalidCode" xml:space="preserve">
+    <value>Código de invitación invalido, no existe ningún lobby asociado.</value>
+  </data>
+  <data name="messageBoxInvalidEmail" xml:space="preserve">
+    <value>El correo ingresado es invalido.</value>
+  </data>
+  <data name="messageBoxInvalidName" xml:space="preserve">
+    <value>El el nombre ingresado no esta disponible, ingrese otro.</value>
+  </data>
+  <data name="messageBoxInvalidPassword" xml:space="preserve">
+    <value>La contraseña ingresada es invalida, verifique la política de contraseñas.</value>
+  </data>
+  <data name="messageBoxLeave" xml:space="preserve">
+    <value>¿Estás seguro(a) de salir? No se guardarán las modificaciones.</value>
+  </data>
+  <data name="messageBoxMailInUse" xml:space="preserve">
+    <value>Ya existe usuario ya se encuentra registrado con ese correo, Utilice otro correo.</value>
+  </data>
+  <data name="messageBoxSavedChanges" xml:space="preserve">
+    <value>Las cambios realizados se han guardado</value>
+  </data>
+  <data name="messageBoxSearch" xml:space="preserve">
+    <value>No se encontró ningún usuario con el nombre indicado.</value>
+  </data>
+  <data name="messageBoxSuccessfulRegistration" xml:space="preserve">
+    <value>Se ha registrado correctamente.</value>
+  </data>
+  <data name="messageBoxVerifyNameAndEmail" xml:space="preserve">
+    <value>Verifique se el correo que ingresa y el nombre sean validos</value>
+  </data>
   <data name="messageBoxWelcomeGame" xml:space="preserve">
     <value>¡Bienvenido a 100 Mexicanos Dijieron!</value>
   </data>
-  <data name="messageBoxxErrorRegister" xml:space="preserve">
-    <value>Ocurrió un error, el registro no tuvo efecto.</value>
+  <data name="messageDisconect" xml:space="preserve">
+    <value>Se ha desconectado.</value>
+  </data>
+  <data name="messageSystem" xml:space="preserve">
+    <value>System: Bienvenido</value>
+  </data>
+  <data name="messageWisp" xml:space="preserve">
+    <value>Susurro de</value>
   </data>
   <data name="radioBEnglish" xml:space="preserve">
     <value>Inglés</value>

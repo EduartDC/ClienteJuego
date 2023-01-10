@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:8082/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MessageService.Domain" />
+  <xs:import schemaLocation="http://192.168.229.202:8082/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MessageService.Domain" />
   <xs:element name="MatchingFriends">
     <xs:complexType>
       <xs:sequence>

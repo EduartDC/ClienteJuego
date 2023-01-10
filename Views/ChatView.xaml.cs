@@ -40,7 +40,7 @@ namespace ClienteJuego.Views
             }
             catch (EndpointNotFoundException)
             {
-                MessageBox.Show("Error de conexion con el servidor, Intentelo más tarde");
+                MessageBox.Show(Properties.Resources.messageBoxConnectionError);
 
                 var chatView = (MainWindow)App.Current.MainWindow;
                 chatView.ContenedorChat.Content = null;
@@ -57,7 +57,7 @@ namespace ClienteJuego.Views
                 if (playerInfo == null)
                 {
 
-                    MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                    MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                     var window = (MainWindow)Application.Current.MainWindow;
                     window.Contenedor.Navigate(new LoginView());
 
@@ -65,7 +65,7 @@ namespace ClienteJuego.Views
             }
             catch (EndpointNotFoundException)
             {
-                MessageBox.Show("Error de conexion con el servidor, Intentelo más tarde");
+                MessageBox.Show(Properties.Resources.messageBoxConnectionError);
             }
             return playerInfo;
         }
@@ -73,13 +73,13 @@ namespace ClienteJuego.Views
         public void Receive(MessageServer message)
         {
 
-            ChatTextBox.AppendText("From " + message.Sender + ": " + message.Content + "\n");
+            textChat.AppendText("From " + message.Sender + ": " + message.Content + "\n");
 
         }
 
         public void ReceiveWhisper(MessageServer message)
         {
-            ChatTextBox.AppendText("Wisp from " + message.Sender + ": " + message.Content + "\n");
+            textChat.AppendText(Properties.Resources.messageWisp + message.Sender + ": " + message.Content + "\n");
         }
 
         public void RefreshClients(PlayerServer[] players)
@@ -93,12 +93,12 @@ namespace ClienteJuego.Views
 
         public void UserJoin(PlayerServer player)
         {
-            ChatTextBox.AppendText("System: " + "Bienvenido " + player.userName + "\n");
+            textChat.AppendText(Properties.Resources.messageSystem + " " + player.userName + "\n");
         }
 
         public void UserLeave(PlayerServer player)
         {
-            ChatTextBox.AppendText("System: " + player.userName + " Se ha desconectado\n");
+            textChat.AppendText("System: " + player.userName + Properties.Resources.messageSystem + "\n");
         }
 
         private void btnSendButton_Click(object sender, RoutedEventArgs e)
@@ -117,7 +117,7 @@ namespace ClienteJuego.Views
                 }
                 catch (CommunicationException)
                 {
-                    MessageBox.Show("Su mensaje no fue entregado, Intentelo más tarde");
+                    MessageBox.Show(Properties.Resources.messageBoxErrorMessage);
                 }
             }
             else
@@ -129,7 +129,7 @@ namespace ClienteJuego.Views
                 }
                 catch (CommunicationException)
                 {
-                    MessageBox.Show("Su mensaje no fue entregado, Intentelo más tarde");
+                    MessageBox.Show(Properties.Resources.messageBoxErrorMessage);
                 }
             }
 
@@ -146,7 +146,7 @@ namespace ClienteJuego.Views
             }
             catch (CommunicationObjectFaultedException)
             {
-                MessageBox.Show("Su mensaje no fue entregado, Intentelo más tarde");
+                MessageBox.Show(Properties.Resources.messageBoxErrorMessage);
             }
 
         }

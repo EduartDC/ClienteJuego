@@ -24,7 +24,7 @@
                 VerticalAlignment="Bottom"
                 Background="#FFCC720B"
                 Click="btnCancel_Click"
-                Content="Cancel"
+                Content="{x:Static p:Resources.btnCancel}"
                 FontWeight="Bold"
                 Foreground="White" />
             <Button
@@ -36,7 +36,7 @@
                 VerticalAlignment="Bottom"
                 Background="#FFFF8906"
                 Click="btnEdit_Click"
-                Content="Edit"
+                Content="{x:Static p:Resources.btnEdit}"
                 FontWeight="Bold"
                 Foreground="White" />
             <TextBox
@@ -96,30 +96,33 @@
                 </Image.RenderTransform>
             </Image>
             <Label
+                x:Name="labelName"
                 Width="185"
                 Margin="343,269,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Content="{x:Static p:Resources.lblName}"
+                Content="{x:Static p:Resources.labelName}"
                 FontSize="16"
                 FontWeight="Bold"
                 Foreground="White" />
             <Label
+                x:Name="labelEmail"
                 Width="185"
                 Margin="343,316,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Content="{x:Static p:Resources.lblEmail}"
+                Content="{x:Static p:Resources.labelEmail}"
                 FontSize="16"
                 FontWeight="Bold"
                 Foreground="White" />
             <Label
+                x:Name="labelUserName"
                 Width="185"
                 Height="31"
                 Margin="343,370,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Content="{x:Static p:Resources.lblUserName}"
+                Content="{x:Static p:Resources.labelUserName}"
                 FontSize="16"
                 FontWeight="Bold"
                 Foreground="White" />

@@ -29,8 +29,8 @@ namespace ClienteJuego.Views
             Accessories.PlayMusic();
 
             userName = (App.Current as App).DeptName;
-            TextUserName.Text = userName;
-            labelCode.Content = "Codigo: " + code;
+            textUserName.Text = userName;
+            labelTextCode.Content = code;
             if (userName.Equals("Guest"))
             {
                 btnKick.Visibility = Visibility.Collapsed;
@@ -67,7 +67,7 @@ namespace ClienteJuego.Views
             }
             catch (EndpointNotFoundException)
             {
-                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                 var window = (MainWindow)Application.Current.MainWindow;
                 window.Contenedor.Navigate(new LoginView());
             }
@@ -105,7 +105,7 @@ namespace ClienteJuego.Views
             }
             catch (CommunicationObjectFaultedException)
             {
-                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                 var window = (MainWindow)Application.Current.MainWindow;
                 window.Contenedor.Navigate(new LoginView());
             }
@@ -146,7 +146,7 @@ namespace ClienteJuego.Views
             }
             catch (EndpointNotFoundException)
             {
-                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                 var window = (MainWindow)Application.Current.MainWindow;
                 window.Contenedor.Navigate(new LoginView());
 
@@ -170,7 +170,7 @@ namespace ClienteJuego.Views
                 }
                 catch (CommunicationObjectFaultedException)
                 {
-                    MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                    MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                     var window = (MainWindow)Application.Current.MainWindow;
                     window.Contenedor.Navigate(new LoginView());
                 }
@@ -178,7 +178,7 @@ namespace ClienteJuego.Views
             }
             else
             {
-                MessageBox.Show("Para este medo se necesita un minimo de 2 participantes.");
+                MessageBox.Show(Properties.Resources.messageBoxErrorLobby);
             }
 
         }
@@ -192,7 +192,7 @@ namespace ClienteJuego.Views
             }
             catch (CommunicationObjectFaultedException)
             {
-                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                 var window = (MainWindow)Application.Current.MainWindow;
                 window.Contenedor.Navigate(new LoginView());
             }

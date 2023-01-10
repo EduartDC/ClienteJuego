@@ -31,14 +31,14 @@
             </Image>
 
             <Label
-                x:Name="lblTitleLobby"
+                x:Name="labelTitleLobby"
                 Width="361"
                 Margin="0,28,0,0"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Top"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
-                Content="Game Mode"
+                Content="{x:Static p:Resources.labelGameMode}"
                 FontSize="24"
                 FontWeight="Bold"
                 Foreground="White" />
@@ -58,14 +58,14 @@
                 </Button.Background>
             </Button>
             <Label
-                x:Name="lblMultiplayerMode"
+                x:Name="labelMultiplayerMode"
                 Width="252"
                 Margin="0,376,0,0"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Top"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
-                Content="{x:Static p:Resources.lblMultiplayerMode}"
+                Content="{x:Static p:Resources.labelMultiplayerMode}"
                 FontSize="20"
                 FontWeight="Bold"
                 Foreground="White" />

@@ -44,7 +44,7 @@ namespace ClienteJuego.Views
                     var result = client.UserConnect(player);
                     if (result == null)
                     {
-                        MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                        MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                     }
                     else if (result.userName != null && result.userName.Equals(player.userName))
                     {
@@ -54,16 +54,16 @@ namespace ClienteJuego.Views
                     }
                     else
                     {
-                        MessageBox.Show("Usuario o contraseña invalidos");
+                        MessageBox.Show(Properties.Resources.messageBoxErrorLogin);
                     }
                 }
                 catch (EndpointNotFoundException)
                 {
-                    MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                    MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                 }
                 catch (CommunicationException)
                 {
-                    MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                    MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                 }
 
             }
@@ -92,7 +92,7 @@ namespace ClienteJuego.Views
         {
             if (!textUserName.Text.Equals("") || !textUserName.Text.Equals(null))
             {
-                lblExampleUserName.Visibility = Visibility.Hidden;
+                labelExampleUserName.Visibility = Visibility.Hidden;
             }
         }
 
@@ -100,7 +100,7 @@ namespace ClienteJuego.Views
         {
             if (textUserName.Text.Equals("") || textUserName.Text.Equals(null))
             {
-                lblExampleUserName.Visibility = Visibility.Visible;
+                labelExampleUserName.Visibility = Visibility.Visible;
             }
         }
 
@@ -108,7 +108,7 @@ namespace ClienteJuego.Views
         {
             if (textUserName.Text.Equals("") || textUserName.Text.Equals(null))
             {
-                lblExamplePassword.Visibility = Visibility.Visible;
+                labelExamplePassword.Visibility = Visibility.Visible;
             }
         }
 
@@ -116,7 +116,7 @@ namespace ClienteJuego.Views
         {
             if (!textUserName.Text.Equals("") || !textUserName.Text.Equals(null))
             {
-                lblExamplePassword.Visibility = Visibility.Hidden;
+                labelExamplePassword.Visibility = Visibility.Hidden;
             }
         }
 

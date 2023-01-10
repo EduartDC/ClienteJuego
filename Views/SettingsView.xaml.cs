@@ -24,8 +24,8 @@ namespace ClienteJuego.Views
             soundsEffect = audioConfiguration.AppSettings.Settings["SOUND_EFFECT"];
             InitializeComponent();
             language = "";
-            MusicEffects.IsChecked = musicEffect.Value.Equals("true");
-            SoundsEffects.IsChecked = soundsEffect.Value.Equals("true");
+            tggbtnMusicEffects.IsChecked = musicEffect.Value.Equals("true");
+            tggbtnSoundsEffects.IsChecked = soundsEffect.Value.Equals("true");
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
@@ -41,7 +41,7 @@ namespace ClienteJuego.Views
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(language);
             audioConfiguration.Save();
             ConfigurationManager.RefreshSection("appSettings");
-            MessageBox.Show("Los cambios se aplicaron correctamente");
+            MessageBox.Show(Properties.Resources.messageBoxSavedChanges);
         }
 
         private void MusicChecked(object sender, RoutedEventArgs e)

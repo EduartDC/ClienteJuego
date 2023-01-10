@@ -42,9 +42,9 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://localhost:8082/?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://localhost:8082/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:8082/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MessageService.Domain" />
+      <xsd:import schemaLocation="http://192.168.229.202:8082/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://192.168.229.202:8082/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://192.168.229.202:8082/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MessageService.Domain" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IUserManager_MatchingFriends_InputMessage">
@@ -729,33 +729,33 @@
   </wsdl:binding>
   <wsdl:service name="ManagerService">
     <wsdl:port name="NetTcpBinding_IUserManager" binding="tns:NetTcpBinding_IUserManager">
-      <soap12:address location="net.tcp://localhost:8081/MessageService" />
+      <soap12:address location="net.tcp://192.168.229.202:8081/MessageService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://localhost:8081/MessageService</wsa10:Address>
+        <wsa10:Address>net.tcp://192.168.229.202:8081/MessageService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_IChatService" binding="tns:NetTcpBinding_IChatService">
-      <soap12:address location="net.tcp://localhost:8081/MessageService" />
+      <soap12:address location="net.tcp://192.168.229.202:8081/MessageService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://localhost:8081/MessageService</wsa10:Address>
+        <wsa10:Address>net.tcp://192.168.229.202:8081/MessageService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_IMatchService" binding="tns:NetTcpBinding_IMatchService">
-      <soap12:address location="net.tcp://localhost:8081/MessageService" />
+      <soap12:address location="net.tcp://192.168.229.202:8081/MessageService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://localhost:8081/MessageService</wsa10:Address>
+        <wsa10:Address>net.tcp://192.168.229.202:8081/MessageService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_INotificationService" binding="tns:NetTcpBinding_INotificationService">
-      <soap12:address location="net.tcp://localhost:8081/MessageService" />
+      <soap12:address location="net.tcp://192.168.229.202:8081/MessageService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://localhost:8081/MessageService</wsa10:Address>
+        <wsa10:Address>net.tcp://192.168.229.202:8081/MessageService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_IGameService" binding="tns:NetTcpBinding_IGameService">
-      <soap12:address location="net.tcp://localhost:8081/MessageService" />
+      <soap12:address location="net.tcp://192.168.229.202:8081/MessageService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://localhost:8081/MessageService</wsa10:Address>
+        <wsa10:Address>net.tcp://192.168.229.202:8081/MessageService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>

@@ -34,7 +34,7 @@
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
                 BorderBrush="#FFA0FF00"
-                Content="{x:Static p:Resources.lblStatusRoundOff}"
+                Content="{x:Static p:Resources.labelStatusRoundOff}"
                 FontSize="24"
                 Foreground="White">
                 <Label.Background>
@@ -54,7 +54,7 @@
                 Margin="649,290,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Content="{x:Static p:Resources.lblScore}"
+                Content="{x:Static p:Resources.labelScore}"
                 FontSize="22"
                 Foreground="White" />
             <Label
@@ -230,7 +230,7 @@
                 Margin="83,287,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Content="{x:Static p:Resources.lblScore}"
+                Content="{x:Static p:Resources.labelScore}"
                 FontSize="22"
                 Foreground="White" />
             <Label

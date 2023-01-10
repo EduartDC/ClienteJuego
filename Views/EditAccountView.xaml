@@ -40,7 +40,7 @@
                 VerticalAlignment="Top"
                 Background="#FFCC720B"
                 Click="btnCancel_Click"
-                Content="Cancel"
+                Content="{x:Static p:Resources.btnCancel}"
                 FontWeight="Bold"
                 Foreground="White" />
             <Button
@@ -52,11 +52,11 @@
                 VerticalAlignment="Top"
                 Background="#FFFF8906"
                 Click="btnSave_Click"
-                Content="Save"
+                Content="{x:Static p:Resources.btnSave}"
                 FontWeight="Bold"
                 Foreground="White" />
             <Label
-                x:Name="lblExamplePassword"
+                x:Name="labelExamplePassword"
                 Width="99"
                 Margin="315,463,0,0"
                 HorizontalAlignment="Left"
@@ -126,42 +126,46 @@
                 Text=""
                 TextWrapping="Wrap" />
             <Label
+                x:Name="labelFirstName"
                 Width="170"
                 Height="31"
                 Margin="315,250,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Content="{x:Static p:Resources.lblFirstName}"
+                Content="{x:Static p:Resources.labelFirstName}"
                 FontSize="16"
                 FontWeight="Bold"
                 Foreground="White" />
             <Label
+                x:Name="labelLastName"
                 Width="170"
                 Height="31"
                 Margin="315,307,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Content="{x:Static p:Resources.lblLastName}"
+                Content="{x:Static p:Resources.labelLastName}"
                 FontSize="16"
                 FontWeight="Bold"
                 Foreground="White" />
             <Label
+                x:Name="labelUserName"
                 Width="170"
                 Height="31"
                 Margin="315,364,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Content="{x:Static p:Resources.lblUserName}"
+                Content="{x:Static p:Resources.labelUserName}"
                 FontSize="16"
                 FontWeight="Bold"
                 Foreground="White" />
             <Label
+                x:Name="labelPassword"
                 Width="170"
                 Height="34"
                 Margin="315,426,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Content="{x:Static p:Resources.lblPassword}"
+                Content="{x:Static p:Resources.labelPassword}"
                 FontSize="16"
                 FontWeight="Bold"
                 Foreground="White" />

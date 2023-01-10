@@ -46,7 +46,7 @@ namespace ClienteJuego.Views
             }
             catch (EndpointNotFoundException)
             {
-                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                MessageBox.Show(Properties.Resources.messageBoxConnectionError);
             }
             return playerInfo;
         }
@@ -56,17 +56,18 @@ namespace ClienteJuego.Views
             Accessories.PlaySoundsEffects();
             var password = HashPassword();
             var name = ValidateUserName();
+            var validOperation = 1;
             if (ValidateFields())
             {
-                MessageBox.Show("Los campos no pueden estar vacios.");
+                MessageBox.Show(Properties.Resources.messageBoxEmptyFields);
             }
             else if (password == null)
             {
-                MessageBox.Show("Contraseña incorrecta");
+                MessageBox.Show(Properties.Resources.messageBoxInvalidPassword);
             }
             else if (name == null)
             {
-                MessageBox.Show("Seleccione otro nombre.");
+                MessageBox.Show(Properties.Resources.messageBoxInvalidName);
             }
             else
             {
@@ -76,38 +77,39 @@ namespace ClienteJuego.Views
                 Accessories.LoadConfigPlayer(playerInfo.userName);
                 ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
                 PlayerServer player = DataPlayer();
+
                 if (!ValidateInfo(player))
                 {
                     try
                     {
                         var result = client.UpdatePlayer(player);
-                        if (result == 1)
+                        if (result == validOperation)
                         {
-                            MessageBox.Show("Se guardaron los cambios");
+                            MessageBox.Show(Properties.Resources.messageBoxSavedChanges);
                             NavigationService.Navigate(new Uri("Views/AccountView.xaml", UriKind.Relative));
                         }
                         else if (result == errorConnection)
                         {
 
-                            MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                            MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                             var window = (MainWindow)Application.Current.MainWindow;
                             window.Contenedor.Navigate(new LoginView());
 
                         }
                         else
                         {
-                            MessageBox.Show("El sistema no pudo guardar el cambio");
+                            MessageBox.Show(Properties.Resources.messageBoxErrorRegister);
                         }
                     }
                     catch (EndpointNotFoundException)
                     {
-                        MessageBox.Show("Error de conexion con el servidor, Intentelo más tarde");
+                        MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                     }
 
                 }
                 else
                 {
-                    MessageBox.Show("Se guardaron los cambios");
+                    MessageBox.Show(Properties.Resources.messageBoxSavedChanges);
                     NavigationService.Navigate(new Uri("Views/AccountView.xaml", UriKind.Relative));
                 }
 
@@ -118,7 +120,7 @@ namespace ClienteJuego.Views
         {
             Accessories.PlaySoundsEffects();
 
-            int result = (int)MessageBox.Show("¿Estás seguro(a) de salir? No se guardarán las modificaciones.", "Cuidado!", MessageBoxButton.YesNo);
+            int result = (int)MessageBox.Show(Properties.Resources.messageBoxLeave, Properties.Resources.messageBoxCare, MessageBoxButton.YesNo);
             if (result == resultYes)
             {
                 NavigationService.Navigate(new Uri("Views/AccountView.xaml", UriKind.Relative));
@@ -168,12 +170,12 @@ namespace ClienteJuego.Views
                 }
                 else if (result == userInUse)
                 {
-                    MessageBox.Show("Este usuario ya se encuentra registrado, Utilice otro nombre de usuario.");
+                    MessageBox.Show(Properties.Resources.messageBoxInvalidName);
 
                 }
                 else if (result == errorConnection)
                 {
-                    MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                    MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                     var window = (MainWindow)Application.Current.MainWindow;
                     window.Contenedor.Navigate(new LoginView());
                 }
@@ -184,7 +186,7 @@ namespace ClienteJuego.Views
             }
             catch (EndpointNotFoundException)
             {
-                MessageBox.Show("Error de conexion con el servidor, Intentelo más tarde");
+                MessageBox.Show(Properties.Resources.messageBoxConnectionError);
             }
 
             return name;
@@ -200,11 +202,11 @@ namespace ClienteJuego.Views
             }
             else if (!ValidatePassword(textPassword.Text))
             {
-                MessageBox.Show("Error ocurred, the password does not meet the requirements");
+                MessageBox.Show(Properties.Resources.messageBoxConnectionError);
             }
             else if (!playerInfo.password.Equals(Accessories.Hash(textPassword.Text)))
             {
-                MessageBox.Show("La nueva contraseña tiene que ser diferente a la antigua.");
+                MessageBox.Show(Properties.Resources.messageBoxConnectionError);
             }
             else
             {
@@ -295,7 +297,7 @@ namespace ClienteJuego.Views
         {
             if (textUserName.Text.Equals("") || textUserName.Text.Equals(null))
             {
-                lblExamplePassword.Visibility = Visibility.Visible;
+                labelExamplePassword.Visibility = Visibility.Visible;
             }
         }
 
@@ -303,7 +305,7 @@ namespace ClienteJuego.Views
         {
             if (!textUserName.Text.Equals("") || !textUserName.Text.Equals(null))
             {
-                lblExamplePassword.Visibility = Visibility.Hidden;
+                labelExamplePassword.Visibility = Visibility.Hidden;
 
             }
         }

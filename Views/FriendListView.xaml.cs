@@ -53,7 +53,7 @@ namespace ClienteJuego.Views
                 var friends = client.MatchingFriends(username);
                 if (friends == null)
                 {
-                    MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                    MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                     var window = (MainWindow)Application.Current.MainWindow;
                     window.Contenedor.Navigate(new LoginView());
                 }
@@ -70,7 +70,7 @@ namespace ClienteJuego.Views
             }
             catch (EndpointNotFoundException)
             {
-                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                 var window = (MainWindow)Application.Current.MainWindow;
                 window.Contenedor.Navigate(new LoginView());
             }
@@ -92,7 +92,7 @@ namespace ClienteJuego.Views
             }
             catch (CommunicationObjectFaultedException)
             {
-                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                 var window = (MainWindow)Application.Current.MainWindow;
                 window.Contenedor.Navigate(new LoginView());
             }
@@ -123,7 +123,7 @@ namespace ClienteJuego.Views
                     var friend = client.SearchPlayer(name);
                     if (friend == null)
                     {
-                        MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                        MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                         var window = (MainWindow)Application.Current.MainWindow;
                         window.Contenedor.Navigate(new LoginView());
                     }
@@ -144,26 +144,26 @@ namespace ClienteJuego.Views
                         }
                         else
                         {
-                            MessageBox.Show("No se encontro ningun usario con ese nombre");
+                            MessageBox.Show(Properties.Resources.messageBoxSearch);
                         }
                     }
                 }
                 else
                 {
-                    MessageBox.Show("El campo de nombre no puede esta vacio");
+                    MessageBox.Show(Properties.Resources.messageBoxEmptyFields);
                 }
             }
             catch (EndpointNotFoundException)
             {
-                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                MessageBox.Show(Properties.Resources.messageBoxConnectionError);
             }
             catch (CommunicationObjectFaultedException)
             {
-                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                MessageBox.Show(Properties.Resources.messageBoxConnectionError);
             }
             catch (CommunicationException)
             {
-                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                MessageBox.Show(Properties.Resources.messageBoxConnectionError);
             }
 
         }
@@ -183,7 +183,7 @@ namespace ClienteJuego.Views
 
                 if (result == errorConnection)
                 {
-                    MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                    MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                     var window = (MainWindow)Application.Current.MainWindow;
                     window.Contenedor.Navigate(new LoginView());
                 }
@@ -194,7 +194,7 @@ namespace ClienteJuego.Views
             }
             catch (EndpointNotFoundException)
             {
-                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                MessageBox.Show(Properties.Resources.messageBoxConnectionError);
             }
 
 

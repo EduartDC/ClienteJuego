@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:ClienteJuego.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:p="clr-namespace:ClienteJuego.Properties"
     Title="LobbyView"
     d:DesignHeight="600"
     d:DesignWidth="800"
@@ -38,7 +39,7 @@
                 VerticalAlignment="Top"
                 Source="/Avatars/avatarDef.png" />
             <TextBox
-                x:Name="TextUserName"
+                x:Name="textUserName"
                 Width="254"
                 Height="34"
                 Margin="20,257,0,0"
@@ -60,11 +61,13 @@
                 Margin="586,99,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                BorderBrush="#00000000"
+                Background="#FFFF8906"
+                BorderBrush="{x:Null}"
                 Click="btnListFriends_Click"
-                Content="Invitar"
+                Content="{x:Static p:Resources.btnInvite}"
                 FontSize="16"
-                FontWeight="Bold" />
+                FontWeight="Bold"
+                Foreground="White" />
 
             <Button
                 x:Name="btnBack"
@@ -90,7 +93,7 @@
                 Background="#FFFF8906"
                 BorderBrush="{x:Null}"
                 Click="btnStart_Click"
-                Content="Start"
+                Content="{x:Static p:Resources.btnPlay}"
                 FontSize="16"
                 FontWeight="Bold"
                 Foreground="White" />
@@ -100,7 +103,7 @@
                 d:ItemsSource="{d:SampleData ItemCount=5}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=userName}" Header="User Name" />
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=userName}" Header="{x:Static p:Resources.labelUserName}" />
                     </GridView>
                 </ListView.View>
             </ListView>
@@ -110,26 +113,41 @@
                 Margin="586,138,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
+                Background="#FFFF8906"
+                BorderBrush="{x:Null}"
                 Click="btnChat_Click"
-                Content="chat"
+                Content="{x:Static p:Resources.btnChat}"
                 FontSize="16"
-                FontWeight="Bold" />
+                FontWeight="Bold"
+                Foreground="White" />
             <Button
                 x:Name="btnKick"
                 Width="84"
                 Margin="586,173,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
+                Background="#FFFF8906"
+                BorderBrush="{x:Null}"
                 Click="btnKick_Click"
-                Content="Sacar"
+                Content="{x:Static p:Resources.btnKick}"
                 FontSize="16"
-                FontWeight="Bold" />
+                FontWeight="Bold"
+                Foreground="White" />
             <Label
                 x:Name="labelCode"
                 Margin="279,61,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Content=""
+                Content="{x:Static p:Resources.labelCode}"
+                FontSize="16"
+                FontWeight="Bold"
+                Foreground="White" />
+            <Label
+                x:Name="labelTextCode"
+                Margin="332,61,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="Label"
                 FontSize="16"
                 FontWeight="Bold"
                 Foreground="White" />

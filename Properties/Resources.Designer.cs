@@ -70,11 +70,56 @@ namespace ClienteJuego.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Chat.
+        /// </summary>
+        public static string btnChat {
+            get {
+                return ResourceManager.GetString("btnChat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Credits.
         /// </summary>
         public static string btnCredits {
             get {
                 return ResourceManager.GetString("btnCredits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        public static string btnEdit {
+            get {
+                return ResourceManager.GetString("btnEdit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invite.
+        /// </summary>
+        public static string btnInvite {
+            get {
+                return ResourceManager.GetString("btnInvite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Join.
+        /// </summary>
+        public static string btnJoin {
+            get {
+                return ResourceManager.GetString("btnJoin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kick.
+        /// </summary>
+        public static string btnKick {
+            get {
+                return ResourceManager.GetString("btnKick", resourceCulture);
             }
         }
         
@@ -133,236 +178,326 @@ namespace ClienteJuego.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Send.
+        /// </summary>
+        public static string btnSend {
+            get {
+                return ResourceManager.GetString("btnSend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start.
+        /// </summary>
+        public static string btnStart {
+            get {
+                return ResourceManager.GetString("btnStart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Account.
         /// </summary>
-        public static string lblAccount {
+        public static string labelAccount {
             get {
-                return ResourceManager.GetString("lblAccount", resourceCulture);
+                return ResourceManager.GetString("labelAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Code.
+        /// </summary>
+        public static string labelCode {
+            get {
+                return ResourceManager.GetString("labelCode", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Credits.
         /// </summary>
-        public static string lblCredits {
+        public static string labelCredits {
             get {
-                return ResourceManager.GetString("lblCredits", resourceCulture);
+                return ResourceManager.GetString("labelCredits", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Developers.
         /// </summary>
-        public static string lblDevelopers {
+        public static string labelDevelopers {
             get {
-                return ResourceManager.GetString("lblDevelopers", resourceCulture);
+                return ResourceManager.GetString("labelDevelopers", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
-        public static string lblEmail {
+        public static string labelEmail {
             get {
-                return ResourceManager.GetString("lblEmail", resourceCulture);
+                return ResourceManager.GetString("labelEmail", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Ex.: revo.pa@uv.mx.
         /// </summary>
-        public static string lblExampleEmail {
+        public static string labelExampleEmail {
             get {
-                return ResourceManager.GetString("lblExampleEmail", resourceCulture);
+                return ResourceManager.GetString("labelExampleEmail", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Ex.: Juan Carlos.
         /// </summary>
-        public static string lblExampleFirstName {
+        public static string labelExampleFirstName {
             get {
-                return ResourceManager.GetString("lblExampleFirstName", resourceCulture);
+                return ResourceManager.GetString("labelExampleFirstName", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Ex.: Perez Arriaga.
         /// </summary>
-        public static string lblExampleLastName {
+        public static string labelExampleLastName {
             get {
-                return ResourceManager.GetString("lblExampleLastName", resourceCulture);
+                return ResourceManager.GetString("labelExampleLastName", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Ex.: RevoGamer.
         /// </summary>
-        public static string lblExampleUser {
+        public static string labelExampleUser {
             get {
-                return ResourceManager.GetString("lblExampleUser", resourceCulture);
+                return ResourceManager.GetString("labelExampleUser", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Ex.: LuisGamer.
         /// </summary>
-        public static string lblExampleUserName {
+        public static string labelExampleUserName {
             get {
-                return ResourceManager.GetString("lblExampleUserName", resourceCulture);
+                return ResourceManager.GetString("labelExampleUserName", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to First Name.
         /// </summary>
-        public static string lblFirstName {
+        public static string labelFirstName {
             get {
-                return ResourceManager.GetString("lblFirstName", resourceCulture);
+                return ResourceManager.GetString("labelFirstName", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Forgot password?.
         /// </summary>
-        public static string lblForgotPassword {
+        public static string labelForgotPassword {
             get {
-                return ResourceManager.GetString("lblForgotPassword", resourceCulture);
+                return ResourceManager.GetString("labelForgotPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game Mode.
+        /// </summary>
+        public static string labelGameMode {
+            get {
+                return ResourceManager.GetString("labelGameMode", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Graphic Designers.
         /// </summary>
-        public static string lblGraphicDesigners {
+        public static string labelGraphicDesigners {
             get {
-                return ResourceManager.GetString("lblGraphicDesigners", resourceCulture);
+                return ResourceManager.GetString("labelGraphicDesigners", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To enter as a guest type the room code..
+        /// </summary>
+        public static string labelGuestInfo {
+            get {
+                return ResourceManager.GetString("labelGuestInfo", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Guest Player.
         /// </summary>
-        public static string lblGuestPlayer {
+        public static string labelGuestPlayer {
             get {
-                return ResourceManager.GetString("lblGuestPlayer", resourceCulture);
+                return ResourceManager.GetString("labelGuestPlayer", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Help.
         /// </summary>
-        public static string lblHelp {
+        public static string labelHelp {
             get {
-                return ResourceManager.GetString("lblHelp", resourceCulture);
+                return ResourceManager.GetString("labelHelp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to you have been invited to join a lobby!!.
+        /// </summary>
+        public static string labelInvitation {
+            get {
+                return ResourceManager.GetString("labelInvitation", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Language.
         /// </summary>
-        public static string lblLanguage {
+        public static string labelLanguage {
             get {
-                return ResourceManager.GetString("lblLanguage", resourceCulture);
+                return ResourceManager.GetString("labelLanguage", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Last Name.
         /// </summary>
-        public static string lblLastName {
+        public static string labelLastName {
             get {
-                return ResourceManager.GetString("lblLastName", resourceCulture);
+                return ResourceManager.GetString("labelLastName", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Play with friends!.
         /// </summary>
-        public static string lblMultiplayerMode {
+        public static string labelMultiplayerMode {
             get {
-                return ResourceManager.GetString("lblMultiplayerMode", resourceCulture);
+                return ResourceManager.GetString("labelMultiplayerMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Music Effects.
+        /// </summary>
+        public static string labelMusicEffects {
+            get {
+                return ResourceManager.GetString("labelMusicEffects", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
-        public static string lblName {
+        public static string labelName {
             get {
-                return ResourceManager.GetString("lblName", resourceCulture);
+                return ResourceManager.GetString("labelName", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Options.
         /// </summary>
-        public static string lblOptions {
+        public static string labelOptions {
             get {
-                return ResourceManager.GetString("lblOptions", resourceCulture);
+                return ResourceManager.GetString("labelOptions", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
-        public static string lblPassword {
+        public static string labelPassword {
             get {
-                return ResourceManager.GetString("lblPassword", resourceCulture);
+                return ResourceManager.GetString("labelPassword", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Score.
         /// </summary>
-        public static string lblScore {
+        public static string labelScore {
             get {
-                return ResourceManager.GetString("lblScore", resourceCulture);
+                return ResourceManager.GetString("labelScore", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
-        public static string lblSettings {
+        public static string labelSettings {
             get {
-                return ResourceManager.GetString("lblSettings", resourceCulture);
+                return ResourceManager.GetString("labelSettings", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Single player mode.
         /// </summary>
-        public static string lblSingleMode {
+        public static string labelSingleMode {
             get {
-                return ResourceManager.GetString("lblSingleMode", resourceCulture);
+                return ResourceManager.GetString("labelSingleMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sound Effects.
+        /// </summary>
+        public static string labelSoundEffects {
+            get {
+                return ResourceManager.GetString("labelSoundEffects", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Round not started.
         /// </summary>
-        public static string lblStatusRoundOff {
+        public static string labelStatusRoundOff {
             get {
-                return ResourceManager.GetString("lblStatusRoundOff", resourceCulture);
+                return ResourceManager.GetString("labelStatusRoundOff", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Theme.
         /// </summary>
-        public static string lblTheme {
+        public static string labelTheme {
             get {
-                return ResourceManager.GetString("lblTheme", resourceCulture);
+                return ResourceManager.GetString("labelTheme", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to User Name.
         /// </summary>
-        public static string lblUserName {
+        public static string labelUserName {
             get {
-                return ResourceManager.GetString("lblUserName", resourceCulture);
+                return ResourceManager.GetString("labelUserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Care!!.
+        /// </summary>
+        public static string messageBoxCare {
+            get {
+                return ResourceManager.GetString("messageBoxCare", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Server connection failed, try again later.
+        /// </summary>
+        public static string messageBoxConnectionError {
+            get {
+                return ResourceManager.GetString("messageBoxConnectionError", resourceCulture);
             }
         }
         
@@ -376,6 +511,150 @@ namespace ClienteJuego.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The game is over and the winner is.
+        /// </summary>
+        public static string messageBoxEndGame {
+            get {
+                return ResourceManager.GetString("messageBoxEndGame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A minimum of 2 participants is required for this game mode..
+        /// </summary>
+        public static string messageBoxErrorLobby {
+            get {
+                return ResourceManager.GetString("messageBoxErrorLobby", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid user or password, verify your information..
+        /// </summary>
+        public static string messageBoxErrorLogin {
+            get {
+                return ResourceManager.GetString("messageBoxErrorLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your message wasn&apos;t delivered, try again later.
+        /// </summary>
+        public static string messageBoxErrorMessage {
+            get {
+                return ResourceManager.GetString("messageBoxErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error occurred, registration didn&apos;t take effect..
+        /// </summary>
+        public static string messageBoxErrorRegister {
+            get {
+                return ResourceManager.GetString("messageBoxErrorRegister", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you will make it out of the round? opponent will win.
+        /// </summary>
+        public static string messageBoxExitGame {
+            get {
+                return ResourceManager.GetString("messageBoxExitGame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid invitation code, there is no associated lobby..
+        /// </summary>
+        public static string messageBoxInvalidCode {
+            get {
+                return ResourceManager.GetString("messageBoxInvalidCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The email entered is invalid..
+        /// </summary>
+        public static string messageBoxInvalidEmail {
+            get {
+                return ResourceManager.GetString("messageBoxInvalidEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If the name entered is not available, enter another one..
+        /// </summary>
+        public static string messageBoxInvalidName {
+            get {
+                return ResourceManager.GetString("messageBoxInvalidName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The password entered is invalid, check the password policy..
+        /// </summary>
+        public static string messageBoxInvalidPassword {
+            get {
+                return ResourceManager.GetString("messageBoxInvalidPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to leave? Modifications will not be saved..
+        /// </summary>
+        public static string messageBoxLeave {
+            get {
+                return ResourceManager.GetString("messageBoxLeave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The user is already registered with this e-mail address, please use another e-mail address..
+        /// </summary>
+        public static string messageBoxMailInUse {
+            get {
+                return ResourceManager.GetString("messageBoxMailInUse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The changes made have been saved.
+        /// </summary>
+        public static string messageBoxSavedChanges {
+            get {
+                return ResourceManager.GetString("messageBoxSavedChanges", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No user with the given name was found..
+        /// </summary>
+        public static string messageBoxSearch {
+            get {
+                return ResourceManager.GetString("messageBoxSearch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successful registration..
+        /// </summary>
+        public static string messageBoxSuccessfulRegistration {
+            get {
+                return ResourceManager.GetString("messageBoxSuccessfulRegistration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Verify that the e-mail address you enter and the name are valid..
+        /// </summary>
+        public static string messageBoxVerifyNameAndEmail {
+            get {
+                return ResourceManager.GetString("messageBoxVerifyNameAndEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Welcome to 100 Mexicanos Dijieron!.
         /// </summary>
         public static string messageBoxWelcomeGame {
@@ -385,11 +664,20 @@ namespace ClienteJuego.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Error occurred, registration didn&apos;t take effect..
+        ///   Looks up a localized string similar to System: Welcome.
         /// </summary>
-        public static string messageBoxxErrorRegister {
+        public static string messageSystem {
             get {
-                return ResourceManager.GetString("messageBoxxErrorRegister", resourceCulture);
+                return ResourceManager.GetString("messageSystem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wisp from.
+        /// </summary>
+        public static string messageWisp {
+            get {
+                return ResourceManager.GetString("messageWisp", resourceCulture);
             }
         }
         

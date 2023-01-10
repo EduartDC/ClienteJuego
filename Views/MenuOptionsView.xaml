@@ -26,7 +26,7 @@
                 VerticalAlignment="Top"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
-                Content="{x:Static Properties:Resources.lblOptions}"
+                Content="{x:Static Properties:Resources.labelOptions}"
                 FontFamily="Arial Rounded MT Bold"
                 FontSize="36"
                 FontWeight="Bold"
@@ -53,43 +53,43 @@
                 VerticalAlignment="Top"
                 Source="/Images/credits.png" />
 
-            <Label
+            <Label x:Name="labelAccount"
                 Width="142"
                 Margin="412,142,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Content="{x:Static p:Resources.lblAccount}"
+                Content="{x:Static p:Resources.labelAccount}"
                 FontSize="22"
                 FontWeight="Bold"
                 Foreground="White" />
-            <Label
+            <Label x:Name="labelHelp"
                 Width="142"
                 Margin="412,208,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Content="{x:Static p:Resources.lblHelp}"
+                Content="{x:Static p:Resources.labelHelp}"
                 FontSize="22"
                 FontWeight="Bold"
                 Foreground="White" />
-            <Label
+            <Label x:Name="labelCredits"
                 Width="142"
                 Margin="412,279,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Content="{x:Static p:Resources.lblCredits}"
+                Content="{x:Static p:Resources.labelCredits}"
                 FontSize="22"
                 FontWeight="Bold"
                 Foreground="White" />
-            <Label
+            <Label x:Name="labelSettings"
                 Width="156"
                 Margin="412,348,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Content="{x:Static p:Resources.lblSettings}"
+                Content="{x:Static p:Resources.labelSettings}"
                 FontSize="22"
                 FontWeight="Bold"
                 Foreground="White" />
-            <Label
+            <Label x:Name="labelLogOut"
                 Width="156"
                 Margin="412,430,0,0"
                 HorizontalAlignment="Left"

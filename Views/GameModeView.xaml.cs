@@ -28,7 +28,7 @@ namespace ClienteJuego.Views
             }
             catch (EndpointNotFoundException)
             {
-                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                 var window = (MainWindow)Application.Current.MainWindow;
                 window.Contenedor.Navigate(new LoginView());
             }
@@ -51,7 +51,7 @@ namespace ClienteJuego.Views
             }
             catch (EndpointNotFoundException)
             {
-                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                 var window = (MainWindow)Application.Current.MainWindow;
                 window.Contenedor.Navigate(new LoginView());
             }

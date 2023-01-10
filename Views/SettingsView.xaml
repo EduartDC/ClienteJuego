@@ -32,26 +32,26 @@
                 </Image.RenderTransform>
             </Image>
             <Label
-                x:Name="lblSettings"
+                x:Name="labelSettings"
                 Width="308"
                 Margin="0,21,0,0"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Top"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
-                Content="{x:Static p:Resources.lblSettings}"
+                Content="{x:Static p:Resources.labelSettings}"
                 FontSize="24"
                 FontWeight="Bold"
                 Foreground="White" />
             <Label
-                x:Name="lblLanguage"
+                x:Name="labelLanguage"
                 Width="308"
                 Margin="0,109,0,0"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Top"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
-                Content="{x:Static p:Resources.lblLanguage}"
+                Content="{x:Static p:Resources.labelLanguage}"
                 FontSize="22"
                 FontWeight="Bold"
                 Foreground="White" />
@@ -127,7 +127,7 @@
                 Foreground="White" />
 
             <ToggleButton
-                x:Name="SoundsEffects"
+                x:Name="tggbtnSoundsEffects"
                 Width="84"
                 Height="30"
                 Margin="0,386,0,0"
@@ -166,7 +166,7 @@
             </ToggleButton>
 
             <ToggleButton
-                x:Name="MusicEffects"
+                x:Name="tggbtnMusicEffects"
                 Width="84"
                 Height="30"
                 HorizontalAlignment="Center"
@@ -194,27 +194,34 @@
                             </Border>
                         </Border>
                         <ControlTemplate.Triggers>
-                            <Trigger Property="IsChecked" Value="True">
-                                <Setter TargetName="B2" Property="HorizontalAlignment" Value="Right" />
-                                <Setter TargetName="B1" Property="Background" Value="lightGreen" />
+                            <Trigger Property="IsChecked" 
+                                     Value="True">
+                                <Setter TargetName="B2" 
+                                        Property="HorizontalAlignment" 
+                                        Value="Right" />
+                                <Setter TargetName="B1" 
+                                        Property="Background" 
+                                        Value="lightGreen" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </ToggleButton.Template>
             </ToggleButton>
             <Label
+                x:Name="labelMusicEffects"
                 Margin="0,220,0,0"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Top"
-                Content="Music Effects"
+                Content="{x:Static p:Resources.labelMusicEffects}"
                 FontSize="20"
                 FontWeight="Bold"
                 Foreground="White" />
             <Label
+                x:Name="labelSoundEffects"
                 Margin="0,331,0,0"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Top"
-                Content="Sound Effects"
+                Content="{x:Static p:Resources.labelSoundEffects}"
                 FontSize="20"
                 FontWeight="Bold"
                 Foreground="White" />

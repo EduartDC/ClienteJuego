@@ -82,7 +82,7 @@ namespace ClienteJuego.Views
             }
             catch (CommunicationObjectFaultedException)
             {
-                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                 var window = (MainWindow)Application.Current.MainWindow;
                 window.Contenedor.Navigate(new LoginView());
             }
@@ -91,8 +91,9 @@ namespace ClienteJuego.Views
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            int resultado = (int)MessageBox.Show("¿Estás seguro(a) de salir de la ronda?", "¡Regresar a modo de juego?", MessageBoxButton.YesNo);
-            if (resultado == 6)
+            int resultYes = 6;
+            int resultado = (int)MessageBox.Show(Properties.Resources.messageBoxExitGame, Properties.Resources.messageBoxCare, MessageBoxButton.YesNo);
+            if (resultado == resultYes)
             {
 
                 var list = match.players;
@@ -112,7 +113,7 @@ namespace ClienteJuego.Views
                         }
                         catch (CommunicationObjectFaultedException)
                         {
-                            MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                            MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                             var window = (MainWindow)Application.Current.MainWindow;
                             window.Contenedor.Navigate(new LoginView());
                         }
@@ -129,7 +130,7 @@ namespace ClienteJuego.Views
             {
                 if (player.idPlayer == match.playerWinner)
                 {
-                    MessageBox.Show("La partida ha terminado el ganador es " + player.userName);
+                    MessageBox.Show(Properties.Resources.messageBoxEndGame + " " + player.userName);
                 }
             }
             try
@@ -158,7 +159,7 @@ namespace ClienteJuego.Views
             }
             catch (CommunicationObjectFaultedException)
             {
-                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                 var window = (MainWindow)Application.Current.MainWindow;
                 window.Contenedor.Navigate(new LoginView());
             }
@@ -222,7 +223,7 @@ namespace ClienteJuego.Views
                 }
                 catch (CommunicationObjectFaultedException)
                 {
-                    MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                    MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                     var window = (MainWindow)Application.Current.MainWindow;
                     window.Contenedor.Navigate(new LoginView());
                 }
@@ -238,7 +239,7 @@ namespace ClienteJuego.Views
                     }
                     catch (CommunicationObjectFaultedException)
                     {
-                        MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                        MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                         var window = (MainWindow)Application.Current.MainWindow;
                         window.Contenedor.Navigate(new LoginView());
                     }
@@ -253,7 +254,7 @@ namespace ClienteJuego.Views
                     }
                     catch (CommunicationObjectFaultedException)
                     {
-                        MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                        MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                         var window = (MainWindow)Application.Current.MainWindow;
                         window.Contenedor.Navigate(new LoginView());
                     }
@@ -287,7 +288,7 @@ namespace ClienteJuego.Views
                 }
                 catch (CommunicationObjectFaultedException)
                 {
-                    MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                    MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                     var window = (MainWindow)Application.Current.MainWindow;
                     window.Contenedor.Navigate(new LoginView());
                 }
@@ -302,7 +303,7 @@ namespace ClienteJuego.Views
                 }
                 catch (CommunicationObjectFaultedException)
                 {
-                    MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                    MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                     var window = (MainWindow)Application.Current.MainWindow;
                     window.Contenedor.Navigate(new LoginView());
                 }
@@ -348,7 +349,7 @@ namespace ClienteJuego.Views
             }
             catch (CommunicationObjectFaultedException)
             {
-                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                 var window = (MainWindow)Application.Current.MainWindow;
                 window.Contenedor.Navigate(new LoginView());
             }
@@ -367,7 +368,7 @@ namespace ClienteJuego.Views
                         }
                         catch (CommunicationObjectFaultedException)
                         {
-                            MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                            MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                             var window = (MainWindow)Application.Current.MainWindow;
                             window.Contenedor.Navigate(new LoginView());
                         }
@@ -375,7 +376,7 @@ namespace ClienteJuego.Views
                     }
                     catch (CommunicationObjectFaultedException)
                     {
-                        MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                        MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                     }
                 }
             }
@@ -391,7 +392,7 @@ namespace ClienteJuego.Views
                     }
                     catch (CommunicationObjectFaultedException)
                     {
-                        MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                        MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                         var window = (MainWindow)Application.Current.MainWindow;
                         window.Contenedor.Navigate(new LoginView());
                     }
@@ -414,7 +415,7 @@ namespace ClienteJuego.Views
                     }
                     catch (CommunicationObjectFaultedException)
                     {
-                        MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                        MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                         var window = (MainWindow)Application.Current.MainWindow;
                         window.Contenedor.Navigate(new LoginView());
                     }
@@ -429,7 +430,7 @@ namespace ClienteJuego.Views
                     }
                     catch (CommunicationObjectFaultedException)
                     {
-                        MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                        MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                         var window = (MainWindow)Application.Current.MainWindow;
                         window.Contenedor.Navigate(new LoginView());
                     }
@@ -452,7 +453,7 @@ namespace ClienteJuego.Views
                 }
                 catch (CommunicationObjectFaultedException)
                 {
-                    MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                    MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                     var window = (MainWindow)Application.Current.MainWindow;
                     window.Contenedor.Navigate(new LoginView());
                 }
@@ -468,7 +469,7 @@ namespace ClienteJuego.Views
                 }
                 catch (CommunicationObjectFaultedException)
                 {
-                    MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                    MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                     var window = (MainWindow)Application.Current.MainWindow;
                     window.Contenedor.Navigate(new LoginView());
                 }

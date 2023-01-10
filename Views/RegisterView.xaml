@@ -43,44 +43,44 @@
                 Foreground="#FFFBFBFB" />
 
             <Label
-                x:Name="lblFirstName"
+                x:Name="labelFirstName"
                 Margin="297,147,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Content="{x:Static p:Resources.lblFirstName}"
+                Content="{x:Static p:Resources.labelFirstName}"
                 FontWeight="Bold"
                 Foreground="#FFFBFBFB" />
             <Label
-                x:Name="lblLastName"
+                x:Name="labelLastName"
                 Margin="296,201,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Content="{x:Static p:Resources.lblLastName}"
+                Content="{x:Static p:Resources.labelLastName}"
                 FontWeight="Bold"
                 Foreground="#FFFBFBFB" />
             <Label
-                x:Name="lblEmail"
+                x:Name="labelEmail"
                 Margin="295,255,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Content="{x:Static p:Resources.lblEmail}"
+                Content="{x:Static p:Resources.labelEmail}"
                 FontWeight="Bold"
                 Foreground="#FFFBFBFB"
                 RenderTransformOrigin="0.541,0.616" />
             <Label
-                x:Name="lblUserName"
+                x:Name="labelUserName"
                 Margin="294,314,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Content="{x:Static p:Resources.lblUserName}"
+                Content="{x:Static p:Resources.labelUserName}"
                 FontWeight="Bold"
                 Foreground="#FFFBFBFB" />
             <Label
-                x:Name="lblPassword"
+                x:Name="labelPassword"
                 Margin="294,375,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Content="{x:Static p:Resources.lblPassword}"
+                Content="{x:Static p:Resources.labelPassword}"
                 FontWeight="Bold"
                 Foreground="#FFFBFBFB" />
             <Button
@@ -91,19 +91,19 @@
                 VerticalAlignment="Top"
                 Background="#FFFF8906"
                 BorderBrush="#FFFBFBFB"
-                Click="Button_Click"
+                Click="btnCancel_Click"
                 Content="{x:Static p:Resources.btnCancel}"
                 FontWeight="Bold"
                 Foreground="#FFFBFBFB" />
             <Label
-                x:Name="lblExampleFirstName"
+                x:Name="labelExampleFirstName"
                 Margin="300,169,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Content="{x:Static p:Resources.lblExampleFirstName}"
+                Content="{x:Static p:Resources.labelExampleFirstName}"
                 Foreground="#FFA7A9BE" />
             <Label
-                x:Name="lblExamplePassword"
+                x:Name="labelExamplePassword"
                 Width="99"
                 Margin="297,399,0,0"
                 HorizontalAlignment="Left"
@@ -111,25 +111,25 @@
                 Content="●●●●●●●●●●"
                 Foreground="#FFA7A9BE" />
             <Label
-                x:Name="lblExampleLastName"
+                x:Name="labelExampleLastName"
                 Margin="300,224,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Content="{x:Static p:Resources.lblExampleLastName}"
+                Content="{x:Static p:Resources.labelExampleLastName}"
                 Foreground="#FFA7A9BE" />
             <Label
-                x:Name="lblExampleEmail"
+                x:Name="labelExampleEmail"
                 Margin="300,283,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Content="{x:Static p:Resources.lblExampleEmail}"
+                Content="{x:Static p:Resources.labelExampleEmail}"
                 Foreground="#FFA7A9BE" />
             <Label
-                x:Name="lblExampleUser"
+                x:Name="labelExampleUser"
                 Margin="300,340,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Content="{x:Static p:Resources.lblExampleUser}"
+                Content="{x:Static p:Resources.labelExampleUser}"
                 Foreground="#FFA7A9BE" />
             <TextBox
                 x:Name="textFirsName"
@@ -199,9 +199,6 @@
                 GotFocus="textPassword_GotFocus"
                 KeyDown="TextPassword_KeyDown"
                 LostFocus="textPassword_LostFocus" />
-
-
-
 
         </Grid>
     </Viewbox>

@@ -44,7 +44,7 @@
                 </Button.Background>
             </Button>
             <Label
-                x:Name="lblCredits"
+                x:Name="labelCredits"
                 Width="418"
                 Margin="0,8,0,0"
                 HorizontalAlignment="Center"
@@ -56,16 +56,16 @@
                 FontWeight="Bold"
                 Foreground="White" />
             <Label
-                x:Name="lblDevelopers"
+                x:Name="labelDevelopers"
                 Margin="72,109,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Content="{x:Static p:Resources.lblDevelopers}"
+                Content="{x:Static p:Resources.labelDevelopers}"
                 FontSize="36"
                 FontWeight="Bold"
                 Foreground="White" />
             <Label
-                x:Name="lblDeveloperEduart"
+                x:Name="labelDeveloperEduart"
                 Width="328"
                 Height="41"
                 Margin="112,174,0,0"
@@ -87,7 +87,7 @@
                 </Label.RenderTransform>
             </Label>
             <Label
-                x:Name="lblDeveloperCristopher"
+                x:Name="labelDeveloperCristopher"
                 Width="364"
                 Height="41"
                 Margin="112,209,0,0"
@@ -109,16 +109,16 @@
                 </Label.RenderTransform>
             </Label>
             <Label
-                x:Name="lblGraphicDesigners"
+                x:Name="labelGraphicDesigners"
                 Margin="72,0,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
-                Content="{x:Static p:Resources.lblGraphicDesigners}"
+                Content="{x:Static p:Resources.labelGraphicDesigners}"
                 FontSize="36"
                 FontWeight="Bold"
                 Foreground="White" />
             <Label
-                x:Name="lblDeveloperEduart_Copy"
+                x:Name="labelDesignerEduart"
                 Width="328"
                 Height="41"
                 Margin="112,340,0,0"
@@ -140,7 +140,7 @@
                 </Label.RenderTransform>
             </Label>
             <Label
-                x:Name="lblDeveloperCristopher_Copy"
+                x:Name="labelDesignerCristopher"
                 Width="364"
                 Height="41"
                 Margin="112,375,0,0"
@@ -162,7 +162,7 @@
                 </Label.RenderTransform>
             </Label>
             <Label
-                x:Name="lblDeveloperCristopher_Copy1"
+                x:Name="labelDesignerMark"
                 Width="364"
                 Height="41"
                 Margin="112,410,0,0"

@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:ClienteJuego.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:p="clr-namespace:ClienteJuego.Properties"
     Title="FriendListView"
     d:DesignHeight="600"
     d:DesignWidth="800"
@@ -39,7 +40,7 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=userName}" Header="User Name" />
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=userName}" Header="{x:Static p:Resources.labelUserName}" />
                         <GridViewColumn Width="50">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
@@ -100,7 +101,6 @@
                 BorderThickness="0,0,0,2"
                 FontSize="14"
                 Foreground="#FFFFFEFE"
-                Text="TextBox"
                 TextWrapping="Wrap" />
         </Grid>
     </Viewbox>

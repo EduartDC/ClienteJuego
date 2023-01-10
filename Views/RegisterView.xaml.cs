@@ -31,20 +31,20 @@ namespace ClienteJuego.Views
 
             if (!ValidateFields())
             {
-                MessageBox.Show("An empty field was detected, to continue you must fill all text fields.");
+                MessageBox.Show(Properties.Resources.messageBoxEmptyFields);
 
             }
             else if (!ValidatePassword(textPassword.Password))
             {
-                MessageBox.Show("Error ocurred, the password does not meet the requirements");
+                MessageBox.Show(Properties.Resources.messageBoxInvalidPassword);
             }
             else if (!ValidateEmail(player.email))
             {
-                MessageBox.Show("Error ocurred, invalid email");
+                MessageBox.Show(Properties.Resources.messageBoxInvalidEmail);
             }
             else if (!ValidatePlayerExistence(player))
             {
-                MessageBox.Show("Verifique se el correo que ingresa y el nombre sean validos");
+                MessageBox.Show(Properties.Resources.messageBoxVerifyNameAndEmail);
             }
             else
             {
@@ -54,24 +54,24 @@ namespace ClienteJuego.Views
                     int error = 1;
                     if (result == error)
                     {
-                        MessageBox.Show("Error occurred, registration didn't take effect");
+                        MessageBox.Show(Properties.Resources.messageBoxErrorRegister);
                     }
                     else if (result == errorConnection)
                     {
 
-                        MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                        MessageBox.Show(Properties.Resources.messageBoxConnectionError);
 
                     }
                     else
                     {
-                        MessageBox.Show("Successful registration.");
+                        MessageBox.Show(Properties.Resources.messageBoxSuccessfulRegistration);
                         ClearFields();
                         Accessories.SaveProfileAvatar(player.userName, "/Avatars/avatarDef.png");
                     }
                 }
                 catch (EndpointNotFoundException)
                 {
-                    MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                    MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                 }
 
 
@@ -94,23 +94,23 @@ namespace ClienteJuego.Views
                 int inUse = 1;
                 if (emailResult == inUse)
                 {
-                    MessageBox.Show("Exte usuario ya se encuentra registrado, Utilice otro correo.");
+                    MessageBox.Show(Properties.Resources.messageBoxMailInUse);
                     validateEmail = true;
                 }
                 else if (emailResult == errorConnection)
                 {
-                    MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                    MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                 }
 
                 var userResult = client.ValidateUserNamePlayer(player);
                 if (userResult == inUse)
                 {
-                    MessageBox.Show("Exte usuario ya se encuentra registrado, Utilice otro nombre de usuario.");
+                    MessageBox.Show(Properties.Resources.messageBoxInvalidName);
                     validateUser = true;
                 }
                 else if (emailResult == errorConnection)
                 {
-                    MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                    MessageBox.Show(Properties.Resources.messageBoxConnectionError);
                 }
 
                 if (validateEmail || validateUser)
@@ -120,7 +120,7 @@ namespace ClienteJuego.Views
             }
             catch (EndpointNotFoundException)
             {
-                MessageBox.Show("Error de conexion con el servidor, Intentelo mas tarde");
+                MessageBox.Show(Properties.Resources.messageBoxConnectionError);
             }
             return result;
         }
@@ -200,7 +200,7 @@ namespace ClienteJuego.Views
             textPassword.Password = "";
 
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             Accessories.PlaySoundsEffects();
             NavigationService.Navigate(new Uri("Views/LoginView.xaml", UriKind.Relative));
@@ -211,7 +211,7 @@ namespace ClienteJuego.Views
         {
             if (!textFirsName.Text.Equals("") || !textFirsName.Text.Equals(null))
             {
-                lblExampleFirstName.Visibility = Visibility.Hidden;
+                labelExampleFirstName.Visibility = Visibility.Hidden;
             }
         }
 
@@ -219,7 +219,7 @@ namespace ClienteJuego.Views
         {
             if (textFirsName.Text.Equals("") || textFirsName.Text.Equals(null))
             {
-                lblExampleFirstName.Visibility = Visibility.Visible;
+                labelExampleFirstName.Visibility = Visibility.Visible;
             }
         }
 
@@ -227,7 +227,7 @@ namespace ClienteJuego.Views
         {
             if (textLastName.Text.Equals("") || textLastName.Text.Equals(null))
             {
-                lblExampleLastName.Visibility = Visibility.Visible;
+                labelExampleLastName.Visibility = Visibility.Visible;
             }
         }
 
@@ -235,7 +235,7 @@ namespace ClienteJuego.Views
         {
             if (!textLastName.Text.Equals("") || !textLastName.Text.Equals(null))
             {
-                lblExampleLastName.Visibility = Visibility.Hidden;
+                labelExampleLastName.Visibility = Visibility.Hidden;
             }
         }
 
@@ -243,7 +243,7 @@ namespace ClienteJuego.Views
         {
             if (!textEmail.Text.Equals("") || !textEmail.Text.Equals(null))
             {
-                lblExampleEmail.Visibility = Visibility.Hidden;
+                labelExampleEmail.Visibility = Visibility.Hidden;
             }
         }
 
@@ -251,7 +251,7 @@ namespace ClienteJuego.Views
         {
             if (textEmail.Text.Equals("") || textEmail.Text.Equals(null))
             {
-                lblExampleEmail.Visibility = Visibility.Visible;
+                labelExampleEmail.Visibility = Visibility.Visible;
             }
         }
 
@@ -259,7 +259,7 @@ namespace ClienteJuego.Views
         {
             if (!textUserName.Text.Equals("") || !textUserName.Text.Equals(null))
             {
-                lblExampleUser.Visibility = Visibility.Hidden;
+                labelExampleUser.Visibility = Visibility.Hidden;
             }
         }
 
@@ -267,7 +267,7 @@ namespace ClienteJuego.Views
         {
             if (textUserName.Text.Equals("") || textUserName.Text.Equals(null))
             {
-                lblExampleUser.Visibility = Visibility.Visible;
+                labelExampleUser.Visibility = Visibility.Visible;
             }
         }
 
@@ -298,7 +298,7 @@ namespace ClienteJuego.Views
         {
             if (!textUserName.Text.Equals("") || !textUserName.Text.Equals(null))
             {
-                lblExamplePassword.Visibility = Visibility.Hidden;
+                labelExamplePassword.Visibility = Visibility.Hidden;
 
             }
         }
@@ -306,7 +306,7 @@ namespace ClienteJuego.Views
         {
             if (textUserName.Text.Equals("") || textUserName.Text.Equals(null))
             {
-                lblExamplePassword.Visibility = Visibility.Visible;
+                labelExamplePassword.Visibility = Visibility.Visible;
             }
         }
     }

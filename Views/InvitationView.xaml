@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:ClienteJuego.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:p="clr-namespace:ClienteJuego.Properties"
     Title="InvitationView"
     d:DesignHeight="600"
     d:DesignWidth="800"
@@ -13,7 +14,7 @@
     <Grid>
 
         <Rectangle
-            Width="214"
+            Width="234"
             Height="89"
             Margin="0,53,0,0"
             HorizontalAlignment="Left"
@@ -22,16 +23,32 @@
             Stroke="Black" />
         <Button
             x:Name="btnAccept"
-            Margin="36,112,0,0"
+            Margin="130,108,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Content="Accept" Click="btnAccept_Click" />
+            Background="#FF0F0E17"
+            Click="btnAccept_Click"
+            Content="{x:Static p:Resources.btnJoin}"
+            FontWeight="Bold"
+            Foreground="#FFFDFDFD" />
         <Button
             x:Name="btnCancel"
-            Margin="137,112,0,0"
+            Margin="26,108,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Content="Cancel" Click="btnCancel_Click" />
+            Background="#FF0F0E17"
+            Click="btnCancel_Click"
+            Content="{x:Static p:Resources.btnCancel}"
+            FontWeight="Bold"
+            Foreground="#FFFBFBFB" />
+        <Label
+            x:Name="labelInvitation"
+            Margin="1,72,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="{x:Static p:Resources.labelInvitation}"
+            FontWeight="Bold"
+            Foreground="White" />
 
     </Grid>
 </Page>
