@@ -32,6 +32,10 @@ namespace ClienteJuego.Views
                 imgAvatar.Source = imageSource;
             }
 
+            if (player.status)
+            {
+                btnValidateEmail.Visibility = Visibility.Collapsed;
+            }
 
         }
 
@@ -68,6 +72,11 @@ namespace ClienteJuego.Views
         {
             Accessories.PlaySoundsEffects();
             NavigationService.Navigate(new Uri("Views/EditAccountView.xaml", UriKind.Relative));
+        }
+
+        private void btnValidateEmail_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("Views/ValidateMailView.xaml", UriKind.Relative));
         }
     }
 }

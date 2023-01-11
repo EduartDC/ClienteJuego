@@ -782,6 +782,12 @@ namespace ClienteJuego.ConnectService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/GuestUser", ReplyAction="http://tempuri.org/IUserManager/GuestUserResponse")]
         System.Threading.Tasks.Task<ClienteJuego.ConnectService.PlayerServer> GuestUserAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/SendMail", ReplyAction="http://tempuri.org/IUserManager/SendMailResponse")]
+        int SendMail(ClienteJuego.ConnectService.PlayerServer player, string code);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/SendMail", ReplyAction="http://tempuri.org/IUserManager/SendMailResponse")]
+        System.Threading.Tasks.Task<int> SendMailAsync(ClienteJuego.ConnectService.PlayerServer player, string code);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -905,6 +911,14 @@ namespace ClienteJuego.ConnectService {
         
         public System.Threading.Tasks.Task<ClienteJuego.ConnectService.PlayerServer> GuestUserAsync() {
             return base.Channel.GuestUserAsync();
+        }
+        
+        public int SendMail(ClienteJuego.ConnectService.PlayerServer player, string code) {
+            return base.Channel.SendMail(player, code);
+        }
+        
+        public System.Threading.Tasks.Task<int> SendMailAsync(ClienteJuego.ConnectService.PlayerServer player, string code) {
+            return base.Channel.SendMailAsync(player, code);
         }
     }
     
@@ -1224,11 +1238,11 @@ namespace ClienteJuego.ConnectService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ConnectService.IGameService", CallbackContract=typeof(ClienteJuego.ConnectService.IGameServiceCallback), SessionMode=System.ServiceModel.SessionMode.Required)]
     public interface IGameService {
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGameService/StartRaund")]
-        void StartRaund(ClienteJuego.ConnectService.MatchServer match);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGameService/StartRound")]
+        void StartRound(ClienteJuego.ConnectService.MatchServer match);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGameService/StartRaund")]
-        System.Threading.Tasks.Task StartRaundAsync(ClienteJuego.ConnectService.MatchServer match);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGameService/StartRound")]
+        System.Threading.Tasks.Task StartRoundAsync(ClienteJuego.ConnectService.MatchServer match);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGameService/SetCallbackGame")]
         void SetCallbackGame(string username);
@@ -1311,12 +1325,12 @@ namespace ClienteJuego.ConnectService {
                 base(callbackInstance, binding, remoteAddress) {
         }
         
-        public void StartRaund(ClienteJuego.ConnectService.MatchServer match) {
-            base.Channel.StartRaund(match);
+        public void StartRound(ClienteJuego.ConnectService.MatchServer match) {
+            base.Channel.StartRound(match);
         }
         
-        public System.Threading.Tasks.Task StartRaundAsync(ClienteJuego.ConnectService.MatchServer match) {
-            return base.Channel.StartRaundAsync(match);
+        public System.Threading.Tasks.Task StartRoundAsync(ClienteJuego.ConnectService.MatchServer match) {
+            return base.Channel.StartRoundAsync(match);
         }
         
         public void SetCallbackGame(string username) {

@@ -196,6 +196,15 @@ namespace ClienteJuego.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Validate.
+        /// </summary>
+        public static string btnValidate {
+            get {
+                return ResourceManager.GetString("btnValidate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Account.
         /// </summary>
         public static string labelAccount {
@@ -237,6 +246,15 @@ namespace ClienteJuego.Properties {
         public static string labelEmail {
             get {
                 return ResourceManager.GetString("labelEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your code here:.
+        /// </summary>
+        public static string labelEnterCode {
+            get {
+                return ResourceManager.GetString("labelEnterCode", resourceCulture);
             }
         }
         
@@ -484,6 +502,15 @@ namespace ClienteJuego.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A validation code has been sent to your email..
+        /// </summary>
+        public static string labelValidateMail {
+            get {
+                return ResourceManager.GetString("labelValidateMail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Care!!.
         /// </summary>
         public static string messageBoxCare {
@@ -664,11 +691,47 @@ namespace ClienteJuego.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to From:.
+        /// </summary>
+        public static string messageChatFrom {
+            get {
+                return ResourceManager.GetString("messageChatFrom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your email has been verified, Thank you..
+        /// </summary>
+        public static string messageCorrectCode {
+            get {
+                return ResourceManager.GetString("messageCorrectCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The code is incorrect..
+        /// </summary>
+        public static string messageIncorrectCode {
+            get {
+                return ResourceManager.GetString("messageIncorrectCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to System: Welcome.
         /// </summary>
         public static string messageSystem {
             get {
                 return ResourceManager.GetString("messageSystem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hello again.
+        /// </summary>
+        public static string messageWelcome {
+            get {
+                return ResourceManager.GetString("messageWelcome", resourceCulture);
             }
         }
         

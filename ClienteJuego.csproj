@@ -153,6 +153,9 @@
     <Compile Include="Views\TableroView.xaml.cs">
       <DependentUpon>TableroView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ValidateMailView.xaml.cs">
+      <DependentUpon>ValidateMailView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -233,6 +236,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ValidateMailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -258,16 +265,16 @@
     <None Include="Connected Services\ConnectService\ClienteJuego.ConnectService.PlayerServer.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ConnectService\item3.xsd">
+    <None Include="Connected Services\ConnectService\item.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ConnectService\item31.xsd">
+    <None Include="Connected Services\ConnectService\item1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ConnectService\item32.xsd">
+    <None Include="Connected Services\ConnectService\item2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ConnectService\ManagerService1.wsdl" />
+    <None Include="Connected Services\ConnectService\ManagerService.wsdl" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -353,7 +360,7 @@
     <Resource Include="Avatars\avatarDef.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ConnectService\item1.disco" />
+    <None Include="Connected Services\ConnectService\item.disco" />
     <Content Include="EffectSounds\musicOriginal.wav" />
     <Content Include="EffectSounds\ButtonClic.wav" />
     <Content Include="EffectSounds\Error.wav" />

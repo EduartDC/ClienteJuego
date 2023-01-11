@@ -162,6 +162,9 @@
   <data name="btnStart" xml:space="preserve">
     <value>Start</value>
   </data>
+  <data name="btnValidate" xml:space="preserve">
+    <value>Validate</value>
+  </data>
   <data name="labelAccount" xml:space="preserve">
     <value>Account</value>
   </data>
@@ -176,6 +179,9 @@
   </data>
   <data name="labelEmail" xml:space="preserve">
     <value>Email</value>
+  </data>
+  <data name="labelEnterCode" xml:space="preserve">
+    <value>Enter your code here:</value>
   </data>
   <data name="labelExampleEmail" xml:space="preserve">
     <value>Ex.: revo.pa@uv.mx</value>
@@ -258,6 +264,9 @@
   <data name="labelUserName" xml:space="preserve">
     <value>User Name</value>
   </data>
+  <data name="labelValidateMail" xml:space="preserve">
+    <value>A validation code has been sent to your email.</value>
+  </data>
   <data name="messageBoxCare" xml:space="preserve">
     <value>Care!!</value>
   </data>
@@ -318,8 +327,20 @@
   <data name="messageBoxWelcomeGame" xml:space="preserve">
     <value>Welcome to 100 Mexicanos Dijieron!</value>
   </data>
+  <data name="messageChatFrom" xml:space="preserve">
+    <value>From:</value>
+  </data>
+  <data name="messageCorrectCode" xml:space="preserve">
+    <value>Your email has been verified, Thank you.</value>
+  </data>
+  <data name="messageIncorrectCode" xml:space="preserve">
+    <value>The code is incorrect.</value>
+  </data>
   <data name="messageSystem" xml:space="preserve">
     <value>System: Welcome</value>
+  </data>
+  <data name="messageWelcome" xml:space="preserve">
+    <value>Hello again</value>
   </data>
   <data name="messageWisp" xml:space="preserve">
     <value>Wisp from</value>

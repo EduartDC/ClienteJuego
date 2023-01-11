@@ -51,7 +51,7 @@ namespace ClienteJuego.Views
                 try
                 {
                     int result = client.AddPlayer(player);
-                    int error = 1;
+                    int error = 0;
                     if (result == error)
                     {
                         MessageBox.Show(Properties.Resources.messageBoxErrorRegister);
@@ -136,7 +136,7 @@ namespace ClienteJuego.Views
                 email = textEmail.Text,
                 userName = textUserName.Text,
                 password = password,
-                status = true
+                status = false
             };
 
             return player;

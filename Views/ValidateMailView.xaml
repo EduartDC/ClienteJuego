@@ -1,0 +1,86 @@
+﻿<Page
+    x:Class="ClienteJuego.Views.ValidateMailView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ClienteJuego.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:p="clr-namespace:ClienteJuego.Properties"
+    Title="ValidateMailView"
+    d:DesignHeight="600"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+
+    <Viewbox Stretch="Fill" StretchDirection="Both">
+        <Grid
+            Width="800"
+            Height="600"
+            Background="#FF0F0E17">
+            <Image
+                Margin="393,74,-196,72"
+                Opacity="0.3"
+                RenderTransformOrigin="0.5,0.5"
+                Source="/Images/ok3.png">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform />
+                        <SkewTransform />
+                        <RotateTransform Angle="-89.975" />
+                        <TranslateTransform />
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Label
+                Margin="0,210,0,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Content="{x:Static p:Resources.labelValidateMail}"
+                FontSize="18"
+                FontWeight="Bold"
+                Foreground="White" />
+            <Button
+                x:Name="btnValidate"
+                Width="108"
+                Margin="472,466,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="#FFFF8906"
+                Click="btnValidate_Click"
+                Content="{x:Static p:Resources.btnValidate}"
+                FontSize="14"
+                FontWeight="Bold"
+                Foreground="White" />
+            <TextBox
+                x:Name="textCode"
+                Width="200"
+                Height="22"
+                Margin="380,285,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                TextWrapping="Wrap" />
+            <Button
+                x:Name="btnBack"
+                Width="80"
+                Height="52"
+                Margin="200,451,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                BorderBrush="{x:Null}"
+                Click="btnBack_Click"
+                Content="">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/back.png" Stretch="Uniform" />
+                </Button.Background>
+            </Button>
+            <Label
+                Margin="200,280,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="{x:Static p:Resources.labelEnterCode}"
+                FontSize="16"
+                FontWeight="Bold"
+                Foreground="White" />
+        </Grid>
+    </Viewbox>
+</Page>

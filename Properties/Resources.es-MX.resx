@@ -162,6 +162,9 @@
   <data name="btnStart" xml:space="preserve">
     <value>Iniciar</value>
   </data>
+  <data name="btnValidate" xml:space="preserve">
+    <value>Validar</value>
+  </data>
   <data name="labelAccount" xml:space="preserve">
     <value>Cuenta</value>
   </data>
@@ -176,6 +179,9 @@
   </data>
   <data name="labelEmail" xml:space="preserve">
     <value>Correo Electrónico</value>
+  </data>
+  <data name="labelEnterCode" xml:space="preserve">
+    <value>Ingrese su código aquí:</value>
   </data>
   <data name="labelExampleEmail" xml:space="preserve">
     <value>Ej.: revo.pa@uv.mx</value>
@@ -258,6 +264,9 @@
   <data name="labelUserName" xml:space="preserve">
     <value>Nombre de Usuario</value>
   </data>
+  <data name="labelValidateMail" xml:space="preserve">
+    <value>Se a enviado un código de validación a su correo.</value>
+  </data>
   <data name="messageBoxCare" xml:space="preserve">
     <value>cuidado!!</value>
   </data>
@@ -318,11 +327,23 @@
   <data name="messageBoxWelcomeGame" xml:space="preserve">
     <value>¡Bienvenido a 100 Mexicanos Dijieron!</value>
   </data>
+  <data name="messageChatFrom" xml:space="preserve">
+    <value>De:</value>
+  </data>
+  <data name="messageCorrectCode" xml:space="preserve">
+    <value>Su correo a sido verificado, Gracias.</value>
+  </data>
   <data name="messageDisconect" xml:space="preserve">
     <value>Se ha desconectado.</value>
   </data>
+  <data name="messageIncorrectCode" xml:space="preserve">
+    <value>El codigo es incorrecto</value>
+  </data>
   <data name="messageSystem" xml:space="preserve">
     <value>System: Bienvenido</value>
+  </data>
+  <data name="messageWelcome" xml:space="preserve">
+    <value>Hola de nuevo</value>
   </data>
   <data name="messageWisp" xml:space="preserve">
     <value>Susurro de</value>

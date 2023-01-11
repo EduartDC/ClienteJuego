@@ -25,6 +25,7 @@
                 Background="#FFCC720B"
                 Click="btnCancel_Click"
                 Content="{x:Static p:Resources.btnCancel}"
+                FontSize="16"
                 FontWeight="Bold"
                 Foreground="White" />
             <Button
@@ -37,6 +38,7 @@
                 Background="#FFFF8906"
                 Click="btnEdit_Click"
                 Content="{x:Static p:Resources.btnEdit}"
+                FontSize="16"
                 FontWeight="Bold"
                 Foreground="White" />
             <TextBox
@@ -134,6 +136,17 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Source="/Avatars/avatarDef.png" />
+            <Button
+                x:Name="btnValidateEmail"
+                Margin="533,324,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="#FFFF8906"
+                Click="btnValidateEmail_Click"
+                Content="{x:Static p:Resources.btnValidate}"
+                FontSize="16"
+                FontWeight="Bold"
+                Foreground="White" />
 
 
         </Grid>

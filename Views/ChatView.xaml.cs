@@ -73,7 +73,7 @@ namespace ClienteJuego.Views
         public void Receive(MessageServer message)
         {
 
-            textChat.AppendText("From " + message.Sender + ": " + message.Content + "\n");
+            textChat.AppendText(Properties.Resources.messageChatFrom + " " + message.Sender + ": " + message.Content + "\n");
 
         }
 

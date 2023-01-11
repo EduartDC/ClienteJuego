@@ -55,11 +55,11 @@ namespace ClienteJuego.Views
         {
             ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
             var code = textInvitationCode.Text;
-            int validLobby = 1;
+            int validateLobby = 1;
             if (!string.IsNullOrEmpty(code))
             {
                 var result = client.ValidateLobby(textInvitationCode.Text);
-                if (result == validLobby)
+                if (result == validateLobby)
                 {
                     var window = (MainWindow)Application.Current.MainWindow;
                     window.Contenedor.Navigate(new LobbyView(code));

@@ -42,9 +42,9 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://192.168.229.202:8082/?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://192.168.229.202:8082/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://192.168.229.202:8082/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MessageService.Domain" />
+      <xsd:import schemaLocation="http://localhost:8082/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8082/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8082/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MessageService.Domain" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IUserManager_MatchingFriends_InputMessage">
@@ -119,6 +119,12 @@
   <wsdl:message name="IUserManager_GuestUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:GuestUserResponse" />
   </wsdl:message>
+  <wsdl:message name="IUserManager_SendMail_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendMail" />
+  </wsdl:message>
+  <wsdl:message name="IUserManager_SendMail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendMailResponse" />
+  </wsdl:message>
   <wsdl:message name="IChatService_Connect_InputMessage">
     <wsdl:part name="parameters" element="tns:Connect" />
   </wsdl:message>
@@ -191,8 +197,8 @@
   <wsdl:message name="INotificationService_LoadLobby_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:LoadLobby" />
   </wsdl:message>
-  <wsdl:message name="IGameService_StartRaund_InputMessage">
-    <wsdl:part name="parameters" element="tns:StartRaund" />
+  <wsdl:message name="IGameService_StartRound_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartRound" />
   </wsdl:message>
   <wsdl:message name="IGameService_SetCallbackGame_InputMessage">
     <wsdl:part name="parameters" element="tns:SetCallbackGame" />
@@ -276,6 +282,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IUserManager/GuestUser" message="tns:IUserManager_GuestUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserManager/GuestUserResponse" message="tns:IUserManager_GuestUser_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="SendMail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserManager/SendMail" message="tns:IUserManager_SendMail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserManager/SendMailResponse" message="tns:IUserManager_SendMail_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType msc:usingSession="true" name="IChatService">
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Connect">
@@ -352,8 +362,8 @@
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType msc:usingSession="true" name="IGameService">
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="StartRaund">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/StartRaund" message="tns:IGameService_StartRaund_InputMessage" />
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="StartRound">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/StartRound" message="tns:IGameService_StartRound_InputMessage" />
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SetCallbackGame">
       <wsdl:input wsaw:Action="http://tempuri.org/IGameService/SetCallbackGame" message="tns:IGameService_SetCallbackGame_InputMessage" />
@@ -493,6 +503,15 @@
     </wsdl:operation>
     <wsdl:operation name="GuestUser">
       <soap12:operation soapAction="http://tempuri.org/IUserManager/GuestUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMail">
+      <soap12:operation soapAction="http://tempuri.org/IUserManager/SendMail" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -654,8 +673,8 @@
   <wsdl:binding name="NetTcpBinding_IGameService" type="tns:IGameService">
     <wsp:PolicyReference URI="#NetTcpBinding_IGameService_policy" />
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
-    <wsdl:operation name="StartRaund">
-      <soap12:operation soapAction="http://tempuri.org/IGameService/StartRaund" style="document" />
+    <wsdl:operation name="StartRound">
+      <soap12:operation soapAction="http://tempuri.org/IGameService/StartRound" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -729,33 +748,33 @@
   </wsdl:binding>
   <wsdl:service name="ManagerService">
     <wsdl:port name="NetTcpBinding_IUserManager" binding="tns:NetTcpBinding_IUserManager">
-      <soap12:address location="net.tcp://192.168.229.202:8081/MessageService" />
+      <soap12:address location="net.tcp://localhost:8081/MessageService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://192.168.229.202:8081/MessageService</wsa10:Address>
+        <wsa10:Address>net.tcp://localhost:8081/MessageService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_IChatService" binding="tns:NetTcpBinding_IChatService">
-      <soap12:address location="net.tcp://192.168.229.202:8081/MessageService" />
+      <soap12:address location="net.tcp://localhost:8081/MessageService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://192.168.229.202:8081/MessageService</wsa10:Address>
+        <wsa10:Address>net.tcp://localhost:8081/MessageService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_IMatchService" binding="tns:NetTcpBinding_IMatchService">
-      <soap12:address location="net.tcp://192.168.229.202:8081/MessageService" />
+      <soap12:address location="net.tcp://localhost:8081/MessageService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://192.168.229.202:8081/MessageService</wsa10:Address>
+        <wsa10:Address>net.tcp://localhost:8081/MessageService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_INotificationService" binding="tns:NetTcpBinding_INotificationService">
-      <soap12:address location="net.tcp://192.168.229.202:8081/MessageService" />
+      <soap12:address location="net.tcp://localhost:8081/MessageService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://192.168.229.202:8081/MessageService</wsa10:Address>
+        <wsa10:Address>net.tcp://localhost:8081/MessageService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_IGameService" binding="tns:NetTcpBinding_IGameService">
-      <soap12:address location="net.tcp://192.168.229.202:8081/MessageService" />
+      <soap12:address location="net.tcp://localhost:8081/MessageService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://192.168.229.202:8081/MessageService</wsa10:Address>
+        <wsa10:Address>net.tcp://localhost:8081/MessageService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>

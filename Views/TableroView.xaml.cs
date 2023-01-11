@@ -77,7 +77,7 @@ namespace ClienteJuego.Views
             newMatch.inviteCode = match.inviteCode;
             try
             {
-                gameServiceClient.StartRaund(newMatch);
+                gameServiceClient.StartRound(newMatch);
                 gameServiceClient.YouTurn(turn, match.inviteCode);
             }
             catch (CommunicationObjectFaultedException)
@@ -204,62 +204,14 @@ namespace ClienteJuego.Views
             if (ValidateAnswer())
             {
                 addPoints();
-
+                //validar si se termina la partida
+                ValidateWinCondition();
+                // se termino la ronda
+                ValidateRound();
             }
             else if (strikePlayerOne == strikeLimit && strikePlayerTwo == strikeLimit)
             {
-                MatchServer newMatch = new MatchServer();
-
-                newMatch.scorePlayerOne = match.scorePlayerOne;
-                newMatch.scorePlayerTwo = match.scorePlayerTwo;
-                newMatch.inviteCode = match.inviteCode;
-                try
-                {
-                    gameServiceClient.StartRaund(newMatch);
-                    strikePlayerOne = 0;
-                    strikePlayerTwo = 0;
-
-                    gameServiceClient.AddStrikes(strikePlayerOne, strikePlayerTwo, match.inviteCode);
-                }
-                catch (CommunicationObjectFaultedException)
-                {
-                    MessageBox.Show(Properties.Resources.messageBoxConnectionError);
-                    var window = (MainWindow)Application.Current.MainWindow;
-                    window.Contenedor.Navigate(new LoginView());
-                }
-
-
-                var list = match.players;
-                if (turn.Equals(list[0].userName))
-                {
-                    turn = list[1].userName;
-                    try
-                    {
-                        gameServiceClient.YouTurn(turn, match.inviteCode);
-                    }
-                    catch (CommunicationObjectFaultedException)
-                    {
-                        MessageBox.Show(Properties.Resources.messageBoxConnectionError);
-                        var window = (MainWindow)Application.Current.MainWindow;
-                        window.Contenedor.Navigate(new LoginView());
-                    }
-
-                }
-                else if (turn.Equals(list[1].userName))
-                {
-                    turn = list[0].userName;
-                    try
-                    {
-                        gameServiceClient.YouTurn(turn, match.inviteCode);
-                    }
-                    catch (CommunicationObjectFaultedException)
-                    {
-                        MessageBox.Show(Properties.Resources.messageBoxConnectionError);
-                        var window = (MainWindow)Application.Current.MainWindow;
-                        window.Contenedor.Navigate(new LoginView());
-                    }
-
-                }
+                ValidateStrikesLimit();
             }
             else
             {
@@ -312,6 +264,62 @@ namespace ClienteJuego.Views
             return result;
         }
 
+        void ValidateStrikesLimit()
+        {
+            MatchServer newMatch = new MatchServer();
+
+            newMatch.scorePlayerOne = match.scorePlayerOne;
+            newMatch.scorePlayerTwo = match.scorePlayerTwo;
+            newMatch.inviteCode = match.inviteCode;
+            try
+            {
+                gameServiceClient.StartRound(newMatch);
+                strikePlayerOne = 0;
+                strikePlayerTwo = 0;
+
+                gameServiceClient.AddStrikes(strikePlayerOne, strikePlayerTwo, match.inviteCode);
+            }
+            catch (CommunicationObjectFaultedException)
+            {
+                MessageBox.Show(Properties.Resources.messageBoxConnectionError);
+                var window = (MainWindow)Application.Current.MainWindow;
+                window.Contenedor.Navigate(new LoginView());
+            }
+
+
+            var list = match.players;
+            if (turn.Equals(list[0].userName))
+            {
+                turn = list[1].userName;
+                try
+                {
+                    gameServiceClient.YouTurn(turn, match.inviteCode);
+                }
+                catch (CommunicationObjectFaultedException)
+                {
+                    MessageBox.Show(Properties.Resources.messageBoxConnectionError);
+                    var window = (MainWindow)Application.Current.MainWindow;
+                    window.Contenedor.Navigate(new LoginView());
+                }
+
+            }
+            else if (turn.Equals(list[1].userName))
+            {
+                turn = list[0].userName;
+                try
+                {
+                    gameServiceClient.YouTurn(turn, match.inviteCode);
+                }
+                catch (CommunicationObjectFaultedException)
+                {
+                    MessageBox.Show(Properties.Resources.messageBoxConnectionError);
+                    var window = (MainWindow)Application.Current.MainWindow;
+                    window.Contenedor.Navigate(new LoginView());
+                }
+
+            }
+        }
+
         private void addPoints()
         {
             var playerAnswer = textAnswer.Text;
@@ -354,7 +362,19 @@ namespace ClienteJuego.Views
                 window.Contenedor.Navigate(new LoginView());
             }
 
+
+        }
+        void ValidateWinCondition()
+        {
+            MatchServer newMatch = new MatchServer();
+
+
+            newMatch.scorePlayerOne = match.scorePlayerOne;
+            newMatch.scorePlayerTwo = match.scorePlayerTwo;
+            newMatch.inviteCode = match.inviteCode;
+            var list = match.players;
             int pointsForWinning = 400;
+
             if (match.scorePlayerOne >= pointsForWinning)
             {
                 foreach (var player in list.Where(player => player.userName.Equals(turn)))
@@ -398,10 +418,20 @@ namespace ClienteJuego.Views
                     }
                 }
             }
+        }
 
+        void ValidateRound()
+        {
+            MatchServer newMatch = new MatchServer();
+
+
+            newMatch.scorePlayerOne = match.scorePlayerOne;
+            newMatch.scorePlayerTwo = match.scorePlayerTwo;
+            newMatch.inviteCode = match.inviteCode;
+            var list = match.players;
             if (answersRaund.Count == 1)
             {
-                gameServiceClient.StartRaund(newMatch);
+                gameServiceClient.StartRound(newMatch);
                 strikePlayerOne = 0;
                 strikePlayerTwo = 0;
                 gameServiceClient.AddStrikes(strikePlayerOne, strikePlayerTwo, match.inviteCode);
@@ -488,7 +518,6 @@ namespace ClienteJuego.Views
                     break;
                 }
             }
-
 
             match.scorePlayerOne = matchServer.scorePlayerOne;
             match.scorePlayerTwo = matchServer.scorePlayerTwo;
