@@ -32,7 +32,7 @@ namespace ClienteJuego.Views
 
             try
             {
-                //sustituir po metodo que agregge al invitado
+
                 var player = client.GuestUser();
                 if (player == null)
                 {

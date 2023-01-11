@@ -27,17 +27,17 @@ namespace ClienteJuego.Views
             this.codeInvitation = code;
             InitializeComponent();
             Accessories.PlayMusic();
-
+            (App.Current as App).codeDepp = code;
             userName = (App.Current as App).DeptName;
             textUserName.Text = userName;
             labelTextCode.Content = code;
+
             if (userName.Equals("Guest"))
             {
                 btnKick.Visibility = Visibility.Collapsed;
             }
 
             ImageSource imageSource = new ImageSourceConverter().ConvertFromString(Accessories.LoadConfigPlayer(userName)) as ImageSource;
-
             imgAvatar.Source = imageSource;
 
             matchServiceClient = new MatchServiceClient(new InstanceContext(this));

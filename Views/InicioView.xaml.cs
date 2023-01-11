@@ -76,7 +76,7 @@ namespace ClienteJuego.Views
         public void Notification(string username, string code)
         {
             var window = (MainWindow)Application.Current.MainWindow;
-            window.ContenedorInvi.Navigate(new InvitationView(username, code));
+            window.ContenedorInvitation.Navigate(new InvitationView(username, code));
 
         }
 

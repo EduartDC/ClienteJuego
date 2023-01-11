@@ -1,6 +1,7 @@
 ﻿using ClienteJuego.ConnectService;
 using ClienteJuego.Properties;
 using System;
+using System.Numerics;
 using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -18,7 +19,8 @@ namespace ClienteJuego.Views
         public LoginView()
         {
             InitializeComponent();
-
+            (App.Current as App).MatchDepp = null;
+            (App.Current as App).codeDepp = null;
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)

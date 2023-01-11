@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using ClienteJuego.ConnectService;
+using System.Windows;
 
 namespace ClienteJuego
 {
@@ -9,6 +10,8 @@ namespace ClienteJuego
     {
 
         public string DeptName { get; set; }
+        public MatchServer MatchDepp { get; set; }
+        public string codeDepp { get; set; }
 
 
     }

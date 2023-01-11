@@ -33,7 +33,7 @@ namespace ClienteJuego.Views
             gameServiceClient = new GameServiceClient(new InstanceContext(this));
             username = (App.Current as App).DeptName;
             this.match = match;
-
+            (App.Current as App).MatchDepp = match;
             var list = match.players;
             labelPlayerOne.Content = list[0].userName;
             labelPlayerTwo.Content = list[1].userName;
@@ -53,7 +53,6 @@ namespace ClienteJuego.Views
                 throw new EndpointNotFoundException();
 
             }
-
 
             textAnswer.IsEnabled = false;
             btnAnswer.IsEnabled = false;
@@ -125,12 +124,13 @@ namespace ClienteJuego.Views
 
         public void ExitMatch(MatchServer match)
         {
-            var list = match.players;
+            var list = this.match.players;
             foreach (var player in list)
             {
                 if (player.idPlayer == match.playerWinner)
                 {
                     MessageBox.Show(Properties.Resources.messageBoxEndGame + " " + player.userName);
+
                 }
             }
             try
@@ -152,8 +152,16 @@ namespace ClienteJuego.Views
                 }
                 else
                 {
-                    var window = (MainWindow)Application.Current.MainWindow;
-                    window.Contenedor.Navigate(new InicioView());
+                    try
+                    {
+                        var window = (MainWindow)Application.Current.MainWindow;
+                        window.Contenedor.Navigate(new InicioView());
+                    }
+                    catch (NullReferenceException)
+                    {
+
+                    }
+
                 }
 
             }
@@ -204,9 +212,9 @@ namespace ClienteJuego.Views
             if (ValidateAnswer())
             {
                 addPoints();
-                //validar si se termina la partida
+
                 ValidateWinCondition();
-                // se termino la ronda
+
                 ValidateRound();
             }
             else if (strikePlayerOne == strikeLimit && strikePlayerTwo == strikeLimit)
@@ -361,13 +369,11 @@ namespace ClienteJuego.Views
                 var window = (MainWindow)Application.Current.MainWindow;
                 window.Contenedor.Navigate(new LoginView());
             }
-
-
         }
+
         void ValidateWinCondition()
         {
             MatchServer newMatch = new MatchServer();
-
 
             newMatch.scorePlayerOne = match.scorePlayerOne;
             newMatch.scorePlayerTwo = match.scorePlayerTwo;
@@ -423,7 +429,6 @@ namespace ClienteJuego.Views
         void ValidateRound()
         {
             MatchServer newMatch = new MatchServer();
-
 
             newMatch.scorePlayerOne = match.scorePlayerOne;
             newMatch.scorePlayerTwo = match.scorePlayerTwo;

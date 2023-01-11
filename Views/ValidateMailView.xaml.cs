@@ -26,15 +26,28 @@ namespace ClienteJuego.Views
         String userName;
         PlayerServer playerInfo = new PlayerServer();
         string code = "MDss" + Accessories.GenerateRandomCode();
-
+        int connectionError = 404;
         public ValidateMailView()
         {
             InitializeComponent();
             userName = (App.Current as App).DeptName;
             LoadData();
+            try
+            {
+                ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
+                var result = client.SendMail(playerInfo, code);
 
-            ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
-            client.SendMail(playerInfo, code);
+                if (result == connectionError)
+                {
+                    MessageBox.Show("");
+                    btnValidate.IsEnabled = false;
+                }
+            }
+            catch (EndpointNotFoundException)
+            {
+                MessageBox.Show(Properties.Resources.messageBoxConnectionError);
+            }
+
         }
 
         PlayerServer LoadData()

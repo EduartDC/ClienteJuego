@@ -37,7 +37,7 @@ namespace ClienteJuego.Views
             {
                 client.AddToLobby(this.username, this.codeInvitation);
                 var roomchat = (MainWindow)App.Current.MainWindow;
-                roomchat.ContenedorInvi.Content = null;
+                roomchat.ContenedorInvitation.Content = null;
             }
             catch (CommunicationObjectFaultedException)
             {
@@ -51,7 +51,7 @@ namespace ClienteJuego.Views
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             var roomchat = (MainWindow)App.Current.MainWindow;
-            roomchat.ContenedorInvi.Content = null;
+            roomchat.ContenedorInvitation.Content = null;
         }
 
         public void UpdateLobby(PlayerServer[] plyers)

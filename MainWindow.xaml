@@ -8,12 +8,13 @@
     Title="100 Mexicanos Dijeron"
     Width="800"
     Height="600"
+    Closing="mainWindows_Closing"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Grid>
         <Frame x:Name="Contenedor" NavigationUIVisibility="Hidden"  />
         <Frame x:Name="ContenedorChat" NavigationUIVisibility="Hidden" />
         <Frame x:Name="ContenedorList" NavigationUIVisibility="Hidden" />
-        <Frame x:Name="ContenedorInvi" NavigationUIVisibility="Hidden" />
+        <Frame x:Name="ContenedorInvitation" NavigationUIVisibility="Hidden" />
     </Grid>
 </Window>

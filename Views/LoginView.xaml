@@ -123,10 +123,6 @@
                 Content="Guest"
                 FontWeight="Bold"
                 Foreground="White" />
-
-
-
-
         </Grid>
     </Viewbox>
 </Page>
