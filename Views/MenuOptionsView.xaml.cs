@@ -63,7 +63,8 @@ namespace ClienteJuego.Views
             ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
             try
             {
-                client.UserDisconect((App.Current as App).DeptName);
+                var userName = (App.Current as App).nameDeep;
+                client.UserDisconect(userName);
                 var window = (MainWindow)Application.Current.MainWindow;
                 window.Contenedor.Navigate(new LoginView());
             }

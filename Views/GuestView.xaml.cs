@@ -40,7 +40,7 @@ namespace ClienteJuego.Views
                 }
                 else
                 {
-                    (App.Current as App).DeptName = player.userName;
+                    (App.Current as App).nameDeep = player.userName;
                 }
             }
             catch (EndpointNotFoundException)
@@ -82,7 +82,7 @@ namespace ClienteJuego.Views
             ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
             try
             {
-                client.UserDisconect((App.Current as App).DeptName);
+                client.UserDisconect((App.Current as App).nameDeep);
                 var window = (MainWindow)Application.Current.MainWindow;
                 window.Contenedor.Navigate(new LoginView());
             }

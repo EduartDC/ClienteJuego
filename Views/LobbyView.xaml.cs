@@ -27,8 +27,8 @@ namespace ClienteJuego.Views
             this.codeInvitation = code;
             InitializeComponent();
             Accessories.PlayMusic();
-            (App.Current as App).codeDepp = code;
-            userName = (App.Current as App).DeptName;
+            (App.Current as App).codeDeep = code;
+            userName = (App.Current as App).nameDeep;
             textUserName.Text = userName;
             labelTextCode.Content = code;
 
@@ -86,7 +86,7 @@ namespace ClienteJuego.Views
                     ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
                     try
                     {
-                        client.UserDisconect((App.Current as App).DeptName);
+                        client.UserDisconect(userName);
                         var window = (MainWindow)Application.Current.MainWindow;
                         window.Contenedor.Navigate(new LoginView());
                     }
@@ -206,7 +206,7 @@ namespace ClienteJuego.Views
                 ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
                 try
                 {
-                    client.UserDisconect((App.Current as App).DeptName);
+                    client.UserDisconect(userName);
                     var window = (MainWindow)Application.Current.MainWindow;
                     window.Contenedor.Navigate(new LoginView());
                 }

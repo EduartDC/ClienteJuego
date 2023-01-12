@@ -20,7 +20,7 @@ namespace ClienteJuego.Views
         public AccountView()
         {
             InitializeComponent();
-            userName = (App.Current as App).DeptName;
+            userName = (App.Current as App).nameDeep;
             PlayerServer player = LoadData();
             if (player != null)
             {

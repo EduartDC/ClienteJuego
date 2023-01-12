@@ -47,7 +47,7 @@ namespace ClienteJuego.Views
         void UpdateFriendList()
         {
             ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
-            var username = (App.Current as App).DeptName;
+            var username = (App.Current as App).nameDeep;
             try
             {
                 var friends = client.MatchingFriends(username);
@@ -113,7 +113,7 @@ namespace ClienteJuego.Views
         private void btnAddFriend_Click(object sender, RoutedEventArgs e)
         {
             ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
-            var username = (App.Current as App).DeptName;
+            var username = (App.Current as App).nameDeep;
 
             var name = textNameFriend.Text;
             try
@@ -175,7 +175,7 @@ namespace ClienteJuego.Views
             PlayerServer player = button.CommandParameter as PlayerServer;
 
 
-            var username = (App.Current as App).DeptName;
+            var username = (App.Current as App).nameDeep;
 
             try
             {

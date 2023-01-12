@@ -19,7 +19,7 @@ namespace ClienteJuego.Views
         public MatchServer match { get; set; }
         private readonly ConnectService.GameServiceClient gameServiceClient;
         List<AnswerServer> answersRaund;
-        string username;
+        string userName;
         string turn;
         int strikePlayerOne;
         int strikePlayerTwo;
@@ -31,9 +31,9 @@ namespace ClienteJuego.Views
 
             InitializeComponent();
             gameServiceClient = new GameServiceClient(new InstanceContext(this));
-            username = (App.Current as App).DeptName;
+            userName = (App.Current as App).nameDeep;
             this.match = match;
-            (App.Current as App).MatchDepp = match;
+            (App.Current as App).matchDeep = match;
             var list = match.players;
             labelPlayerOne.Content = list[0].userName;
             labelPlayerTwo.Content = list[1].userName;
@@ -41,7 +41,7 @@ namespace ClienteJuego.Views
             turn = list[0].userName;
             try
             {
-                gameServiceClient.SetCallbackGame(username);
+                gameServiceClient.SetCallbackGame(userName);
             }
             catch (CommunicationObjectFaultedException)
             {
@@ -103,7 +103,7 @@ namespace ClienteJuego.Views
 
                 foreach (var player in list)
                 {
-                    if (!player.userName.Equals(username))
+                    if (!player.userName.Equals(userName))
                     {
                         newMatch.playerWinner = player.idPlayer;
                         try
@@ -135,12 +135,12 @@ namespace ClienteJuego.Views
             }
             try
             {
-                if (username.Equals("Guest"))
+                if (userName.Equals("Guest"))
                 {
                     ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
                     try
                     {
-                        client.UserDisconect((App.Current as App).DeptName);
+                        client.UserDisconect(userName);
                         var window = (MainWindow)Application.Current.MainWindow;
                         window.Contenedor.Navigate(new LoginView());
                     }
@@ -211,7 +211,7 @@ namespace ClienteJuego.Views
 
             if (ValidateAnswer())
             {
-                addPoints();
+                AddPoints();
 
                 ValidateWinCondition();
 
@@ -328,13 +328,12 @@ namespace ClienteJuego.Views
             }
         }
 
-        private void addPoints()
+        private void AddPoints()
         {
             var playerAnswer = textAnswer.Text;
             foreach (var answer in answersRaund.Where(answer => answer.answer.ToLower().Equals(playerAnswer.ToLower())))
             {
                 correctAnswer = answer;
-
             }
 
             var list = match.players;

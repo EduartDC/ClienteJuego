@@ -19,8 +19,8 @@ namespace ClienteJuego.Views
         public LoginView()
         {
             InitializeComponent();
-            (App.Current as App).MatchDepp = null;
-            (App.Current as App).codeDepp = null;
+            (App.Current as App).matchDeep = null;
+            (App.Current as App).codeDeep = null;
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
@@ -50,7 +50,7 @@ namespace ClienteJuego.Views
                     }
                     else if (result.userName != null && result.userName.Equals(player.userName))
                     {
-                        (App.Current as App).DeptName = player.userName;
+                        (App.Current as App).nameDeep = player.userName;
                         NavigationService.Navigate(new Uri("Views/InicioView.xaml?value=15", UriKind.Relative));
 
                     }

@@ -9,9 +9,9 @@ namespace ClienteJuego
     public partial class App : Application
     {
 
-        public string DeptName { get; set; }
-        public MatchServer MatchDepp { get; set; }
-        public string codeDepp { get; set; }
+        public string nameDeep { get; set; }
+        public MatchServer matchDeep { get; set; }
+        public string codeDeep { get; set; }
 
 
     }

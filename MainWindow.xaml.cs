@@ -11,7 +11,7 @@ namespace ClienteJuego
     /// </summary>
     public partial class MainWindow : Window, ConnectService.IGameServiceCallback, ConnectService.IMatchServiceCallback
     {
-        string userName = (App.Current as App).DeptName;
+        string userName;
         private readonly ConnectService.GameServiceClient gameServiceClient;
         private readonly ConnectService.MatchServiceClient matchServiceClient;
         public MainWindow()
@@ -20,6 +20,7 @@ namespace ClienteJuego
             Contenedor.NavigationService.Navigate(new LoginView());
             gameServiceClient = new GameServiceClient(new InstanceContext(this));
             matchServiceClient = new MatchServiceClient(new InstanceContext(this));
+
         }
 
         public void EndTurn(string username)
@@ -55,8 +56,9 @@ namespace ClienteJuego
         private void mainWindows_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             ConnectService.UserManagerClient client = new ConnectService.UserManagerClient();
-            var match = (App.Current as App).MatchDepp;
-            var code = (App.Current as App).codeDepp;
+            var match = (App.Current as App).matchDeep;
+            var code = (App.Current as App).codeDeep;
+            userName = (App.Current as App).nameDeep;
             client.UserDisconect(userName);
             if (match != null)
             {

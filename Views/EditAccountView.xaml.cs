@@ -24,7 +24,7 @@ namespace ClienteJuego.Views
         public EditAccountView()
         {
             InitializeComponent();
-            userName = (App.Current as App).DeptName;
+            userName = (App.Current as App).nameDeep;
 
             PlayerServer player = LoadData();
 
@@ -204,7 +204,7 @@ namespace ClienteJuego.Views
             {
                 MessageBox.Show(Properties.Resources.messageBoxConnectionError);
             }
-            else if (!playerInfo.password.Equals(Accessories.Hash(textPassword.Text)))
+            else if (playerInfo.password.Equals(Accessories.Hash(textPassword.Text)))
             {
                 MessageBox.Show(Properties.Resources.messageBoxConnectionError);
             }

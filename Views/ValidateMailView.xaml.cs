@@ -30,7 +30,7 @@ namespace ClienteJuego.Views
         public ValidateMailView()
         {
             InitializeComponent();
-            userName = (App.Current as App).DeptName;
+            userName = (App.Current as App).nameDeep;
             LoadData();
             try
             {

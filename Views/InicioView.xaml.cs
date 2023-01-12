@@ -25,7 +25,7 @@ namespace ClienteJuego.Views
             {
                 Accessories.PlayMusic();
 
-                userName = (App.Current as App).DeptName;
+                userName = (App.Current as App).nameDeep;
                 TextUserName.Text = Properties.Resources.messageWelcome + " " + userName;
 
                 ImageSource imageSource = new ImageSourceConverter().ConvertFromString(Accessories.LoadConfigPlayer(userName)) as ImageSource;

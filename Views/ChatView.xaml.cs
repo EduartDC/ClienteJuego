@@ -30,7 +30,7 @@ namespace ClienteJuego.Views
         private void StartView()
         {
 
-            userName = (App.Current as App).DeptName;
+            userName = (App.Current as App).nameDeep;
             playerData = LoadData();
 
             var code = match.ToString();
