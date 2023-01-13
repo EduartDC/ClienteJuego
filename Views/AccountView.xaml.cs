@@ -30,11 +30,11 @@ namespace ClienteJuego.Views
 
                 ImageSource imageSource = new ImageSourceConverter().ConvertFromString(Accessories.LoadConfigPlayer(userName)) as ImageSource;
                 imgAvatar.Source = imageSource;
-            }
 
-            if (player.status)
-            {
-                btnValidateEmail.Visibility = Visibility.Collapsed;
+                if (player.status)
+                {
+                    btnValidateEmail.Visibility = Visibility.Collapsed;
+                }
             }
 
         }

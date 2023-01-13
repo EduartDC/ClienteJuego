@@ -484,6 +484,15 @@ namespace ClienteJuego.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Round Started.
+        /// </summary>
+        public static string labelStatusRoundOn {
+            get {
+                return ResourceManager.GetString("labelStatusRoundOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Theme.
         /// </summary>
         public static string labelTheme {
@@ -768,15 +777,6 @@ namespace ClienteJuego.Properties {
         public static string radioBtnDark {
             get {
                 return ResourceManager.GetString("radioBtnDark", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Round Started.
-        /// </summary>
-        public static string textStatusRoundOn {
-            get {
-                return ResourceManager.GetString("textStatusRoundOn", resourceCulture);
             }
         }
     }

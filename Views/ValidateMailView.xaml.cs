@@ -50,7 +50,7 @@ namespace ClienteJuego.Views
 
         }
 
-        PlayerServer LoadData()
+        void LoadData()
         {
 
             try
@@ -63,7 +63,7 @@ namespace ClienteJuego.Views
             {
                 MessageBox.Show(Properties.Resources.messageBoxConnectionError);
             }
-            return playerInfo;
+
         }
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {

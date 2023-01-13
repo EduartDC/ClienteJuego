@@ -66,7 +66,7 @@ namespace ClienteJuego.Views
                 }
                 else
                 {
-                    MessageBox.Show(Properties.Resources.messageBoxErrorMessage);
+                    MessageBox.Show(Properties.Resources.messageBoxInvalidCode);
                 }
             }
             else

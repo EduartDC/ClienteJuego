@@ -258,6 +258,9 @@
   <data name="labelStatusRoundOff" xml:space="preserve">
     <value>Round not started</value>
   </data>
+  <data name="labelStatusRoundOn" xml:space="preserve">
+    <value>Round Started</value>
+  </data>
   <data name="labelTheme" xml:space="preserve">
     <value>Theme</value>
   </data>
@@ -353,8 +356,5 @@
   </data>
   <data name="radioBtnDark" xml:space="preserve">
     <value>Dark</value>
-  </data>
-  <data name="textStatusRoundOn" xml:space="preserve">
-    <value>Round Started</value>
   </data>
 </root>

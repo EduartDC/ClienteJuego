@@ -152,15 +152,10 @@ namespace ClienteJuego.Views
                 }
                 else
                 {
-                    try
-                    {
-                        var window = (MainWindow)Application.Current.MainWindow;
-                        window.Contenedor.Navigate(new InicioView());
-                    }
-                    catch (NullReferenceException)
-                    {
 
-                    }
+                    var window = (MainWindow)Application.Current.MainWindow;
+                    window.Contenedor.Navigate(new InicioView());
+
 
                 }
 
@@ -204,6 +199,8 @@ namespace ClienteJuego.Views
             labelScoreAnswer2.Content = 0;
             labelScoreAnswer3.Content = 0;
             labelScoreAnswer4.Content = 0;
+
+            labelStatusRoundOff.Content = Properties.Resources.labelStatusRoundOn;
         }
 
         private void btnAnswer_Click(object sender, RoutedEventArgs e)

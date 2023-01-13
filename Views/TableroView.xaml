@@ -272,8 +272,12 @@
                 Margin="514,348,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
+                Background="#FFFF8906"
                 Click="btnAnswer_Click"
-                Content="Button" />
+                Content="{x:Static p:Resources.btnSend}"
+                FontSize="16"
+                FontWeight="Bold"
+                Foreground="White" />
             <Label
                 x:Name="labelPlayerOne"
                 Width="Auto"
